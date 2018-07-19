@@ -1,0 +1,1 @@
+define(["collection/base","model/product"],function(t,e){var n=t.extend({initialize:function(){this.sortVar=""},model:e,parse:function(t){return t.Items},comparator:function(t){return t.get(this.sortVar)}});return n});

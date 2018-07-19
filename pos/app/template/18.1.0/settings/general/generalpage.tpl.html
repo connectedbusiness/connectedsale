@@ -1,0 +1,92 @@
+<div class="settings-left-pane">
+	<div id="general-left-pane-content">
+		<ul>
+			<span>Workstation ID</span><li id="workstation-preference-btn"><div class="general-items-btn ui-link"><a><%= WorkstationID %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+			<span>Default Customer</span><li id="customer-preference-btn"><div class="general-items-btn ui-link"><a><%= FormattedCustomerName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+			<span>Default Location</span><li id="location-preference-btn"><div class="general-items-btn ui-link"><a><%= DefaultLocation %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+			<span>Default Transaction</span><li id="pos-preference-btn"><div class="general-items-btn ui-link"><a id ="DefaultPOSTransaction"></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+
+			<span>Website</span><li id="website-preference-btn"><div class="general-items-btn ui-link"><a><%= WebSiteDescription %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+			
+			<span>Order Expiration (Days)</span><li><input type="text" maxlength="4" id="OrderExpiration" class="general-items-btn" value="<%= parseInt(OrderExpiration||0) %>"></li>
+			<span>Notification Interval (Minutes)</span><li><input type="text" maxlength="2" id="NotificationInterval" class="general-items-btn" value="<%= parseInt(NotificationInterval||0) %>"></li>
+			<span>Pickup Order Template</span><li id="email-preference-btn"><div class="general-items-btn ui-link"><a>Click here to edit..</a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+		</ul>
+	</div>
+</div>
+
+<div class="settings-right-pane">
+	<div id="general-right-pane-content">
+		<ul>
+			<div class="grouping-header">general</div>
+			<div class="grouping-section">			
+			<li class="ui-li ui-li-static"><span>Allow Sales</span> <i id="AllowSales" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d"><span>Allow Quotes</span> <i id="AllowQuotes" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d"><span>Allow Orders</span> <i id="AllowOrders" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d"><span>Allow Returns</span> <i id="AllowReturns" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d"><span>Allow Change Price</span> <i id="AllowChangePrice" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d" id="li-AllowAddCustomer"><span>Allow Add Customer</span> <i id="AllowAddCustomer" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d" id="li-AllowChangeClassTemplate"><span>Allow Change Class Template</span> <i id="AllowChangeClassTemplate" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d"><span>Allow Change Payment Type</span> <i id="AllowChangePaymentTerm"  class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d"><span>Allow Change Tax Code</span> <i id="AllowChangeTaxCode" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d ui-corner-bottom"><span>Allow VAT Invoice</span> <i id="AllowTaxOnLineItems" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>	
+			</div>
+
+			<div class="grouping-header">credit card</div>
+			<div class="grouping-section" style="padding-bottom: 12px;">	
+			<li class="ui-li ui-li-static" id="IsUseCustomerShipToPaymentTypeLabel" style="margin-bottom: 12px;"><span>Use CustomerShipTo PaymentType for Creditcard Payment</span> <i id="IsUseCustomerShipToPaymentType" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+
+			<div style="margin: 0 15px 0 15px;">
+			<li id="gateway-preference-btn"><span>Merchant Login</span><div class="general-items-btn ui-link general-btn-right-pane"><a><%= MerchantLogin %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+			<li id="paymenttype-preference-btn"><span>Payment Type</span><div class="general-items-btn ui-link general-btn-right-pane"><a><%= PaymentType %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+			</div>
+			</div>
+
+			<div class="grouping-header">options</div>
+			<div class="grouping-section">
+			<li class="ui-li ui-li-static"><span>Deposit Cash/Check Payment</span> <i id="IsDepositPayment" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d"><span>Log Off User After Each Transaction</span> <i id="AutoSignOutUser" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+
+			<li class="ui-li ui-li-static ui-body-d"><span>Override Sales Rep</span> <i id="IsOverrideSalesRep" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d"><span>Tax By Location</span> <i id="TaxByLocation" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d"><span>Show Coupon List</span> <i id="ShowCouponList" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d"><span>Show Wholesale Price</span> <i id="ShowWholesalePrice" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			
+			<li class="ui-li ui-li-static ui-body-d"><span>Use Item Description</span> <i id="IsUseItemDescription" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+
+			<li class="ui-li ui-li-static ui-body-d ui-corner-bottom"><span>Use Cash Drawer</span> <i id="UseCashDrawer" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			</div>
+
+
+
+			<div class="grouping-header">drawer</div>
+			<div class="grouping-section">
+			<li class="ui-li ui-li-static"><span>Track Drawer Balance</span> <i id="TrackDrawerBalance" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d" id="BlindClose-li"><span>Blind Close</span> <i id="BlindClose" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d ui-corner-bottom" id="AllowViewZXTape-li"><div id = "AllowViewZXTape-container"><span>Allow non-admin user to view Print Z-Tape/X-Tape</span> <i id="IsAllowViewZXTape" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i></div></li>
+			</div>
+
+			<div class="grouping-header">Images</div>
+			<div class="grouping-section" style="padding-bottom: 12px;">
+			<li class="ui-li ui-li-static" id="IsUseISEImageLabel" style="margin-bottom: 12px;"><span>Use CBE Image</span> <i id="IsUseISEImage" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<div style="margin: 0 15px 0 15px;">
+				<li id="image-size-preference-btn"><span>Image Size</span><div class="general-items-btn ui-link general-btn-right-pane"><a id ="ISEImageSizeContent"></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+			</div>
+			</div>
+
+			<div class="grouping-header">transaction details</div>
+			<div class="grouping-section">
+			<li class="ui-li ui-li-static"><span>Ask for Customer PO</span> <i id="AskForCustomerPO" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d"><span>Ask for Ship Date</span> <i id="AskForShipDate" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d ui-corner-bottom"><span>Ask for Source</span> <i id="AskForSource" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			</div>
+
+			<div class="grouping-header">others</div>
+			<div class="grouping-section" style="margin-bottom: 20px;">
+			<li class="ui-li ui-li-static"><span>Auto Adjustment Stock</span> <i id="IsAutoAdjustmentStock" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+			<li class="ui-li ui-li-static ui-body-d ui-corner-bottom"><span>Manage Pickup Orders</span> <i id="IsTrackStorePickUp" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>		
+			</div>
+			<li class="ui-li ui-li-static"></li>
+		</ul>
+	</div>	
+</div>

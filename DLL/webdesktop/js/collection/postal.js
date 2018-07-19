@@ -1,0 +1,1 @@
+define(["collection/base","model/postal"],function(e,n){var o=e.extend({model:n,parse:function(e){return e.Postals}});return o});

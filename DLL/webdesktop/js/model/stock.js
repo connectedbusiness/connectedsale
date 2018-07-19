@@ -1,0 +1,1 @@
+define(["model/base"],function(e){var t=e.extend({search:function(){this.trigger("searchItem",this)}});return t});

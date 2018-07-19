@@ -1,0 +1,14 @@
+	<div id="ordernotes-header">
+		<h5><%= FormHeader %> note [<%= CustomerName %>]</h5>
+		<br/>
+	</div>
+	<div id="ordernotes-content">
+		<div id="ordernotes-notebody">
+			<input id="ordernotes-input" class="ordernotes-input" type="text" placeholder="title..." value="<%= Title %>"/>
+			<textarea id="ordernotes-textarea" class="ordernotes-textarea" placeholder="Note..." style="max-height: 210px;"><%= NoteText %></textarea>
+		</div>
+		<div id="ordernotes-button">
+			<a data-role="button" id="cancel-ordernotes" class="btn-ordernotes-cancel">Clear</a>
+			<a data-role="button" id="save-ordernotes"   class="btn-ordernotes-save">Save</a>
+		</div>
+	</div>

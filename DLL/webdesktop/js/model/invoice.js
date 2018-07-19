@@ -1,0 +1,1 @@
+define(["shared/shared","model/base"],function(e,t){var a=t.extend({initialize:function(){this.set({DateModified:e.GetJsonUTCDate(),LastRetrievalDate:e.GetJsonUTCDate()})}});return a});

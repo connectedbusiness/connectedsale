@@ -1,0 +1,47 @@
+<a style=" padding: 5px 5px 5px 0px !important; width: 90% !important; ">
+    <div class="product-list">
+        <h3 style="font-weight: bold !important"><%= ItemName %></h3>
+        <div class="product-list-wrapper" style="padding: 5px 0px 5px;">
+            <div class="dtl-left" style="float:left; width:65%">
+                <div style="width: 100%; text-align:left; word-break: break-word; white-space:normal; overflow: hidden;">
+                    <%= ItemDescription %>
+                </div>
+                <div style="width: 100%; text-align:left; word-break: break-word; white-space:normal; overflow: hidden;">
+                    <%= UnitsInStock %>&nbsp;<%= UnitMeasureCode %>
+                </div>
+            </div>
+
+            <div class="dtl-right" style="float:right; width:33%">
+                <div style="width: 100%; text-align: right; word-break: break-word; white-space:normal; overflow: hidden; font-weight:bold">
+                    <%= CurrencySymbol %>&nbsp;<%= Price %>
+                </div>
+                <div style="width: 100%; text-align: right; word-break: break-word; white-space:normal; overflow: hidden;">
+                    <%= CategoryDescription %>
+                </div>
+            </div> 
+            <br class="clearfloat" />
+        </div>
+    </div>
+</a>
+<a id="add-lookup"></a>
+
+<!--
+ORIGINAL LINES    
+<a>
+<div class="product-list">
+	<h3><%= ItemName %></h3>
+	<div class="product-list-wrapper">
+		<div class="product-item-left">
+			<span class="lookup-ItemName"><%= ItemDescription.substring(0,48) %></span><br/>
+			<span class="lookup-Units"><%= UnitsInStock %><span>   </span><%= UnitMeasureCode %></span>
+		</div>
+		
+		<div class="product-item-right">
+			<span class="lookup-Retail"><%= CurrencySymbol %>&nbsp;<%= Price %></span><br/>
+			<span class="lookup-Category"><%= CategoryDescription %></span>
+		</div>
+		<br class="clearfloat"/>
+	</div>
+</div>
+</a>
+<a id="add-lookup"></a>-->

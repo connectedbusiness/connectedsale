@@ -1,0 +1,24 @@
+<%
+    var categoryDesc = (CategoryDescription || CategoryCode);
+    if(categoryDesc) if(categoryDesc.length > 40) categoryDesc = categoryDesc.substring(0,40) + "...";
+%>
+<div id="lookup-detail-content">
+	<div id="detail-top-wrapper">
+		<img src="<%= ImageLocation %>" onerror="this.onerror=null; this.src='img/ItemPlaceHolder.png';" class="product-img" alt="" />
+		<div style="word-wrap: break-word;">
+			<h3 class="product-name"><%= ItemName.substring(0,40) %></h3><br/>
+			<span class="product-desc"><%= ItemDescription %></span>
+		</div>
+	</div>
+	<div id="detail-bottom-wrapper">
+		<div id="detail-content">
+			<ul id="list-detail-content" data-role="listview" data-inset="true">
+				<li><span class="list-detail-left">Category</span><span class="list-detail-right category-detail"><%= categoryDesc %></span></li>
+				<li id="onHand-btn"><a><span class="list-detail-left">On Hand</span><span class="list-detail-right"><%= UnitsInStock %></span></a></li>
+				<li><span class="list-detail-left">UM</span><span class="list-detail-right"><%= UnitMeasureCode %></span></li>
+				<li class="li-wholesalePrice"><span class="list-detail-left">Wholesale Price</span><span class="list-detail-right"><%= CurrencySymbol %> <%= WholesalePrice.toFixed(2) %></span></li>
+				<li><span class="list-detail-left">Retail Price</span><span class="list-detail-right"><%= CurrencySymbol %> <%= RetailPrice.toFixed(2) %></span></li>
+			</ul>
+		</div>		
+	</div>
+</div>

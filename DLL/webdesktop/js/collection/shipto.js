@@ -1,0 +1,1 @@
+define(["collection/base","model/shipto"],function(e,o){var n=e.extend({model:o,comparator:function(e){return e.get("ShipToName")}});return n});

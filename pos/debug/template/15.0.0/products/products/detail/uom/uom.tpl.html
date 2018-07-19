@@ -1,0 +1,11 @@
+<%  
+var sellingValue = DefaultSelling ? sellingValue = 'checked="checked"' : ''; 
+var hasTransaction = HasTransaction ? 'ui-disabled' : '';
+%>
+<tr id="<%= uomIndex %>">
+    <td class="uom"><select class="data-uom cs-input <%= hasTransaction %>"></select></td>
+    <td class="selling"><center><input type="checkbox" class="data-selling" <%= sellingValue %>  /></center></td>
+    <td class="qty"><input type="text" class="data-qty <%= hasTransaction %>" value="<%= UnitMeasureQuantity %>" /></td>
+    <td class="upc"><input class="data-upc" value="<%= UPCCode %>" maxlength="30"/></td> 
+    <td class="del <%= hasTransaction %>"><div id="btn-del"><center><i class="icon-trash"></i></center></div></td> 
+</tr>

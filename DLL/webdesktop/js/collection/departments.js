@@ -1,0 +1,1 @@
+define(["collection/base","model/department"],function(e,n){var t=e.extend({model:n});return t});

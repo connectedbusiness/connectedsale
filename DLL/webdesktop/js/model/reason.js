@@ -1,0 +1,1 @@
+define(["model/base"],function(e){var t=e.extend({select:function(){this.trigger("selected",this)},close:function(){this.trigger("closed",this)},saveTransactionReason:function(){this.trigger("savedTransaction",this)},saveItemReason:function(){this.trigger("savedItem",this)},acceptReason:function(){this.trigger("acceptReason",this)}});return t});

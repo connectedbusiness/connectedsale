@@ -1,0 +1,1 @@
+define(["collection/base","localstorage","model/localpreference"],function(e,l,o){var n=e.extend({model:o,localStorage:new l("Preference")});return n});

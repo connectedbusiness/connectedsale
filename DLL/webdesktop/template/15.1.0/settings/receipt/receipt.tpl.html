@@ -1,0 +1,61 @@
+<div id="settings-receipt">
+	<div class="settings-left-pane">
+		<div id="receipt-left-pane-content">
+			<ul>			
+				<span>Sale Receipt</span><li id="sale-receipt"><div class="general-items-btn ui-link"><a><%= InvoiceReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+				<span>Order Receipt</span><li id="order-receipt"><div class="general-items-btn ui-link"><a><%= OrderReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+				<span>Quote Receipt</span><li id="quote-receipt"><div class="general-items-btn ui-link"><a><%= QuoteReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+				<span>Return Receipt</span><li id="return-receipt"><div class="general-items-btn ui-link"><a><%= ReturnReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+				<span>Credit Card Receipt</span><li id="credit-card-receipt"><div class="general-items-btn ui-link"><a><%= CreditCardReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+				 <span>Credit Card Receipt Copies</span><li><input type="text" maxlength="4" id="CreditCardReceiptCopies" class="general-items-btn"
+				value="<%= parseInt(CreditCardReceiptCopies||0) %>"></li>
+
+				<span>Sale Payment</span><li id="sale-payment-receipt"><div class="general-items-btn ui-link"><a><%= SalePaymentReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+				<span>Pick Note</span><li id="pick-note-receipt"><div class="general-items-btn ui-link"><a><%= PickNoteReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+				
+				<div class="printerSettings"><span>Printer Settings</span><li id="printer-settings"><div class="general-items-btn ui-link"><a><%= IsAirprintDisplay %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li></div>
+				
+			</ul>
+		</div>
+	</div>
+
+	<div class="settings-right-pane">
+		<div id="receipt-right-pane-content">
+			<ul>
+				<div class="grouping-header">print options</div>
+			<div class="grouping-section">
+				<li class="ui-li ui-li-static"><span>Use Single Page on Transaction Receipt</span><i id="IsSinglePageTransactionReceipt" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+				<li class="ui-li ui-li-static ui-body-d"><span>Show Print Options</span> <i id="ShowPrintOptions" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+				<li class="ui-li ui-li-static ui-body-d" id="auto-print-receipt">
+					<div id="div-auto-print-receipt">
+						<span>Auto-Print Receipt</span><i id="AutoPrintReceipt" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i>
+					</div>
+				 </li>
+				 <li class="ui-li ui-li-static ui-body-d ui-corner-bottom"><span>Auto-Email Receipt</span> <i id="AutoEmailReceipt" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+				 </div>
+
+				 <div class="grouping-header">X/Z tape report</div>
+			<div class="grouping-section" style="padding: 15px;">
+				<span>X-Tape Report</span><li id="x-tape-report"><div class="general-items-btn ui-link general-btn-right-pane"><a><%= XTapeReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+				<span>Z-Tape Report</span><li id="z-tape-report"><div class="general-items-btn ui-link general-btn-right-pane"><a><%= ZTapeReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>		
+				</div>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+	<!-- <ul data-role="listview" data-inset="true" data-theme="d">
+		<li>Auto-Email Receipt<h1 class="ui-li-aside checkswitch"><input type="checkbox" id="AutoEmailReceipt"></h1></li>
+		<li>Ask for Email Address<h1 class="ui-li-aside checkswitch"><input type="checkbox" id="PromptEmailAddress"></h1></li>
+	</ul>
+	<br/>
+	<ul data-role="listview" data-inset="true" data-theme="d">
+		<li id="printer-settings"><a>Printer Settings<h1 class="ui-li-aside"><%= IsAirprintDisplay %></h1></a></li>
+
+		<li id="auto-print-receipt"><div id="div-auto-print-receipt">Auto-Print Receipt<h1  class="ui-li-aside checkswitch"><input type="checkbox" id="AutoPrintReceipt"></h1></div></li>
+
+		<li id="li-ask-to-print-receipt"><div id="div-ask-to-print-receipt">Ask to Print Receipt<h1 class="ui-li-aside checkswitch"><input type="checkbox" id="PromptToPrintReceipt"></h1></div></li>
+	</ul> -->
+

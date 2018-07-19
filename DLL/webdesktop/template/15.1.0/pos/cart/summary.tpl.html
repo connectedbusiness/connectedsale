@@ -1,0 +1,44 @@
+<div id="companyImg">
+	<img src="<%= ImageLocation %>" class="company-img" width="85" height="85"/>
+</div>
+<div id="summaryButtons">
+	<a id="view-signature" style="cursor:pointer;"><i class="icon-pencil"></i></a>
+	<a id="view-notes" style="cursor:pointer;"><i class="icon-comments"></i></a>
+</div>
+<div id="summaryInfo">
+	<div>
+		<span class="left">Subtotal (<%= Qty %>):</span>
+		<span class="right"><%= CurrencySymbol %> <%= format("#,##0.00", SubTotal.toFixed(2)) %></span>
+	</div>
+	<div class="clearfix"></div>
+	<div>
+		<a id="view-tax">Total Tax:</a>
+		<span class="taxqs" style="cursor:pointer; float: left; width: 15%;" id="taxqsicon">
+			<i class="icon-question-sign icon-large"></i>
+			<span class="taxpopover above"></span>
+		</span>
+		<span id="taxDisplay"><%= CurrencySymbol %> <%= format("#,##0.00",TaxDisplay) %></span>
+	</div>
+    <div>
+		<span class="left">Total Discount:</span>
+		<span class="right"><%= CurrencySymbol %> <%= format("#,##0.00", TotalDiscount.toFixed(2)) %></span>
+	</div>
+<!--	<div>
+		<a id="view-discount">Discount:</a>
+		<span class="discountqs" style="cursor:pointer; float: left; width: 15%;" id="discountqsicon">
+			<i class="icon-question-sign icon-large"></i>
+			<span class="discountpopover above"></span>
+		</span>
+		<span id="discDisplay"><%= CurrencySymbol %> <%= format("#,##0.00",TotalDiscount) %></span>
+	</div>-->
+	<div class="clearfix"></div>
+	<div>
+		<a id="view-payment">Payment:</a>
+		<span class="right"><%= CurrencySymbol %> <%= format("#,##0.00", Payment.toFixed(2)) %></span>
+	</div>
+	<div class="clearfix"></div>
+	<div>
+		<span class="left">Balance:</span>
+		<span class="right"><%= CurrencySymbol %> <%= format("#,##0.00", Balance.toFixed(2)) %></span>
+	</div>
+</div>

@@ -1,0 +1,1 @@
+define(function(){var n={POS:"System/",SOP:"Transactions/",CUSTOMER:"Contacts/",PRODUCT:"Products/"};return n});

@@ -1,0 +1,1 @@
+cordova.define("cordova/plugin_list",function(o,t,a){a.exports=[],a.exports.metadata={}});

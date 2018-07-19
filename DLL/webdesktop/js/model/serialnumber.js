@@ -1,0 +1,1 @@
+define(["model/base"],function(e){var i=e.extend({removeItem:function(){this.trigger("removeSerial",this)},includeItem:function(){this.trigger("includeSerial",this)}});return i});

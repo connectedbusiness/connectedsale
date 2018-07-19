@@ -1,0 +1,1 @@
+define(["js/libs/spin.min.js"],function(){var n={lines:9,length:3,width:2,radius:3,rotate:12,color:"#000",speed:1,trail:60,shadow:!1,hwaccel:!1,className:"spinner",zIndex:2e9,top:"auto",left:"auto"},e=new Spinner(n);return e.__proto__.newInstance=function(){return new Spinner(n)},e});

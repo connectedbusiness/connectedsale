@@ -1,0 +1,1 @@
+define(["collection/base","model/customer"],function(e,o){var r=e.extend({model:o,parse:function(e){return e.Customers},comparator:function(e){return e.get("CustomerName").toLowerCase()}});return r});

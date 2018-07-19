@@ -1,0 +1,1 @@
+define(["collection/base","model/preference"],function(e,n){var o=e.extend({model:n});return o});

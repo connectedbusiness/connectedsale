@@ -1,0 +1,156 @@
+
+/*FORMS*/
+.opening-balance-form{ 
+	height:100%; width:100%; 
+	.left-panel{ float:left; height:100%; width:393px; border-right:1px solid lightgray;
+	    .norecordlist { 
+	      background-color: lightgoldenrodyellow;
+	        border: 1px solid threedface;
+	        border-radius: 5px 5px 5px 5px;
+	        margin: 10px;
+	        padding: 10px;
+	        width: 350px;
+
+	        i{ position:absolute; right:0px; }
+	        span{ font-weight:bold; font-style:italic;}
+	    }       
+	  }
+	  .right-panel{ float:left; height:100%; width:630px; 
+	    .norecord{ background: #EFEFEF; padding: 140px 0; height:427px; width:630px; color: #DCDCDC; font-size:250px; p{ font-size:30px; font-weight:bold; } }      
+	  }
+}
+
+/*OPENING BALANCE FORM*/
+.opening-balance-form{
+	.opening-balance-details{ height:100%; width:100%; 		
+		.opening-balance-detail-newheader{ height:55px; width: 100%; display:none; border-bottom:1px solid lightgray; 
+			.newitem-title{ padding:10px 15px 0px; font-size:24px; color: #0082d6; }
+		}
+		.opening-balance-detail-header{
+			height:56px; width: 100%; 
+			.tab:hover{ .cs-color-gray2; }
+			.tab, .tab-active, .padding{ 
+				float:left; margin-top:15px; height: 30px; padding:10px 15px 0px;  
+				border-bottom:1px solid lightgray; border-top-left-radius: 5px; border-top-right-radius: 5px;
+				color: #0082d6;
+			} 
+			.tab-active{
+				border:1px solid lightgray; border-bottom:0;
+				border-top-left-radius: 5px; border-top-right-radius: 5px;
+				color: black;
+			} 
+			.paddingLeft{ padding:10px 5px 0px; }
+			.paddingRight{ width: 503px; padding: 0px 15px 0px; height: 55px; margin: 0px; 				
+				.btn-Delete, .btn-Save{ float:right; height:30px; cursor: pointer; .cs-color-gray1;  font-size:18px; margin-top:12px;  
+					padding:3px 15px 0px; color:black;
+				}
+				.btn-Save{ border:1px solid #cccccc; border-top-left-radius: 5px; border-bottom-left-radius: 5px; }				
+				.btn-Delete{ border:1px solid #cccccc; border-left: none; border-top-right-radius: 5px; border-bottom-right-radius: 5px; }
+				.btn-Delete:hover, .btn-Save:hover{ .cs-color-gray2; }
+			}
+		}
+		.opening-balance-detail-footer{ height:50px; width: 100%; display:none;  border-top:1px solid lightgray; .cs-color-gray1; 
+			.btn-cancel{ float:left; }
+			.btn-back, .btn-next, .btn-finish{ float:right; }
+			.btn-cancel, .btn-back, .btn-next, .btn-finish{ padding:15px 20px 0px; height:35px; }
+			.btn-cancel:hover, .btn-back:hover, .btn-next:hover, .btn-finish:hover{ .cs-color-gray2; }
+		}
+
+		.opening-balance-body{
+			height:641px; width: 100%; overflow: hidden; position:relative; margin-top:5px; margin-bottom:5px;
+			
+			.loading{ padding-top:100px; i{font-size:100px;} }
+			.general-details{
+				table{ padding:30px 0px 0px;  }
+				.table-preview{
+					.td{padding:0px 20px 0px;}
+					.preview{ padding:0px; }padding:30px 0px 0px; 
+					.item-image{ height:200px; width:200px; border:1px solid lightgray; overflow:hidden; padding:3px;						
+						.default{ height:200px; width:200px; background-color:#eeeeee;}
+						
+						i{font-size:200px;}
+
+						img{ height:100%; }
+					}
+					.item-name, item-price{  color: #0082d6; }
+					.item-name { font-size:24px; }
+					.item-price { font-size:18px;}
+				}
+				.table-data{
+					td{ padding:0px 10px 10px;}
+					.caption{ text-align:right; }
+					.caption-left{ text-align:left; }
+					input, textarea, select{ width: 300px; }
+					textarea{ height:64px; max-height:64px; max-width: 300px; }
+					select{ line-height: 1.75em; text-indent: 1px; width: 312px; height: 32px; }							
+				}
+			}
+			
+			.ob-details{ 
+				padding-top:30px; width: 100%; overflow: hidden;
+				
+				.tables{
+					margin-bottom:30px; width:96%; overflow: hidden;
+					border:1px solid #cccccc; border-top-left-radius:10px; border-top-right-radius:10px;
+					border-bottom-left-radius:10px; border-bottom-right-radius:10px;
+					  
+					.ob-type, {  
+						width:100%;
+						td{ padding:5px 10px 5px; color: gray; background-color: #F6F4F0; } 
+					}
+
+					.ob-add{
+						width:100%;  font-size:16px; 
+						.cs-color-gray2; 	
+						td{ padding:5px 10px 5px; }	  
+					}
+
+					.ob-table{
+						width:100%; font-size: 14px;
+						.td-tdate{width:26%;}
+						.td-obcode{width:26%;}
+						.td-location{width:20%;} 
+						.td-quantity{width:13%;}
+						.td-cost{width:20%;}
+						.del{width:5%;}
+
+						td{ border-bottom:1px solid #dddddd; border-left:1px solid #dddddd;  
+							padding:0px 5px 0px;
+						}
+						.ob, .del{ border-left:none; }
+						
+						.del:hover{ .cs-color-gray2;  }
+						
+						.td-quantity, .td-cost{ input{ text-align:right; } }
+
+						input, select{ width:100%; border:none; background:none; font-size: 15px; }	
+						select{ line-height: 1.75em; text-indent: 1px; height: 32px;  color:#706E70; }												
+					}
+
+					.header{ .cs-color-gray2; 
+						td{ text-align: center;
+							border:none;
+						}
+					}
+
+					.base{ .del{ #btn-del{display:none;} } }
+
+				}
+			
+			}
+		}
+	}
+	.addmode{
+		.opening-balance-body{ height:590px; }
+		.opening-balance-detail-footer{ display:block; }
+		.opening-balance-detail-header{ display:none !important;  }
+		.opening-balance-detail-newheader{ display:block;  }
+	}
+}
+
+
+.small-caption { font-size: 13px; }
+
+
+/***** END OPENING BALANCE *****/
+

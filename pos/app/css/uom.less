@@ -1,0 +1,92 @@
+.uom-form, .location-form{ 
+  height:100%; width:100%; 
+  .left-panel{ float:left; height:100%; width:393px; border-right:1px solid lightgray;
+    .norecordlist { 
+      background-color: lightgoldenrodyellow;
+        border: 1px solid threedface;
+        border-radius: 5px 5px 5px 5px;
+        margin: 10px;
+        padding: 10px;
+        width: 350px;
+
+        i{ position:absolute; right:0px; }
+        span{ font-weight:bold; font-style:italic;}
+    }       
+  }
+  .right-panel{ float:left; height:100%; width:630px; 
+    .norecord{ background: #EFEFEF; padding: 140px 0; height:427px; width:630px; color: #DCDCDC; font-size:250px; p{ font-size:30px; font-weight:bold; } }      
+  }
+}
+
+.uomdetail-header, .locationdetail-header{
+  height: 55px; 
+  border-bottom: 1px solid lightgray;
+  
+  .paddingLeft{ padding: 0px 15px 0px; height: 55px; width: 317px; float:left;
+    .uom-title, .location-title{ font-size: 25px; margin-top: 5px; position: relative; top: 8px; }
+    
+  }
+  
+  .paddingRight{ 
+    width: 237px; padding: 0px 15px 0px; height: 55px; margin: 0px; float:right;
+           
+    .btn-Delete, .btn-Save{ 
+      float:right; height:30px; cursor: pointer; .cs-color-gray1;  font-size:18px; margin-top:12px;  
+      padding:3px 15px 0px; color:black;
+    }
+     
+     .btn-Save{ border:1px solid #cccccc; border-top-left-radius: 5px; border-bottom-left-radius: 5px; }       
+     .btn-Delete{ border:1px solid #cccccc; border-left: none; border-top-right-radius: 5px; border-bottom-right-radius: 5px; }
+     .btn-Delete:hover, .btn-Save:hover{ .cs-color-gray2; }
+  }
+}
+
+.uomdetail-body, .locationdetail-body{
+  padding: 30px 20px 0;
+  height: 570px;
+  
+  .uom-info{
+    label{
+      float: left;
+      margin-top: 12px;
+      width: 35%;
+    }
+    
+    input{
+      float: left; 
+      margin-top:8px;
+      width: 57%;
+    }
+    
+    textarea {
+        height: 100%;
+        margin-top: 11px;
+        max-height: 55px;
+        width: 57%;
+    }
+    
+    .data-Container{
+      select{
+        float: left;
+        height: 32px;
+        margin-right: 12px;
+        margin-top: 8px;
+        width: 40%;
+      } 
+      
+      select.location-tax-code {width: 59%;}
+      
+      input { width: 15%; }
+    }
+    
+    
+  }
+}
+
+.uomdetail-footer, .locationdetail-footer{ 
+      height:50px; width: 100%; display:none;  border-top:1px solid lightgray; .cs-color-gray1; 
+      .btn-cancel{ float:left; }
+      .btn-back, .btn-next, .btn-finish{ float:right; }
+      .btn-cancel, .btn-back, .btn-next, .btn-finish{ padding:15px 20px 0px; height:35px; }
+      .btn-cancel:hover, .btn-back:hover, .btn-next:hover, .btn-finish:hover{ .cs-color-gray2; }
+}

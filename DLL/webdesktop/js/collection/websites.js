@@ -1,0 +1,1 @@
+define(["collection/base","model/website"],function(e,n){var t=e.extend({model:n,parse:function(e){return e.EcommerceSites}});return t});

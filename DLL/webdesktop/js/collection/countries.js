@@ -1,0 +1,1 @@
+define(["collection/base","model/country"],function(e,n){var o=e.extend({model:n,parse:function(e){return e.Countries}});return o});

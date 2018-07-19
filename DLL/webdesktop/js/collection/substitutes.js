@@ -1,0 +1,1 @@
+define(["collection/base","model/substitute"],function(e,t){var n=e.extend({model:t,parse:function(e){return e.Items}});return n});

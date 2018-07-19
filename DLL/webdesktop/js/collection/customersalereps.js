@@ -1,0 +1,1 @@
+define(["collection/base"],function(e){var n=e.extend({parse:function(e){return e.SalesRepGroup}});return n});

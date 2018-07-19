@@ -1,0 +1,1 @@
+define(["collection/base","model/accessory"],function(e,n){var o=e.extend({model:n,parse:function(e){return e.Items}});return o});

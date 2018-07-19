@@ -1,0 +1,1 @@
+define(["collection/base","model/workstation"],function(e,n){var o=e.extend({model:n,parse:function(e){return e.Preferences},comparator:function(e){return e.get("WorkstationID").toLowerCase()}});return o});

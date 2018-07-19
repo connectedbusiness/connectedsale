@@ -1,0 +1,47 @@
+﻿<!DOCTYPE  HTML>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    
+        <meta name="format-detection" content="telephone=no"><!-- Disalble Telephone Links -->    
+        <title>Connected Sale</title>
+    </head>
+    <body oncontextmenu="return false;" onkeydown="javascript:return disableBackButton(event)"  onload="initializeConnectedSale()">
+        <div id="applet-bar">
+            <div> <span id="loading-applet"></span> <i class="icon-remove"></i> </div>
+        </div>
+        <div id="wrapper">  			
+  		</div>
+      	<div id="dialog-box" style="display:none;"></div>
+        <div id="csPrintingApplet-container" style="height:0; width:0;"></div>
+    </body>
+</html>
+<script type="text/javascript">
+
+    var initializeConnectedSale = function () {
+        // Detect between a mobile browser or a PhoneGap application
+        var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+        if ( app ) {
+            // PhoneGap application
+            var head = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'cordova.js';
+            head.appendChild(script); 
+            document.addEventListener("deviceready", onDeviceReady, false);
+        } else {
+            // Web page
+            onDeviceReady();
+        }       
+    }
+
+    function onDeviceReady() {
+        // Now safe to use the PhoneGap API
+        var head = document.getElementsByTagName('head')[0];
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        //script.src = "js/libs/initialize.js?" + Math.random();
+        script.src = 'js/libs/initialize.js';
+        head.appendChild(script); 
+    }
+</script>

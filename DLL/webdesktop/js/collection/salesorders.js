@@ -1,0 +1,1 @@
+define(["collection/base","model/salesorder"],function(e,n){var i=e.extend({model:n,initialize:function(){}});return i});

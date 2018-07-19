@@ -1,0 +1,1 @@
+define(["collection/base","model/lookupcategory"],function(e,o){var t=e.extend({model:o,parse:function(e){return e.SystemCategories},comparator:function(e){return e.get("CategoryCode")}});return t});

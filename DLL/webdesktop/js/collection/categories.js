@@ -1,0 +1,1 @@
+define(["collection/base","model/category"],function(e,t){var n=e.extend({model:t,parse:function(e){return e.Categories},comparator:function(e){return-e.get("IsDefault")}});return n});

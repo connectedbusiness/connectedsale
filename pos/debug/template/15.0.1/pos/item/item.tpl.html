@@ -1,0 +1,10 @@
+<div>
+	<img src="<%= ImageLocation %>" onerror="this.onerror=null; this.src='img/ItemPlaceHolder.png';" class="item-img" alt="" />
+	<!-- <header>
+		<h1><%= type %></h1>
+	</header> -->
+</div>
+<div>
+	<span class="item-desc" ><%= ItemName %></span><br/>
+	<span class="item-price"><%= CurrencySymbol %> <%= format("#,##0.00", Price.toFixed(2)) %></span>
+</div>

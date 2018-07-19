@@ -1,0 +1,45 @@
+<div id="settings-receipt">
+	<br/>
+	<ul data-role="listview" data-inset="true" data-theme="d">
+		<li id="sale-receipt"><a>Sale Receipt<h1 class="ui-li-aside"><%= InvoiceReportName %></h1></a></li>
+		<li id="order-receipt"><a>Order Receipt<h1 class="ui-li-aside"><%= OrderReportName %></h1></a></li>
+		<li id="quote-receipt"><a>Quote Receipt<h1 class="ui-li-aside"><%= QuoteReportName %></h1></a></li>
+		<li id="return-receipt"><a>Return Receipt<h1 class="ui-li-aside"><%= ReturnReportName %></h1></a></li>
+		<li id="credit-card-receipt"><a>Credit Card Receipt<h1 class="ui-li-aside"><%= CreditCardReportName %></h1></a></li>
+        <li id="sale-payment-receipt"><a>Sale Payment<h1 class="ui-li-aside"><%= SalePaymentReportName %></h1></a></li>
+        <li id="pick-note-receipt"><a>Pick Note<h1 class="ui-li-aside"><%= PickNoteReportName %></h1></a></li>
+	</ul>
+	<br/>
+	<ul data-role="listview" data-inset="true" data-theme="d">
+		<li id="x-tape-report"><a>X-Tape Report<h1 class="ui-li-aside"><%= XTapeReportName %></h1></a></li>
+		<li id="z-tape-report"><a>Z-Tape Report<h1 class="ui-li-aside"><%= ZTapeReportName %></h1></a></li>
+	</ul>
+	<br/>
+	<ul data-role="listview" data-inset="true" data-theme="d">
+		<li id="printer-settings"><a>Printer Settings<h1 class="ui-li-aside"><%= IsAirprintDisplay %></h1></a></li>
+        <li>Use Single Page on Transaction Receipt<h1 class="ui-li-aside checkswitch"><input type="checkbox" id="IsSinglePageTransactionReceipt"></h1></li>
+		<li>Show Print Options<h1 class="ui-li-aside checkswitch"><input type="checkbox" id="ShowPrintOptions"></h1></li>
+		<li id="auto-print-receipt">
+			<div id="div-auto-print-receipt">
+				Auto-Print Receipt<h1  class="ui-li-aside checkswitch"><input type="checkbox" id="AutoPrintReceipt"></h1>
+			</div>
+		</li>
+		<li>Auto-Email Receipt<h1 class="ui-li-aside checkswitch"><input type="checkbox" id="AutoEmailReceipt"></h1></li>
+		<li id="creditcard-receipt-copies-btn"><span>Credit Card Receipt Copies</span>  <h1 class="ui-li-aside "><input type="text" maxlength="4" id="CreditCardReceiptCopies" value="<%= parseInt(CreditCardReceiptCopies||0) %>"></h1></li>
+	</ul>
+
+	<!-- <ul data-role="listview" data-inset="true" data-theme="d">
+		<li>Auto-Email Receipt<h1 class="ui-li-aside checkswitch"><input type="checkbox" id="AutoEmailReceipt"></h1></li>
+		<li>Ask for Email Address<h1 class="ui-li-aside checkswitch"><input type="checkbox" id="PromptEmailAddress"></h1></li>
+	</ul>
+	<br/>
+	<ul data-role="listview" data-inset="true" data-theme="d">
+		<li id="printer-settings"><a>Printer Settings<h1 class="ui-li-aside"><%= IsAirprintDisplay %></h1></a></li>
+
+		<li id="auto-print-receipt"><div id="div-auto-print-receipt">Auto-Print Receipt<h1  class="ui-li-aside checkswitch"><input type="checkbox" id="AutoPrintReceipt"></h1></div></li>
+
+		<li id="li-ask-to-print-receipt"><div id="div-ask-to-print-receipt">Ask to Print Receipt<h1 class="ui-li-aside checkswitch"><input type="checkbox" id="PromptToPrintReceipt"></h1></div></li>
+	</ul> -->
+	<br/>
+	<br/>
+</div>

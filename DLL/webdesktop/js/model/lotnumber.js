@@ -1,0 +1,1 @@
+define(["model/base"],function(e){var t=e.extend({removeItem:function(){this.trigger("removeLot",this)}});return t});

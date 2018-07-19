@@ -1,0 +1,1 @@
+define(["model/base"],function(e){var n=e.extend({initialize:function(){}});return n});

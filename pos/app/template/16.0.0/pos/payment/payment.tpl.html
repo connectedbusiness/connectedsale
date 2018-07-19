@@ -1,0 +1,28 @@
+
+
+<div id="paymentForm" class="interprise-popover-container">
+	<div class="interprise-popover-header popover-header">
+
+        <div class="popover-left">
+			<a class="popover-btn"  id="btn-cancelPayment">Cancel</a>
+		</div>
+		<h1><%= PaymentType %></h1>		
+		<div class="popover-right">		
+			<a class="popover-btn"  id="cmdDone" style="display: none">Done</a>	 
+		</div>
+
+	</div>
+	<br class="clearfloat"/>
+	<div id="paymentBody" class="interprise-dialog-content">
+		<div id="term-discount" class="term-discount" style="display: none;"></div>
+		<div id="payment-leftpane">
+			<div class="paymentDetails"></div>
+		</div>				
+		<div id="payment-rightpane">
+			<div class="keypad"></div>				
+			<div class= "complete-btn-container">
+				<a id ="keypad-done-btn" class="keypad-btns complete btn-2row-height done-alignment keypad-btn-complete">DONE</a>
+			</div>				
+			<!--<a class="bottom-btn complete complete-btn-width" id="cash-complete-btn">Cc</a>-->		
+		</div>
+</div>

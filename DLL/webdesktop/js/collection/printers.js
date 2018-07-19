@@ -1,0 +1,1 @@
+define(["collection/base","localstorage","model/printer"],function(e,n,o){var r=e.extend({model:o,localStorage:new n("Printer")});return r});

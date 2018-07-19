@@ -1,0 +1,45 @@
+<% if(!ItemCode || ItemCode == '') ItemCode = '[To be Generated]'; %> 
+<% var isNew = IsNew ? '' : 'style="display:none;"' %>
+<div class="general-details" id="general-details">    
+<center>
+    <table class="table-preview"> 
+        <tr> <td class="preview"><center><div class="item-image" id="item-image">
+            <div class="default"><i class="icon-tag"></i></div>
+        </div></center></td> </tr>     
+        <tr> <td class="preview"><center><div class="item-name" id="item-name"><%= ItemCode %></div></center></td> </tr>   
+        <tr> <td class="preview"><center><div class="item-price" id="item-price"><i><%= CurrencySymbol %>&nbsp;<%= format("#,##0.00",RetailPrice) %></i></div></center></td> </tr>  
+    </table>
+    <table class="table-data">                        
+        <tr> <td class="caption">Name :</td> <td><input maxlength="50" class="cs-input data-ItemName" id="data-ItemName" placeholder="Name" value="<%= FormattedItemName %>"/></td> </tr>            
+        <tr> <td class="caption">Description : <br /> <div class="copyname" <%= isNew %> >Copy Name</div> &nbsp;&nbsp;
+            </td> <td><textarea  maxlength="100" rows="3" class="cs-input data-ItemDescription" id="data-ItemDescription" placeholder="Description"><%= ItemDescription %></textarea></td> </tr> 
+        <tr> <td class="caption">Type :</td> <td> 
+            <select class="cs-input data-ItemType" id="data-ItemType"> 
+            </select>     
+        </td> </tr> 
+        <tr id="tr-SerializeLot"> <td class="caption">Serialize Lot :</td> <td>
+            <select class="cs-input data-SerializeLot" id="data-SerializeLot"> 
+            </select>     
+        </td> </tr> 
+        <tr id="tr-AutoGenerate">
+            <td></td>
+            <td><input type="checkbox" id="data-AutoGenerate" style="width:20px;"/> &nbsp; Auto-Generate Serial</td>
+        </tr>
+        <tr id="tr-DontEarnPoints">
+            <td></td>
+            <td><input type="checkbox" id="data-DontEarnPoints" style="width:20px;"/> &nbsp; Don't Earn Points</td>
+        </tr>
+    </table>
+</center>
+</div>
+
+<div class="photo-menu">
+    <div class="camera"><center><i class="icon-camera"></i></center></div>
+    <div class="gallery"><center><i class="icon-picture"></i></center></div>
+    <div class="edit"><center><i class="icon-edit"></i></center></div>
+    <input type="file" id="browse-image" name="upload"  accept="image/gif, image/jpeg, image/png, image/bmp, image/tif"/>
+</div>
+
+<div class="photo-menu-upper">
+    <div id="remove" class="remove"><center><i class="icon-remove-sign"></i></center></div>
+</div>

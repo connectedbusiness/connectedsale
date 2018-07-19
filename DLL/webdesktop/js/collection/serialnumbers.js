@@ -1,0 +1,1 @@
+define(["collection/base","model/serialnumber"],function(e,n){var l=e.extend({model:n});return l});

@@ -1,0 +1,229 @@
+/**
+ * Global Reset of all HTML Elements
+ *
+ * Resetting all of our HTML Elements ensures a smoother
+ * visual transition between browsers. If you don't believe me,
+ * try temporarily commenting out this block of code, then go
+ * and look at Mozilla versus Safari, both good browsers with
+ * a good implementation of CSS. The thing is, all browser CSS
+ * defaults are different and at the end of the day if visual
+ * consistency is what we're shooting for, then we need to
+ * make sure we're resetting all spacing elements.
+ *
+ */
+
+
+/***** CUSTOMERS MODULE *****/
+
+.customers-page{ height:748px; width:1024px; background-color:white;
+  .header{ height:40px; width:100%; border-bottom:1px solid lightgray;
+    .header-content{  height:100%; width:100%; .cs-color-gray1;
+      #back{ float: left; .cs-color-black; }
+      #title{ float: left; font-size:20px; margin-left: 10px; padding:5px 0px 5px;
+          a{ color: #0066cb; text-shadow:1px 1px 0 0 #fff !important; font-size: 19px; display: inline;}
+      }
+      .menu{
+        float: right; margin-right:5px;
+        .menu-item{
+          float: right; padding:10px 10px 10px;
+          font-size:14px; cursor: pointer;
+          .cs-color-gray1;
+        }
+        .menu-item:hover{ .cs-color-gray2 }
+      }
+    }
+  }
+  .body{ height:707px; width:100%; }
+
+
+  /*GENERIC LIST STYLES*/
+ .list-header{
+    .products-page .list-header;
+  }
+  .list{
+    .products-page .list;
+  }
+  /*END OF GENERIC LIST STYLES **/
+}
+
+
+/*FORMS*/
+.customers-form{
+  height:100%; width:100%;
+  .left-panel{ float:left; height:100%; width:393px; border-right:1px solid lightgray;
+      .norecordlist {
+        background-color: lightgoldenrodyellow;
+          border: 1px solid threedface;
+          border-radius: 5px 5px 5px 5px;
+          margin: 10px;
+          padding: 10px;
+          width: 350px;
+
+          i{ position:absolute; right:0px; }
+          span{ font-weight:bold; font-style:italic;}
+      }
+  }
+  .right-panel{ float:left; height:100%; width:630px;
+      .norecord{ background: #EFEFEF; padding: 140px 0; height:427px; width:630px; color: #DCDCDC; font-size:250px; p{ font-size:30px; font-weight:bold; } }
+  }
+}
+
+/*CUSTOMERS FORM*/
+.customers-form {
+  .customers-details{ height:100%; width:100%;
+    .detail-newheader{ height:55px; width: 100%; display:none; border-bottom:1px solid lightgray;
+      .newcustomer-title{ padding:10px 15px 0px; font-size:24px; color: #0082d6; }
+    }
+    .detail-header{
+      height:56px; width: 100%;
+      .tab:hover{ .cs-color-gray2; }
+      .tab, .tab-active, .padding{
+        float:left; margin-top:15px; height: 30px; padding:10px 15px 0px;
+        border-bottom:1px solid lightgray; border-top-left-radius: 5px; border-top-right-radius: 5px;
+        color: #0082d6;
+      }
+      .tab-active{
+        border:1px solid lightgray; border-bottom:0;
+        border-top-left-radius: 5px; border-top-right-radius: 5px;
+        color: black;
+      }
+      .versionfourtheen{  width: 349px !important; }
+
+      .paddingLeft{ padding:10px 5px 0px; }
+      .paddingRight{ width: 412px; padding: 0px 15px 0px; height: 55px; margin: 0px;
+        .btn-Delete, .btn-Save{ float:right; height:30px; cursor: pointer; .cs-color-gray1;  font-size:18px; margin-top:12px;
+          padding:3px 15px 0px; color:black;
+
+        }
+        .btn-Save{ border:1px solid #cccccc; border-top-left-radius: 5px; border-bottom-left-radius: 5px; }
+        .btn-Delete{ border:1px solid #cccccc; border-left: none; border-top-right-radius: 5px; border-bottom-right-radius: 5px; }
+        .btn-Delete:hover, .btn-Save:hover{ .cs-color-gray2; }
+      }
+    }
+    .detail-footer{ height:50px; width: 100%; display:none;  border-top:1px solid lightgray; .cs-color-gray1;
+      .btn-cancel{ float:left; }
+      .btn-back, .btn-next, .btn-finish{ float:right; }
+      .btn-cancel, .btn-back, .btn-next, .btn-finish{ padding:15px 20px 0px; height:35px; }
+      .btn-cancel:hover, .btn-back:hover, .btn-next:hover, .btn-finish:hover{ .cs-color-gray2; }
+    }
+    .detail-body{
+      height:651px; width: 100%;
+      .loading{ padding-top:100px; i{font-size:100px;} }
+
+      .norecord{ background: #EFEFEF; padding: 140px 0; height:427px; width:630px; color: #DCDCDC; font-size:250px; p{ font-size:30px; font-weight:bold; } }
+
+      .general-details{
+        table{ padding:30px 0px 0px;  }
+        .table-preview{
+          .td{padding:0px 20px 0px;}
+          .preview{ padding:0px; }padding:30px 0px 0px;
+          .customer-name, .contact-name, .note-title { color: #0082d6; }
+          .customer-name, .contact-name, .note-title { font-size:24px; }
+
+        }
+        .table-data{
+          td{ padding:0px 10px 10px;}
+          .caption{ text-align:right; }
+          input, textarea, select{ width: 300px; }
+          //.btn-search-entity-name{ float:right; height:30px; width:31px; cursor: pointer; .cs-color-gray1; border:1px solid #cccccc; border-left: none; border-top-right-radius: 5px; border-bottom-right-radius: 5px;}
+          //.data-entity-name {width: 268px; border-radius: 5px 0 0 5px !important; margin: 0; float:left;}
+          .data-city, .data-state {width : 141px !important; display: inline-block;}
+          .data-state{ float:left;  margin-top: 0;}
+          .data-city{ margin-right : 6px; float:right;}
+          textarea{ height:64px; max-height:64px; max-width: 300px; }
+          select{ line-height: 1.75em; text-indent: 1px; width: 312px; height: 32px; }
+          .versionfourtheen{ max-height: 320px !important; height: 320px !important; }
+          .data-loyaltypoints{width:100px; text-indent:1px;
+          }
+        }
+      }
+
+    }
+  }
+
+  .addmode{
+      .detail-body{ height:600px; overflow:hidden; position:relative; }
+      .detail-footer{ display:block; }
+      .detail-header{ display:none !important;  }
+      .detail-newheader{ display:block;  }
+    }
+
+  .customer-searchbar-lookup{
+      input{ border-radius: 8px 8px 8px 8px !important; float: left; padding-left: 10px; width: 89.5% !important; }
+  }
+
+}
+
+
+
+
+/** TYPE POPUP **/
+
+.typePopUpContainer{
+   position: absolute;
+    z-index: 141;
+     width: 18%;
+    right: 5px;
+   top: 36px;
+   padding-top: 10px;
+    padding-bottom: 10px;
+             background-color : #FFFFFF;
+              border-radius: 7px;
+              box-shadow: 1px 1px 1px 0 rgba(255, 255, 255, 0.37) inset, 0 6px 18px 0 rgba(0, 0, 0, 0.95);
+           .typeBtn{width:10px;
+             width: 154px;
+            padding: 4px 15px 3px;
+                &:active{
+                  background-color:#0082d6;
+                  a > span{color:white;}
+                }
+                &:hover{
+                  background-color:#0082d6;
+                  a > span{color:white;}
+                }
+            }
+        .arrow {
+          width:10px;
+             width: 154px;
+            padding: 4px 15px 3px;
+               position: absolute;
+              top: -11px;
+              right: -128px;
+              span {
+               display:block;
+              width:14px;
+              height:14px;
+              background:red;
+              -webkit-transform: rotate(45deg) skew(-10deg, -10deg);
+              -webkit-transform: rotate(45deg) skew(-10deg, -10deg);  /* Saf3.1+, Chrome */
+              -moz-transform: rotate(45deg) skew(-10deg, -10deg);  /* FF3.5+ */
+              zoom: 1;
+              margin:1px 0 0 4px;
+              background:#FFFFFF;
+              -webkit-box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
+              -moz-box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
+              box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
+            }
+        }
+}
+
+/** END OF TYPE POPUP**/
+
+#notification-overlay{
+    font-size:16px;
+    z-index: 99;
+    display: none;
+    height: 26px;
+    top: 680px; left: 0px;
+    position: absolute;
+    background-color: lightYellow;
+    border-radius: 5px;
+    padding: 7px 20px 7px;
+    box-shadow: 1px 1px 1px 0 rgba(255, 255, 255, 0.37) inset, 0 6px 18px 0 rgba(0, 0, 0, 0.95);
+    overflow:hidden;
+    i{ color:green; }
+    .warn { color:red; }
+}
+
+
+/***** END CUSTOMER *****/

@@ -1,0 +1,1 @@
+define(["collection/base","localstorage","model/url"],function(e,l,o){var n=e.extend({model:o,localStorage:new l("Url")});return n});

@@ -1,0 +1,1 @@
+define(["model/base"],function(e){var t=e.extend({select:function(){this.trigger("selected",this)},setDefault:function(){this.trigger("setDefault",this)},removeItem:function(){this.trigger("categoryRemoved",this)}});return t});

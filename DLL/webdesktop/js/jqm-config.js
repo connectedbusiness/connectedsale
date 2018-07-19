@@ -1,0 +1,1 @@
+define(["jquery"],function(e){e(document).bind("mobileinit",function(){e.mobile.ajaxEnabled=!1,e.mobile.linkBindingEnabled=!1,e.mobile.hashListeningEnabled=!1,e.mobile.pushStateEnabled=!1,e('div[data-role="page"]').on("pagehide",function(n,i){e(n.currentTarget).remove()})})});

@@ -1,0 +1,23 @@
+<div id="shipto-detail-content">
+	<div id="detail-top-wrapper">
+		<div>
+			<!-- <h3 class="ship-name"><%= ShipToName %></h3> -->
+			<h3 class="ship-name"><%= FormattedShipToName %></h3>
+			<span class="ship-code"><%= CustomerCode %></span>
+		</div>
+	</div>
+	<div id="detail-bottom-wrapper">
+		<div id="detail-content">
+			<ul data-role="listview" data-inset="true">
+				<li><span class="list-detail-left">Country</span><span class="list-detail-right"><%= Country %></span></li>
+				<li><span class="list-detail-left">Address</span><span class="list-detail-right"><%= DisplayAddress %></span></li>
+				<li><span class="list-detail-left">City</span><span class="list-detail-right"><%= City %></span></li>
+				<li><span class="list-detail-left">State</span><span class="list-detail-right"><%= State %></span></li>
+				<li><span class="list-detail-left">Zip Code</span><span class="list-detail-right"><%= PostalCode %></span></li>
+			</ul>
+
+			<a data-role="button" data-theme="r" id="editShipto">Edit Ship To</a>
+		</div>
+		
+	</div>
+</div>

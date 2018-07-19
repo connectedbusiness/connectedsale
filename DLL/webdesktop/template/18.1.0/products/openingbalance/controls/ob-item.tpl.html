@@ -1,0 +1,23 @@
+<% 
+    var _header = "";
+    var _item = "";
+    var _colored = "";
+	var _selected = "";
+	
+    if(IsHeader){
+        _header = " header ";
+    }else{
+        if(IsItem) _item = " item ";
+        if(IsColored) _colored = " colored ";
+    }
+    
+    if(IsSelected) _selected = " selectedItem ";
+    
+%>
+<% if(IsHeader){ %>
+<li class="<%= _header %><%= _item %><%= _colored %>" id="<%= ViewID %>"><%= navigator.escapedhtml(DisplayText) %></li>
+<% } else { %>
+	<li class="<%= _header %><%= _item %><%= _colored %><%= _selected %>" id="<%= ViewID %>" style="height: 34px !important;">
+		<span><b><%= navigator.escapedhtml(ItemName) %></b></span>  <br />
+		<span class="small-caption" style="float:left;"> <%= navigator.escapedhtml(Quantity) %> &nbsp;&nbsp; <%= navigator.escapedhtml(UoM) %> </span>  <span class="list-cost small-caption" style="margin-right:10px; float:right;"><%= navigator.escapedhtml(CurrencySymbol) %><%= navigator.escapedhtml(Cost) %>&nbsp;</span> </li> 
+<% } %>

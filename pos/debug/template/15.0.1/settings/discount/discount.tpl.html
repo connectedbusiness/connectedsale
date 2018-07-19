@@ -1,0 +1,28 @@
+<div id="settings-discount">
+	<br/>
+	<h3 style="margin-left:12px;">Sale</h3>
+	<ul data-role="listview" data-inset="true" data-theme="d" id="maxSale-ul">
+		<li>Discount<h1 class="ui-li-aside checkswitch"><input type="checkbox" id="AllowSaleDiscount"></h1></li>
+		<!-- <li>Discount<h1 class="ui-li-aside on_off"><input type="checkbox" checked="<%= AllowSaleDiscount %>" id="AllowSaleDiscount" /></h1></li> -->
+		<li>Maximum Discount<h1 class="ui-li-aside" id="maxSale"><%= MaxSaleDiscount %>%</h1></li>
+		<li id="AllowSaleDiscount-max"><div id="maxSale-Slider" class="slider">
+				<div class="track"></div>
+				<div class="knob" role="slider"></div>
+			</div>
+		</li>
+	</ul>
+	<br/>
+	<h3 style="margin-left:12px;">Item</h3>
+	<ul data-role="listview" data-inset="true" data-theme="d" id="maxItem-ul">
+		<li>Discount<h1 class="ui-li-aside checkswitch"><input type="checkbox" id="AllowItemDiscount"></h1></li>
+		<!-- <li>Discount<h1 class="ui-li-aside on_off"><input type="checkbox" checked="<%= AllowItemDiscount %>" id="AllowItemDiscount" /></h1></li> -->
+		<li>Maximum Discount<h1 class="ui-li-aside" id="maxItem"><%= MaxItemDiscount %>%</h1></li>
+		<li id="AllowItemDiscount-max"><div id="maxItem-Slider" class="slider">
+				<div class="track"></div>
+				
+				<div class="knob" role="slider"></div>
+			</div>
+		</li>
+	</ul>
+	
+</div>

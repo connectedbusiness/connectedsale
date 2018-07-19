@@ -1,0 +1,28 @@
+<div id="noteList" class="interprise-popover-container">
+	<div class="interprise-popover-header popover-header">
+			<div class="popover-left">
+				<a class="popover-btn-back" id ="back-noteList"><span></span>Detail</a>
+			</div>
+			<h1 id="noteList-title">Notes of <%= CustomerName %></h1>
+			<div class="popover-right">
+				<a class="popover-btn" id="add-noteList-btn">Add</a>
+				<a class="popover-btn" id="select-noteList" style: "display: none;">Select</a>
+			</div>
+	</div>
+	<br class="clearfloat"/>
+	<div id="noteList-inner" class="interprise-popover-content">
+		<div id="noteList-searchbar">
+			<input placeholder="Search" type="text" id="noteList-search" class="search-bar"/>	
+			<!-- <input placeholder="Search" type="search" id="noteList-search" class="search-bar"/>	 -->		
+		</div>
+		<a id="noteList-searchClearBtn" class="clearTextBtn" ></a>
+		
+		<div id="noteList-content">
+			
+		</div>
+	</div>
+	<div id="noteList-footer">
+		<a class="noteList-footer-btn customer-selected" id="noteList-note">Note</a>
+		<a class="noteList-footer-btn" id="noteList-edit">EditCustomer</a>
+	</div>
+</div>

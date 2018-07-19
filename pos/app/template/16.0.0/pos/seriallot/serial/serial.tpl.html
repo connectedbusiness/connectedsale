@@ -1,0 +1,15 @@
+<div class="serial-list">
+	<div class="checkbox-serialLot" style="float:left; margin-right:10px; width: 15px;">
+		<span id="include-serialLot" class="icon-check-empty custom-check"></span>
+	</div>
+	<div id="serial-list-container">
+		<span><%= SerialLotNumber %></span>
+		<div id="serialLot-email-container">
+			<input type="email" id="input-serialEmail" value="<%= SerialRecipient %>" placeholder="Enter Email address here..."/>
+			<span id="span-serialEmail" style="font-style: italic;"><%= SerialRecipient || "Enter Email address here..." %></span>
+		</div>
+	</div>
+
+	<div id="deletebtn-overlay" style="float: right; display: block;"><a id="delete-serialLot" style="font-size:24px;"><i class="icon-remove-sign"></i></a></div>
+	<br class="clearfloat"/>
+</div>

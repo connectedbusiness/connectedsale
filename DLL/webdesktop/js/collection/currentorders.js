@@ -1,0 +1,1 @@
+define(["collection/base","model/currentorder"],function(e,n){var r=e.extend({model:n});return r});

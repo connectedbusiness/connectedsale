@@ -1,0 +1,18 @@
+<ul>
+<li>
+	<div><%= SalesOrderCode %></div>
+	<button class="btn-pickup-more"><i class="icon-chevron-down"></i></button>		
+	<button class="btn-pickup-confirm">CONFIRM</button>	
+	<button class="btn-pickup-reprint"	<%= (Stage == 2 ? '' : 'style="display:none"' )%> >REPRINT</button>
+	<button class="btn-pickup-print"	<%= (Stage == 1 ? '' : 'style="display:none"' )%> >PRINT</button>	
+</li>
+<li class="pickup-items">
+	<div class="order-header">
+		<span style="float: left; max-width: 65%;"><%= FormattedBillToName %></span>
+		<span style="float: right; margin-right: 25px;"><%= FormattedDate %></span>
+	</div>
+	<ul>
+		<li><i class="icon-spinner icon-spin"></i>&nbsp; Loading...</li>
+	</ul>
+</li>
+</ul>

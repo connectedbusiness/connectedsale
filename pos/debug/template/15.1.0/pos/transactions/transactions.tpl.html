@@ -1,0 +1,133 @@
+
+
+<div id="reviewTransactions" class="interprise-popover-container connectedSale14">
+	<div class="interprise-popover-header popover-header">
+		
+		<!-- <div class="popover-left" style="display:hidden"> </div> -->
+		<h1>Transactions</h1>
+		<div class="popover-right">
+			<a class="popover-btn right-popover-btn">Close</a>
+		</div>
+		
+	</div>
+	<br class="clearfloat"/>
+	<div id="reviewTransactions-inner" class="interprise-popover-content">
+		<div id="reviewTransactions-top-wrapper" style="height: 35px !important">
+			<div id="transactions-searchbar">
+				<input id="transactions-search" class="search-bar" title="search" placeholder="Search">
+			</div>
+			<a id="transactions-searchClearBtn" class="clearTextBtn"></a>
+			<div id="btnSearch">
+				<span class="icon-search"></span>
+			</div>
+			<div id="transactionsFilterContainer">
+				<div class="date-filter">
+					<label>Date Filter</label>
+					<input type="date" id="transaction-date" style="height:20px;" value="" />
+				</div>
+				<div class="customer-filter">
+					<!--label><input id="filter-checkbox" type="checkbox" data-role="none" class="custom"/><span>Current Customer Only</span></label-->
+					<span id="chkOption" class="icon-check-empty custom-check"> 
+					</span>
+					<label>Current Customer Only</label>
+					
+				</div>
+
+				<div id="picking-filter">
+					<span id="picking-pending" class="active-filter">Pending</span>
+					<span id="picking-inprogress">In Progress</span>
+					<span id="picking-confirmed">Confirmed</span>
+				</div>
+
+			</div>
+		</div>
+		
+		<div class="clearfloat"></div>
+		<!-- Sales -->
+		<div id="reviewTransactions-tableheader" class="invoices-tableheader">
+			<table class="tape" cellspacing="0" width="100%" >
+				<thead>
+					<th align="left" class="td-invoicecode">Invoice Code</th>
+					<th align="left" class="td-customer">Customer Name</th>
+					<th align="left" class="td-invoicedate">Invoice Date</th>
+					<th align="right" class="td-total">Total</th>
+					<th align="right" class="td-balance">Balance</th>
+					<!-- <th class="td-posted">Posted</th> -->
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<!-- Orders/Quotes -->
+		<div id="reviewTransactions-tableheader" class="orders-tableheader" style="display: none">
+			<table class="tape" cellspacing="0" width="100%" >
+				<thead>
+					<th align="left" class="td-invoicecode">Order Code</th>
+					<th align="left" class="td-customercode">Customer Code</th>
+					<th align="left" class="td-customername">Customer Name</th>
+					<th align="left" class="td-invoicedate">Order Date</th>
+					<th align="right" class="td-total">Total</th>
+					<th align="right" class="td-balance">Balance</th>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<!-- Returns -->
+		<div id="reviewTransactions-tableheader" class="returns-tableheader" style="display: none">
+			<table class="tape" cellspacing="0" width="100%" >
+				<thead>
+					<th align="left" class="td-returncode">Return Code</th>
+					<th align="left" class="td-customercode">Customer Code</th>
+					<th align="left" class="td-customername">Customer Name</th>
+					<th align="left" class="td-returndate">Invoice Date</th>
+					<th align="right" class="td-returntotal">Total</th>
+					<th align="right" class="td-returnsource">Source</th>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<!-- Suspend -->
+		<div id="reviewTransactions-tableheader" class="suspend-tableheader">
+			<table class="tape" cellspacing="0" width="100%" >
+				<thead>
+					<th align="left" class="td-invoicecode">Invoice Code</th>
+					<th align="left" class="td-customer">Customer Name</th>
+					<th align="left" class="td-invoicedate">Invoice Date</th>
+					<th align="right" class="td-total">Total</th>
+					<th align="right" class="td-balance">Balance</th>
+					<!-- <th class="td-posted">Posted</th> -->
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<!-- Content -->
+		<div id="reviewTransactions-content">
+			
+		</div>
+		<div id="transactionTotalContainer"> 
+			<div id="transactionResults-div">
+				<span id="transaction-result">Results : </span>
+			</div>
+			<div id="transactionTotals-div">
+				<span id="transaction-total"> Total Balance : </span>
+			</div>
+		</div>
+	</div>
+	
+	<div id="reviewTransactions-footer" class="interprise-popover-footer">
+
+		<div id="btnBuffer"		class="transaction-Type "><i></i><span> </span></div>
+		<div id="btnSales" 		class="transaction-Type active-transaction-type"><i class="icon-tags"></i><span>Sale</span></div>
+		<div id="btnPicknote" 	class="transaction-Type"><i class="icon-signin"></i>		<span>Pickup</span></div>
+		<div id="btnOrders" 	class="transaction-Type"><i class="icon-shopping-cart"></i><span>Order</span></div>		
+		<div id="btnQuotes" 	class="transaction-Type"><i class="icon-file-alt"></i>		<span>Quote</span></div>
+		<div id="btnReturns" 	class="transaction-Type"><i class="icon-reply-all"></i>	<span>Return</span></div>		
+		<div id="btnSuspend" 	class="transaction-Type"><i class="icon-warning-sign"></i>	<span>Suspend</span></div>
+		
+	</div>	
+</div>
+
+<div class="div-options"></div>

@@ -1,0 +1,1 @@
+define(["collection/base","model/itemprice"],function(e,n){var i=e.extend({model:n});return i});

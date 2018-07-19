@@ -1,0 +1,1 @@
+define(["collection/base","model/unitmeasure"],function(e,n){var r=e.extend({model:n,parse:function(e){return e.UnitMeasures}});return r});

@@ -1,0 +1,1 @@
+define(["model/base"],function(e){var n=e.extend({model:function(e){this.model=e},toJSON:function(){return this.model.toJSON()}});return n});

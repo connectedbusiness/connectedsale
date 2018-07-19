@@ -1,0 +1,1 @@
+define(["model/base"],function(n){var t=n.extend({initialize:function(){},toJSON:function(){return _.clone({input:this.attributes})},parse:function(n){return n}});return t});

@@ -1,0 +1,1 @@
+define(["collection/base","model/salesorderdetail"],function(e,i){var n=e.extend({model:i,initialize:function(){}});return n});

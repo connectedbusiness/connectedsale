@@ -1,0 +1,689 @@
+@width: 1024px;
+@height: 748px;
+
+//COLORS
+
+.bodyBG{
+    background-color: #e6e8eb;
+}
+.pointerBg{
+  background:#666d7e;
+}
+.dialogBg{
+
+background: rgb(116,123,138); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(116,123,138,1) 0%, rgba(83,92,111,1) 5%, rgba(6,19,46,1) 12%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(116,123,138,1)), color-stop(5%,rgba(83,92,111,1)), color-stop(12%,rgba(6,19,46,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(116,123,138,1) 0%,rgba(83,92,111,1) 5%,rgba(6,19,46,1) 12%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(116,123,138,1) 0%,rgba(83,92,111,1) 5%,rgba(6,19,46,1) 12%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(116,123,138,1) 0%,rgba(83,92,111,1) 5%,rgba(6,19,46,1) 12%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(116,123,138,1) 0%,rgba(83,92,111,1) 5%,rgba(6,19,46,1) 12%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#747b8a', endColorstr='#06132e',GradientType=0 ); /* IE6-9 */
+
+
+ // box-shadow:inset 0px 0px 0px 0px #7e8494;
+}
+.btnColor-normal{
+  background-color: #F5F5F5;
+          background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6);
+          background-repeat: repeat-x;
+}
+.gradient-black{
+  background: rgb(125,126,125); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,126,125,1)), color-stop(100%,rgba(14,14,14,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+
+}
+.headerBG{
+  background: rgb(165,169,182);
+  background: rgb(255,255,255);
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(244,245,247,1) 2%, rgba(223,225,230,1) 57%, rgba(165,169,182,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(2%,rgba(244,245,247,1)), color-stop(57%,rgba(223,225,230,1)), color-stop(100%,rgba(165,169,182,1)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(244,245,247,1) 2%,rgba(223,225,230,1) 57%,rgba(165,169,182,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(244,245,247,1) 2%,rgba(223,225,230,1) 57%,rgba(165,169,182,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(244,245,247,1) 2%,rgba(223,225,230,1) 57%,rgba(165,169,182,1) 100%);
+  background: linear-gradient(top, rgba(255,255,255,1) 0%,rgba(244,245,247,1) 2%,rgba(223,225,230,1) 57%,rgba(165,169,182,1) 100%);
+}
+.gray1{
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ffffff 0%, #f6f6f6 47%, #ededed 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+}
+.selected{
+  border-radius: 4px 4px 0 0;
+  background: #eeeeee; /* Old browsers */
+  background: -moz-linear-gradient(top,  #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #eeeeee 0%,#cccccc 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+}
+.selected-blue{
+   background:-webkit-gradient( linear, left top, left bottom, color-stop(0%, #7abcff), color-stop(44%, #60abf8) ) !important;
+  background:-moz-linear-gradient( top, #7abcff 0%, #60abf8 44%, #4096ee 100% ) !important;
+  background-color:#7abcff !important;
+}
+//END COLORS
+
+.pointer-arrow-up(@top:62px,@right:85px,@zindex:2000){
+    opacity: 1;
+    border:1px solid #000;
+   -moz-border-radius:11px;
+    -webkit-border-radius:11px;
+    border-radius:11px;
+
+    .pointerBg;
+   -webkit-transform: rotate(44deg);
+   -moz-transform:rotate(44deg);
+   -moz-transform: rotate(45deg) skew(-10deg, -10deg);  /* FF3.5+ */
+     zoom: 1;
+
+   position: absolute;
+   border-radius: 1px;
+   box-shadow:inset 0px 1px 0px 0px #7e8494;
+   border:1px solid #515151 !important;
+   z-index:@zindex;
+   padding:5px;
+   width: 29px;
+   height: 27px;
+   right: @right;
+   top: @top;
+}
+#reportsForm {
+    width: @width;
+    height: @height;
+    .bodyBG;
+
+    #modalBg {
+        width: @width;
+        height: @height;
+        position: absolute;
+        z-index: 200;
+    }
+
+    #reports-spinner {
+        position: absolute;
+        height: @height;
+        width: @width;
+        z-index: 200;
+
+        div {
+            background: none repeat scroll 0 0 black;
+            border-radius: 6px 6px 6px 6px;
+            opacity: 0.74 !important;
+            padding: 5px 10px;
+            position: absolute;
+            right: 304px;
+            width: 95px;
+            top: 342px;
+            text-align: center;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            width: 95px;
+
+            i {
+                font-size: 43px;
+                color: lightgray;
+            }
+
+            p {
+                color: lightgray;
+                font-size: 15px;
+                padding-left: 5px;
+                padding-top: 4px;
+                font-weight: normal;
+            }
+        }
+    }
+
+    #header {
+        width: @width;
+        height: 35px;
+        .headerBG;
+        border-radius: 4px 4px 0 0;
+
+        #reports-back {
+            height: 27px;
+            width: 60px;
+            float: left;
+            margin-left: 5px;
+            margin-top: 4px;
+            border-radius: 4px;
+            text-align: center;
+            line-height: 25px;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-indent: 17px;
+            font-weight: normal;
+            color: black;
+            line-height: 31px;
+        }
+    }
+
+    #reportsPageContainer {
+        height: 713px;
+        width: 1024px;
+
+        .left-pane {
+            float: left;
+            height: 701px;
+            padding-top: 14px;
+            width: 267px;
+            padding-left: 29px;
+
+            #searchReport {
+                height: 40px;
+                width: 295px;
+                margin-left: -28px;
+                margin-top: -13px;
+                border-bottom: 1px solid lightgray;
+
+                input {
+                    border: 1px solid lightgray;
+                    border-radius: 5px 0 0 5px;
+                    width: 249px;
+                    background: #FFFFFF;
+                    margin-left: 5px;
+                    margin-top: 3px;
+                    height: 16px;
+                    float: left;
+                    text-indent: 7px;
+
+                    &:focus {
+                        box-shadow: 0 0 5px #A7CDE8;
+                        border: 1px solid #A7CDE8;
+                    }
+                }
+
+                div {
+                    .btnColor-normal;
+                    position: absolute;
+                    height: 28px;
+                    width: 33px;
+                    border: 1px solid lightgray;
+                    border-radius: 0 4px 4px 0;
+                    margin-left: 255px;
+                    margin-top: 3px;
+
+                    i {
+                        margin-top: 6px;
+                        float: left;
+                        margin: 5px 8px;
+                        font-size: 16px;
+                    }
+                }
+
+                .clearTxt {
+                    position: absolute;
+                    left: 237px;
+                    top: 45px;
+                    font-size: 18px;
+                    color: #929292;
+                }
+            }
+
+            #reportList {
+                margin-left: -26px;
+                width: 293px;
+                height: 672px;
+                position: relative;
+
+                ul {
+                    ol {
+                        height: 20px;
+                        text-indent: 5px;
+                        color: white;
+                        border-bottom: 1px solid lightgray;
+                        .gradient-black;
+                    }
+
+                    li {
+                        background: white;
+                        border-bottom: 1px solid lightgray;
+                        min-height: 30px;
+                        text-align: left;
+                        padding-left: 11px;
+                        padding-top: 8px;
+                        padding-right: 18px;
+
+                        &:nth-child(odd) {
+                            background-color: #EFEFEF;
+                        }
+
+                        .selected-blue {
+                            .selected-blue;
+                        }
+                    }
+                }
+            }
+        }
+
+        .right-pane {
+            height: 716px;
+            width: 727px;
+            float: left;
+            background: #8D8D8D;
+
+            #previewContainer {
+                height: 716px;
+
+                #printerSetup-div {
+                    .arrow {
+                        .pointer-arrow-up(70px,99px,2000);
+                    }
+
+                    #printSetupContainer {
+                        position: absolute;
+                        right: 365px;
+                        top: 79px;
+                    }
+                }
+
+                .no-record-found {
+                    position: relative;
+                    height: 457px;
+                    width: 726px;
+                    text-align: center;
+                    vertical-align: middle;
+                    z-index: 200;
+                    padding-top: 226px;
+
+                    span {
+                        font-size: 127px;
+                    }
+
+                    p {
+                        font-size: 27px;
+                        font-weight: normal;
+                    }
+                }
+
+
+                #printDialog-div {
+                    position: absolute;
+                    right: 84px;
+                    top: 79px;
+                    height: 524px;
+                    width: 600px;
+                    z-index: 203;
+
+                    .arrow {
+                        .pointer-arrow-up(-8px,251px,-1); //(top,right,z-index)
+                    }
+
+                    #printDialogContainer {
+                        text-align: center;
+
+                        h1 {
+                            font-weight: normal;
+                            padding-bottom: 9px;
+                        }
+
+                        .dialog-message {
+                            background-color: #F2DEDE;
+                            border-color: #EED3D7 #EED3D7 -moz-use-text-color;
+                            color: #B94A48;
+                            position: absolute;
+                            width: 590px;
+                            height: 26px;
+                            vertical-align: middle;
+                            text-align: center;
+                            padding-top: 5px;
+                            z-index: 200;
+                            border-bottom: 1px solid;
+                            text-indent: 5px;
+                            border-radius: 4px 4px 0 0;
+                        }
+
+                        .dialogBg;
+                        border-radius: 4px;
+                        padding: 5px;
+
+                        .inner {
+                            background: white;
+                            height: 395px;
+                            border-radius: 4px;
+
+                            #printDialog-spinner {
+                                width: 99%;
+                                height: 76%;
+                                z-index: 200;
+
+                                div {
+                                    background: none repeat scroll 0 0 black;
+                                    border-radius: 6px 6px 6px 6px;
+                                    opacity: 0.74 !important;
+                                    padding: 5px 10px;
+                                    position: absolute;
+                                    right: 227px;
+                                    width: 95px;
+                                    top: 132px;
+                                    text-align: center;
+                                    padding: 5px;
+                                    padding-left: 10px;
+                                    padding-right: 10px;
+                                    width: 95px;
+
+                                    i {
+                                        font-size: 43px;
+                                        color: lightgray;
+                                    }
+
+                                    p {
+                                        color: lightgray;
+                                        font-size: 15px;
+                                        padding-left: 5px;
+                                        padding-top: 4px;
+                                        font-weight: normal;
+                                    }
+                                }
+                            }
+
+                            .dialog-left-pane {
+                                height: 394px;
+                                position: relative;
+                                width: 187px;
+                                border-right: 1px solid lightgray;
+
+                                .header {
+                                    height: 10px;
+                                    .gray1;
+                                    font-weight: bold;
+                                    height: 24px;
+                                    border-bottom: 1px solid lightgray;
+                                    border-radius: 4px 0 0 0;
+                                }
+
+                                .searchField {
+                                    padding-bottom: 3px;
+                                    height: 33px;
+                                    border-bottom: 1px solid lightgray;
+
+                                    input {
+                                        width: 143px;
+                                        border-radius: 4px 0 0 4px;
+                                    }
+
+                                    #btnSearch {
+                                        .btnColor-normal;
+                                        position: absolute;
+                                        height: 28px;
+                                        width: 33px;
+                                        border: 1px solid lightgray;
+                                        border-radius: 0 4px 4px 0;
+                                        margin-left: 149px;
+                                        margin-top: 3px;
+
+                                        i {
+                                            margin-top: 6px;
+                                            float: left;
+                                            margin: 5px 8px;
+                                            font-size: 16px;
+                                        }
+                                    }
+
+                                    .clearTxt {
+                                        color: #929292;
+                                        font-size: 18px;
+                                        left: 132px;
+                                        position: absolute;
+                                        top: 34px;
+                                    }
+                                }
+
+                                #criteriaOptionsTable {
+                                    height: 333px;
+                                    width: 187px;
+                                    position: relative;
+
+                                    #criteriaOptions {
+                                        .addCriteria > span {
+                                            &:hover {
+                                                color: green;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .dialog-right-pane {
+                                width: 401px;
+                                float: right;
+                                height: 394px;
+                                margin-top: -393px;
+
+                                #printDialogCriteriaContainer {
+                                    width: 100%;
+                                    height: 356px;
+
+                                    #criteriaHeader {
+                                        width: 100%;
+                                        text-align: center;
+                                        text-indent: 9px;
+                                        border-bottom: 1px solid lightgray;
+                                        height: 31px;
+
+                                        h1 {
+                                            font-weight: normal;
+                                            color: #4096ee;
+                                        }
+                                    }
+
+                                    #reportCriteriaTableContainer {
+                                        width: 400px;
+                                        position: relative;
+                                        height: 324px;
+
+                                        #criteriaItems {
+                                            max-height: 324px;
+                                        }
+
+                                        #reportCriteriaTable {
+                                            tr {
+                                                td {
+                                                    vertical-align: middle;
+                                                    width: 100%;
+
+                                                    &:first-child {
+                                                        font-weight: bold;
+                                                        width: 20%;
+                                                    }
+
+                                                    &:last-child {
+                                                        width: 5%;
+
+                                                        span {
+                                                            &:hover {
+                                                                color: red;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    #chkOption {
+                                                        color: #008600;
+                                                        font-size: 18px;
+                                                        text-indent: 7px;
+                                                    }
+                                                }
+
+                                                input {
+                                                    width: 100%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .dialogActions {
+                                    float: left;
+                                    border: medium none;
+                                    height: 36px;
+                                    width: 100%;
+                                    border-top: 1px solid lightgray;
+
+                                    #btnApply {
+                                        background: transparent;
+                                        float: right;
+                                        height: 36px;
+                                        line-height: 33px;
+                                        margin-left: 235px;
+                                        margin-top: 0px;
+                                        text-align: center;
+                                        text-indent: 0;
+                                        width: 80px;
+                                        border-left: 1px solid #F0F0F0;
+
+                                        &:hover {
+                                            .gray1;
+                                        }
+                                    }
+
+                                    #btnCancel {
+                                        background: transparent;
+                                        float: left;
+                                        height: 36px;
+                                        line-height: 33px;
+                                        margin-right: 2px;
+                                        margin-top: 0px;
+                                        text-align: center;
+                                        text-indent: 0;
+                                        width: 80px;
+                                        border-right: 1px solid #F0F0F0;
+
+                                        &:hover {
+                                            .gray1;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                #previewControls {
+                    background: none repeat scroll 0 0 #E8E8E8;
+                    margin-top: 0px;
+                    width: 730px;
+                    height: 32px;
+                    border-left: 1px solid lightgray;
+                    box-shadow: 0 4px 2px -2px #1A1A1A;
+
+                    .printBtn {
+                        border-left: 1px solid lightgray;
+                        height: 30px;
+                        line-height: 31px;
+                        padding-right: 10px;
+                        text-align: center;
+                        width: 32%;
+                        float: left;
+                        .gray1;
+
+                        a {
+                            padding-left: 5px;
+                        }
+
+                        &:hover {
+                            .selected;
+                        }
+                    }
+
+                    .previewBtn {
+                        border-right: 1px solid lightgray;
+                        height: 30px;
+                        line-height: 31px;
+                        padding-right: 10px;
+                        text-align: center;
+                        width: 32%;
+                        float: left;
+
+                        a {
+                            padding-left: 5px;
+                        }
+
+                        &:hover {
+                            .selected;
+                        }
+                    }
+
+                    .printDialogBtn {
+                        height: 30px;
+                        line-height: 31px;
+                        padding-right: 10px;
+                        text-align: center;
+                        width: 31%;
+                        float: left;
+                        .gray1;
+
+                        a {
+                            padding-left: 5px;
+                        }
+
+                        &:hover {
+                            .selected;
+                        }
+                    }
+
+                    #fullScreenBtn {
+                        width: 40px;
+                        float: right;
+                        text-align: center;
+                        background: transparent;
+                        font-size: 23px;
+                        height: 100%;
+                        color: black;
+                    }
+                }
+
+                #customizePrintContainer {
+                    background: none repeat scroll 0 0 #8D8D8D;
+                    height: 674px;
+                    margin-top: 0px;
+                    width: 727px;
+
+                    #print-area {
+                        background: none repeat scroll 0 0 transparent;
+                        border: 0 none;
+                        height: 670px;
+                        margin-left: 17px;
+                        text-align: center;
+                        width: 685px;
+                        margin-top: 10px;
+                    }
+
+                    #printFrame {
+                        height: 679px;
+                        width: 100%;
+                        position: absolute;
+                        left: 0px;
+                        top: -9px;
+                    }
+                }
+            }
+        }
+
+        .reports-FullScreen {
+            width: 100% !important;
+            min-width: 1024px;
+
+            #printDialog-div {
+                right: 248px!important;
+            }
+        }
+    }
+}
+//@import "tree/tree.less";
