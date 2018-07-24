@@ -42,8 +42,9 @@ define([
 
       this.$el.html(this._template({
         CurrencySymbol: Global.CurrencySymbol,
-        Total: total
-        //Total: format("#,##0.00", total)
+        Total: format("#,##0.00", total)
+       // Total: total
+        
       }));
     },
 
