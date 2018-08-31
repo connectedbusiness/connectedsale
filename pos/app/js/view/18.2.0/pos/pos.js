@@ -2203,47 +2203,47 @@ define([
           }
         }
 
-    var _saleItemTaxOverrideLookup = new LookupCriteriaModel();
-    var taxCode = window.sessionStorage.getItem('selected_taxcode');
-    if (taxCode ==null) taxCode  = Global.ShipTo.TaxCode;
+    // var _saleItemTaxOverrideLookup = new LookupCriteriaModel();
+    // var taxCode = window.sessionStorage.getItem('selected_taxcode');
+    // if (taxCode ==null) taxCode  = Global.ShipTo.TaxCode;
 
-      this.cartCollection.each(function(cartItem){
-          var itemCode  = cartItem.get('ItemCode');
-          var currentTaxCode = cartItem.get('TaxCode');
-          if (currentTaxCode == null || currentTaxCode == '') {
-              _saleItemTaxOverrideLookup.set({
-              IsTaxByLocation: Global.Preference.TaxByLocation,
-              TransactionType: Global.TransactionType,
-              ItemCode: itemCode,
-              ShipToCode: Global.ShipTo.ShipToCode,
-              TaxCode: taxCode,
-              WarehouseCode: Global.Preference.DefaultLocation,
-              IsUsePOSShippingMethod: Global.Preference.IsUsePOSShippingMethod,
-              POSShippingMethod: Global.Preference.POSShippingMethod
-          });
+    //   this.cartCollection.each(function(cartItem){
+    //       var itemCode  = cartItem.get('ItemCode');
+    //       var currentTaxCode = cartItem.get('TaxCode');
+    //       if (currentTaxCode == null || currentTaxCode == '') {
+    //           _saleItemTaxOverrideLookup.set({
+    //           IsTaxByLocation: Global.Preference.TaxByLocation,
+    //           TransactionType: Global.TransactionType,
+    //           ItemCode: itemCode,
+    //           ShipToCode: Global.ShipTo.ShipToCode,
+    //           TaxCode: taxCode,
+    //           WarehouseCode: Global.Preference.DefaultLocation,
+    //           IsUsePOSShippingMethod: Global.Preference.IsUsePOSShippingMethod,
+    //           POSShippingMethod: Global.Preference.POSShippingMethod
+    //       });
 
-            _saleItemTaxOverrideLookup.url = Global.ServiceUrl + Service.SOP + Method.SALEITEMTAXOVERRIDE; 
+    //         _saleItemTaxOverrideLookup.url = Global.ServiceUrl + Service.SOP + Method.SALEITEMTAXOVERRIDE; 
 
-            _saleItemTaxOverrideLookup.save(null, {
-              success: function(model, response, options) {
-                if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-                if (!response.ErrorMessage) {
-                     taxCode = response.Value;
-                      cartItem.set({
-                       TaxCode: taxCode,
-                       Tax: taxCode,
-                       SalesTaxCode: taxCode
-                      });
-                    }
-             }
-           });  //_saleItemTaxOverrideLookup
+    //         _saleItemTaxOverrideLookup.save(null, {
+    //           success: function(model, response, options) {
+    //             if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+    //             if (!response.ErrorMessage) {
+    //                  taxCode = response.Value;
+    //                   cartItem.set({
+    //                    TaxCode: taxCode,
+    //                    Tax: taxCode,
+    //                    SalesTaxCode: taxCode
+    //                   });
+    //                 }
+    //          }
+    //        });  //_saleItemTaxOverrideLookup
 
-          } //if (currentTaxCode == null || currentTaxCode == '') 
+    //       } //if (currentTaxCode == null || currentTaxCode == '') 
       
 
 
       
-    });
+    // });
 
 
 	  	this.cartCollection.each(function(cartItem){
@@ -2298,138 +2298,202 @@ define([
 		 @method GetSaleItemPriceTax
 		 **/
     GetSaleItemPriceTax: function(itemCode, customerCode, location, unitMeasure, taxByLocation, couponID, newItem, type) { //3
-       this.RemoveTermDiscountPayment();
-      var _self = this;
-      var _newItem = newItem;
-      var _itemLookup = new LookupCriteriaModel();
-      var _saleItemTaxOverrideLookup = new LookupCriteriaModel();
-      var _shipToCode;
-      var _itemLineNum = newItem.get("LineNum");
-      var _salesOrderDetailCollection = new SalesOrderDetailCollection();
-      var _salesOrderCollection = new SalesOrderCollection();
+      this.RemoveTermDiscountPayment();
+     var _self = this;
+     var _newItem = newItem;
+     var _itemLookup = new LookupCriteriaModel();
+     var _saleItemTaxOverrideLookup = new LookupCriteriaModel();
+     var _shipToCode;
+     var _itemLineNum = newItem.get("LineNum");
+     var _salesOrderDetailCollection = new SalesOrderDetailCollection();
+     var _salesOrderCollection = new SalesOrderCollection();
 
-     _salesOrderDetailCollection.add(this.cartCollection.models);
+    _salesOrderDetailCollection.add(this.cartCollection.models);
 
-      var salesOrderModel = new BaseModel();
-      var shippingDate = new Date();
-      shippingDate = this.JsonToAspDate(shippingDate),
-        salesOrderModel.set({
-          BillToCode: Global.CustomerCode,
-          POSWorkstationID: Global.POSWorkstationID,
-          POSClerkID: Global.Username,
-          IsFreightOverwrite: true,
-          IsOverrideSalesRep: Global.Preference.IsOverrideSalesRep,
-          IsTaxByLocation: Global.Preference.TaxByLocation,
-          WarehouseCode: Global.Preference.DefaultLocation,
-          PublicNotes: Global.PublicNote.PublicNotes,
-          ShippingDate: shippingDate,
-          WebSiteCode: Global.Preference.WebSiteCode,
-      SalesOrderCode: "[To be generated]",
-      SourceSalesOrderCode: "[To be generated]",
-      Type: "Sales Order",
-      SalesOrderDate: shippingDate
-        });
-      if (!Shared.IsNullOrWhiteSpace(this.customerPOModel)) {
-        salesOrderModel.set(self.customerPOModel.attributes);
-      }
-      _salesOrderCollection.add(salesOrderModel);
-      if (!couponID) couponID = "";
-      this.AssignTransactionShipTo(_salesOrderCollection.at(0));
+     var salesOrderModel = new BaseModel();
+     var shippingDate = new Date();
+     shippingDate = this.JsonToAspDate(shippingDate),
+       salesOrderModel.set({
+         BillToCode: Global.CustomerCode,
+         POSWorkstationID: Global.POSWorkstationID,
+         POSClerkID: Global.Username,
+         IsFreightOverwrite: true,
+         IsOverrideSalesRep: Global.Preference.IsOverrideSalesRep,
+         IsTaxByLocation: Global.Preference.TaxByLocation,
+         WarehouseCode: Global.Preference.DefaultLocation,
+         PublicNotes: Global.PublicNote.PublicNotes,
+         ShippingDate: shippingDate,
+         WebSiteCode: Global.Preference.WebSiteCode,
+     SalesOrderCode: "[To be generated]",
+     SourceSalesOrderCode: "[To be generated]",
+     Type: "Sales Order",
+     SalesOrderDate: shippingDate
+       });
+     if (!Shared.IsNullOrWhiteSpace(this.customerPOModel)) {
+       salesOrderModel.set(self.customerPOModel.attributes);
+     }
+     _salesOrderCollection.add(salesOrderModel);
+     if (!couponID) couponID = "";
+     this.AssignTransactionShipTo(_salesOrderCollection.at(0));
 
-      this.SetCouponToTransactionHeader(_salesOrderCollection.at(0), false);
-      var _transactionType = Global.TransactionType;
-      if (Global.TransactionType == Enum.TransactionType.UpdateInvoice) _transactionType = Enum.TransactionType.ResumeSale;
+     this.SetCouponToTransactionHeader(_salesOrderCollection.at(0), false);
+     var _transactionType = Global.TransactionType;
+     if (Global.TransactionType == Enum.TransactionType.UpdateInvoice) _transactionType = Enum.TransactionType.ResumeSale;
 
-      var taxCode = window.sessionStorage.getItem('selected_taxcode');
-      if (taxCode ==null) taxCode  = Global.ShipTo.TaxCode;
+     var taxCode = window.sessionStorage.getItem('selected_taxcode');
+     if (taxCode ==null) taxCode  = Global.ShipTo.TaxCode;
 
-      _saleItemTaxOverrideLookup.set({
-          IsTaxByLocation: taxByLocation,
-          TransactionType: _transactionType,
-          ItemCode: itemCode,
-          ShipToCode: Global.ShipTo.ShipToCode,
-          TaxCode: taxCode,
-          WarehouseCode: Global.Preference.DefaultLocation,
-          IsUsePOSShippingMethod: Global.Preference.IsUsePOSShippingMethod,
-          POSShippingMethod: Global.Preference.POSShippingMethod
-          });
+       _itemLookup.set({
+                   ItemCode: itemCode,
+                   CustomerCode: customerCode,
+                   WarehouseCode: location,
+                   UnitMeasureCode: unitMeasure,
+                   IsTaxByLocation: taxByLocation,
+                   CouponId: couponID,
+                   ShipToCode: Global.ShipTo.ShipToCode,
+                   WebsiteCode: Shared.GetWebsiteCode(),
+                   DiscountPercent: Global.ShipTo.DiscountPercent,
+                   DiscountType: Global.ShipTo.DiscountType,
+                   LineNum: _itemLineNum,
+                   TaxCode: taxCode,
+                   SalesOrderCode: "[To be generated]",
+                   ItemName: "None",
+                   IsUsePOSShippingMethod: Global.Preference.IsUsePOSShippingMethod,
+                   POSShippingMethod: Global.Preference.POSShippingMethod
+                 });
+                 _salesOrderDetailCollection.add(_itemLookup);
+                 //New Fields for Stock Verification
+                 _itemLookup.set({
+                   SimilarItemsOnCart: _self.GetSimilarItemsOnCart(_itemLookup, true, (!type ? true : false)),
+                   DocumentCode: _self.GetTransactionCodeForStockVerification(),
+                   TransactionType: _transactionType,
+                   ShowPhasedOutItems: _self.IsReturn()
+                 });
 
-        _saleItemTaxOverrideLookup.url = Global.ServiceUrl + Service.SOP + Method.SALEITEMTAXOVERRIDE;
+                 _itemLookup.url = Global.ServiceUrl + Service.SOP + Method.SALEITEMPRICETAX;
 
-          _saleItemTaxOverrideLookup.save(null, {
-          success: function(model, response, options) {
-            if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-            if (!response.ErrorMessage) {
-                 taxCode = response.Value;
+           /*    _itemLookup.set("SalesOrder", _salesOrderCollection.toJSON());
+               _itemLookup.set("SalesOrderDetail", _salesOrderDetailCollection.toJSON());*/
 
-                  _itemLookup.set({
-                    ItemCode: itemCode,
-                    CustomerCode: customerCode,
-                    WarehouseCode: location,
-                    UnitMeasureCode: unitMeasure,
-                    IsTaxByLocation: taxByLocation,
-                    CouponId: couponID,
-                    ShipToCode: Global.ShipTo.ShipToCode,
-                    WebsiteCode: Shared.GetWebsiteCode(),
-                    DiscountPercent: Global.ShipTo.DiscountPercent,
-                    DiscountType: Global.ShipTo.DiscountType,
-                    LineNum: _itemLineNum,
-                    TaxCode: taxCode,
-                    SalesOrderCode: "[To be generated]",
-                    ItemName: "None",
-                    IsUsePOSShippingMethod: Global.Preference.IsUsePOSShippingMethod,
-                    POSShippingMethod: Global.Preference.POSShippingMethod
-                  });
-                  _salesOrderDetailCollection.add(_itemLookup);
-                  //New Fields for Stock Verification
-                  _itemLookup.set({
-                    SimilarItemsOnCart: _self.GetSimilarItemsOnCart(_itemLookup, true, (!type ? true : false)),
-                    DocumentCode: _self.GetTransactionCodeForStockVerification(),
-                    TransactionType: _transactionType,
-                    ShowPhasedOutItems: _self.IsReturn()
-                  });
-
-                  _itemLookup.url = Global.ServiceUrl + Service.SOP + Method.SALEITEMPRICETAX;
-
-            /*    _itemLookup.set("SalesOrder", _salesOrderCollection.toJSON());
-                _itemLookup.set("SalesOrderDetail", _salesOrderDetailCollection.toJSON());*/
-
-                  _itemLookup.save(null, {
-                    success: function(model, response, options) {
-                      if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-                      if (!response.ErrorMessage) {
-                        switch (type) {
-                          case "UpdateUnitMeasure":
-                            _self.UpdateItemPriceOnUnitMeasure(model, itemCode, _itemLineNum);
+                 _itemLookup.save(null, {
+                   success: function(model, response, options) {
+                     if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+                     if (!response.ErrorMessage) {
+                       switch (type) {
+                         case "UpdateUnitMeasure":
+                           _self.UpdateItemPriceOnUnitMeasure(model, itemCode, _itemLineNum);
+                           break;
+                         case "UpdateWarehouseCode":
+                           _self.UpdateItemPriceOnWarehouseCode(model, itemCode, newItem);
                             break;
-                          case "UpdateWarehouseCode":
-                            _self.UpdateItemPriceOnWarehouseCode(model, itemCode, newItem);
-                             break;
-                             default:
+                            default:
 
-                            _self.itemPriceCollection.reset(response);
-                            _self.RemoveFromItemsOnQueue(_newItem);
-                        }
-                        _self.OnRequestCompleted(Method.SALEITEMPRICETAX);
-                      } else {
-                        if (type === "UpdateWarehouseCode") _self.revertWarehouseCode(_newItem);
-                        _self.RemoveFromItemsOnQueue(_newItem);
-                        navigator.notification.alert(model.get("ErrorMessage"), null, "Error", "OK");
-                      }
-                      _self.SearchOnFocus();
-                    },
-                    error: function(model, error, response) {
-                      if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-                      model.RequestError(error, "Error");
-                      _self.RemoveFromItemsOnQueue(_newItem);
-                    }
-                  });
+                           _self.itemPriceCollection.reset(response);
+                           _self.RemoveFromItemsOnQueue(_newItem);
+                       }
+                       _self.OnRequestCompleted(Method.SALEITEMPRICETAX);
+                     } else {
+                       if (type === "UpdateWarehouseCode") _self.revertWarehouseCode(_newItem);
+                       _self.RemoveFromItemsOnQueue(_newItem);
+                       navigator.notification.alert(model.get("ErrorMessage"), null, "Error", "OK");
+                     }
+                     _self.SearchOnFocus();
+                   },
+                   error: function(model, error, response) {
+                     if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+                     model.RequestError(error, "Error");
+                     _self.RemoveFromItemsOnQueue(_newItem);
+                   }
+                 });
 
-               }
-             }
 
-       });  //_saleItemTaxOverrideLookup
-    },
+     // _saleItemTaxOverrideLookup.set({
+     //     IsTaxByLocation: taxByLocation,
+     //     TransactionType: _transactionType,
+     //     ItemCode: itemCode,
+     //     ShipToCode: Global.ShipTo.ShipToCode,
+     //     TaxCode: taxCode,
+     //     WarehouseCode: Global.Preference.DefaultLocation,
+     //     IsUsePOSShippingMethod: Global.Preference.IsUsePOSShippingMethod,
+     //     POSShippingMethod: Global.Preference.POSShippingMethod
+     //     });
+
+     //   _saleItemTaxOverrideLookup.url = Global.ServiceUrl + Service.SOP + Method.SALEITEMTAXOVERRIDE;
+
+     //     _saleItemTaxOverrideLookup.save(null, {
+     //     success: function(model, response, options) {
+     //       if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+     //       if (!response.ErrorMessage) {
+     //            taxCode = response.Value;
+
+     //             _itemLookup.set({
+     //               ItemCode: itemCode,
+     //               CustomerCode: customerCode,
+     //               WarehouseCode: location,
+     //               UnitMeasureCode: unitMeasure,
+     //               IsTaxByLocation: taxByLocation,
+     //               CouponId: couponID,
+     //               ShipToCode: Global.ShipTo.ShipToCode,
+     //               WebsiteCode: Shared.GetWebsiteCode(),
+     //               DiscountPercent: Global.ShipTo.DiscountPercent,
+     //               DiscountType: Global.ShipTo.DiscountType,
+     //               LineNum: _itemLineNum,
+     //               TaxCode: taxCode,
+     //               SalesOrderCode: "[To be generated]",
+     //               ItemName: "None",
+     //               IsUsePOSShippingMethod: Global.Preference.IsUsePOSShippingMethod,
+     //               POSShippingMethod: Global.Preference.POSShippingMethod
+     //             });
+     //             _salesOrderDetailCollection.add(_itemLookup);
+     //             //New Fields for Stock Verification
+     //             _itemLookup.set({
+     //               SimilarItemsOnCart: _self.GetSimilarItemsOnCart(_itemLookup, true, (!type ? true : false)),
+     //               DocumentCode: _self.GetTransactionCodeForStockVerification(),
+     //               TransactionType: _transactionType,
+     //               ShowPhasedOutItems: _self.IsReturn()
+     //             });
+
+     //             _itemLookup.url = Global.ServiceUrl + Service.SOP + Method.SALEITEMPRICETAX;
+
+     //       /*    _itemLookup.set("SalesOrder", _salesOrderCollection.toJSON());
+     //           _itemLookup.set("SalesOrderDetail", _salesOrderDetailCollection.toJSON());*/
+
+     //             _itemLookup.save(null, {
+     //               success: function(model, response, options) {
+     //                 if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+     //                 if (!response.ErrorMessage) {
+     //                   switch (type) {
+     //                     case "UpdateUnitMeasure":
+     //                       _self.UpdateItemPriceOnUnitMeasure(model, itemCode, _itemLineNum);
+     //                       break;
+     //                     case "UpdateWarehouseCode":
+     //                       _self.UpdateItemPriceOnWarehouseCode(model, itemCode, newItem);
+     //                        break;
+     //                        default:
+
+     //                       _self.itemPriceCollection.reset(response);
+     //                       _self.RemoveFromItemsOnQueue(_newItem);
+     //                   }
+     //                   _self.OnRequestCompleted(Method.SALEITEMPRICETAX);
+     //                 } else {
+     //                   if (type === "UpdateWarehouseCode") _self.revertWarehouseCode(_newItem);
+     //                   _self.RemoveFromItemsOnQueue(_newItem);
+     //                   navigator.notification.alert(model.get("ErrorMessage"), null, "Error", "OK");
+     //                 }
+     //                 _self.SearchOnFocus();
+     //               },
+     //               error: function(model, error, response) {
+     //                 if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+     //                 model.RequestError(error, "Error");
+     //                 _self.RemoveFromItemsOnQueue(_newItem);
+     //               }
+     //             });
+
+     //          }
+     //        }
+
+     //  });  //_saleItemTaxOverrideLookup
+   },
 
     revertWarehouseCode: function(model) {
       model.revertWarehouseCode();
@@ -3060,11 +3124,11 @@ define([
 
         this.AddItemToCart(_item);
 
-		var freeitems = new BaseModel(_item);
+		// var freeitems = new BaseModel(_item);
 
-		if (Global.TransactionType == 'Sale' || Global.TransactionType == 'Order' || Global.TransactionType == 'Update Order' || Global.TransactionType == 'Quote' || Global.TransactionType == 'Update Quote' || Global.TransactionType == 'Convert Quote'){
-			self.AddFreeItems(freeitems,false);
-		}
+		// if (Global.TransactionType == 'Sale' || Global.TransactionType == 'Order' || Global.TransactionType == 'Update Order' || Global.TransactionType == 'Quote' || Global.TransactionType == 'Update Quote' || Global.TransactionType == 'Convert Quote'){
+		// 	self.AddFreeItems(freeitems,false);
+		// }
 
         Global.HasChanges = true;
       }, this);
@@ -3646,9 +3710,9 @@ define([
 		_itemsToRemove.each(function(detail){
 			self.cartCollection.remove(detail);
 		});
-	  if (Global.TransactionType == 'Sale' || Global.TransactionType == 'Order' || Global.TransactionType == 'Update Order' || Global.TransactionType == 'Convert Order' || Global.TransactionType == 'Quote' || Global.TransactionType == 'Update Quote' || Global.TransactionType == 'Convert Quote'){
-	  	this.AddFreeItems(item,false);
-	  }
+	  // if (Global.TransactionType == 'Sale' || Global.TransactionType == 'Order' || Global.TransactionType == 'Update Order' || Global.TransactionType == 'Convert Order' || Global.TransactionType == 'Quote' || Global.TransactionType == 'Update Quote' || Global.TransactionType == 'Convert Quote'){
+	  // 	this.AddFreeItems(item,false);
+	  // }
 
     },
 
