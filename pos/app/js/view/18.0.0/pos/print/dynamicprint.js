@@ -137,7 +137,7 @@ define([
       Global.PrintOptions.Reprint = false;
       Global.PrintPluginLoaded = false;
 
-      Shared.Printer.DeleteReport(this.pageSettings.Pages, this.transactionCode);
+     // Shared.Printer.DeleteReport(this.pageSettings.Pages, this.transactionCode);
 
 
       if (this.IsReceiptPrinter)

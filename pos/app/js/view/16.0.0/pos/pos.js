@@ -5780,12 +5780,12 @@ define([
             if (Global.Preference.AutoSignOutUser) this.SignOut();
           }
         }
-		if(!Global.Preference.AutoSignOutUser){
-			this.ClearTransaction();
-		} else {
-			this.ClearTransactionWithoutInitalization();
-			this.StopSignalR();
-		}
+		// if(!Global.Preference.AutoSignOutUser){
+		// 	this.ClearTransaction();
+		// } else {
+		// 	this.ClearTransactionWithoutInitalization();
+		// 	this.StopSignalR();
+		// }
       }
     },
 
@@ -10377,6 +10377,14 @@ define([
       if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
 
       if (response.IsPrintPickNote) Shared.ShowOverlayIfTransactionsViewIsVisible();
+
+      if(!Global.Preference.AutoSignOutUser){
+        this.ClearTransaction();
+      } else {
+        this.ClearTransactionWithoutInitalization();
+        this.StopSignalR();
+      }
+      
     },
 
     StoreLastPrintingParameters: function(model) {

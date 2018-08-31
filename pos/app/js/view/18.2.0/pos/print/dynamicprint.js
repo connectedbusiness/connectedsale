@@ -137,8 +137,10 @@ define([
       Global.PrintOptions.Reprint = false;
       Global.PrintPluginLoaded = false;
 
-      Shared.Printer.DeleteReport(this.pageSettings.Pages, this.transactionCode);
-
+     // Shared.Printer.DeleteReport(this.pageSettings.Pages, this.transactionCode);
+     Shared.LockTransactionScreen(false);
+     Shared.ShowOverlayIfTransactionsViewIsVisible();
+     
 
       if (this.IsReceiptPrinter)
         if (!Global.isBrowserMode) this.ClosePrinter();
