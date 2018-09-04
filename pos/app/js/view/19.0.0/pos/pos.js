@@ -3080,14 +3080,16 @@ define([
           FreeStock: newItem.get("FreeStock"),
           IsNewLine: (newItem.get("IsNewLine")) ? newItem.get("IsNewLine") : true,
           AutoGenerate: newItem.get("AutoGenerate"),
-		  PromoDocumentCode: "",
-		  PromoID: "",
-		  RuleID: "",
-		  BuyLineNum: _lineNum,
-		  IsPromoItem: false,
-		  QuantityDisplayed:  (newItem.get("Quantity") === 0) ? 1 : newItem.get("Quantity")
-          //SalesTaxCode : newItem.get("SalesTaxCode"),
-          //Tax : newItem.get("Tax")
+          PromoDocumentCode: "",
+          PromoID: "",
+          RuleID: "",
+          BuyLineNum: _lineNum,
+          IsPromoItem: false,
+          QuantityDisplayed:  (newItem.get("Quantity") === 0) ? 1 : newItem.get("Quantity"),
+          //Start added By Mark: Fix tax issue.
+          SalesTaxCode : newItem.get("SalesTaxCode"),
+          Tax : newItem.get("TaxCode")
+          //End added By Mark: Fix tax issue.
         };
         //var _isLoadByUpcCode = (!Shared.IsNullOrWhiteSpace(newItem.get("IsLoadedByUpc")));
         var _isLoadByUpcCode = newItem.get("IsLoadedByUpc"),
