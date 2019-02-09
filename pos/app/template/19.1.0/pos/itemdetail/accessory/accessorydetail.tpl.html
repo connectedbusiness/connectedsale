@@ -1,0 +1,11 @@
+<%
+    var categoryDesc = (CategoryDescription || CategoryCode);
+    if(categoryDesc) if(categoryDesc.length > 40) categoryDesc = categoryDesc.substring(0,40) + "...";
+%>
+<ul id="list-detail-content" data-role="listview" data-inset="true">
+		<li><span class="list-detail-left" style="width: 20% !important">Category</span><span class="list-detail-right category-detail" style="max-width: 80%; width: 80% !important; white-space: nowrap; overflow: hidden"><%= categoryDesc %></span></li>
+		<li id="li-onhand"><a><span class="list-detail-left">On Hand</span><span class="list-detail-right"><%= UnitsInStock %></span></a></li>
+		<li><span class="list-detail-left">UM</span><span class="list-detail-right"><%= UnitMeasureCode %></span></li>
+		<li class="li-wholesalePrice"><span class="list-detail-left">Wholesale Price</span><span class="list-detail-right"><%= CurrencySymbol %><%= WholesalePrice %></span></li>
+		<li><span class="list-detail-left">Retail Price</span><span class="list-detail-right"><%= CurrencySymbol %>&nbsp;<%= format("#,##0.00", RetailPrice.toFixed(2)) %></span></li>
+</ul>

@@ -1,0 +1,95 @@
+
+<div id="customerForm" class = "interprise-popover-container cbForm connectedSale14">
+	<div id="customerForm-header" class="interprise-popover-header popover-header">
+		<div class="popover-left">
+			<a id="customer-cancel-btn" class="popover-btn">Cancel</a>
+		</div>
+		<h1><%= FormTitle %></h1>
+		<div class="popover-right">
+			<a id="customer-save-btn" class="popover-btn right-popover-btn">Save</a>
+		</div>
+	</div>
+	<div id="customerForm-content" class="interprise-popover-content" data-role="fieldcontain">
+		<div id="customerName-div">
+			<label for="customer-name">Customer Name</label>
+			<div>
+				<input type="text" name="customer-name" id="customer-name" placeholder="John Doe" required="required" autocapitalize="words"/>
+				<span id="chkloyalty-points" class="icon-check-empty custom-check"> 
+				</span>
+				<label>Track Loyalty Points</label>
+			</div>
+		</div>
+		
+		<label for="customer-PostalCode"> Zip Code</label>
+		<input type="text" name="customer-PostalCode" id="customer-PostalCode" placeholder="90210"  required="required" pattern="[0-9]*"/>
+		<label for="customer-Address">Address</label>
+		<textarea name="customer-Address" id="customer-Address" placeholder="Address..." required="required" autocapitalize="words"></textarea>
+		<div data-role="fieldcontain">
+			<label for="customer-City">City | State</label>			
+				<div id = "customer-citystate">
+					<div class = "customer-city-div"> <select id="customer-City" class ="ui-select"><option>City..</option></select></div>		
+					<div class = "customer-state-div"> <input type="text" id="customer-State" name="customer-State" placeholder="State..." required="required" /></div>
+				</div>				
+		</div>
+		<div data-role="fieldcontain">
+			<label for="customer-country"> Country</label>			
+			<div id="div-country">
+				<select id="customer-country" class="ui-select"><option>Country</option></select>
+			</div>			
+		</div>
+		<label for="customer-Phone"> Phone</label>
+		<input type="tel" name="customer-Phone" id="customer-Phone" placeholder="Phone Number"  required="required"/>
+		<label for="customer-Email"> Email</label>
+		<input type="email" name="customer-Email" id="customer-Email" placeholder="johndoe@johndoe.com" required="required" />
+		<label for="customer-Site"> Web Site</label>
+		<input type="url" name="customer-Site" id="customer-Site" placeholder="www.johndoe.com" required="required" />
+        
+
+		<div data-role="fieldcontain" id="customer-ClassTemplate-container">		
+			<label for="cmb-customer-classtemplate">Customer Class</label>
+			<div id="div-cmb-customer-classtemplate" class = "cmb-classtemplate" >
+				<select id="cmb-customer-classtemplate" class="ui-select"><option>No Class Template</option></select>
+			</div>
+		</div>
+
+		<div data-role="fieldcontain" id="shipto-ClassTemplate-container">		
+			<label for="cmb-shipto-classtemplate">Ship To Class</label>
+			<div id="div-cmb-shipto-classtemplate" class = "cmb-classtemplate" >
+				<select id="cmb-shipto-classtemplate" class="ui-select"><option>No Class Template</option></select>
+			</div>
+		</div>
+        
+        <!--		
+		<div data-role="fieldcontain" id="customer-CustomerType-container">		
+			<label for="cmb-customer-customertype">Customer Type</label>
+			<div id="div-cmb-customer-customertype" class = "cmb-customertype" >
+				<select id="cmb-customer-customertype" class="ui-select">
+                    <option value="Retail">Retail</option>
+                    <option value="Wholesale">Wholesale</option>
+                </select>
+			</div>
+		</div>
+
+		<div data-role="fieldcontain" id="customer-ClassTemplate-container">		
+			<label for="cmb-customer-classtemplate">Class Template</label>
+			<div id="div-cmb-customer-classtemplate" class = "cmb-classtemplate" >
+				<select id="cmb-customer-classtemplate" class="ui-select"><option>No Class Template</option></select>
+			</div>
+		</div>
+		
+		<div data-role="fieldcontain" id="customer-PaymentTerm-container">		
+			<label for="customer-PaymentTerm"> Payment Term</label>
+			<div id="div-cmb-customer-classtemplate" class = "cmb-classtemplate" >
+				<select id="customer-PaymentTerm" class="ui-select"><option>No Payment Term</option></select>
+			</div>
+		</div>
+		
+		<div data-role="fieldcontain" id="customer-TaxCode-container">		
+			<label for="customer-TaxCode"> Tax Code</label>
+			<div id="div-cmb-customer-classtemplate" class = "cmb-classtemplate" >
+				<select id="customer-TaxCode" class="ui-select"><option>Sales No Tax</option></select>
+			</div>
+		</div>
+		-->
+	</div>
+</div>

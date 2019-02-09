@@ -1,0 +1,21 @@
+<!-- <h4 class="label" id="label-balance">Balance</h4>
+<h4 id="balance" class="value"><%= Balance.toFixed(2) %>&nbsp;&nbsp;</h4>   
+<br /> -->
+<div data-role="fieldcontain">
+    <label for="checkNumber">Check No.</label>
+    <input type="text" id="checkNumber" value=""  />
+</div>		
+<!-- <div data-role="fieldcontain">
+    <label for="amountPaid" id="label-amountPaid">Amount</label>
+    <input type="number" id="amountPaid" value="<%= Balance.toFixed(2) %>" class="input-number" />
+</div> -->
+<div class="signature-container" style="display: none">
+	<label>Signature</label>
+	<div class="signature" id="signature"></div>
+	<div class="signatureDisplay" id="signatureDisplay" style="display: none"></div>
+	<br />	
+	<div style="height:29px;"> 
+		<a data-role="button" data-theme="r" id="btn-clear-signature" class="btn-clear-signature left-btn">Clear Signature</a>
+		<a data-role="button" data-theme="b" id="btn-ask-to-sign" class="btn-ask-to-sign right-btn">Allow User To Sign</a>
+	</div>
+</div>

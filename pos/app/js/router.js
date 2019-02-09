@@ -108,6 +108,17 @@ define([
 			Customers: 'view/19.0.0/customers/customers',
 			Settings: 'view/19.0.0/settings/settings',
 			Reports: 'view/19.0.0/reports/reports'
+		},
+		{
+			POS: 'view/19.1.0/pos/pos',
+			Kiosk: 'view/19.1.0/kiosk/kiosk',
+			KioskCustomer: 'view/19.1.0/kiosk/customer/kioskcustomer',
+			KioskPayment: 'view/19.1.0/kiosk/payment/kioskpayment',
+			SecondaryDisplay: 'view/19.1.0/secondarydisplay/secondarydisplay',
+			Products: 'view/19.1.0/products/products',
+			Customers: 'view/19.1.0/customers/customers',
+			Settings: 'view/19.1.0/settings/settings',
+			Reports: 'view/19.1.0/reports/reports'
 		}
 
         
@@ -200,6 +211,9 @@ define([
 					_index = 4;
 				case "19.0" :
 					_index = 5;
+					break;
+				case "19.1" :
+					_index = 6;
 					break;
 			}
 

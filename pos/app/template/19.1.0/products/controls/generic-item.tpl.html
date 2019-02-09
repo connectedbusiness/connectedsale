@@ -1,0 +1,28 @@
+<% 
+    var _header = "";
+    var _item = "";
+    var _colored = "";
+    var _selected = "";
+    var _showExtDisplay = 'style="display:none;"';
+
+    if(IsHeader){
+        _header = " header ";
+    }else{
+        if(IsItem) _item = " item ";
+        if(IsColored) _colored = " colored ";
+    }
+    
+    if(IsSelected) _selected = " selectedItem ";
+
+    if(!_header && ExtDisplayField) _showExtDisplay = 'style="display:block;"';
+
+%>
+
+<li class="<%= _header %><%= _item %><%= _colored %><%= _selected %>" id="<%= ViewID %>">
+    <div id="displayText" class="displayText">
+        <%= navigator.escapedhtml(DisplayText) %>
+    </div>
+    <div id="extDisplayText" class="extDisplayText" <%= _showExtDisplay %> >
+        <%= navigator.escapedhtml(ExtDisplayField) %>
+    </div>
+</li>
