@@ -1,0 +1,73 @@
+
+<div class="general-details report" id="general-details">
+    <div>
+        <table class="table table-customer-report">
+            <thead>
+                <tr>
+                    <th>Transaction</th>
+                    <th>Report</th>
+                    <th>No. of copies</th>
+                    <th>Printer</th>
+                    <th>Auto Print</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="sale-row" data-row-transaction="InvoiceReportCode">
+                    <td class="transaction"><span id="sale-transaction">Sale Receipt</span></td>
+                    <td class="report-code"><select id="sale-report-code" class="cs-input"></select></td>
+                    <td class="copies"><input id="sale-copies" type="number" class="cs-input"></input></td>
+                    <td class="printer"><select id="sale-printer" class="cs-input"></select></td>
+                    <td class="autoprint">
+                        <span id="sale-autoprint" class="custom-check icon-check-empty">
+                            <input type="checkbox"></select>
+                        </span>
+                    </td>
+                </tr>
+                <tr id="order-row" data-row-transaction="OrderReportCode">
+                    <td class="transaction"><span id="order-transaction">Order Receipt</span></td>
+                    <td class="report-code"><select id="order-report-code" class="cs-input"></select></td>
+                    <td class="copies"><input id="order-copies" type="number" class="cs-input"></input></td>
+                    <td class="printer"><select id="order-printer" class="cs-input"></select></td>
+                    <td class="autoprint">
+                        <span id="order-autoprint" class="custom-check icon-check-empty">
+                            <input type="checkbox"></select>
+                        </span>
+                    </td>
+                </tr>
+                <tr id="quote-row" data-row-transaction="QuoteReportCode">
+                    <td class="transaction"><span id="quote-transaction">Quote Receipt</span></td>
+                    <td class="report-code"><select id="quote-report-code" class="cs-input"></select></td>
+                    <td class="copies"><input id="quote-copies" type="number" class="cs-input"></input></td>
+                    <td class="printer"><select id="quote-printer" class="cs-input"></select></td>
+                    <td class="autoprint">
+                        <span id="quote-autoprint" class="custom-check icon-check-empty">
+                            <input type="checkbox"></select>
+                        </span>
+                    </td>
+                </tr>
+                <tr id="return-row" data-row-transaction="ReturnReportCode">
+                    <td class="transaction"><span id="return-transaction">Return Receipt</span></td>
+                    <td class="report-code"><select id="return-report-code" class="cs-input"></select></td>
+                    <td class="copies"><input id="return-copies" type="number" class="cs-input"></input></td>
+                    <td class="printer"><select id="return-printer" class="cs-input"></select></td>
+                    <td class="autoprint">
+                        <span id="return-autoprint" class="custom-check icon-check-empty">
+                            <input type="checkbox"></select>
+                        </span>
+                    </td>
+                </tr>
+                <tr id="credit-card-row" data-row-transaction="CreditCardReportCode">
+                    <td class="transaction"><span id="credit-card-transaction">Credit Card Receipt</span></td>
+                    <td class="report-code"><select id="credit-card-report-code" class="cs-input"></select></td>
+                    <td class="copies"><input id="credit-card-copies" type="number" class="cs-input"></input></td>
+                    <td class="printer"><select id="credit-card-printer" class="cs-input"></select></td>
+                    <td class="autoprint">
+                        <span id="credit-card-autoprint" class="custom-check icon-check-empty">
+                            <input type="checkbox"></select>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
