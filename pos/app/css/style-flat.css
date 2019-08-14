@@ -1701,7 +1701,7 @@ p#dashboard-version {
                     height: 439px;
                     padding-left: 10px;
                     position: absolute;
-                    right: 30.5%;
+                    right: 395px;
                     width: 36px;
                     z-index: 200
                 }
@@ -15122,10 +15122,7 @@ a#add-customer-btn {
                 left: 0
             }
 
-@media only screen and (min-width: 1100px) and (min-height: 900px) {
-    #itemContainer {
-        overflow-y:auto;
-    }
+@media only screen and (min-width: 1100px) {
     .item-list {
         height: 210px;
         width: 150px;
