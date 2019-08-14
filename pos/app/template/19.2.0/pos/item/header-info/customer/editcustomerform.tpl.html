@@ -1,0 +1,44 @@
+<div id="editcustomerForm" class="interprise-popover-container cbForm">
+	<div id="editcustomerForm-header" class="interprise-popover-header">
+			<div class="popover-left" >
+				<a id="editcustomer-cancel-btn" class="popover-btn">Cancel</a>
+			</div>			
+			<h1><%= FormTitle %></h1>			
+			<div class="popover-right">
+				<a class="popover-btn" id="editcustomer-save-btn">Save</a>
+			</div>
+	</div>
+	<div id="editcustomerForm-content" class="interprise-popover-content" data-role="fieldcontain">
+		<label for="editcustomer-name"><%= Name %></label>
+		<input type="text" name="editcustomer-name" id="editcustomer-name" placeholder="John Doe" required="required" autofocus="autofocus" autocapitalize="words"/>
+		<label for="editcustomer-PostalCode"> Zip Code</label>
+		<input type="text" name="editcustomer-PostalCode" id="editcustomer-PostalCode" placeholder="90210"  required="required" pattern="[0-9]*"/>
+		<label for="editcustomer-Address">Address</label>
+		<textarea name="editcustomer-Address" id="editcustomer-Address" placeholder="Address..." required="required" autocapitalize="words"></textarea>
+		<div data-role="fieldcontain">
+			<label for="editcustomer-citystate">City | State</label>
+			<div id="editcustomer-citystate">
+					<div class = "customer-city-div"><select id="editcustomer-City" class ="ui-select"><option>City..</option></select></div>		
+					<div class = "customer-state-div"><input type="text" id="editcustomer-State" name="editcustomer-State" placeholder="State..." required="required" /></div>
+		    </div>
+		</div>		
+		<div data-role="fieldcontain">
+			<label for="editcustomer-country"> Country</label>			
+			<div id="div-country">
+				<select id="editcustomer-country" class="ui-select"><option>Country</option></select>
+			</div>			
+		</div>
+		<label for="editcustomer-Phone"> Phone</label>
+		<input type="tel" name="editcustomer-Phone" id="editcustomer-Phone" placeholder="Phone Number"  required="required"/>
+		<label for="editcustomer-Email"> Email</label>
+		<input type="email" name="editcustomer-Email" id="editcustomer-Email" placeholder="johndoe@johndoe.com" required="required" />
+		<label for="editcustomer-Site"> Web Site</label>
+		<input type="url" name="editcustomer-Site" id="editcustomer-Site" placeholder="www.johndoe.com" required="required" />
+		<label for="editcustomer-ClassTemplate"> Class Template</label>
+		<input type="text" name="editcustomer-ClassTemplate" id="editcustomer-ClassTemplate" placeholder="Default Retail Customer Class Template..." readonly="readonly" required="required" />
+		<label for="editcustomer-PaymentTerm"> Payment Term</label>
+		<input type="text" name="editcustomer-PaymentTerm" id="editcustomer-PaymentTerm" placeholder="Terms 30 Days from Document Date" readonly="readonly" required="required" />
+		<label for="editcustomer-TaxCode"> Tax Code</label>
+		<input type="text" name="editcustomer-TaxCode" id="editcustomer-TaxCode" placeholder="Sales No Tax" readonly="readonly" required="required"/>
+	</div>
+</div>
