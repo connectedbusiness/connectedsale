@@ -1,6 +1,6 @@
 {
   "name": "ConnectedSale",
-  "version": "0.1.0",
+  "version": "20.0.0",
   "description": "ConnectedSale",
   "main": "main.js",
   "scripts": {
@@ -17,7 +17,7 @@
   "keywords": [
     "ConnectedSale"
   ],
-  "author": "Alexis A. Banaag Jr.",
+  "author": "Connected Business",
   "license": "MIT",
   "dependencies": {
     "electron": "^1.7.8",

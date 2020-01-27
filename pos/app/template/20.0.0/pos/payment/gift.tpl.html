@@ -1,0 +1,39 @@
+<div class="giftDetails">
+    <div data-role="fieldcontain">
+        <label class="gift-label">Serial Number</label>
+        <input id="giftSerial" type="password"  value="" />
+    </div>
+
+    <div data-role="fieldcontain">
+        <label class="gift-label">Original Value</label>
+        <input id="giftTotal" type="text" readonly="readonly" value="0" class="input-number" />
+    </div>
+    <div data-role="fieldcontain">
+        <label  class="gift-label">Available</label>
+        <input id="giftAvailable" type="text" readonly="readonly" value="0" class="input-number" />
+    </div>
+     <div data-role="fieldcontain" style="display:none;" id="giftApply-container">
+        <label  class="gift-label">Apply</label>
+        <input id="giftApply" type="text" value="0" class="input-number" />
+    </div>  
+</div>
+ 
+<div data-role="fieldcontain" class="container-headerPIN" style="margin: 10px 5px 10px;"> <label class="gift-label">Activate Gift Card</label>  <br />  </div>
+
+<div class="giftPINDetails">
+    <div data-role="fieldcontain" class="container-giftEPIN">
+        <label class="gift-label">Enter PIN</label>
+        <input id="giftEPIN" type="password"  value="" maxlength="10"/>
+    </div>
+    <div data-role="fieldcontain" class="container-giftCPIN">
+        <label class="gift-label">Confirm PIN</label>
+        <input id="giftCPIN" type="password" value="" maxlength="10"/>
+    </div>
+    <div class="" style="margin-top: 36px; position: absolute; width: 367px;">
+        <a class="btnVerify" style="float:right"  id="btnVerify" data-role="button" data-inline="true"><i class="icon-ok"></i>&nbsp;OK</a>
+        <a class="ask-pin-btn btnVerify" style="float:right; min-width: 135px;"  id="ask-pin-btn" data-role="button" data-inline="true">&nbsp;Allow User To Enter Pin</a>
+    </div>    
+</div>
+
+
+<div class="giftMessage"><i style="color:black">Please Enter Serial Number</i></div>
