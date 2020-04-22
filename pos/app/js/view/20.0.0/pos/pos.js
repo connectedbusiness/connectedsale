@@ -6238,6 +6238,21 @@ define([
         Global.PaymentType = "";
         Global.SelectedPaymentType = "";
 
+       if (this.paymentCollection) {
+              var self = this;
+              if (this.paymentCollection.length > 0) {
+                this.paymentCollection.each(function(model) {
+                  var _sign = model.get("SignatureSVG");
+                  if (_sign) self.DeleteSavedSignature(_sign);
+                }, this)
+              }
+              this.paymentCollection.reset();
+            }
+
+        if (this.refundCollection) {
+              this.refundCollection.reset();
+            }
+
         if (Global.TransactionType == Enum.TransactionType.Return) this.PrintAndEmailTransaction(response.Invoices[0].InvoiceCode);
 
         if (promptToPrint) {
@@ -6799,16 +6814,16 @@ define([
         this.onQueueModel = null;
       }
 
-      if (this.paymentCollection) {
-        var self = this;
-        if (this.paymentCollection.length > 0) {
-          this.paymentCollection.each(function(model) {
-            var _sign = model.get("SignatureSVG");
-            if (_sign) self.DeleteSavedSignature(_sign);
-          }, this)
-        }
-        this.paymentCollection.reset();
-      }
+      // if (this.paymentCollection) {
+      //   var self = this;
+      //   if (this.paymentCollection.length > 0) {
+      //     this.paymentCollection.each(function(model) {
+      //       var _sign = model.get("SignatureSVG");
+      //       if (_sign) self.DeleteSavedSignature(_sign);
+      //     }, this)
+      //   }
+      //   this.paymentCollection.reset();
+      // }
 
       if (this.couponView) {
         this.couponView.ClearCoupon();
@@ -6819,9 +6834,9 @@ define([
         Global.Coupon = null;
       }
 
-      if (this.refundCollection) {
-        this.refundCollection.reset();
-      }
+      // if (this.refundCollection) {
+      //   this.refundCollection.reset();
+      // }
 
       if (this.serializeLotCollection) {
         this.serializeLotCollection.reset();
@@ -6911,16 +6926,16 @@ define([
         this.onQueueModel = null;
       }
 
-      if (this.paymentCollection) {
-        var self = this;
-        if (this.paymentCollection.length > 0) {
-          this.paymentCollection.each(function(model) {
-            var _sign = model.get("SignatureSVG");
-            if (_sign) self.DeleteSavedSignature(_sign);
-          }, this)
-        }
-        this.paymentCollection.reset();
-      }
+      // if (this.paymentCollection) {
+      //   var self = this;
+      //   if (this.paymentCollection.length > 0) {
+      //     this.paymentCollection.each(function(model) {
+      //       var _sign = model.get("SignatureSVG");
+      //       if (_sign) self.DeleteSavedSignature(_sign);
+      //     }, this)
+      //   }
+      //   this.paymentCollection.reset();
+      // }
 
       if (this.couponView) {
         this.couponView.ClearCoupon();
@@ -6931,9 +6946,9 @@ define([
         Global.Coupon = null;
       }
 
-      if (this.refundCollection) {
-        this.refundCollection.reset();
-      }
+      // if (this.refundCollection) {
+      //   this.refundCollection.reset();
+      // }
 
       if (this.serializeLotCollection) {
         this.serializeLotCollection.reset();
@@ -11625,6 +11640,22 @@ define([
                           status.TotalCheckSales = status.TotalCheckSales + checkPayment;
                           break;
                       }
+                    }
+                    else {
+                      if (checkPayment == 0)  {
+                           switch (Global.TransactionType) {
+                        
+                          case Enum.TransactionType.Return:
+                           var returnAmount = 0;
+                           if (checkPayment == 0) returnAmount = this.GetTransactionBalance();
+                            else returnAmount = checkPayment;
+                            status.TotalCheckReturns = status.TotalCheckReturns + returnAmount;
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+            
                     }
                     break ;
         }
