@@ -258,7 +258,10 @@ define([
 				case "20.0" :
 					_index = 8;
 					break;
-			}
+				case "20.1" :
+					_index = 9;
+					break;
+				}
 
 			var _self = this;
 			switch (type) {
