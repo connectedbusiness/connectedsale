@@ -81,11 +81,9 @@ namespace Interprise.Presentation.POS
 
         private void Host_Load(object sender, EventArgs e)
         {
-            this.Text = string.Format("{0} {1}.{2}.{3}", 
-                this.Text, 
-                System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.Major.ToString(),
-                System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.Minor.ToString(),
-                System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.Build.ToString());
+            this.Text = string.Format("{0} {1}", 
+                this.Text,
+                Interprise.Licensing.Base.Licensing.LicenseManager.Instance.GetProductVersion());
         }       
     }
 }

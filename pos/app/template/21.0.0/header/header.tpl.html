@@ -1,0 +1,45 @@
+<%  
+var hiddenStyle = '';
+if(type == "Kiosk") hiddenStyle = 'style="visibility:hidden !important;"'; 
+%>
+<div class="main-toolbar-header cs14-0-3">
+    <div class="toolbar-header-left">
+    	<h1 style="width: 20%">ConnectedSale&nbsp;<span id="dash">-</span></h1>
+        <div class="header-selector">
+            <h2 id="lbl-customerName"><%= Customer %></h2>
+            <a id="customer-selector">
+            <!-- <img src="img/arrow-down@2x.png" width="24" height="24"/> -->
+            <i class="icon-chevron-down" style="font-size: 20px;"></i>
+            </a>
+        </div>
+        <h2 id="lbl-salesrepName"><%= Salesrep %></h2>
+    </div>
+    <div class="toolbar-header-btn">
+    	<a id="transaction-selector" class="arrow-down" <%= hiddenStyle %>>
+            <!-- <img src="img/arrow-down@2x.png" width="24" height="24" <%= hiddenStyle %>/> -->
+            <i class="icon-chevron-down" style="font-size: 20px;"></i>
+        </a>
+        <a id="notification-btn">
+            <div class="">
+                <i class="icon-globe"></i>
+            </div>
+            <b></b>
+            <!-- <div class="notif-tip">You have <b></b> Pickup Order(s)!</div> -->
+        </a>
+
+    	<a id="action-btn">
+            <!-- <img src="img/more-btn.png" width="24" height="24"/> -->
+            <i class="icon-list" style="font-size: 23px;position: relative;top: 3px;"></i>
+        </a>
+    </div>
+    <div class="toolbar-header-right" <%= hiddenStyle %>>
+        <div class="header-splitrateinfo">    
+    	   <h2 id="splitrateName"><%= CommissionPercent %>%</h2>
+        </div>
+    	<h1>Transaction -</h1>
+        <div class="header-transactioninfo">
+            <h2 id="transaction-text"><%= type %></h2>
+            <span class="label-transactioncode" style="display: none;"></span>
+        </div>
+    </div>
+</div>

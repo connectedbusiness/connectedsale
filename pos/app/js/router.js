@@ -144,7 +144,6 @@ define([
 			Settings: 'view/20.0.0/settings/settings',
 			Reports: 'view/20.0.0/reports/reports'
 		},
-
 		{
 			POS: 'view/20.1.0/pos/pos',
 			Kiosk: 'view/20.1.0/kiosk/kiosk',
@@ -155,9 +154,18 @@ define([
 			Customers: 'view/20.1.0/customers/customers',
 			Settings: 'view/20.1.0/settings/settings',
 			Reports: 'view/20.1.0/reports/reports'
+		},
+		{
+			POS: 'view/21.0.0/pos/pos',
+			Kiosk: 'view/21.0.0/kiosk/kiosk',
+			KioskCustomer: 'view/21.0.0/kiosk/customer/kioskcustomer',
+			KioskPayment: 'view/21.0.0/kiosk/payment/kioskpayment',
+			SecondaryDisplay: 'view/21.0.0/secondarydisplay/secondarydisplay',
+			Products: 'view/21.0.0/products/products',
+			Customers: 'view/21.0.0/customers/customers',
+			Settings: 'view/21.0.0/settings/settings',
+			Reports: 'view/21.0.0/reports/reports'
 		}
-
-        
 	]
 
 	var AppRouter = Backbone.Router.extend({
@@ -260,6 +268,9 @@ define([
 					break;
 				case "20.1" :
 					_index = 9;
+					break;
+				case "21.0" :
+					_index = 10;
 					break;
 				}
 

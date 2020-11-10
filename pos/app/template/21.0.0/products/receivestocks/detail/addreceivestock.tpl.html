@@ -1,0 +1,60 @@
+<div id="addReceiveStockContainer">
+	<div id="addReceiveStock-title">
+		<h1>New Stock Adjustment</h1>
+	</div>
+    <div id="WarehouseDivContainer" style="display:none" class="custom-dropdownContainer"></div>
+	<div id ="addReceiveStockDetailsContainer">
+		<!--div id="generalHeader-title"><span>Detail</span></div>
+			<div id="generalHeader">
+				<div id="transactionDate-div">
+				<label for="transactionDate"> Transaction Date:</label> 
+				<input type="datetime" class ="cs-input"  id="transactionDate" value=""/>	
+				</div>
+			</div-->
+		<div id="generalHeader">
+			<div id="transactionDate-div">
+				<label for="transactionDate"> Transaction Date:</label> 
+                <div class="cs-input">
+                    <input type="date" placeholder="mm/dd/yyyy" class="" id="transactionDate" value="" />	
+                </div>
+			</div>
+			<div id="transactionType-div" style="display: none;">
+				<label for="transactionDate"> Transaction Type:</label> 
+				<div class ="transactionType">
+					<div class="customCheckSwitch">
+						<div class="customCheckSwitch-selected left" id="adjustmentIn">In</div>
+						<div class="right" id ="adjustmentOut">OUT</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="inventoryItemsContainer">
+			<div id= "inventoryItems-Title">
+				<div id="inventoryItemsTableHeader" class="inventoryItemsDetails">
+					<table id ="inventoryItemsDetails"class=" table" cellspacing="0"  width="100%" style="border:none;" >
+						<thead>
+							<td class="inventoryItem-itemName" style="font-weight: bold">Item Name</td>
+							<td class="inventoryItem-warehouseCode" style="font-weight: bold">Location</td>
+							<!--td class="inventoryItem-unitMeasureCode" style="font-weight: bold">UM. Code</td-->
+							<!--td class="inventoryItem-unitMeasureQuantity" style="text-align: right;font-weight: bold">UM. Qty.</td-->
+							<td class="inventoryItem-originalQuantity" style="text-align: right;font-weight: bold">Orig.</td>
+							<td class="inventoryItem-quantity" style="text-align: right;font-weight: bold">Qty</td>
+							<td class="inventoryItem-quantityAfter" style="text-align: right;font-weight: bold">After</td>
+							<td class="inventoryItem-cost" style="text-align: right;font-weight: bold">Cost</td>
+							<td class="inventoryItem-remove"><span class="icon-trash" style="visibility: hidden"></span></td>
+						</thead>
+					</table>
+				</div>
+			</div>
+			<div id="inventoryItems-area">
+				
+			</div>
+			<div id="inventoryItems-footer"><span class="icon-plus-sign">&nbsp;&nbsp;<span style="font-weight: bold;">New</span></span></div>
+		</div>
+		
+	</div>
+	<div id="addReceiveStock-Action" class="addReceiveStock-Action-13-2-1 cs-color-gray1">
+		<a class="cancelBtn">Cancel<!--<span><i class="icon-ban-circle icon-2x"></i>Cancel</span>--></a>
+		<a class="saveBtn">Finish<!--<span><i class="icon-save icon-2x"></i>Finish</span>--></a>
+	</div>
+</div>
