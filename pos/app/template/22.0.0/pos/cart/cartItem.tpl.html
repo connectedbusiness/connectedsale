@@ -1,0 +1,72 @@
+
+			<tr class="cart-details" id="<%= cid %>">
+				<td class="itemName" id="cart-itemName" align="left" style="vertical-align:middle;" >
+					<div id="display-itemName" style="width:80%; display: table-cell;"><%= FormattedItemName %></div>
+					<div id="display-kit" style="width:20%; display: none; vertical-align: middle;">
+						<a><i class="icon-chevron-down" style="font-size:18px;"></i></a>
+					</div>
+				</td>
+				<td class="itemQty" style="vertical-align:middle;">
+					<div id="quantityDisplay"><%= QuantityDisplay %></div>
+					<div id="changeQuantity-container" style="display: none;">
+						<input type="text" id="changeQuantity-input" style="width:30px; border:1px dashed #000; border-radius:5px; text-align: right;" min="0"/>
+					</div>
+				</td>
+				<td class="itemRemaining"  style="display: none;vertical-align: middle;">
+					<%= Outstanding %>
+				</td>
+				<td class="itemPrice" style="vertical-align: middle;">
+					<div id="itemPriceDisplay"> <%= format("#,##0.00", SalesPriceRate.toFixed(2)) %> </div>
+					<div id="changePrice-container" style="display:none;">
+						<input type="text" id="changePrice-input" style="width:40px; border:1px dashed #000; border-radius:5px; text-align: right;" min="0"/>
+					</div>
+				</td>
+				<td class="itemDiscount" style="vertical-align: middle;">
+					<% if((Discount % 1) == 0) { %>
+						<div id="discountDisplay"><%= Discount %>&nbsp;%</div>
+					<% } else { %>	
+						<div id="discountDisplay"><%= Discount.toFixed(2) %>&nbsp;%</div>
+					<% } %>
+					<div id="changeDiscount-container" style="display:none;">
+						<input type="text" id="changeDiscount-input" style="width:30px; border:1px dashed #000; border-radius:5px; text-align: right;" min="0"/>
+					</div>
+				</td>
+				<td class="itemExtPrice" id="extPriceRate-td" style="vertical-align: middle;">
+					<abbr><%= DisplayExtPriceRate %></abbr>  
+				</td>
+				<td class="itemViewDetail">
+					 <div class ="div-itemDetailButton">
+				     	<!-- <a class="cart-itemdetail-button"><i class="icon-remove-sign" style="font-size:24px;"></i><img src="img/more-btn.png" width="24" height="24"/></a> -->
+				     	<a class="remove-itembutton"><i class="icon-remove-sign" style="font-size:24px;"></i></a>
+				     	<div class="promotag" style="color:red; display:none;font-weight:700;font-size:10px;margin-right:-18px;position:relative;right:11px;">PROMO</div>
+				     </div>
+				</td>
+			</tr>
+			<tr class="cart-subitems-tax" style="display: <%= ShowTax %>">
+				<td class="itemName" style="background: transparent!important;padding-left:8px!important;"><%= TaxLabel %></td>
+				<td class="itemQty" style="background: transparent!important"> </td>
+				<td class="itemRemaining" style="background: transparent!important"> </td>
+				<td class="itemPrice" style="background: transparent!important"> </td>
+				<td class="itemDiscount" style="background: transparent!important;padding-right: 8px!important;"><%= TaxAmount %></td>
+				<td class="itemExtPrice"style="background: transparent!important"> </td>
+				<td class="itemViewDetail" style="background: transparent!important"> </td>
+			</tr>
+			<tr class ="cart-subitems-coupon" style="display: <%= ShowCoupon %>;  ">
+				<td class="itemName" style="background: transparent!important;padding-left: 8px!important;"><%= FormattedCouponCode %></td>
+				<td class="itemQty" style="background: transparent!important"> </td>
+				<td class="itemRemaining" style="background: transparent!important"> </td>
+				<td class="itemPrice" style="background: transparent!important"> </td>
+				<td class="itemDiscount" style="background: transparent!important;padding-right: 8px!important;"><%= FormattedCouponDiscountAmount %></td>
+				<td class="itemExtPrice" style="background: transparent!important"> </td>
+				<td class="itemViewDetail" style="background: transparent!important"> </td>
+			</tr>
+			<tr class="row-divider">
+				<td class="itemName" style="background: transparent!important"></td>
+				<td class="itemQty" style="background: transparent!important"> </td>
+				<td class="itemRemaining" style="background: transparent!important"> </td>
+				<td class="itemPrice" style="background: transparent!important"> </td>
+				<td class="itemDiscount" style="background: transparent!important"></td>
+				<td class="itemExtPrice" style="background: transparent!important"> </td>
+				<td class="itemViewDetail" style="background: transparent!important"> </td>
+			</tr> 
+
