@@ -310,7 +310,8 @@ define([
       if (!result.ErrorMessage) {
         var _serverVersion = Shared.GetVersionAttributes(result.AppVersion);
         var serverVersion2 =  _serverVersion.Major + "." + _serverVersion.Minor;
-        _serverVersion = _serverVersion.Major + "." + _serverVersion.Minor + "." + _serverVersion.Build;
+        //_serverVersion = _serverVersion.Major + "." + _serverVersion.Minor + "." + _serverVersion.Build;
+        _serverVersion = _serverVersion.Major + "." + _serverVersion.Minor;
 
         var _patchVersion = Shared.GetVersionAttributes(result.PatchVersion);
 
