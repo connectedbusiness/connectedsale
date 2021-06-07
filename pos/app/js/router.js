@@ -247,42 +247,42 @@ define([
 
 			var currentServerVersion = Shared.GetVersionAttributes(Global.ServerVersion);
 			var serverVersion =  currentServerVersion.Major + "." + currentServerVersion.Minor;
-
+			
 			switch (serverVersion) {
-				case 15.1 :
+				case "15.1" :
 					_index = 0;
 					break;
-				case 16.0 :
+				case "16.0" :
 					_index = 1;
 					break;
-				case 18.0 :
+				case "18.0" :
 					_index = 2;
 					break;
-				case 18.1 :
+				case "18.1" :
 					_index = 3;
 					break;
-				case 18.2 :
+				case "18.2" :
 					_index = 4;
 					break;
-				case 19.0 :
+				case "19.0" :
 					_index = 5;
 					break;
-				case 19.1 :
+				case "19.1" :
 					_index = 6;
 					break;
-				case 19.2 :
+				case "19.2" :
 					_index = 7;
 					break;
-				case 20.0 :
+				case "20.0" :
 					_index = 8;
 					break;
-				case 20.1 :
+				case "20.1" :
 					_index = 9;
 					break;
-				case 21.0 :
+				case "21.0" :
 					_index = 10;
 					break;
-				case 22.12 :
+				case "22.12" :
 					_index = 11;
 					break;
 				}
