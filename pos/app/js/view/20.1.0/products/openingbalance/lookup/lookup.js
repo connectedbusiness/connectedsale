@@ -14,8 +14,8 @@ define([
 	'model/item',
 	'model/lookupcriteria',
 	'collection/products',
-	'view/19.2.0/products/openingbalance/lookup/product/products',
-	'text!template/19.2.0/products/openingbalance/lookup/lookup.tpl.html'
+	'view/20.1.0/products/openingbalance/lookup/product/products',
+	'text!template/20.1.0/products/openingbalance/lookup/lookup.tpl.html'
 ], function($, $$, _, Backbone, Global, Shared, Service, Method, 
 	ItemModel, LookupCriteriaModel, LookUpCriteriaModel,
 	ProductCollection, LookupListView,

@@ -8,8 +8,8 @@ define([
     'model/base',
     'model/lookupcriteria',
     'collection/base',
-    'view/19.2.0/products/openingbalance/controls/ob-item',
-	'text!template/19.2.0/products/controls/generic-list.tpl.html',
+    'view/20.1.0/products/openingbalance/controls/ob-item',
+	'text!template/20.1.0/products/controls/generic-list.tpl.html',
     'js/libs/iscroll.js'
 ], function ($, $$, _, Backbone, Global, 
              BaseModel, LookUpCriteriaModel,

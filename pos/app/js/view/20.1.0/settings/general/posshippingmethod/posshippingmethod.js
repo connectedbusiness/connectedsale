@@ -6,7 +6,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/19.2.0/settings/general/posshippingmethod/posshippingmethod.tpl.html'
+  'text!template/20.1.0/settings/general/posshippingmethod/posshippingmethod.tpl.html'
 ], function($, $$, _, Backbone, POSShippingMethodTemplate) {
   var POSShippingMethodPreference = Backbone.View.extend({
     _posshippingmethodTemplate: _.template(POSShippingMethodTemplate),

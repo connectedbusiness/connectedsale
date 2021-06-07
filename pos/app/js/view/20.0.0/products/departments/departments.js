@@ -6,11 +6,11 @@ define([
 	'shared/method',	
     'model/department',
     'collection/departments',
-    'view/19.2.0/products/departments/details',
-    'view/19.2.0/products/departments/detail/adddepartment',
-    'view/19.2.0/products/controls/generic-list',
-	'text!template/19.2.0/products/departments/departments.tpl.html',
-    'text!template/19.2.0/products/controls/generic-layout.tpl.html'    
+    'view/20.0.0/products/departments/details',
+    'view/20.0.0/products/departments/detail/adddepartment',
+    'view/20.0.0/products/controls/generic-list',
+	'text!template/20.0.0/products/departments/departments.tpl.html',
+    'text!template/20.0.0/products/controls/generic-layout.tpl.html'    
 ], function (Backbone, Global, Service, Method, 
              DepartmentModel, 
              DepartmentCollection,DepartmentDetailView,AddDepartmentView,

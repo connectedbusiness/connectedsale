@@ -9,8 +9,8 @@ define([
 	'shared/method',	
 	'model/department',
     'collection/departments',
-	'view/19.2.0/products/departments/detail/sortorder/sortorderlist',
-	'text!template/19.2.0/products/departments/detail/sortorder.tpl.html'
+	'view/20.0.0/products/departments/detail/sortorder/sortorderlist',
+	'text!template/20.0.0/products/departments/detail/sortorder.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method, DepartmentModel, DepartmentCollection, SortOrderListView, template){
 	
 	var DepartmentSortOrderView = Backbone.View.extend({

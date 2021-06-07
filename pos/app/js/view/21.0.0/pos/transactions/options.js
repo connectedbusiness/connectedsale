@@ -8,7 +8,7 @@ define([
   'backbone',
   'shared/enum',
   'shared/global',
-  'text!template/19.2.0/pos/transactions/options.tpl.html',
+  'text!template/21.0.0/pos/transactions/options.tpl.html',
 ], function($, $$, _, Backbone, Enum, Global, template) {
 
   var OptionsView = Backbone.View.extend({

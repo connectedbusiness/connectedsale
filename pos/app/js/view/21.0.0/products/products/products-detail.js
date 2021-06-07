@@ -15,12 +15,12 @@ define([
     'shared/shared',
     'model/base',
     'collection/base',
-    'view/19.2.0/products/products/detail/general',
-    'view/19.2.0/products/products/detail/pricing',
-    'view/19.2.0/products/products/detail/unitofmeasure',
-    'view/19.2.0/products/products/detail/more',
-    'view/19.2.0/products/products/detail/summary',
-	'text!template/19.2.0/products/products/products-detail.tpl.html'
+    'view/21.0.0/products/products/detail/general',
+    'view/21.0.0/products/products/detail/pricing',
+    'view/21.0.0/products/products/detail/unitofmeasure',
+    'view/21.0.0/products/products/detail/more',
+    'view/21.0.0/products/products/detail/summary',
+	'text!template/21.0.0/products/products/products-detail.tpl.html'
 ], function ($, $$, _, Backbone, Global, Service, Method, Shared,
              BaseModel,
              BaseCollection,

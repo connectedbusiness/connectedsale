@@ -6,7 +6,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/19.2.0/settings/general/taxscheme/taxscheme.tpl.html'
+  'text!template/21.0.0/settings/general/taxscheme/taxscheme.tpl.html'
 ], function($, $$, _, Backbone, template) {
   var TaxSchemePreference = Backbone.View.extend({
     _template: _.template(template),

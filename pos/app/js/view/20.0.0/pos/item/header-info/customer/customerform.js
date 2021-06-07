@@ -19,9 +19,9 @@ define([
   'collection/countries',
   'collection/classtemplates',
   'collection/base',
-  'text!template/19.2.0/pos/item/header-info/customer/customerform.tpl.html',
+  'text!template/20.0.0/pos/item/header-info/customer/customerform.tpl.html',
   'view/spinner',
-  'view/19.2.0/pos/postal/addpostal'
+  'view/20.0.0/pos/postal/addpostal'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared,
   BaseModel, PostalModel, CountryModel, CustomerSchemaModel, LookupCriteriaModel,
   PostalCollection, CountryCollection, ClassTemplateCollection, BaseCollection,

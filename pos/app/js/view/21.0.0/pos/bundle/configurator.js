@@ -10,9 +10,9 @@ define([
   'shared/shared',
   'shared/method',
   'shared/enum',
-  'view/19.2.0/pos/bundle/bundle',
-  'view/19.2.0/pos/bundle/preview',
-  'text!template/19.2.0/pos/bundle/configurator.tpl.html',
+  'view/21.0.0/pos/bundle/bundle',
+  'view/21.0.0/pos/bundle/preview',
+  'text!template/21.0.0/pos/bundle/configurator.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, BaseModel, BaseCollection, Global, Service, Shared, Method, Enum, BundleItemDetailView, PreviewItemView, template) {
   var BundleConfiguratorView = Backbone.View.extend({

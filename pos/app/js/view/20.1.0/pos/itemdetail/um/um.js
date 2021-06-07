@@ -6,7 +6,7 @@ define([
 	'mobile',
 	'underscore',
 	'backbone',
-	'text!template/19.2.0/pos/itemdetail/um/um.tpl.html'
+	'text!template/20.1.0/pos/itemdetail/um/um.tpl.html'
 ], function($, $$, _, Backbone, template){
 	var UnitOfMeasureView = Backbone.View.extend({
 		_template : _.template( template ),

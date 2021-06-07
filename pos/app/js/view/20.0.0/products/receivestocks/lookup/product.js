@@ -8,7 +8,7 @@ define([
 	'backbone',
 	'shared/global',
 	'shared/shared',
-	'text!template/19.2.0/products/receivestocks/lookup/product.tpl.html',
+	'text!template/20.0.0/products/receivestocks/lookup/product.tpl.html',
 ], function($, $$, _, Backbone, Global, Shared, template){
 	var ProductView = Backbone.View.extend({
 		_template: _.template(template),

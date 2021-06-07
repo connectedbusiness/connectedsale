@@ -8,7 +8,7 @@ define([
   'underscore',
   'shared/global',
   'backbone',
-  'text!template/19.2.0/pos/signature/signature.tpl.html',
+  'text!template/20.0.0/pos/signature/signature.tpl.html',
   'view/spinner',
   'js/libs/jSignature.min.js'
 ], function($, $$, _, Global, Backbone, template, Spinner) {

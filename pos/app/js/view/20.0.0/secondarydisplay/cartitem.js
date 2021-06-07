@@ -11,7 +11,7 @@ define([
   'shared/enum',
   'shared/global',
   'shared/shared',
-  'text!template/19.2.0/secondarydisplay/cartitem.tpl.html',
+  'text!template/20.0.0/secondarydisplay/cartitem.tpl.html',
   'js/libs/format.min.js'
 ], function($, $$, _, Backbone, BigDecimal, Enum, Global, Shared, template) {
 

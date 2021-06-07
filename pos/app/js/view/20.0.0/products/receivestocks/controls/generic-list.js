@@ -39,8 +39,8 @@ define([
     'shared/global',
     'model/base',
     'collection/base',
-    'view/19.2.0/products/controls/generic-item',
-	'text!template/19.2.0/products/controls/generic-list.tpl.html',
+    'view/20.0.0/products/controls/generic-item',
+	'text!template/20.0.0/products/controls/generic-list.tpl.html',
     'js/libs/iscroll.js',
     'js/libs/format.min.js'
 ], function ($, $$, _, Backbone, Global,

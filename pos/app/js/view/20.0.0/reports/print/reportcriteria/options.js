@@ -9,7 +9,7 @@ define([
   'model/base',
   'model/lookupcriteria',
   'collection/base',
-  'text!template/19.2.0/reports/print/printdialog/reportcriteria/options.tpl.html'
+  'text!template/20.0.0/reports/print/printdialog/reportcriteria/options.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method,
   BaseModel, LookUpCriteriaModel,
   BaseCollection,

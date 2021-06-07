@@ -5,10 +5,10 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'view/19.2.0/settings/user/userlist/userlistvalue',
-  'view/19.2.0/settings/user/usermaintenance/maintainuser',
-  'text!template/19.2.0/settings/user/userlist/userlist.tpl.html',
-  'text!template/19.2.0/settings/user/userlist/search.tpl.html',
+  'view/20.0.0/settings/user/userlist/userlistvalue',
+  'view/20.0.0/settings/user/usermaintenance/maintainuser',
+  'text!template/20.0.0/settings/user/userlist/userlist.tpl.html',
+  'text!template/20.0.0/settings/user/userlist/search.tpl.html',
   'js/libs/iscroll.js',
 ], function($, $$, _, Backbone, Global, Shared, UserListValuePreference, maintainUserView, template, searchTemplate) {
   var UserListPreference = Backbone.View.extend({

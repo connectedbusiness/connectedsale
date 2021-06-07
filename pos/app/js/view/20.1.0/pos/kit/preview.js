@@ -8,7 +8,7 @@ define([
   'shared/enum',
   'shared/method',
   'shared/shared',
-  'text!template/19.2.0/pos/kit/kitpreview.tpl.html'
+  'text!template/20.1.0/pos/kit/kitpreview.tpl.html'
 ], function($, $$, _, Backbone, BaseCollection, Global, Enum, Method, Shared, template) {
   var _optionVal = false;
   return Backbone.View.extend({

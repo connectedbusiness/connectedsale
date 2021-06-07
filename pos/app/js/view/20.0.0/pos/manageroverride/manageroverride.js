@@ -9,7 +9,7 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'text!template/19.2.0/pos/manageroverride/manageroverride.tpl.html',
+  'text!template/20.0.0/pos/manageroverride/manageroverride.tpl.html',
 ], function($, $$, _, Backbone, Global, Shared, template) {
 
   var PrintOptionView = Backbone.View.extend({

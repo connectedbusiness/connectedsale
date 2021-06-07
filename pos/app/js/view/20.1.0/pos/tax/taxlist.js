@@ -10,7 +10,7 @@ define([
   'model/base',
   'collection/base',
   './tax',
-  'text!template/19.2.0/pos/tax/taxlist.tpl.html',
+  'text!template/20.1.0/pos/tax/taxlist.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared, BaseModel, BaseCollection, TaxView, template) {
 

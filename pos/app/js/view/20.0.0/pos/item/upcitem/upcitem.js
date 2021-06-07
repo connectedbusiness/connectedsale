@@ -6,7 +6,7 @@ define([
 	'shared/shared',	
     'model/base',
     'collection/base',
-    'text!template/19.2.0/pos/item/upcitem/upcitem.tpl.html'
+    'text!template/20.0.0/pos/item/upcitem/upcitem.tpl.html'
 ], function (Backbone, Global, Service, Method,Shared, 
              BaseModel,
              BaseCollection,

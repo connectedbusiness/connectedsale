@@ -7,7 +7,7 @@ define([
 	'underscore',
 	'shared/global',
 	'backbone',
-	'text!template/19.2.0/settings/general/kiosk/kiosk.tpl.html'
+	'text!template/21.0.0/settings/general/kiosk/kiosk.tpl.html'
 ], function($, $$, _, Global, Backbone, template) {
 	var KioskPreference = Backbone.View.extend({
 		_template : _.template( template ),

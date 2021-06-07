@@ -7,7 +7,7 @@ define([
   'underscore',
   'backbone',
   'shared/shared',
-  'text!template/19.2.0/settings/category/category.tpl.html'
+  'text!template/20.0.0/settings/category/category.tpl.html'
 ], function($, $$, _, Backbone, Shared, template) {
   var CurrentCategoryView = Backbone.View.extend({
     _template: _.template(template),

@@ -8,7 +8,7 @@ define([
 	'mobile',
 	'underscore',	
 	'backbone',
-	'text!template/19.2.0/products/controls/generic-item.tpl.html'
+	'text!template/20.1.0/products/controls/generic-item.tpl.html'
 ], function ($, $$, _, Backbone, ProductTemplate) {
 
     var ProductView = Backbone.View.extend({

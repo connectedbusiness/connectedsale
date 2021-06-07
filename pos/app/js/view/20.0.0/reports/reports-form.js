@@ -6,9 +6,9 @@ define([
   'model/base',
   'model/lookupcriteria',
   'collection/base',
-  'view/19.2.0/reports/print/preview',
-  'view/19.2.0/reports/list/reportlist',
-  'text!template/19.2.0/reports/reports-form.tpl.html',
+  'view/20.0.0/reports/print/preview',
+  'view/20.0.0/reports/list/reportlist',
+  'text!template/20.0.0/reports/reports-form.tpl.html',
   'js/libs/iscroll.js'
 ], function(Backbone, Global, Service, Method,
   BaseModel, LookUpCriteriaModel,

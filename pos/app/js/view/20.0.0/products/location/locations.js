@@ -14,10 +14,10 @@ define([
 	'model/lookupcriteria',
 	'collection/base',	
 	'collection/countries',
-    'view/19.2.0/products/controls/generic-list',
-    'view/19.2.0/products/location/locationDetail',
-	'text!template/19.2.0/products/location/locationform.tpl.html',
-	'text!template/19.2.0/products/controls/generic-layout.tpl.html'
+    'view/20.0.0/products/controls/generic-list',
+    'view/20.0.0/products/location/locationDetail',
+	'text!template/20.0.0/products/location/locationform.tpl.html',
+	'text!template/20.0.0/products/controls/generic-layout.tpl.html'
 ], function($, $$, _, Backbone,
 	Global, Method, Service, Shared,
 	BaseModel, LookupCriteriaModel, 

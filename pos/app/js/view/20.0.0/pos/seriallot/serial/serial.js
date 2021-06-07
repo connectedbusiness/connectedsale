@@ -9,7 +9,7 @@ define([
   'shared/global',
   'shared/enum',
   'shared/shared',
-  'text!template/19.2.0/pos/seriallot/serial/serial.tpl.html'
+  'text!template/20.0.0/pos/seriallot/serial/serial.tpl.html'
 ], function(
   $, $$, _, Backbone, Global, Enum, Shared,
   template) {

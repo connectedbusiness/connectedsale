@@ -14,12 +14,12 @@ define([
   'collection/base',
   'collection/cart',
   'collection/workstations',
-  'view/19.2.0/secondarydisplay/cart',
-  'view/19.2.0/secondarydisplay/options',
-  'view/19.2.0/secondarydisplay/workstations/workstations',
-  'view/19.2.0/pos/signature/signature',
-  'view/19.2.0/pos/giftcard/giftcard',
-  'text!template/19.2.0/secondarydisplay/secondarydisplay.tpl.html',
+  'view/20.0.0/secondarydisplay/cart',
+  'view/20.0.0/secondarydisplay/options',
+  'view/20.0.0/secondarydisplay/workstations/workstations',
+  'view/20.0.0/pos/signature/signature',
+  'view/20.0.0/pos/giftcard/giftcard',
+  'text!template/20.0.0/secondarydisplay/secondarydisplay.tpl.html',
   'js/libs/signalr/jquery.signalR-2.0.3.js'
 ], function(
   $, $$, _, Backbone,

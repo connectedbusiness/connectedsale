@@ -12,8 +12,8 @@ define([
   'shared/method',
   'model/userrole',
   'collection/userroles',
-  'view/19.2.0/settings/manager/userrole',
-  'text!template/19.2.0/settings/manager/userroles.tpl.html'
+  'view/20.1.0/settings/manager/userrole',
+  'text!template/20.1.0/settings/manager/userroles.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method,
   UserRoleModel, UserRoleCollection, UserRoleView, template) {
 

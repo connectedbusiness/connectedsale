@@ -8,7 +8,7 @@ define([
   'mobile',
   'backbone',
   'underscore',
-  'text!template/19.2.0/pos/notes/customernotes/notedetail.tpl.html'
+  'text!template/21.0.0/pos/notes/customernotes/notedetail.tpl.html'
 ], function($, $$, Backbone, _, NoteDetailTemplate) {
   var NoteDetailView = Backbone.View.extend({
     _noteDetailTemplate: _.template(NoteDetailTemplate),

@@ -14,11 +14,11 @@ define([
   'collection/useraccounts',
   'model/lookupcriteria',
   'model/useraccount',
-  'view/19.2.0/settings/user/userlist/userlist',
-  'view/19.2.0/settings/user/usermaintenance/adduser',
-  'view/19.2.0/settings/user/usermaintenance/maintainuser',
-  'view/19.2.0/settings/modal/modal',
-  'text!template/19.2.0/settings/user/user.tpl.html'
+  'view/21.0.0/settings/user/userlist/userlist',
+  'view/21.0.0/settings/user/usermaintenance/adduser',
+  'view/21.0.0/settings/user/usermaintenance/maintainuser',
+  'view/21.0.0/settings/modal/modal',
+  'text!template/21.0.0/settings/user/user.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared,
   UserAccountCollection,
   LookupCriteriaModel, UserAccountModel,

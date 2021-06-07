@@ -8,8 +8,8 @@ define([
 	'backbone',
 	'shared/global',
 	'shared/shared',
-	'view/19.2.0/pos/item/search/product/product',
-	'text!template/19.2.0/pos/item/search/product/products.tpl.html',
+	'view/20.0.0/pos/item/search/product/product',
+	'text!template/20.0.0/pos/item/search/product/products.tpl.html',
 	'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Shared, ProductView, template){
 	var ProductsView = Backbone.View.extend({

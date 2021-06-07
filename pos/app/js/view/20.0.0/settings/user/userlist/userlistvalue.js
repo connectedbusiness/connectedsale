@@ -6,7 +6,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/19.2.0/settings/user/userlist/userlistvalue.tpl.html'
+  'text!template/20.0.0/settings/user/userlist/userlistvalue.tpl.html'
 ], function($, $$, _, Backbone, template) {
   var UserListValuePreference = Backbone.View.extend({
     _template: _.template(template),

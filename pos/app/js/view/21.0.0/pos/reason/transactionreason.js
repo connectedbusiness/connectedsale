@@ -10,8 +10,8 @@ define([
   'shared/method',
   'shared/service',
   'model/reason',
-  'view/19.2.0/pos/reason/reasons',
-  'text!template/19.2.0/pos/reason/transactionReason.tpl.html'
+  'view/21.0.0/pos/reason/reasons',
+  'text!template/21.0.0/pos/reason/transactionReason.tpl.html'
 ], function($, $$, _, Backbone, Global, Method, Service, ReasonModel, ReasonsView, template) {
   var _model, type, _reason = "",
     _collectionLength;

@@ -11,7 +11,7 @@ define([
 	'shared/method',
     'shared/shared',
 	'shared/service',
-	'text!template/19.2.0/pos/item/search/productdetail.tpl.html'
+	'text!template/20.0.0/pos/item/search/productdetail.tpl.html'
 ], function($, $$, _, Backbone,BaseModel, Global, Method,Shared, Service, template){
 	var ProductDetailView = Backbone.View.extend({
 		_template : _.template(template),

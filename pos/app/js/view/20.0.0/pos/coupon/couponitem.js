@@ -7,7 +7,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/19.2.0/pos/coupon/couponitem.tpl.html',
+  'text!template/20.0.0/pos/coupon/couponitem.tpl.html',
 ], function($, $$, _, Backbone, template) {
   var CouponItemView = Backbone.View.extend({
     _template: _.template(template),

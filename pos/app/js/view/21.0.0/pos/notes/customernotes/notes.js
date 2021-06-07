@@ -10,8 +10,8 @@ define([
   'underscore',
   'shared/global',
   'shared/shared',
-  'view/19.2.0/pos/notes/customernotes/note',
-  'text!template/19.2.0/pos/notes/customernotes/notes.tpl.html',
+  'view/21.0.0/pos/notes/customernotes/note',
+  'text!template/21.0.0/pos/notes/customernotes/notes.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, Backbone, _, Global, Shared, NoteView, NotesListTemplate) {
 

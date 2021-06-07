@@ -5,7 +5,7 @@ define([
   'backbone',
   'underscore',
   'shared/global',
-  'text!template/19.2.0/pos/item/gcitem/gcitem.tpl.html'
+  'text!template/21.0.0/pos/item/gcitem/gcitem.tpl.html'
 ], function($, $$, Backbone, _, Global, Template) {
   var GCItemListView = Backbone.View.extend({
     template: _.template(Template),

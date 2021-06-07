@@ -20,9 +20,9 @@ define([
   'collection/countries',
   'collection/classtemplates',
   'collection/base',
-  'text!template/19.2.0/pos/item/header-info/shipto/shiptoform.tpl.html',
+  'text!template/20.1.0/pos/item/header-info/shipto/shiptoform.tpl.html',
   'view/spinner',
-  'view/19.2.0/pos/postal/addpostal'
+  'view/20.1.0/pos/postal/addpostal'
 ], function($, $$, _, Backbone,
   Global, Service, Method, Shared, Enum, BaseModel,
   PostalModel, CountryModel, CustomerSchemaModel, LookupCriteriaModel,

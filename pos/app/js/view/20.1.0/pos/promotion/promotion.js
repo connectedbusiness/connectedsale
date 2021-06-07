@@ -10,9 +10,9 @@ define([
   'shared/shared',
   'shared/method',
   'shared/enum',
-  'view/19.2.0/pos/promotion/promotionlist',
-  'text!template/19.2.0/pos/promotion/promotion.tpl.html',
-  'view/19.2.0/pos/promotion/promotionitemlist',
+  'view/20.1.0/pos/promotion/promotionlist',
+  'text!template/20.1.0/pos/promotion/promotion.tpl.html',
+  'view/20.1.0/pos/promotion/promotionitemlist',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, BaseModel, BaseCollection, Global, Service, Shared, Method, Enum, PromotionListView, template, PromotionItemListView) {
 

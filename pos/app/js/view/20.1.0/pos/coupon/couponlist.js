@@ -11,9 +11,9 @@ define([
   'shared/service',
   'shared/method',
   'model/lookupcriteria',
-  'view/19.2.0/pos/coupon/couponitem',
+  'view/20.1.0/pos/coupon/couponitem',
   'view/spinner',
-  'text!template/19.2.0/pos/coupon/couponlist.tpl.html',
+  'text!template/20.1.0/pos/coupon/couponlist.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Service, Method,
   LookupCriteriaModel, CouponItemView, Spinner, template) {

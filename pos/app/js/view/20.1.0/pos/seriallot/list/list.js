@@ -7,7 +7,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/19.2.0/pos/seriallot/list/list.tpl.html',
+  'text!template/20.1.0/pos/seriallot/list/list.tpl.html',
 ], function($, $$, _, Backbone, Template) {
   var ListView = Backbone.View.extend({
     tagName: 'li',

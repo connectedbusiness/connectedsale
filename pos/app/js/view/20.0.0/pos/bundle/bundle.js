@@ -5,7 +5,7 @@ define([
   'backbone',
   'shared/global',
   'shared/enum',
-  'text!template/19.2.0/pos/bundle/bundle.tpl.html'
+  'text!template/20.0.0/pos/bundle/bundle.tpl.html'
 ], function($, $$, _, Backbone, Global, Enum, template) {
   return Backbone.View.extend({
     template: _.template(template),

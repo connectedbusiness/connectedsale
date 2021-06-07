@@ -11,8 +11,8 @@ define([
   'shared/service',
   'shared/method',
   'model/lookupcriteria',
-  'view/19.2.0/secondarydisplay/workstations/workstation',
-  'text!template/19.2.0/secondarydisplay/workstations/workstations.tpl.html',
+  'view/21.0.0/secondarydisplay/workstations/workstation',
+  'text!template/21.0.0/secondarydisplay/workstations/workstations.tpl.html',
   'view/spinner',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Service, Method,

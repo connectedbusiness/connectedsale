@@ -4,7 +4,7 @@ define([
   'underscore',
   'backbone',
   'shared/global',
-  'text!template/19.2.0/pos/cart/promobuyitem.tpl.html'
+  'text!template/20.0.0/pos/cart/promobuyitem.tpl.html'
 ], function($, $$, _, Backbone, Global, template) {
 
   return Backbone.View.extend({

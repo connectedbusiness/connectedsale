@@ -7,7 +7,7 @@ define([
 	'mobile',
 	'underscore',
 	'backbone',
-	'text!template/19.2.0/pos/itemdetail/freestock.tpl.html'
+	'text!template/21.0.0/pos/itemdetail/freestock.tpl.html'
 ],function($, $$, _, Backbone, template){
 			
  	var FreeStockView = Backbone.View.extend({

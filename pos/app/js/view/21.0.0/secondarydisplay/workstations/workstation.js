@@ -7,7 +7,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/19.2.0/secondarydisplay/workstations/workstation.tpl.html',
+  'text!template/21.0.0/secondarydisplay/workstations/workstation.tpl.html',
 ], function($, $$, _, Backbone, template) {
   var WorkstationItemView = Backbone.View.extend({
     _template: _.template(template),

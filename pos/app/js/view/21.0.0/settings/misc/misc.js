@@ -10,7 +10,7 @@ define([
   'shared/method',
   'shared/service',
   'collection/preferences',
-  'text!template/19.2.0/settings/misc/misc.tpl.html',
+  'text!template/21.0.0/settings/misc/misc.tpl.html',
   'js/libs/ui.checkswitch.min.js',
 ], function($, $$, _, Backbone, Global, Method, Service, PreferenceCollection, template) {
   var MiscSettingsView = Backbone.View.extend({

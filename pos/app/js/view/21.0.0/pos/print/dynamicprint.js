@@ -13,10 +13,10 @@ define([
   'model/base',
   'collection/base',
   'model/reportsetting',
-  'view/19.2.0/pos/print/printer',
-  'view/19.2.0/pos/print/printpreview',
-  'text!template/19.2.0/pos/print/dynamicprint.tpl.html',
-  'text!template/19.2.0/pos/print/print.tpl.html',
+  'view/21.0.0/pos/print/printer',
+  'view/21.0.0/pos/print/printpreview',
+  'text!template/21.0.0/pos/print/dynamicprint.tpl.html',
+  'text!template/21.0.0/pos/print/print.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared, BaseModel, BaseCollection, ReportSettingModel, PrinterView, PrintSetup, template, browserprintTemplate) {
   var reportURL = null,

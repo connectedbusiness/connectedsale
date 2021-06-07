@@ -7,7 +7,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/19.2.0/settings/manager/userrole.tpl.html',
+  'text!template/20.0.0/settings/manager/userrole.tpl.html',
 ], function($, $$, _, Backbone, template) {
   var UserRoleView = Backbone.View.extend({
     _template: _.template(template),

@@ -10,7 +10,7 @@ define([
   'model/lookupcriteria',
   'model/base',
   'collection/base',
-  'text!template/19.2.0/products/category/detail/addcategory.tpl.html'
+  'text!template/20.0.0/products/category/detail/addcategory.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared, LookUpCriteriaModel, BaseModel, CategoryCollection, template) {
 
   var AddCategoryView = Backbone.View.extend({

@@ -7,7 +7,7 @@ define([
   'model/base',
   'model/lookupcriteria',
   'collection/base',
-  'text!template/19.2.0/pos/customerpo/customerpo.tpl.html',
+  'text!template/21.0.0/pos/customerpo/customerpo.tpl.html',
   'js/libs/format.min.js'
 ], function(Backbone, Global, Service, Method, Shared,
   BaseModel, LookUpCriteriaModel,

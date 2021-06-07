@@ -8,8 +8,8 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'view/19.2.0/pos/item/header-info/shipto/shiptoform',
-  'text!template/19.2.0/pos/item/header-info/shipto/shiptodetail.tpl.html'
+  'view/20.0.0/pos/item/header-info/shipto/shiptoform',
+  'text!template/20.0.0/pos/item/header-info/shipto/shiptodetail.tpl.html'
 ], function($, $$, _, Backbone, Global, Shared, ShipToFormView, template) {
   var ShipToDetailView = Backbone.View.extend({
     _template: _.template(template),

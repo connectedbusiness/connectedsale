@@ -167,15 +167,15 @@ define([
 			Reports: 'view/21.0.0/reports/reports'
 		},
 		{
-			POS: 'view/22.0.0/pos/pos',
-			Kiosk: 'view/22.0.0/kiosk/kiosk',
-			KioskCustomer: 'view/22.0.0/kiosk/customer/kioskcustomer',
-			KioskPayment: 'view/22.0.0/kiosk/payment/kioskpayment',
-			SecondaryDisplay: 'view/22.0.0/secondarydisplay/secondarydisplay',
-			Products: 'view/22.0.0/products/products',
-			Customers: 'view/22.0.0/customers/customers',
-			Settings: 'view/22.0.0/settings/settings',
-			Reports: 'view/22.0.0/reports/reports'
+			POS: 'view/22.12.0/pos/pos',
+			Kiosk: 'view/22.12.0/kiosk/kiosk',
+			KioskCustomer: 'view/22.12.0/kiosk/customer/kioskcustomer',
+			KioskPayment: 'view/22.12.0/kiosk/payment/kioskpayment',
+			SecondaryDisplay: 'view/22.12.0/secondarydisplay/secondarydisplay',
+			Products: 'view/22.12.0/products/products',
+			Customers: 'view/22.12.0/customers/customers',
+			Settings: 'view/22.12.0/settings/settings',
+			Reports: 'view/22.12.0/reports/reports'
 		}	]
 
 	var AppRouter = Backbone.Router.extend({
@@ -249,50 +249,43 @@ define([
 			var serverVersion =  currentServerVersion.Major + "." + currentServerVersion.Minor;
 
 			switch (serverVersion) {
-				case "15.1" :
+				case 15.1 :
 					_index = 0;
 					break;
-				case "16.0" :
+				case 16.0 :
 					_index = 1;
 					break;
-				case "18.0" :
+				case 18.0 :
 					_index = 2;
 					break;
-				case "18.1" :
+				case 18.1 :
 					_index = 3;
 					break;
-				case "18.2" :
+				case 18.2 :
 					_index = 4;
 					break;
-				case "19.0" :
+				case 19.0 :
 					_index = 5;
 					break;
-				case "19.1" :
+				case 19.1 :
 					_index = 6;
 					break;
-				case "19.2" :
+				case 19.2 :
 					_index = 7;
 					break;
-				case "20.0" :
+				case 20.0 :
 					_index = 8;
 					break;
-				case "20.1" :
+				case 20.1 :
 					_index = 9;
 					break;
-				case "21.0" :
+				case 21.0 :
 					_index = 10;
 					break;
-			}
-
-			if (_index === -1) {
-				serverVersion = currentServerVersion.Major;
-				
-				switch (serverVersion) {
-					case "22" :
-						_index = 11;
-						break;
+				case 22.12 :
+					_index = 11;
+					break;
 				}
-			}
 
 			var _self = this;
 			switch (type) {

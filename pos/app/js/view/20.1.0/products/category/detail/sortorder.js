@@ -8,8 +8,8 @@ define([
   'shared/method',
   'model/lookupcriteria',
   'collection/base',
-  'view/19.2.0/products/category/detail/sortorder/sortorderlist',
-  'text!template/19.2.0/products/category/detail/sortorder.tpl.html'
+  'view/20.1.0/products/category/detail/sortorder/sortorderlist',
+  'text!template/20.1.0/products/category/detail/sortorder.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method, LookUpCriteriaModel, CategoryCollection, SortOrderListView, template) {
 
   var CategorySortOrderView = Backbone.View.extend({

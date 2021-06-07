@@ -12,7 +12,7 @@ define([
   'shared/shared',
   'collection/base',
   'collection/printers',
-  'view/19.2.0/pos/print/printpreview',
+  'view/21.0.0/pos/print/printpreview',
 ], function($, $$, _, Backbone, Global, Enum, Method, Shared, BaseCollection, PrinterCollection, PrintPreviewView) {
   var PrinterView = Backbone.View.extend({
 

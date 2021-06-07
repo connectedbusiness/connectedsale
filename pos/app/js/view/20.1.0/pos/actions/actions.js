@@ -9,7 +9,7 @@ define([
   'shared/global',
   'shared/shared',
   'model/base',
-  'text!template/19.2.0/pos/actions/actions.tpl.html'
+  'text!template/20.1.0/pos/actions/actions.tpl.html'
 ], function($, $$, _, Backbone, Global, Shared,
   BaseModel, ActionsTemplate) {
   var _id = "";

@@ -5,9 +5,9 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'view/19.2.0/settings/receipt/typelist/receipttypevalue',
-  'text!template/19.2.0/settings/receipt/typelist/receipttypelist.tpl.html',
-  'text!template/19.2.0/settings/receipt/typelist/search.tpl.html',
+  'view/20.1.0/settings/receipt/typelist/receipttypevalue',
+  'text!template/20.1.0/settings/receipt/typelist/receipttypelist.tpl.html',
+  'text!template/20.1.0/settings/receipt/typelist/search.tpl.html',
   'js/libs/iscroll.js',
 ], function($, $$, _, Backbone, Global, Shared, ReceiptTypeValuePreference, template, searchTemplate) {
   var ReceiptTypeListPreference = Backbone.View.extend({

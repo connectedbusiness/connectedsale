@@ -13,8 +13,8 @@ define([
   'shared/shared',
   'model/base',
   'collection/base',
-  'text!template/19.2.0/pos/giftcard/recharge.tpl.html',
-  'text!template/19.2.0/pos/giftcard/activate.tpl.html',
+  'text!template/21.0.0/pos/giftcard/recharge.tpl.html',
+  'text!template/21.0.0/pos/giftcard/activate.tpl.html',
   'view/spinner',
 ], function($, $$, _, Backbone, Global, Service, Method, Enum, Shared, BaseModel, BaseCollection, RechargeTemplate, ActivateTemplate, Spinner) {
 

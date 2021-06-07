@@ -5,9 +5,9 @@ define([
 	'underscore',	
 	'shared/shared',
 	'backbone',
-	'view/19.2.0/products/receivestocks/detail/general',
-	'text!template/19.2.0/products/receivestocks/details.tpl.html',
-	'text!template/19.2.0/products/receivestocks/detailsmenu.tpl.html'
+	'view/21.0.0/products/receivestocks/detail/general',
+	'text!template/21.0.0/products/receivestocks/details.tpl.html',
+	'text!template/21.0.0/products/receivestocks/detailsmenu.tpl.html'
 ], function($, $$, _, Shared, Backbone,GeneralView, template ,menuTemplate){
 	
 	var container_el = "#stockDetailsContainer";

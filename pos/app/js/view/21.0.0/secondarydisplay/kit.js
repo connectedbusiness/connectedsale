@@ -6,8 +6,8 @@ define([
   'shared/global',
   'shared/enum',
   'collection/base',
-  'view/19.2.0/secondarydisplay/kitItem',
-  'text!template/19.2.0/secondarydisplay/kit.tpl.html'
+  'view/21.0.0/secondarydisplay/kitItem',
+  'text!template/21.0.0/secondarydisplay/kit.tpl.html'
 ], function($, $$, _, Backbone, Global, Enum, BaseCollection, KitItemView, template) {
 
   return Backbone.View.extend({

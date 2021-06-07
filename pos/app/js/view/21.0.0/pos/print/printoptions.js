@@ -8,7 +8,7 @@ define([
   'underscore',
   'backbone',
   'shared/global',
-  'text!template/19.2.0/pos/print/printoptions.tpl.html',
+  'text!template/21.0.0/pos/print/printoptions.tpl.html',
 ], function($, $$, _, Backbone, Global, template) {
 
   var PrintOptionView = Backbone.View.extend({

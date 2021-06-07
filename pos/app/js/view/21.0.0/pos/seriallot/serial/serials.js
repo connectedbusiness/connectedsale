@@ -12,8 +12,8 @@ define([
   'model/serialnumber',
   'model/lotnumber',
   'collection/base',
-  'view/19.2.0/pos/seriallot/serial/serial',
-  'text!template/19.2.0/pos/seriallot/serial/serials.tpl.html',
+  'view/21.0.0/pos/seriallot/serial/serial',
+  'text!template/21.0.0/pos/seriallot/serial/serials.tpl.html',
   'js/libs/iscroll.js'
 ], function(
   $, $$, _, Backbone, Global, Enum, Shared,

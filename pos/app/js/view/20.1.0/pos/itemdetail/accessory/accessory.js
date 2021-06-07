@@ -8,7 +8,7 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'text!template/19.2.0/pos/itemdetail/accessory/accessory.tpl.html'
+  'text!template/20.1.0/pos/itemdetail/accessory/accessory.tpl.html'
 ], function($, $$, _, Backbone, Global, Shared, template) {
   var AccessoryView = Backbone.View.extend({
     _template: _.template(template),

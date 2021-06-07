@@ -6,8 +6,8 @@ define([
   'shared/global',
   'model/lookupcriteria',
   'collection/base',
-  'text!template/19.2.0/customers/typepopup/popupcontainer.tpl.html',
-  'text!template/19.2.0/customers/typepopup/typelist.tpl.html',
+  'text!template/21.0.0/customers/typepopup/popupcontainer.tpl.html',
+  'text!template/21.0.0/customers/typepopup/typelist.tpl.html',
   'js/libs/moment.min.js'
 ], function($, $$, _, Backbone, Global, BtnModel, BtnCollection, template, BtnTemplate) {
 

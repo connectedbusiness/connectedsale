@@ -7,7 +7,7 @@ define([
   'underscore',
   'shared/global',
   'backbone',
-  'text!template/19.2.0/settings/general/imagesize/imagesize.tpl.html'
+  'text!template/20.0.0/settings/general/imagesize/imagesize.tpl.html'
 ], function($, $$, _, Global, Backbone, template) {
   var ImageSizePreference = Backbone.View.extend({
     _template: _.template(template),

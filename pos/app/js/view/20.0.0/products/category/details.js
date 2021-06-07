@@ -7,10 +7,10 @@ define([
   'shared/service',
   'shared/method',
   'shared/shared',
-  'view/19.2.0/products/category/detail/general',
-  'view/19.2.0/products/category/detail/sortorder',
-  'text!template/19.2.0/products/category/details.tpl.html',
-  'text!template/19.2.0/products/category/detailsmenu.tpl.html'
+  'view/20.0.0/products/category/detail/general',
+  'view/20.0.0/products/category/detail/sortorder',
+  'text!template/20.0.0/products/category/details.tpl.html',
+  'text!template/20.0.0/products/category/detailsmenu.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared, GeneralView, SortOrderView, template, menuTemplate) {
 
   var _categoryDetailContainer_el = "#categoryDetailsContainer";

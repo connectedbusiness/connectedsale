@@ -8,8 +8,8 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'view/19.2.0/settings/category/lookupcategory',
-  'text!template/19.2.0/settings/category/lookupcategories.tpl.html',
+  'view/21.0.0/settings/category/lookupcategory',
+  'text!template/21.0.0/settings/category/lookupcategories.tpl.html',
   'js/libs/iscroll.js',
 ], function($, $$, _, Backbone, Global, Shared, LookupCategoryView, template) {
   var collection, current;

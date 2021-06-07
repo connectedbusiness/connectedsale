@@ -9,7 +9,7 @@ define([
 	'backbone',
 	'shared/global',
     'shared/shared',
-	'text!template/19.2.0/products/products/detail/general/photo-editor.tpl.html'
+	'text!template/21.0.0/products/products/detail/general/photo-editor.tpl.html'
 ], function ($, $$, _, Backbone, Global, Shared, PhotoEditorTempalte) {
 
     var ClassID = {

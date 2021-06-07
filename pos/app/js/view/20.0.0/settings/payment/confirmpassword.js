@@ -3,7 +3,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/19.2.0/settings/payment/confirmpassword.tpl.html'
+  'text!template/20.0.0/settings/payment/confirmpassword.tpl.html'
 ], function($, $$, _, Backbone, template) {
 
   var ConfirmPasswordView = Backbone.View.extend({

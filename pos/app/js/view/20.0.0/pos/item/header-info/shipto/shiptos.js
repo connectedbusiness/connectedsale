@@ -7,8 +7,8 @@ define([
   'underscore',
   'backbone',
   'shared/shared',
-  'view/19.2.0/pos/item/header-info/shipto/shipto',
-  'text!template/19.2.0/pos/item/header-info/shipto/shiptos.tpl.html',
+  'view/20.0.0/pos/item/header-info/shipto/shipto',
+  'text!template/20.0.0/pos/item/header-info/shipto/shiptos.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Shared, ShipToView, template) {
   var ShipTosView = Backbone.View.extend({

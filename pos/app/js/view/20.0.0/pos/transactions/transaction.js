@@ -10,9 +10,9 @@ define([
   'shared/enum',
   'shared/global',
   'shared/shared',
-  'text!template/19.2.0/pos/transactions/invoice.tpl.html',
-  'text!template/19.2.0/pos/transactions/order.tpl.html',
-  'text!template/19.2.0/pos/transactions/return.tpl.html',
+  'text!template/20.0.0/pos/transactions/invoice.tpl.html',
+  'text!template/20.0.0/pos/transactions/order.tpl.html',
+  'text!template/20.0.0/pos/transactions/return.tpl.html',
 ], function($, $$, _, Backbone, Enum, Global, Shared, InvoiceTemplate, OrderTemplate, ReturnTemplate) {
   var ItemView = Backbone.View.extend({
     _InvoiceTemplate: _.template(InvoiceTemplate),

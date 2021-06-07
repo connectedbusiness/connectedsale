@@ -8,7 +8,7 @@ define([
   'underscore',
   'backbone',
   'shared/global',
-  'text!template/19.2.0/pos/payment/paymentitem.tpl.html',
+  'text!template/21.0.0/pos/payment/paymentitem.tpl.html',
 ], function($, $$, _, Backbone, Global, template) {
   var ItemView = Backbone.View.extend({
     _template: _.template(template),

@@ -11,8 +11,8 @@ define([
   'shared/method',
   'model/base',
   'collection/base',
-  'view/19.2.0/settings/payment/confirmpassword',
-  'text!template/19.2.0/settings/payment/payment.tpl.html'
+  'view/20.1.0/settings/payment/confirmpassword',
+  'text!template/20.1.0/settings/payment/payment.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method, BaseModel, BaseCollection, ConfirmPasswordView, template) {
   var PaymentGatewaySettingsView = Backbone.View.extend({
     _template: _.template(template),

@@ -10,7 +10,7 @@ define([
   'underscore',
   'backbone',
   'shared/shared',
-  'text!template/19.2.0/customers/customers/detail/note.tpl.html'
+  'text!template/21.0.0/customers/customers/detail/note.tpl.html'
 ], function($, $$, _, Backbone, Shared, NoteTemplate) {
   var NoteView = Backbone.View.extend({
     _noteTemplate: _.template(NoteTemplate),

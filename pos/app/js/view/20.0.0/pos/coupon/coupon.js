@@ -12,10 +12,10 @@ define([
   'shared/shared',
   'model/coupon',
   'collection/coupons',
-  'view/19.2.0/pos/coupon/couponlist',
-  'view/19.2.0/pos/coupon/couponscan',
-  'text!template/19.2.0/pos/coupon/coupon.tpl.html',
-  'text!template/19.2.0/pos/coupon/couponscan.tpl.html',
+  'view/20.0.0/pos/coupon/couponlist',
+  'view/20.0.0/pos/coupon/couponscan',
+  'text!template/20.0.0/pos/coupon/coupon.tpl.html',
+  'text!template/20.0.0/pos/coupon/couponscan.tpl.html',
 ], function($, $$, _, Backbone, Enum, Global, Shared,
   CouponModel, CouponCollection, CouponListView, CouponScanView, template, ScanTemplate) {
 

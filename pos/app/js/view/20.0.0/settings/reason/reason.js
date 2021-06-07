@@ -10,7 +10,7 @@ define([
   'shared/method',
   'shared/service',
   'collection/preferences',
-  'text!template/19.2.0/settings/reason/reason.tpl.html',
+  'text!template/20.0.0/settings/reason/reason.tpl.html',
   'js/libs/ui.checkswitch.min.js',
 ], function($, $$, _, Backbone, Global, Method, Service, PreferenceCollection, template) {  
   var ReasonSettingsView = Backbone.View.extend({

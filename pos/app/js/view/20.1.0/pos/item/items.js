@@ -8,8 +8,8 @@ define([
 	'backbone',
 	'shared/global',
 	'shared/shared',
-	'view/19.2.0/pos/item/item',
-	'text!template/19.2.0/pos/item/items.tpl.html',
+	'view/20.1.0/pos/item/item',
+	'text!template/20.1.0/pos/item/items.tpl.html',
 	'js/libs/swipe.min.js'
 ],function($, $$, _, Backbone, Global, Shared, ItemView,  template){
 	var _limit = 15, _i = 1, _remaining = 0, _collection, _page = 0; _currentPage = 0;

@@ -4,7 +4,7 @@ define([
 	'mobile',
 	'underscore',	
 	'backbone',	
-	'text!template/19.2.0/products/lookup/lookup.tpl.html'
+	'text!template/21.0.0/products/lookup/lookup.tpl.html'
 ], function($, $$, _, Backbone, template){
 	
 	var _proceed = false,_categoryForm;

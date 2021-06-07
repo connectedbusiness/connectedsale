@@ -9,9 +9,9 @@ define([
   'shared/global',
   'shared/shared',
   'model/base',
-  'view/19.2.0/settings/general/website/websitecontent',
-  'text!template/19.2.0/settings/general/website/websitelist.tpl.html',
-  'text!template/19.2.0/settings/general/website/search.tpl.html',
+  'view/21.0.0/settings/general/website/websitecontent',
+  'text!template/21.0.0/settings/general/website/websitelist.tpl.html',
+  'text!template/21.0.0/settings/general/website/search.tpl.html',
   'js/libs/iscroll.js',
 ], function($, $$, _, Backbone, Global, Shared, BaseModel, WebsiteContentPreference, template, searchTemplate) {
   var WebsiteListPreference = Backbone.View.extend({

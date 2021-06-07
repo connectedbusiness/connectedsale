@@ -6,7 +6,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/19.2.0/settings/receipt/print/printerlistvalue.tpl.html'
+  'text!template/20.0.0/settings/receipt/print/printerlistvalue.tpl.html'
 ], function($, $$, _, Backbone, template) {
   var PrinterListValue = Backbone.View.extend({
     _template: _.template(template),
