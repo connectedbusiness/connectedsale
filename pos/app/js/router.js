@@ -259,8 +259,9 @@ define([
 					break;
 			}
 
-			switch (currentServerVersion.Major) {
-				case "22" :
+			var majorVersion =  currentServerVersion.Major + ".0";
+			switch (majorVersion) {
+				case "22.0" :
 					_index = 11;
 					break;
 			}
