@@ -1274,8 +1274,6 @@ define([
     },
 
     CreatePayment: function(paymentType, amount) {
-      debugger;
-      
       switch (paymentType) {
         case Enum.PaymentType.Cash:
           _amountPaid = amount;
@@ -1401,8 +1399,6 @@ define([
     AddCreditCardPayment: function(amount) {
       var self = this;
 
-      debugger;
-      
       if (Global.DejavooEnabled) {
         self.trigger("showDejavooProgress", true);
         var request = Global.Preference.DejavooConnectionProtocol + "://";

@@ -6541,7 +6541,6 @@ define([
 
 
     AddOfflinePayment: function() {
-      debugger;
       Global.IsCreateRefund = true;
       Global.OfflineCharge = true;
       Global.PaymentType = Enum.PaymentType.CreditCard;

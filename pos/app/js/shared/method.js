@@ -197,6 +197,8 @@ define(
       REMOVECOUPON: "removecoupon/",
       GETCUSTOMERCLASSTEMPLATEBYCOUNTRY: "getcustomerclasstemplatebycountry/",
       GETSHIPTOCLASSTEMPLATEBYCOUNTRY: "getshiptoclasstemplatebycountry/",
+      GETCUSTOMERCLASSTEMPLATEBYCUSTOMER: "getcustomerclasstemplatebycustomer/",
+      GETSHIPTOCLASSTEMPLATEBYCUSTOMER: "getshiptoclasstemplatebycustomer/",
       GETLOCATIONTAXCODE: "getlocationtaxcode/",
       GETBUNDLEDETAIL: "getitembundledetail/",
       GETBUNDLEMATRIXITEMATTRIBUTES: "inventorybundlematrixitemattributes/",

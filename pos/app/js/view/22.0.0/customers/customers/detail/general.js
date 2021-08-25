@@ -540,8 +540,53 @@ define([
 
     LoadClassTemplatesByCountry: function(country) {
       if (!this.IsNew) return;
-      this.LoadCustomerClassTemplatesByCountry(country);
-      this.LoadShipToClassTemplatesByCountry(country);
+      debugger;
+      this.LoadCustomerClassTemplatesByCustomer(Global.POSWorkstationID);
+      this.LoadShipToClassTemplatesByCustomer(Global.POSWorkstationID);
+    },
+
+    LoadCustomerClassTemplatesByCustomer: function(code) {
+      if (!code) return;
+      if (code == "") return;
+      var self = this;
+      var tmp = new BaseModel({
+        StringValue: code
+      });
+      tmp.url = Global.ServiceUrl + Service.CUSTOMER + Method.GETCUSTOMERCLASSTEMPLATEBYCUSTOMER;
+      tmp.save(tmp, {
+        success: function(model, response) {
+          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+          if (!model.get("ClassTemplates")) return;
+          if (model.get("ClassTemplates").length == 0) return;
+          var classTemplatesMdl = model.get("ClassTemplates");
+          self.PopulateCustomerClassTemplates(classTemplatesMdl);
+        },
+        error: function(model, error, response) {
+          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+        }
+      });
+    },
+
+    LoadShipToClassTemplatesByCustomer: function(code) {
+      if (!code) return;
+      if (code == "") return;
+      var self = this;
+      var tmp = new BaseModel({
+        StringValue: code
+      });
+      tmp.url = Global.ServiceUrl + Service.CUSTOMER + Method.GETSHIPTOCLASSTEMPLATEBYCUSTOMER;
+      tmp.save(tmp, {
+        success: function(model, response) {
+          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+          if (!model.get("ClassTemplates")) return;
+          if (model.get("ClassTemplates").length == 0) return;
+          var classTemplatesMdl = model.get("ClassTemplates");
+          self.PopulateShipToClassTemplates(classTemplatesMdl);
+        },
+        error: function(model, error, response) {
+          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+        }
+      });
     },
 
     LoadCustomerClassTemplatesByCountry: function(country) {

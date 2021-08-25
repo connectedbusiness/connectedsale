@@ -56,8 +56,6 @@ define([
     },
 
     buttonCard_payment: function(e) {
-      debugger;
-
       Global.DejavooEnabled = Global.Preference.DejavooEnabled;
       Global.OfflineCharge = Global.Preference.DejavooEnabled;
        Global.SelectedPaymentType = Enum.PaymentType.CreditCard;
@@ -99,7 +97,6 @@ define([
       mdl.url = Global.ServiceUrl + Service.POS + Method.GETCREDITCARDALLOWSALE;
       mdl.fetch({
         success: function(model, response, xhr) {
-          debugger;
           if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
           Global.AllowSaleCreditPreference = response;
            if (!Global.OfflineCharge) {
@@ -112,7 +109,6 @@ define([
           console.log(response);
         },
         error: function(errorResponse) {
-          debugger;
           if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
           self.ProceedToCardAction();
           console.log(errorResponse);
@@ -217,8 +213,6 @@ define([
     },
 
     render: function() {
-      debugger;
-
       this.$el.html(this._template);
     
       this.enablePaymentOptionButtons();
