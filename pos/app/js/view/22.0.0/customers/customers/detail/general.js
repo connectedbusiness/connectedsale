@@ -540,7 +540,6 @@ define([
 
     LoadClassTemplatesByCountry: function(country) {
       if (!this.IsNew) return;
-      debugger;
       this.LoadCustomerClassTemplatesByCustomer(Global.POSWorkstationID);
       this.LoadShipToClassTemplatesByCustomer(Global.POSWorkstationID);
     },
@@ -589,49 +588,49 @@ define([
       });
     },
 
-    LoadCustomerClassTemplatesByCountry: function(country) {
-      if (!country) return;
-      if (country == "") return;
-      var self = this;
-      var tmp = new BaseModel({
-        StringValue: country
-      });
-      tmp.url = Global.ServiceUrl + Service.CUSTOMER + Method.GETCUSTOMERCLASSTEMPLATEBYCOUNTRY;
-      tmp.save(tmp, {
-        success: function(model, response) {
-          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-          if (!model.get("ClassTemplates")) return;
-          if (model.get("ClassTemplates").length == 0) return;
-          var classTemplatesMdl = model.get("ClassTemplates");
-          self.PopulateCustomerClassTemplates(classTemplatesMdl);
-        },
-        error: function(model, error, response) {
-          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-        }
-      });
-    },
+    // LoadCustomerClassTemplatesByCountry: function(country) {
+    //   if (!country) return;
+    //   if (country == "") return;
+    //   var self = this;
+    //   var tmp = new BaseModel({
+    //     StringValue: country
+    //   });
+    //   tmp.url = Global.ServiceUrl + Service.CUSTOMER + Method.GETCUSTOMERCLASSTEMPLATEBYCOUNTRY;
+    //   tmp.save(tmp, {
+    //     success: function(model, response) {
+    //       if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+    //       if (!model.get("ClassTemplates")) return;
+    //       if (model.get("ClassTemplates").length == 0) return;
+    //       var classTemplatesMdl = model.get("ClassTemplates");
+    //       self.PopulateCustomerClassTemplates(classTemplatesMdl);
+    //     },
+    //     error: function(model, error, response) {
+    //       if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+    //     }
+    //   });
+    // },
 
-    LoadShipToClassTemplatesByCountry: function(country) {
-      if (!country) return;
-      if (country == "") return;
-      var self = this;
-      var tmp = new BaseModel({
-        StringValue: country
-      });
-      tmp.url = Global.ServiceUrl + Service.CUSTOMER + Method.GETSHIPTOCLASSTEMPLATEBYCOUNTRY;
-      tmp.save(tmp, {
-        success: function(model, response) {
-          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-          if (!model.get("ClassTemplates")) return;
-          if (model.get("ClassTemplates").length == 0) return;
-          var classTemplatesMdl = model.get("ClassTemplates");
-          self.PopulateShipToClassTemplates(classTemplatesMdl);
-        },
-        error: function(model, error, response) {
-          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-        }
-      });
-    },
+    // LoadShipToClassTemplatesByCountry: function(country) {
+    //   if (!country) return;
+    //   if (country == "") return;
+    //   var self = this;
+    //   var tmp = new BaseModel({
+    //     StringValue: country
+    //   });
+    //   tmp.url = Global.ServiceUrl + Service.CUSTOMER + Method.GETSHIPTOCLASSTEMPLATEBYCOUNTRY;
+    //   tmp.save(tmp, {
+    //     success: function(model, response) {
+    //       if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+    //       if (!model.get("ClassTemplates")) return;
+    //       if (model.get("ClassTemplates").length == 0) return;
+    //       var classTemplatesMdl = model.get("ClassTemplates");
+    //       self.PopulateShipToClassTemplates(classTemplatesMdl);
+    //     },
+    //     error: function(model, error, response) {
+    //       if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+    //     }
+    //   });
+    // },
 
     PopulateCustomerClassTemplates: function(classTemplatesMdl) {
       var self = this;
@@ -666,7 +665,8 @@ define([
       });
 
       var isDefaultClassTemplateModel = this.customerClassTemplateCollection.find(function(model) {
-        return model.get("IsDefault") == true;
+        // return model.get("IsDefault") == true;
+        return true;
       });
 
       try {
@@ -714,7 +714,8 @@ define([
       });
 
       var isDefaultShipToClassTemplateModel = this.shipToClassTemplateCollection.find(function(model) {
-        return model.get("IsDefault") == true;
+        // return model.get("IsDefault") == true;
+        return true;
       });
 
       try {
@@ -768,6 +769,7 @@ define([
 	    		}
             });
             */
+
 
       var tmp = new BaseModel({
         StringValue: country
