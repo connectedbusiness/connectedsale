@@ -566,28 +566,6 @@ define([
       });
     },
 
-    LoadShipToClassTemplatesByCustomer: function(code) {
-      if (!code) return;
-      if (code == "") return;
-      var self = this;
-      var tmp = new BaseModel({
-        StringValue: code
-      });
-      tmp.url = Global.ServiceUrl + Service.CUSTOMER + Method.GETSHIPTOCLASSTEMPLATEBYCUSTOMER;
-      tmp.save(tmp, {
-        success: function(model, response) {
-          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-          if (!model.get("ClassTemplates")) return;
-          if (model.get("ClassTemplates").length == 0) return;
-          var classTemplatesMdl = model.get("ClassTemplates");
-          self.PopulateShipToClassTemplates(classTemplatesMdl);
-        },
-        error: function(model, error, response) {
-          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-        }
-      });
-    },
-
     // LoadCustomerClassTemplatesByCountry: function(country) {
     //   if (!country) return;
     //   if (country == "") return;
@@ -609,6 +587,28 @@ define([
     //     }
     //   });
     // },
+
+    LoadShipToClassTemplatesByCustomer: function(code) {
+      if (!code) return;
+      if (code == "") return;
+      var self = this;
+      var tmp = new BaseModel({
+        StringValue: code
+      });
+      tmp.url = Global.ServiceUrl + Service.CUSTOMER + Method.GETSHIPTOCLASSTEMPLATEBYCUSTOMER;
+      tmp.save(tmp, {
+        success: function(model, response) {
+          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+          if (!model.get("ClassTemplates")) return;
+          if (model.get("ClassTemplates").length == 0) return;
+          var classTemplatesMdl = model.get("ClassTemplates");
+          self.PopulateShipToClassTemplates(classTemplatesMdl);
+        },
+        error: function(model, error, response) {
+          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+        }
+      });
+    },
 
     // LoadShipToClassTemplatesByCountry: function(country) {
     //   if (!country) return;
