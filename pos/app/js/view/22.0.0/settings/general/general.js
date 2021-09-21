@@ -79,7 +79,7 @@ define([
       "blur #NotificationInterval": "RevertPreviousValue",
       "focus #NotificationInterval": "SaveAndClearValue",
 
-      "tap #AllowSales, #AllowQuotes, #AllowOrders, #AllowReturns, #AllowChangePrice, #AllowAddCustomer, #AllowChangeClassTemplate, #AllowChangePaymentTerm, #AllowChangeTaxCode, #AllowTaxOnLineItems, #IsUseCustomerShipToPaymentType,#IsUsePOSShippingMethod, #UseForcePayment, #IsDepositPayment, #AutoSignOutUser, #IsOverrideSalesRep, #TaxByLocation, #ShowCouponList, #ShowWholesalePrice, #UseCashDrawer, #IsUseItemDescription, #TrackDrawerBalance, #BlindClose, #IsAllowViewZXTape, #IsUseISEImage, #AskForCustomerPO, #AskForShipDate, #AskForSource, #IsAutoAdjustmentStock, #IsTrackStorePickUp": "Chkbox_click"
+      "tap #AllowSales, #AllowQuotes, #AllowOrders, #AllowReturns, #AllowChangePrice, #AllowAddCustomer, #AllowChangeClassTemplate, #AllowChangePaymentTerm, #AllowChangeTaxCode, #AllowTaxOnLineItems, #IsUseCustomerShipToPaymentType,#IsUsePOSShippingMethod, #UseForcePayment, #IsDepositPayment, #AutoSignOutUser, #IsOverrideSalesRep, #TaxByLocation, #ShowCouponList, #ShowWholesalePrice, #UseCashDrawer, #IsUseItemDescription, #TrackDrawerBalance, #BlindClose, #IsAllowViewZXTape, #IsUseISEImage, #AskForPaymentTerm, #AskForShippingMethod, #AskForContact, #AskForCustomerPO, #AskForShipDate, #AskForSource, #IsAutoAdjustmentStock, #IsTrackStorePickUp": "Chkbox_click"
 
     },
 
@@ -201,7 +201,7 @@ define([
       return $(elementID).hasClass('icon-ok-sign') ? true : false;
     },
 
-    SetChkState: function(setting, isChecked){
+    SetChkState: function(setting, isChecked){  
     var _self = this;
       // Manage Bindings
           switch (setting) {
@@ -271,6 +271,18 @@ define([
               break;
             case "IsUseItemDescription":
               isUseItemDescription = isChecked;
+              _self.ToggleCheckbox(setting, isChecked);
+              break;
+            case "AskForPaymentTerm":
+              askForPaymentTerm = isChecked;
+              _self.ToggleCheckbox(setting, isChecked);
+              break;
+            case "AskForShippingMethod":
+              askForShippingMethod = isChecked;
+              _self.ToggleCheckbox(setting, isChecked);
+              break;
+            case "AskForContact":
+              askForContact = isChecked;
               _self.ToggleCheckbox(setting, isChecked);
               break;
             case "AskForCustomerPO":
@@ -1573,6 +1585,7 @@ define([
         "IsOverrideSalesRep", "ShowWholesalePrice",
         "AutoSignOutUser", "TrackDrawerBalance", "BlindClose",
         "UseCashDrawer", "IsUseISEImage", "AllowChangeClassTemplate", "AllowTaxOnLineItems",
+        "AskForPaymentTerm", "AskForShippingMethod", "AskForContact",
         "AskForCustomerPO", "AskForShipDate", "AskForSource", "IsTrackStorePickUp",
         "AllowChangePaymentTerm", "AllowChangeTaxCode", "IsUseCustomerShipToPaymentType","IsUsePOSShippingMethod","UseForcePayment","IsAllowViewZXTape", "IsAutoAdjustmentStock"
       ];
@@ -1659,6 +1672,15 @@ define([
               break;
 
               //VER. 14
+            case "AskForPaymentTerm":
+              this.askForPaymentTerm = _settings.attributes['AskForPaymentTerm'];
+              break;
+            case "AskForShippingMethod":
+              this.askForShippingMethod = _settings.attributes['AskForShippingMethod'];
+              break;
+            case "AskForContact":
+              this.askForContact = _settings.attributes['AskForContact'];
+              break;
             case "AskForCustomerPO":
               this.askForCustomerPO = _settings.attributes['AskForCustomerPO'];
               break;
@@ -1997,6 +2019,7 @@ define([
         "TaxByLocation", "ShowCouponList", "IsUseItemDescription",
         "IsDepositPayment", "IsOverrideSalesRep", "ShowWholesalePrice",
         "AutoSignOutUser", "TrackDrawerBalance", "BlindClose", "UseCashDrawer", "AllowChangeClassTemplate", "AllowTaxOnLineItems",
+        "AskForPaymentTerm", "AskForShippingMethod", "AskForContact",
         "AskForCustomerPO", "AskForShipDate", "AskForSource", "IsTrackStorePickUp",
         "AllowChangePaymentTerm", "AllowChangeTaxCode","IsUseCustomerShipToPaymentType","IsUsePOSShippingMethod", "UserForcePayment", "IsAllowViewZXTape", "IsAutoAdjustmentStock"
       ];
@@ -2166,6 +2189,24 @@ define([
               break;
 
               //VER. 14
+            case "AskForPaymentTerm":
+              _checked = this.askForPaymentTerm;
+              _settings.set({
+                AskForPaymentTerm: _checked
+              });
+              break;
+            case "AskForShippingMethod":
+              _checked = this.askForShippingMethod;
+              _settings.set({
+                AskForShippingMethod: _checked
+              });
+              break;
+            case "AskForContact":
+              _checked = this.askForContact;
+              _settings.set({
+                AskForContact: _checked
+              });
+              break;
             case "AskForCustomerPO":
               _checked = this.askForCustomerPO;
               _settings.set({

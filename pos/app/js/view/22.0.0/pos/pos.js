@@ -4275,7 +4275,8 @@ define([
 
     PromptCustomerPO: function(paymentType) {
       if (Global.OnRechargeProcess) return true;
-      if (Global.Preference.AskForCustomerPO || Global.Preference.AskForShipDate || Global.Preference.AskForSource) {
+      if (Global.Preference.AskForCustomerPO || Global.Preference.AskForShipDate || Global.Preference.AskForSource ||
+        Global.Preference.AskForPaymentTerm || Global.Preference.AskForShippingMethod || Global.Preference.AskForContact) {
         if (Shared.IsNullOrWhiteSpace(this.isSetCustomerPO) || this.isSetCustomerPO == false) {
           $("#main-transaction-blockoverlay").show();
           this.InitializeCustomerPOView();
