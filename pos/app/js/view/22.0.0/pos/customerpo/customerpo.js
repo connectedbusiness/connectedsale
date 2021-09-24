@@ -56,9 +56,9 @@ define([
       Shared.BrowserModeDatePicker("#customer-ShipDate", "datepicker");
       this.$el.trigger('create');
       $("#customerPOSource-div > :first-child > :first-child").addClass("po-source-border");
-      $("#customerPaymentTerm-div > :first-child > :first-child").addClass("paymentTerm-border");
-      $("#customerShippingMethod-div > :first-child > :first-child").addClass("shippingMethod-border");
-      $("#customerContact-div > :first-child > :first-child").addClass("contact-border");
+      $("#paymentTerm-div > :first-child > :first-child").addClass("po-source-border");
+      $("#shippingMethod-div > :first-child > :first-child").addClass("po-source-border");
+      $("#contact-div > :first-child > :first-child").addClass("po-source-border");
       return this;
     },
     InitializeChildViews: function() {
@@ -86,8 +86,8 @@ define([
       var _shipdate = this.$(txtShipDate).val();
       var _shippingDate = this.JsonToAspDate(_shipdate);
       var _source = this.$(drpSource).val();
-      var _paymentTerm = this.$(drpPaymentTerm).val();
-      var _shippingMethod = this.$(drpShippingMethod).val();
+      var _paymentTerm = this.$(drpPaymentTerm).val().split('|');
+      var _shippingMethod = this.$(drpShippingMethod).val().split('|');
       var _contact = this.$(drpContact).val();
 
       if (this.hasShipDate == true) {
@@ -96,7 +96,7 @@ define([
           return;
         }
       }
-      this.Save(_POCode, _shippingDate, _source, _paymentTerm, _shippingMethod, _contact);
+      this.Save(_POCode, _shippingDate, _source, _paymentTerm[1], _paymentTerm[0], _shippingMethod[1], _shippingMethod[0], _contact);
     },
     Cancel: function(e) {
       e.preventDefault();
@@ -104,14 +104,17 @@ define([
       this.trigger("ResetCustomerPO");
       this.$el.hide();
     },
-    Save: function(_POCode, _shipdate, _source, _paymentTerm, _shippingMethod, _contact) {
+    Save: function(_POCode, _shipdate, _source, _paymentTermGroup, _paymentTerm, _shippingMethodGroup, _shippingMethod, _contact) {
+      debugger;
       this.model.set({
         POCode: _POCode,
         SourceCode: _source,
         ShippingDate: _shipdate,
-        PaymentTerm: _paymentTerm,
-        ShippingMethod: _shippingMethod,
-        Contact: _contact
+        PaymentTermGroup: _paymentTermGroup,
+        PaymentTermCode: _paymentTerm,
+        ShippingMethodGroup: _shippingMethodGroup,
+        ShippingMethodCode: _shippingMethod,
+        ContactCode: _contact
       });
 
       this.trigger('AddCustomerPO', this.model, this.type);
@@ -121,7 +124,7 @@ define([
       //$("#main-transaction-blockoverlay").hide();
       this.$el.hide();
     },
-    Show: function(model, type, customerSourceCode, customerPaymentTermCode, customerShippingMethodCode, customerContactCode, transactionModel) {
+    Show: function(model, type, customerSourceCode, paymentTermCode, shippingMethodCode, contactCode, transactionModel) {
       this.$el.show();
       this.model = new BaseModel();
       this.model = model;
@@ -129,11 +132,11 @@ define([
       this.sourceModel = new BaseModel();
       this.customerSourceCode = customerSourceCode;
       this.paymentTermModel = new BaseModel();
-      this.customerPaymentTermCode = customerPaymentTermCode;
+      this.paymentTermCode = paymentTermCode;
       this.shippingMethodModel = new BaseModel();
-      this.customerShippingMethodCode = customerShippingMethodCode;
+      this.shippingMethodCode = shippingMethodCode;
       this.contactModel = new BaseModel();
-      this.customerContactCode = customerContactCode;
+      this.contactCode = contactCode;
 
       this.transactionModel = new BaseModel();
       if (!this.IsNullOrWhiteSpace(transactionModel)) {
@@ -163,6 +166,22 @@ define([
       this.hasCustomerPO = true;
       this.hasShipDate = true;
       this.Source = true;
+      if (!Global.Preference.AskForCustomerPO) {
+        this.$(txtCustomerPO).addClass('ui-disabled');
+        this.$(lblCustomerPO).addClass('ui-disabled');
+        this.hasCustomerPO = false;
+      }
+      if (!Global.Preference.AskForShipDate) {
+        this.$(txtShipDate).addClass('ui-disabled');
+        this.$(lblShipDate).addClass('ui-disabled');
+        this.hasShipDate = false;
+      }
+      if (!Global.Preference.AskForSource) {
+        this.$(drpSourceDiv).addClass('ui-disabled');
+        this.$(lblSource).addClass('ui-disabled');
+        this.$(drpSource + ' > option').remove();
+        this.Source = false;
+      }
       if (!Global.Preference.AskForPaymentTerm) {
         this.$(drpPaymentTermDiv).addClass('ui-disabled');
         this.$(lblPaymentTerm).addClass('ui-disabled');
@@ -181,26 +200,10 @@ define([
         this.$(drpContact + ' > option').remove();
         this.Contact = false;
       }
-      if (!Global.Preference.AskForCustomerPO) {
-        this.$(txtCustomerPO).addClass('ui-disabled');
-        this.$(lblCustomerPO).addClass('ui-disabled');
-        this.hasCustomerPO = false;
-      }
-      if (!Global.Preference.AskForShipDate) {
-        this.$(txtShipDate).addClass('ui-disabled');
-        this.$(lblShipDate).addClass('ui-disabled');
-        this.hasShipDate = false;
-      }
-      if (!Global.Preference.AskForSource) {
-        this.$(drpSourceDiv).addClass('ui-disabled');
-        this.$(lblSource).addClass('ui-disabled');
-        this.$(drpSource + ' > option').remove();
-        //	this.$(drpSource).val("");
-        this.Source = false;
-        //this.$(drpSource).append(new Option("Source...",""));
-      }
-      this.InitializePaymentTerm();
       this.InitializeSystemSource();
+      this.InitializeSystemPaymentTerm(Global.CustomerCode);
+      this.InitializeSystemShippingMethod(Global.CustomerCode);
+      this.InitializeCRMContact(Global.CustomerCode);
     },
     IsNullOrWhiteSpace: function(str) {
       return Shared.IsNullOrWhiteSpace(str);
@@ -240,54 +243,6 @@ define([
         }
       }
     },
-
-    InitializeSystemPaymentTerm: function(criteria) {
-      this.sytemPaymentTermModel = new BaseModel();
-      var _rowstoselect = 100;
-      if (!this.IsNullOrWhiteSpace(criteria)) {
-        this.sytemPaymentTermModel.set({
-          StringValue: criteria
-        });
-      }
-      var self = this;
-      this.sytemPaymentTermModel.url = Global.ServiceUrl + Service.POS + Method.LOADSYSTEMPAYMENTTERM + _rowstoselect;
-      this.sytemPaymentTermModel.save(null, {
-        success: function(model, response) {
-          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-          self.LoadSytemPaymentTerm(response);
-        }
-      });
-    },
-    GetCustomerPaymentTermCode: function() {
-      if (!this.IsNullOrWhiteSpace(this.customerPaymentTerm)) {
-        var _defaultPaymentTerm = this.customerPaymentTerm;
-        this.$(drpPaymentTerm).val(_defaultPaymentTerm);
-        this.$(drpPaymentTerm + " > option[value='" + _defaultPaymentTerm + "']").attr("selected", "selected");
-        this.$(drpPaymentTerm).trigger('change');
-      }
-      this.InitializePreviousTransction();
-    },
-    LoadSytemPaymentTerm: function(response) {
-      this.$(drpPaymentTerm + ' > option').remove();
-      var self = this;
-
-      if (!this.IsNullOrWhiteSpace(response)) {
-        this.systemPaymentTermCollection = new BaseCollection();
-        this.systemPaymentTermCollection.reset(response.SystemSources);
-        self.$(drpPaymentTerm).append(new Option("-Select Payment Term-", ""));
-        this.systemPaymentTermCollection.each(function(model) {
-          var paymentTermDescription = model.get("PaymentTermDescription");
-          var paymentTermCode = model.get("PaymentTermCode");
-          if (model.get("PaymentTermCode") == "Unknown") {
-            _defaultPaymentTerm = model.get(paymentTermDescription);
-          }
-          self.$(drpPaymentTerm).append(new Option(paymentTermDescription, paymentTermCode));
-        });
-
-        this.GetCustomerPaymentTermCode();
-      }
-    },
-
     InitializeSystemSource: function(criteria) {
       this.sytemSourceModel = new BaseModel();
       var _rowstoselect = 100;
@@ -303,7 +258,6 @@ define([
           if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
           self.LoadSytemSource(response);
         }
-
       });
     },
     GetCustomerSourceCode: function() {
@@ -331,8 +285,144 @@ define([
           }
           self.$(drpSource).append(new Option(sourceDescription, sourceCode));
         });
-
         this.GetCustomerSourceCode();
+      }
+    },
+    InitializeSystemPaymentTerm: function(criteria) {
+      this.sytemPaymentTermModel = new BaseModel();
+      var _rowstoselect = 100;
+      if (!this.IsNullOrWhiteSpace(criteria)) {
+        this.sytemPaymentTermModel.set({
+          StringValue: criteria
+        });
+      }
+      var self = this;
+      this.sytemPaymentTermModel.url = Global.ServiceUrl + Service.POS + Method.LOADSYSTEMPAYMENTTERM + _rowstoselect;
+      this.sytemPaymentTermModel.save(null, {
+        success: function(model, response) {
+          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+          self.LoadSytemPaymentTerm(response);
+        }
+      });
+    },
+    GetPaymentTermCode: function() {
+      if (!this.IsNullOrWhiteSpace(this.paymentTermCode)) {
+        var _defaultPaymentTerm = this.paymentTermCode;
+        this.$(drpPaymentTerm).val(_defaultPaymentTerm);
+        this.$(drpPaymentTerm + " > option[value='" + _defaultPaymentTerm + "']").attr("selected", "selected");
+        this.$(drpPaymentTerm).trigger('change');
+      }
+      this.InitializePreviousTransction();
+    },
+    LoadSytemPaymentTerm: function(response) {
+      this.$(drpPaymentTerm + ' > option').remove();
+      var self = this;
+
+      if (!this.IsNullOrWhiteSpace(response)) {
+        this.systemPaymentTermCollection = new BaseCollection();
+        this.systemPaymentTermCollection.reset(response.SystemPaymentTerms);
+        self.$(drpPaymentTerm).append(new Option("-Select Payment Term-", ""));
+        this.systemPaymentTermCollection.each(function(model) {
+          var paymentTermDescription = model.get("PaymentTermDescription");
+          var paymentTermCode = model.get("PaymentTermCode");
+          var paymentTermGroup = model.get("PaymentTermGroup");
+          if (model.get("PaymentTermCode") == "Unknown") {
+            _defaultPaymentTerm = model.get(paymentTermDescription);
+          }
+          self.$(drpPaymentTerm).append(new Option(paymentTermDescription, paymentTermCode + '|' + paymentTermGroup));
+        });
+        this.GetPaymentTermCode();
+      }
+    },
+    InitializeSystemShippingMethod: function(criteria) {
+      this.sytemShippingMethodModel = new BaseModel();
+      var _rowstoselect = 100;
+      if (!this.IsNullOrWhiteSpace(criteria)) {
+        this.sytemShippingMethodModel.set({
+          StringValue: criteria
+        });
+      }
+      var self = this;
+      this.sytemShippingMethodModel.url = Global.ServiceUrl + Service.POS + Method.LOADSYSTEMSHIPPINGMETHOD + _rowstoselect;
+      this.sytemShippingMethodModel.save(null, {
+        success: function(model, response) {
+          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+          self.LoadSytemShippingMethod(response);
+        }
+      });
+    },
+    GetShippingMethoCode: function() {
+      if (!this.IsNullOrWhiteSpace(this.shippingMethodCode)) {
+        var _defaultShippingMethod = this.shippingMethodCode;
+        this.$(drpShippingMethod).val(_defaultShippingMethod);
+        this.$(drpShippingMethod + " > option[value='" + _defaultShippingMethod + "']").attr("selected", "selected");
+        this.$(drpShippingMethod).trigger('change');
+      }
+      this.InitializePreviousTransction();
+    },
+    LoadSytemShippingMethod: function(response) {
+      this.$(drpShippingMethod + ' > option').remove();
+      var self = this;
+
+      if (!this.IsNullOrWhiteSpace(response)) {
+        this.systemShippingMethodCollection = new BaseCollection();
+        this.systemShippingMethodCollection.reset(response.SystemShippingMethods);
+        self.$(drpShippingMethod).append(new Option("-Select Shipping Method-", ""));
+        this.systemShippingMethodCollection.each(function(model) {
+          var shippingMethodDescription = model.get("ShippingMethodDescription");
+          var shippingMethodCode = model.get("ShippingMethodCode");
+          var shippingMethodGroup = model.get("ShippingMethodGroup");
+          if (model.get("ShippingMethodCode") == "Unknown") {
+            _defaultShippingMethod = model.get(shippingMethodDescription);
+          }
+          self.$(drpShippingMethod).append(new Option(shippingMethodDescription, shippingMethodCode + '|' + shippingMethodGroup));
+        });
+        this.GetShippingMethodCode();
+      }
+    },
+    InitializeCRMContact: function(criteria) {
+      this.crmContactModel = new BaseModel();
+      var _rowstoselect = 100;
+      if (!this.IsNullOrWhiteSpace(criteria)) {
+        this.crmContactModel.set({
+          StringValue: criteria
+        });
+      }
+      var self = this;
+      this.crmContactModel.url = Global.ServiceUrl + Service.POS + Method.LOADCRMCONTACT + _rowstoselect;
+      this.crmContactModel.save(null, {
+        success: function(model, response) {
+          if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+          self.LoadCRMContact(response);
+        }
+      });
+    },
+    GetContactCode: function() {
+      if (!this.IsNullOrWhiteSpace(this.contactCode)) {
+        var _defaultContact = this.contactCode;
+        this.$(drpContact).val(_defaultContact);
+        this.$(drpContact + " > option[value='" + _defaultContact + "']").attr("selected", "selected");
+        this.$(drpContact).trigger('change');
+      }
+      this.InitializePreviousTransction();
+    },
+    LoadCRMContact: function(response) {
+      this.$(drpContact + ' > option').remove();
+      var self = this;
+
+      if (!this.IsNullOrWhiteSpace(response)) {
+        this.contactCollection = new BaseCollection();
+        this.contactCollection.reset(response.CRMContacts);
+        self.$(drpContact).append(new Option("-Select Contact-", ""));
+        this.contactCollection.each(function(model) {
+          var contactName = model.get("ContactFullName");
+          var contactCode = model.get("ContactCode");
+          if (model.get("ContactCode") == "Unknown") {
+            _defaultContact = model.get(contactName);
+          }
+          self.$(drpContact).append(new Option(contactName, contactCode));
+        });
+        this.GetContactCode();
       }
     }
   });

@@ -3154,7 +3154,6 @@ define([
 		var freeitemCollection;
 		var promoItems;
 
-
 	  if (Global.TransactionType == Enum.TransactionType.UpdateInvoice) transactionType = Enum.TransactionType.ResumeSale;
 
       shippingDate = this.JsonToAspDate(shippingDate),
@@ -5246,10 +5245,20 @@ define([
         var poCode = this.customerPOModel.get("POCode");
         var sourceCode = this.customerPOModel.get("SourceCode");
         var shippingDate = this.customerPOModel.get("ShippingDate");
+        var paymentTermGroup = this.customerPOModel.get("PaymentTermGroup");
+        var paymentTermCode = this.customerPOModel.get("PaymentTermCode");
+        var shippingMethodGroup = this.customerPOModel.get("ShippingMethodGroup");
+        var shippingMethodCode = this.customerPOModel.get("ShippingMethodCode");
+        var contactCode = this.customerPOModel.get("ContactCode");
         this.transactionModel.set({
           POCode: poCode,
           SourceCode: sourceCode,
-          ShippingDate: shippingDate
+          ShippingDate: shippingDate,
+          PaymentTermGroup: paymentTermGroup,
+          PaymentTermCode: paymentTermCode,
+          ShippingMethodGroup: shippingMethodGroup,
+          ShippingMethodCode: shippingMethodCode,
+          ContactCode: contactCode
         });
       }
 
@@ -7937,7 +7946,10 @@ define([
           InvoiceCode: transactionCode,
           SourceCode: response.Invoices[0].SourceCode,
           ShippingDate: response.Invoices[0].ShippingDate,
-          POCode: response.Invoices[0].POCode
+          POCode: response.Invoices[0].POCode,
+          PaymentTermCode: response.Invoices[0].PaymentTermCode,
+          ShippingMethodCode: response.Invoices[0].ShippingMethodCode,
+          ContactCode: response.Invoices[0].ContactCode
         });
       } else {
         this.previousTransactionDetals.reset(response.SalesOrderDetails);
@@ -7948,7 +7960,10 @@ define([
           SalesOrderCode: transactionCode,
           SourceCode: response.SalesOrders[0].SourceCode,
           ShippingDate: response.SalesOrders[0].ShippingDate,
-          POCode: response.SalesOrders[0].POCode
+          POCode: response.SalesOrders[0].POCode,
+          PaymentTermCode: response.SalesOrders[0].PaymentTermCode,
+          ShippingMethodCode: response.SalesOrders[0].ShippingMethodCode,
+          ContactCode: response.SalesOrders[0].ContactCode
         });
       }
     },
