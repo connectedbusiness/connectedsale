@@ -9,7 +9,7 @@ define([
   'model/base',
   'model/lookupcriteria',
   'collection/base',
-  'text!template/22.0.0/reports/list/reportlistcontent.tpl.html'
+  'text!template/19.0.0/reports/list/reportlistcontent.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method,
   BaseModel, LookUpCriteriaModel,
   BaseCollection,

@@ -10,7 +10,7 @@ define([
 	'shared/shared',
 	'model/department',
     'collection/departments',
-	'text!template/22.0.0/products/departments/detail/general.tpl.html'
+	'text!template/19.0.0/products/departments/detail/general.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared, DepartmentModel, DepartmentCollection, template){
 	
 	var _proceed = false,_departmentForm;

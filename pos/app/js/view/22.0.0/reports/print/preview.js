@@ -9,10 +9,10 @@ define([
   'model/lookupcriteria',
   'collection/base',
   'collection/reportsettings',
-  'view/22.0.0/pos/print/dynamicprint',
-  'view/22.0.0/reports/print/printdialog',
-  'text!template/22.0.0/reports/print/preview.tpl.html',
-  'text!template/22.0.0/reports/print/printarea.tpl.html'
+  'view/19.0.0/pos/print/dynamicprint',
+  'view/19.0.0/reports/print/printdialog',
+  'text!template/19.0.0/reports/print/preview.tpl.html',
+  'text!template/19.0.0/reports/print/printarea.tpl.html'
 ], function(Backbone, Global, Service, Method, Shared,
   BaseModel, LookUpCriteriaModel, ReportSettingModel,
   BaseCollection, ReportSettingCollection,

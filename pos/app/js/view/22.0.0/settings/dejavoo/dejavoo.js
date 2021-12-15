@@ -8,9 +8,9 @@ define([
   'shared/method',
   'shared/shared',
   'collection/preferences',
-  'view/22.0.0/settings/modal/modal',
-  'view/22.0.0/settings/dejavoo/protocol/protocol',
-  'text!template/22.0.0/settings/dejavoo/dejavoo.tpl.html',
+  'view/19.0.0/settings/modal/modal',
+  'view/19.0.0/settings/dejavoo/protocol/protocol',
+  'text!template/19.0.0/settings/dejavoo/dejavoo.tpl.html',
   'js/libs/iscroll.js',
   'js/libs/ui.checkswitch.min.js'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared, PreferenceCollection,

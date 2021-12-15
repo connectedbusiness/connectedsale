@@ -1,0 +1,59 @@
+ <% 
+    var _AutoGenerate_text = 'False', _GCData ='', _NonGCData = '', _DontEarnPoints_text = 'False';
+    
+    if(AutoGenerate){ _AutoGenerate_text = 'True'; }
+    if(DontEarnPoints){ _DontEarnPoints_text = 'True'; }
+    
+    if(ItemType == 'Gift Certificate' || ItemType == 'Gift Card') _NonGCData = 'style="display:none"';
+    else  _GCData = 'style="display:none"';
+ 
+    var priceDisplay = 'Wholesale Price :';
+    if (ItemType == "Gift Card" || ItemType == "Gift Certificate") priceDisplay = 'Price :'; 
+ %>
+<div class="summary-details" id="summary-details">     
+    <div class="tables">  
+       <span class="label-group" id="collapse-general"><b><i class="icon-minus-sign"></i>&nbsp;General</b></span>
+       <table class="summary-general" id="summary-general">                 
+            <tr><td class="label" >Name :</td><td><%= ItemName %></td></tr>
+            <tr><td class="label" >Description :</td><td><%= ItemDescription %></td></tr>
+            <tr><td class="label" >Type :</td><td><%= ItemType %></td></tr>
+            <tr <%= _NonGCData %> ><td class="label" >Serialize Lot :</td><td><%= SerializeLot %></td></tr>
+            <tr <%= _GCData %> ><td class="label" >Auto-Generate Serial :</td><td><%= _AutoGenerate_text %></td></tr>
+            <tr <%= _NonGCData %> ><td class="label">Don't Earn Points:</td><td><%= _DontEarnPoints_text %></td></tr>
+        </table>            
+    </div>
+
+    <div class="tables" > 
+       <span class="label-group" id="collapse-pricing" ><b><i class="icon-minus-sign"></i>&nbsp;Pricing</b></span>
+       <table class="summary-pricing" id="summary-pricing">            
+            <tr <%= _NonGCData %> ><td class="label" >Cost :</td><td><%= AverageCost %></td></tr>
+            <tr <%= _NonGCData %> ><td class="label" >Retail Price :</td><td><%= RetailPrice %></td></tr>
+            <tr><td class="label" ><%= priceDisplay %></td><td><%= WholesalePrice %></td></tr> 
+        </table>  
+    </div>
+
+    <div class="tables cs-version-14" > 
+       <span class="label-group" id="collapse-uom" ><b><i class="icon-minus-sign"></i>&nbsp;Unit Of Measure</b></span>
+       <table class="summary-uom" id="summary-uom">  </table>  
+    </div>
+
+    <div class="tables" <%= _NonGCData %> > 
+       <span class="label-group" id="collapse-acc" ><b><i class="icon-minus-sign"></i>&nbsp;Accessory</b></span>
+       <table class="summary-acc" id="summary-acc">  </table>  
+    </div>
+
+    <div class="tables" > 
+       <span class="label-group" id="collapse-sub" ><b><i class="icon-minus-sign"></i>&nbsp;Substitute</b></span>
+       <table class="summary-sub" id="summary-sub">  </table>  
+    </div>
+
+    <div class="tables" > 
+       <span class="label-group" id="collapse-department" ><b><i class="icon-minus-sign"></i>&nbsp;Department</b></span>
+       <table class="summary-department" id="summary-department">  </table>  
+    </div>
+
+    <div class="tables" > 
+       <span class="label-group" id="collapse-category" ><b><i class="icon-minus-sign"></i>&nbsp;Category</b></span>
+       <table class="summary-category" id="summary-category"> </table>  
+    </div> 
+</div>

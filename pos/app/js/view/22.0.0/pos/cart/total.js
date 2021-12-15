@@ -9,7 +9,7 @@ define([
   'bigdecimal',
   'backbone',
   'shared/global',
-  'text!template/22.0.0/pos/cart/total.tpl.html',
+  'text!template/19.0.0/pos/cart/total.tpl.html',
   'js/libs/format.min.js'
 ], function($, $$, _, BigDecimal, Backbone, Global, template) {
   var CartView = Backbone.View.extend({

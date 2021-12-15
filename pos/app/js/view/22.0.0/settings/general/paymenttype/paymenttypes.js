@@ -8,9 +8,9 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'view/22.0.0/settings/general/paymenttype/paymenttype',
-  'text!template/22.0.0/settings/general/paymenttype/paymenttypes.tpl.html',
-  'text!template/22.0.0/settings/general/paymenttype/search.tpl.html',
+  'view/19.0.0/settings/general/paymenttype/paymenttype',
+  'text!template/19.0.0/settings/general/paymenttype/paymenttypes.tpl.html',
+  'text!template/19.0.0/settings/general/paymenttype/search.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Shared, PaymentTypeView, PaymentTypesTemplate, SearchTemplate) {
   var PaymentTypePreference = Backbone.View.extend({

@@ -10,7 +10,7 @@ define([
   'model/base',
   'model/lookupcriteria',
   'collection/base',
-  'text!template/22.0.0/reports/print/printdialog/reportcriteria/criteria.tpl.html',
+  'text!template/19.0.0/reports/print/printdialog/reportcriteria/criteria.tpl.html',
   'js/libs/moment.min.js',
   'js/libs/format.min.js'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared,

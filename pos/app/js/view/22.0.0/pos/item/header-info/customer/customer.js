@@ -6,7 +6,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/22.0.0/pos/item/header-info/customer/customer.tpl.html'
+  'text!template/19.0.0/pos/item/header-info/customer/customer.tpl.html'
 ], function($, $$, _, Backbone, CustomerTemplate) {
   var CustomerView = Backbone.View.extend({
     _template: _.template(CustomerTemplate),

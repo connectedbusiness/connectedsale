@@ -9,9 +9,9 @@ define([
   'shared/global',
   'shared/method',
   'shared/shared',
-  'text!template/22.0.0/pos/bundle/stock.tpl.html',
-  'text!template/22.0.0/pos/bundle/matrix.tpl.html',
-  'text!template/22.0.0/pos/bundle/preview.tpl.html',
+  'text!template/19.0.0/pos/bundle/stock.tpl.html',
+  'text!template/19.0.0/pos/bundle/matrix.tpl.html',
+  'text!template/19.0.0/pos/bundle/preview.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, BaseModel, BaseCollection, Enum, Global, Method, Shared, StockTemplate, MatrixTemplate, PreviewTemplate) {
   return Backbone.View.extend({

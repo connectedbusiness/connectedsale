@@ -5,8 +5,8 @@ define([
 	'underscore',
 	'backbone',
 	'shared/global',
-	'view/22.0.0/products/receivestocks/detail/inventoryitemlist',
-	'text!template/22.0.0/products/receivestocks/detail/general.tpl.html',
+	'view/19.0.0/products/receivestocks/detail/inventoryitemlist',
+	'text!template/19.0.0/products/receivestocks/detail/general.tpl.html',
 	'js/libs/moment.min.js',
 ], function ($, $$, _, Backbone, Global, InventoryItemListView, template) {
 

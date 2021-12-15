@@ -13,7 +13,7 @@ define([
   'model/lookupcriteria',
   'collection/coupons',
   'view/spinner',
-  'text!template/22.0.0/pos/coupon/couponscan.tpl.html',
+  'text!template/19.0.0/pos/coupon/couponscan.tpl.html',
 ], function($, $$, _, Backbone, Global, Service, Method,
   LookupCriteriaModel, CouponCollection, Spinner, template) {
 

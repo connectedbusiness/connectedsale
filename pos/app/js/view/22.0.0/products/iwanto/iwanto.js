@@ -4,8 +4,8 @@ define([
 	'mobile',
 	'underscore',	
 	'backbone',	
-	'text!template/22.0.0/products/iwanto/iwanto.tpl.html',
-	'text!template/22.0.0/products/iwanto/iwantolist.tpl.html'
+	'text!template/19.0.0/products/iwanto/iwanto.tpl.html',
+	'text!template/19.0.0/products/iwanto/iwantolist.tpl.html'
 ], function($, $$, _, Backbone, template,BtnTemplate){
 	
 	var IwantoView = Backbone.View.extend({

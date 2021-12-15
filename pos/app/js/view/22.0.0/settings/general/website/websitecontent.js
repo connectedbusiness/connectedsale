@@ -6,7 +6,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/22.0.0/settings/general/website/websitecontent.tpl.html'
+  'text!template/19.0.0/settings/general/website/websitecontent.tpl.html'
 ], function($, $$, _, Backbone, template) {
   var WebsiteContentPreference = Backbone.View.extend({
     _template: _.template(template),

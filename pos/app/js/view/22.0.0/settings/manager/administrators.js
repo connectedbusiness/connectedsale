@@ -13,8 +13,8 @@ define([
   'model/userrole',
   'model/lookupcriteria',
   'collection/userroles',
-  'view/22.0.0/settings/manager/administrator',
-  'text!template/22.0.0/settings/manager/administrators.tpl.html'
+  'view/19.0.0/settings/manager/administrator',
+  'text!template/19.0.0/settings/manager/administrators.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method,
   UserRoleModel, LookupCriteriaModel, UserRoleCollection, AdministratorView, template) {
 

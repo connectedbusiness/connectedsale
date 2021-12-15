@@ -8,7 +8,7 @@ define([
     'shared/method',
     'shared/shared',
     'model/base',
-    'text!template/22.0.0/customers/customers/detail/report.tpl.html',
+    'text!template/19.0.0/customers/customers/detail/report.tpl.html',
     'js/libs/iscroll.js'
   ], function(
     $,

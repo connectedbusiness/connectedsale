@@ -7,9 +7,9 @@ define([
   'model/base',
   'model/lookupcriteria',
   'collection/base',
-  'view/22.0.0/reports/list/reportlist-content',
-  'text!template/22.0.0/reports/list/reportlist.tpl.html',
-  'text!template/22.0.0/reports/list/reportlistcontent.tpl.html'
+  'view/19.0.0/reports/list/reportlist-content',
+  'text!template/19.0.0/reports/list/reportlist.tpl.html',
+  'text!template/19.0.0/reports/list/reportlistcontent.tpl.html'
 ], function(Backbone, Global, Service, Method, Shared,
   BaseModel, LookUpCriteriaModel,
   BaseCollection,

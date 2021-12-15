@@ -12,7 +12,7 @@ define([
   'shared/method',
   'view/spinner',
   'collection/printers',
-  'text!template/22.0.0/settings/receipt/print/printsetting.tpl.html',
+  'text!template/19.0.0/settings/receipt/print/printsetting.tpl.html',
   'js/libs/ui.checkswitch.min.js',
 ], function($, $$, _, Backbone, Global, Service, Shared, Method, Spinner, PrinterCollection, template) {
   var currentInstance = null;

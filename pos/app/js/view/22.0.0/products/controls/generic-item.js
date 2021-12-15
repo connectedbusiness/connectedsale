@@ -9,7 +9,7 @@ define([
 	'underscore',
 	'backbone',
 	'shared/global',	
-	'text!template/22.0.0/products/controls/generic-item.tpl.html'
+	'text!template/19.0.0/products/controls/generic-item.tpl.html'
 ], function ($, $$, _, Backbone, Global, ProductTemplate) {
 
     var ProductView = Backbone.View.extend({

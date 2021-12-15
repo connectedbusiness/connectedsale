@@ -8,9 +8,9 @@ define([
   'backbone',
   'shared/shared',
   'shared/global',
-  'view/22.0.0/settings/general/taxscheme/taxscheme',
-  'text!template/22.0.0/settings/general/taxscheme/taxschemepage.tpl.html',
-  'text!template/22.0.0/settings/general/taxscheme/search.tpl.html',
+  'view/19.0.0/settings/general/taxscheme/taxscheme',
+  'text!template/19.0.0/settings/general/taxscheme/taxschemepage.tpl.html',
+  'text!template/19.0.0/settings/general/taxscheme/search.tpl.html',
   'js/libs/iscroll.js',
 ], function($, $$, _, Backbone, Shared, Global, TaxSchemePreference, template, searchTemplate) {
   var TaxSchemesPreference = Backbone.View.extend({

@@ -6,8 +6,8 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'view/22.0.0/settings/category/currentcategory',
-  'text!template/22.0.0/settings/category/currentcategories.tpl.html',
+  'view/19.0.0/settings/category/currentcategory',
+  'text!template/19.0.0/settings/category/currentcategories.tpl.html',
 ], function($, $$, _, Backbone, CurrentCategoryView, template) {
   var _view = null;
   var CurrentCategoriesView = Backbone.View.extend({

@@ -9,7 +9,7 @@ define([
 	'shared/global',
 	'shared/method',
 	'shared/shared',
-	'text!template/22.0.0/pos/item/item.tpl.html'
+	'text!template/19.0.0/pos/item/item.tpl.html'
 ],function($, $$, _, Backbone, Global, Method, Shared, template){
 	var ItemView = Backbone.View.extend({
 		_template: _.template(template),

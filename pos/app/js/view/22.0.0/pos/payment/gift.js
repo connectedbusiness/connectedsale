@@ -12,7 +12,7 @@ define([
   'shared/enum',
   'shared/shared',
   'model/base',
-  'text!template/22.0.0/pos/payment/gift.tpl.html',
+  'text!template/19.0.0/pos/payment/gift.tpl.html',
   'view/spinner',
 ], function($, $$, _, Backbone, Global, Service, Method, Enum, Shared, BaseModel, template, Spinner) {
 

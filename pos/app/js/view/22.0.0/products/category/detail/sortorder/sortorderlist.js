@@ -3,7 +3,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/22.0.0/products/category/detail/sortorder/sortorderlist.tpl.html'
+  'text!template/19.0.0/products/category/detail/sortorder/sortorderlist.tpl.html'
 ], function($, $$, _, Backbone, template) {
 
   var CategorySortOrderListView = Backbone.View.extend({

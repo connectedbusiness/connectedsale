@@ -6,7 +6,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/22.0.0/settings/general/location/location.tpl.html'
+  'text!template/19.0.0/settings/general/location/location.tpl.html'
 ], function($, $$, _, Backbone, LocationTemplate) {
   var LocationPreference = Backbone.View.extend({
     _locationTemplate: _.template(LocationTemplate),

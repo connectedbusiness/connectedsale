@@ -66,7 +66,7 @@ define([
   		},
 
   		CheckInternet : function() {
-			if( navigator.connection != undefined ){
+			if( navigator.connection != undefined && navigator.connection.type != undefined){
 				var networkState = navigator.connection.type,
 			states = {};
 

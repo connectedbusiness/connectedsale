@@ -15,9 +15,9 @@ define([
     'model/base',
     'model/lookupcriteria',
     'collection/base',
-    'view/22.0.0/products/openingbalance/detail/general',
-    'view/22.0.0/products/openingbalance/detail/openingbalance',
-	'text!template/22.0.0/products/openingbalance/openingbalance-detail.tpl.html'
+    'view/19.0.0/products/openingbalance/detail/general',
+    'view/19.0.0/products/openingbalance/detail/openingbalance',
+	'text!template/19.0.0/products/openingbalance/openingbalance-detail.tpl.html'
 ], function ($, $$, _, Backbone, Global, Service, Method, Shared,
              BaseModel, LookUpCriteriaModel,
              BaseCollection,

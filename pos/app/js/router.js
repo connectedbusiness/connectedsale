@@ -259,9 +259,8 @@ define([
 					break;
 			}
 
-			var majorVersion =  currentServerVersion.Major + ".0";
-			switch (majorVersion) {
-				case "22.0" :
+			switch (currentServerVersion.Major.toString()) {
+				case "22" :
 					_index = 11;
 					break;
 			}

@@ -12,8 +12,8 @@ define([
 	'shared/method',
     'shared/shared',
     'model/base',
-    'view/22.0.0/products/products/detail/general/photo-editor',
-	'text!template/22.0.0/products/products/detail/general.tpl.html'
+    'view/19.0.0/products/products/detail/general/photo-editor',
+	'text!template/19.0.0/products/products/detail/general.tpl.html'
 ], function ($, $$, _, Backbone, Global, Service, Method, Shared,
              BaseModel,
              PhotoEditorView,

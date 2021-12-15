@@ -8,8 +8,8 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'view/22.0.0/pos/item/category/category',
-  'text!template/22.0.0/pos/item/category/categories.tpl.html',
+  'view/19.0.0/pos/item/category/category',
+  'text!template/19.0.0/pos/item/category/categories.tpl.html',
   'js/libs/swipe.min.js'
 ], function($, $$, _, Backbone, Global, Shared, CategoryView, template) {
   var _limit = 4,

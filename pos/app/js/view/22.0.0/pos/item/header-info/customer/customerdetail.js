@@ -8,8 +8,8 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'view/22.0.0/pos/item/header-info/customer/customerform',
-  'text!template/22.0.0/pos/item/header-info/customer/customerdetail.tpl.html'
+  'view/19.0.0/pos/item/header-info/customer/customerform',
+  'text!template/19.0.0/pos/item/header-info/customer/customerdetail.tpl.html'
 ], function($, $$, _, Backbone, Global, Shared, CustomerFormView, CustomerDetailTemplate) {
   var CustomerDetailView = Backbone.View.extend({
     _template: _.template(CustomerDetailTemplate),

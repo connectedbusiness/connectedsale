@@ -5,7 +5,7 @@ define([
   'backbone',
   'shared/global',
   'shared/enum',
-  'text!template/22.0.0/pos/kit/kit.tpl.html',
+  'text!template/19.0.0/pos/kit/kit.tpl.html',
   'shared/method'
 ], function($, $$, _, Backbone, Global, Enum, template, Method) {
   return Backbone.View.extend({

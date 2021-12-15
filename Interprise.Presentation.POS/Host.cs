@@ -47,8 +47,7 @@ namespace Interprise.Presentation.POS
             browserSettings.LocalStorage = CefState.Enabled;
             _chromeBrowser.BrowserSettings = browserSettings;
 
-            _chromeBrowser.RegisterAsyncJsObject("printerTool", new PrinterTool());
-
+            _chromeBrowser.JavascriptObjectRepository.Register("printerTool", new PrinterTool(), true, BindingOptions.DefaultBinder);
 #if DEBUG
             buttonShowDevToool.Visible = true;
             buttonReload.Visible = true;

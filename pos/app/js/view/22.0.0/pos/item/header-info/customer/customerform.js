@@ -19,9 +19,9 @@ define([
   'collection/countries',
   'collection/classtemplates',
   'collection/base',
-  'text!template/22.0.0/pos/item/header-info/customer/customerform.tpl.html',
+  'text!template/19.0.0/pos/item/header-info/customer/customerform.tpl.html',
   'view/spinner',
-  'view/22.0.0/pos/postal/addpostal'
+  'view/19.0.0/pos/postal/addpostal'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared,
   BaseModel, PostalModel, CountryModel, CustomerSchemaModel, LookupCriteriaModel,
   PostalCollection, CountryCollection, ClassTemplateCollection, BaseCollection,
@@ -479,18 +479,18 @@ define([
 
     LoadClassTemplatesByCountry: function(country) {
       if (this.formType === FormType.EditCustomer.FormTitle) return;
-      this.LoadCustomerClassTemplatesByCustomer(Global.POSWorkstationID);
-      this.LoadShipToClassTemplatesByCustomer(Global.POSWorkstationID);
+      this.LoadCustomerClassTemplatesByCountry(country);
+      this.LoadShipToClassTemplatesByCountry(country);
     },
 
-    LoadCustomerClassTemplatesByCustomer: function(code) {
-      if (!code) return;
-      if (code == "") return;
+    LoadCustomerClassTemplatesByCountry: function(country) {
+      if (!country) return;
+      if (country == "") return;
       var self = this;
       var tmp = new BaseModel({
-        StringValue: code
+        StringValue: country
       });
-      tmp.url = Global.ServiceUrl + Service.CUSTOMER + Method.GETCUSTOMERCLASSTEMPLATEBYCUSTOMER;
+      tmp.url = Global.ServiceUrl + Service.CUSTOMER + 'getcustomerclasstemplatebycountry/';
       tmp.save(tmp, {
         success: function(model, response) {
           if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
@@ -505,36 +505,14 @@ define([
       });
     },
 
-    // LoadCustomerClassTemplatesByCountry: function(country) {
-    //   if (!country) return;
-    //   if (country == "") return;
-    //   var self = this;
-    //   var tmp = new BaseModel({
-    //     StringValue: country
-    //   });
-    //   tmp.url = Global.ServiceUrl + Service.CUSTOMER + 'getcustomerclasstemplatebycountry/';
-    //   tmp.save(tmp, {
-    //     success: function(model, response) {
-    //       if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-    //       if (!model.get("ClassTemplates")) return;
-    //       if (model.get("ClassTemplates").length == 0) return;
-    //       var classTemplates = model.get("ClassTemplates");
-    //       self.PopulateCustomerClassTemplates(classTemplates);
-    //     },
-    //     error: function(model, error, response) {
-    //       if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-    //     }
-    //   });
-    // },
-
-    LoadShipToClassTemplatesByCustomer: function(code) {
-      if (!code) return;
-      if (code == "") return;
+    LoadShipToClassTemplatesByCountry: function(country) {
+      if (!country) return;
+      if (country == "") return;
       var self = this;
       var tmp = new BaseModel({
-        StringValue: code
+        StringValue: country
       });
-      tmp.url = Global.ServiceUrl + Service.CUSTOMER + Method.GETSHIPTOCLASSTEMPLATEBYCUSTOMER;
+      tmp.url = Global.ServiceUrl + Service.CUSTOMER + 'getshiptoclasstemplatebycountry/';
       tmp.save(tmp, {
         success: function(model, response) {
           if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
@@ -548,28 +526,6 @@ define([
         }
       });
     },
-
-    // LoadShipToClassTemplatesByCountry: function(country) {
-    //   if (!country) return;
-    //   if (country == "") return;
-    //   var self = this;
-    //   var tmp = new BaseModel({
-    //     StringValue: country
-    //   });
-    //   tmp.url = Global.ServiceUrl + Service.CUSTOMER + 'getshiptoclasstemplatebycountry/';
-    //   tmp.save(tmp, {
-    //     success: function(model, response) {
-    //       if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-    //       if (!model.get("ClassTemplates")) return;
-    //       if (model.get("ClassTemplates").length == 0) return;
-    //       var classTemplates = model.get("ClassTemplates");
-    //       self.PopulateShipToClassTemplates(classTemplates);
-    //     },
-    //     error: function(model, error, response) {
-    //       if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-    //     }
-    //   });
-    // },
 
     PopulateCustomerClassTemplates: function(classtemplates) {
       var self = this;
@@ -587,11 +543,11 @@ define([
       clsCollection.each(function(model) {
         var _classDescription = model.get("ClassDescription");
         var _classCode = model.get("ClassCode");
-        // if (model.get("IsDefault")) {
+        if (model.get("IsDefault")) {
           Global.DefaultClassCode = _classCode;
           self.selectedClassCode = _classCode;
           defaultIndex = classIndex;
-        // }
+        }
         classIndex++;
         $('#cmb-customer-classtemplate').append(new Option(_classCode + ' | ' + _classDescription, _classCode));
       });
@@ -614,9 +570,9 @@ define([
       clsCollection.each(function(model) {
         var _classDescription = model.get("ClassDescription");
         var _classCode = model.get("ClassCode");
-        // if (model.get("IsDefault")) {
+        if (model.get("IsDefault")) {
           defaultIndex = classIndex;
-        // }
+        }
         classIndex++;
         $('#cmb-shipto-classtemplate').append(new Option(_classCode + ' | ' + _classDescription, _classCode));
       });
@@ -636,7 +592,7 @@ define([
       });
       var self = this;
 
-      tmp.url = Global.ServiceUrl + Service.CUSTOMER + Method.GETCUSTOMERCLASSTEMPLATEBYCOUNTRY; //'getcustomerclasstemplatebycountry/'; //Method.GETDEFAULTCLASSTEMPLATESBYCOUNTRY + 'false';
+      tmp.url = Global.ServiceUrl + Service.CUSTOMER + 'getcustomerclasstemplatebycountry/'; //Method.GETDEFAULTCLASSTEMPLATESBYCOUNTRY + 'false';
       tmp.save(tmp, {
         success: function(model, response) {
           if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();

@@ -15,7 +15,7 @@ define([
   'model/customerschema',
   'collection/postal',
   'collection/countries',
-  'text!template/22.0.0/pos/item/header-info/customer/customerform.tpl.html',
+  'text!template/19.0.0/pos/item/header-info/customer/customerform.tpl.html',
   'view/spinner',
 ], function($, $$, _, Backbone, Global, Service, Method, Shared,
   PostalModel, CountryModel, CustomerSchemaModel, PostalCollection, CountryCollection, CustomerFormTemplate, Spinner) {

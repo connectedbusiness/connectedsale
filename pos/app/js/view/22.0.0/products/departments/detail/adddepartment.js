@@ -10,7 +10,7 @@ define([
 	'shared/shared',
 	'model/department',
     'collection/departments',
-	'text!template/22.0.0/products/departments/detail/adddepartment.tpl.html'
+	'text!template/19.0.0/products/departments/detail/adddepartment.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared, DepartmentModel, DepartmentCollection, template){
 
 	var AddCategoryView = Backbone.View.extend({

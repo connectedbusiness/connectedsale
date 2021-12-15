@@ -8,10 +8,10 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'view/22.0.0/customers/customers/customer-form',
-  'view/22.0.0/customers/typepopup/typepopup',
-  'text!template/22.0.0/customers/customers.tpl.html',
-  'text!template/22.0.0/customers/customers-header.tpl.html'
+  'view/19.0.0/customers/customers/customer-form',
+  'view/19.0.0/customers/typepopup/typepopup',
+  'text!template/19.0.0/customers/customers.tpl.html',
+  'text!template/19.0.0/customers/customers-header.tpl.html'
 ], function($, $$, _, Backbone,
   CustomersFormView, TypePopUpView,
   CustomersTemplate, HeaderTemplate) {

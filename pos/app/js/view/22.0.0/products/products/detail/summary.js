@@ -10,7 +10,7 @@ define([
 	'shared/global',
 	'shared/shared',
     'model/base',
-	'text!template/22.0.0/products/products/detail/summary.tpl.html',
+	'text!template/19.0.0/products/products/detail/summary.tpl.html',
     'js/libs/iscroll.js'
 ], function ($, $$, _, Backbone,
              Global, Shared,
