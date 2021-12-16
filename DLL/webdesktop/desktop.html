@@ -1,15 +1,15 @@
 <!DOCTYPE  HTML>
 <html lang="en">
-    <head>
-    	<title>Connected Sale</title>
-    	<link type="image/vnd.microsoft.icon" rel="shortcut icon" href="img/favicon.ico">
-    </head>
-    <body id="CS-MAIN-BODY" onload="loadCSiFrame()" style="background-color: #202020;">    
-    </body>
+<head>
+    <title>Connected Sale</title>
+    <link type="image/vnd.microsoft.icon" rel="shortcut icon" href="img/favicon.ico">
+</head>
+<body id="CS-MAIN-BODY" onload="loadCSiFrame()" style="background-color: #ececec;margin:0px;">
+</body>
 </html>
 
 <script type="text/jscript">
     var loadCSiFrame = function () {
-        document.getElementById('CS-MAIN-BODY').innerHTML = '<iframe style="position: absolute; width: 1024px; height: 748px; top: 50%; margin-top: -374px; left: 50%; margin-left: -512px;" src="index.html?' + Math.random() + '" scrolling="no" seamless></iframe>';
+        document.getElementById('CS-MAIN-BODY').innerHTML = '<iframe style="position: absolute; width: 100%; height: 100vh; border:0px;" frameborder="0" src="index.html?' + Math.random() + '" scrolling="no" seamless></iframe>';
     }
 </script>    
