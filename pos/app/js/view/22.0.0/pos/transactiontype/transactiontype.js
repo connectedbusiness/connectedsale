@@ -8,7 +8,7 @@ define([
   'backbone',
   'shared/global',
   'shared/enum',
-  'text!template/19.0.0/pos/transactiontype/transactiontype.tpl.html',
+  'text!template/22.0.0/pos/transactiontype/transactiontype.tpl.html',
 ], function($, $$, _, Backbone, Global, Enum, template) {
 
   var TransactionTypeView = Backbone.View.extend({

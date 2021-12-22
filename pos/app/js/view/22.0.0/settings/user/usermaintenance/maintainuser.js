@@ -11,8 +11,8 @@ define([
   'model/useraccount',
   'model/lookupcriteria',
   'collection/userroles',
-  'view/19.0.0/settings/user/usermaintenance/confirmpassword',
-  'text!template/19.0.0/settings/user/usermaintenance/maintainuser.tpl.html'
+  'view/22.0.0/settings/user/usermaintenance/confirmpassword',
+  'text!template/22.0.0/settings/user/usermaintenance/maintainuser.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared, BaseModel, UserAccountModel, LookupCriteriaModel, UserRoleCollection, ConfirmPasswordView, template) {
   var _this = null;
   var MaintainUserAccountView = Backbone.View.extend({

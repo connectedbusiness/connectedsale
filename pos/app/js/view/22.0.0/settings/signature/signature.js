@@ -10,7 +10,7 @@ define([
   'shared/service',
   'shared/method',
   'collection/preferences',
-  'text!template/19.0.0/settings/signature/signature.tpl.html',
+  'text!template/22.0.0/settings/signature/signature.tpl.html',
   'js/libs/ui.checkswitch.min.js',
 ], function($, $$, _, Backbone, Global, Service, Method, PreferenceCollection, template) {
   var GeneralSettingsView = Backbone.View.extend({

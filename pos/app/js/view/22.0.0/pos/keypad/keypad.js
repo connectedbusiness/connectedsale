@@ -8,7 +8,7 @@ define([
   'underscore',
   'backbone',
   'shared/global',
-  'text!template/19.0.0/pos/keypad/keypad.tpl.html',
+  'text!template/22.0.0/pos/keypad/keypad.tpl.html',
   'js/libs/format.min.js'
 ], function($, $$, _, Backbone, Global, template) {
 

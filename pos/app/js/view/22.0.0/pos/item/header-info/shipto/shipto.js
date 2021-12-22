@@ -7,7 +7,7 @@ define([
   'underscore',
   'backbone',
   'shared/shared',
-  'text!template/19.0.0/pos/item/header-info/shipto/shipto.tpl.html'
+  'text!template/22.0.0/pos/item/header-info/shipto/shipto.tpl.html'
 ], function($, $$, _, Backbone, Shared, template) {
   var ShipToView = Backbone.View.extend({
     _template: _.template(template),

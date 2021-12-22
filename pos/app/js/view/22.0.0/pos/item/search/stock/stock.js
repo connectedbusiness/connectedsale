@@ -6,7 +6,7 @@ define([
 	'mobile',
 	'underscore',
 	'backbone',
-	'text!template/19.0.0/pos/item/search/freestock.tpl.html'
+	'text!template/22.0.0/pos/item/search/freestock.tpl.html'
 ], function($, $$, _, Backbone, template){
 	var StockItemView = Backbone.View.extend({
 		_template : _.template( template ),

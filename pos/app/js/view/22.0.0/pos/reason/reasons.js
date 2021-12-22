@@ -6,8 +6,8 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'view/19.0.0/pos/reason/reason',
-  'text!template/19.0.0/pos/reason/reasons.tpl.html'
+  'view/22.0.0/pos/reason/reason',
+  'text!template/22.0.0/pos/reason/reasons.tpl.html'
 ], function($, $$, _, Backbone, ReasonView, template) {
   var ReasonsView = Backbone.View.extend({
     _template: _.template(template),

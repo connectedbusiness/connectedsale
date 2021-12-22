@@ -8,7 +8,7 @@ define([
 	'backbone',
 	'shared/global',
 	'shared/shared',
-	'text!template/19.0.0/pos/item/search/product/product.tpl.html',
+	'text!template/22.0.0/pos/item/search/product/product.tpl.html',
 ], function($, $$, _, Backbone, Global, Shared, template){
 	var ProductView = Backbone.View.extend({
 		_template: _.template(template),

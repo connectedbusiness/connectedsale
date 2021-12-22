@@ -7,7 +7,7 @@ define([
   'model/base',
   'collection/base',
   'view/spinner',
-  'text!template/19.0.0/pos/postal/addpostal.tpl.html'
+  'text!template/22.0.0/pos/postal/addpostal.tpl.html'
 ], function(Backbone, Global, Service, Method, Shared,
   BaseModel,
   BaseCollection,

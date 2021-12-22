@@ -8,9 +8,9 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'view/19.0.0/settings/general/location/location',
-  'text!template/19.0.0/settings/general/location/locations.tpl.html',
-  'text!template/19.0.0/settings/general/location/search.tpl.html',
+  'view/22.0.0/settings/general/location/location',
+  'text!template/22.0.0/settings/general/location/locations.tpl.html',
+  'text!template/22.0.0/settings/general/location/search.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Shared, LocationPreference, LocationsTemplate, SearchTemplate) {
   var LocationsPreference = Backbone.View.extend({

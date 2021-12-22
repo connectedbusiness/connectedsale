@@ -12,8 +12,8 @@ define([
 	'shared/method',
 	'model/base',
 	'collection/base',
-	'text!template/19.0.0/products/unitmeasure/uomdetail.tpl.html',
-	'text!template/19.0.0/products/unitmeasure/uomdetail/uom-info.tpl.html'
+	'text!template/22.0.0/products/unitmeasure/uomdetail.tpl.html',
+	'text!template/22.0.0/products/unitmeasure/uomdetail/uom-info.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Shared, Method,
 	BaseModel, BaseCollection, 
 	UOMDetailTemplate, UOMInfoTemplate){

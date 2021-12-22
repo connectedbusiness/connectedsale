@@ -7,8 +7,8 @@ define([
   'shared/enum',
   'shared/shared',
   'shared/global',
-  'view/19.0.0/pos/item/gcitem/gcitem',
-  'text!template/19.0.0/pos/item/gcitem/gcitems.tpl.html',
+  'view/22.0.0/pos/item/gcitem/gcitem',
+  'text!template/22.0.0/pos/item/gcitem/gcitems.tpl.html',
 ], function($, $$, Backbone, _, Enum, Shared, Global, GCItemView, Template) {
   var GCItemListView = Backbone.View.extend({
     template: _.template(Template),

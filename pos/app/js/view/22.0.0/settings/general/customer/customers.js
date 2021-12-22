@@ -8,9 +8,9 @@ define([
   'backbone',
   'shared/shared',
   'shared/global',
-  'view/19.0.0/settings/general/customer/customer',
-  'text!template/19.0.0/settings/general/customer/customerpage.tpl.html',
-  'text!template/19.0.0/settings/general/customer/search.tpl.html',
+  'view/22.0.0/settings/general/customer/customer',
+  'text!template/22.0.0/settings/general/customer/customerpage.tpl.html',
+  'text!template/22.0.0/settings/general/customer/search.tpl.html',
   'js/libs/iscroll.js',
 ], function($, $$, _, Backbone, Shared, Global, CustomerPreference, template, searchTemplate) {
   var CustomersPreference = Backbone.View.extend({

@@ -9,7 +9,7 @@ define([
     'model/base',
     'model/lookupcriteria',
     'collection/base',
-    'text!template/19.0.0/products/receivestocks/detail/location/location.tpl.html',
+    'text!template/22.0.0/products/receivestocks/detail/location/location.tpl.html',
      'js/libs/iscroll.js'
 ], function ($, $$, _, Backbone, Global, Service, Method,
              BaseModel, LookUpCriteriaModel,

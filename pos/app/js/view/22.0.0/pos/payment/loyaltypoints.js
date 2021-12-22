@@ -7,7 +7,7 @@ define([
   'model/base',
   'model/lookupcriteria',
   'collection/base',
-  'text!template/19.0.0/pos/payment/loyaltypoints.tpl.html',
+  'text!template/22.0.0/pos/payment/loyaltypoints.tpl.html',
   'js/libs/format.min.js'
 ], function(Backbone, Global, Service, Method, Shared,
   BaseModel, LookUpCriteriaModel,

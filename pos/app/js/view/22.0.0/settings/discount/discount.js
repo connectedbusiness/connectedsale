@@ -10,7 +10,7 @@ define([
   'shared/service',
   'shared/method',
   'collection/preferences',
-  'text!template/19.0.0/settings/discount/discount.tpl.html',
+  'text!template/22.0.0/settings/discount/discount.tpl.html',
   'js/libs/mobile-range-slider.js',
   'js/libs/ui.checkswitch.min.js',
 ], function($, $$, _, Backbone, Global, Service, Method, PreferenceCollection, template) {

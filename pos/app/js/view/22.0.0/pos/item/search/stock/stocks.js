@@ -6,7 +6,7 @@ define([
 	'mobile',
 	'underscore',
 	'backbone',
-	'view/19.0.0/pos/item/search/stock/stock'
+	'view/22.0.0/pos/item/search/stock/stock'
 ], function($, $$, _, Backbone, StockItemView){
 	var FreeStockView = Backbone.View.extend({
 		initialize : function(){

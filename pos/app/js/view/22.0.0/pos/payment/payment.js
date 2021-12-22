@@ -18,14 +18,14 @@ define([
   'model/country',
   'collection/postal',
   'collection/countries',
-  'view/19.0.0/pos/keypad/keypad',
-  'view/19.0.0/pos/payment/gift',
-  'view/19.0.0/pos/payment/loyaltypoints',
-  'view/19.0.0/pos/postal/addpostal',
-  'text!template/19.0.0/pos/payment/payment.tpl.html',
-  'text!template/19.0.0/pos/payment/cash.tpl.html',
-  'text!template/19.0.0/pos/payment/check.tpl.html',
-  'text!template/19.0.0/pos/payment/creditcard.tpl.html',
+  'view/22.0.0/pos/keypad/keypad',
+  'view/22.0.0/pos/payment/gift',
+  'view/22.0.0/pos/payment/loyaltypoints',
+  'view/22.0.0/pos/postal/addpostal',
+  'text!template/22.0.0/pos/payment/payment.tpl.html',
+  'text!template/22.0.0/pos/payment/cash.tpl.html',
+  'text!template/22.0.0/pos/payment/check.tpl.html',
+  'text!template/22.0.0/pos/payment/creditcard.tpl.html',
   'view/spinner',
   'js/libs/jSignature.min.js',
   'js/libs/moment.min.js',
@@ -1274,8 +1274,6 @@ define([
     },
 
     CreatePayment: function(paymentType, amount) {
-      debugger;
-      
       switch (paymentType) {
         case Enum.PaymentType.Cash:
           _amountPaid = amount;
@@ -1401,8 +1399,6 @@ define([
     AddCreditCardPayment: function(amount) {
       var self = this;
 
-      debugger;
-      
       if (Global.DejavooEnabled) {
         self.trigger("showDejavooProgress", true);
         var request = Global.Preference.DejavooConnectionProtocol + "://";

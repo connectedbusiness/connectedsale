@@ -12,8 +12,8 @@ define([
 	'shared/method',
 	'shared/service',
 	'shared/shared',
-	'view/19.0.0/pos/reason/itemreason',
-	'view/19.0.0/pos/manageroverride/manageroverride',
+	'view/22.0.0/pos/reason/itemreason',
+	'view/22.0.0/pos/manageroverride/manageroverride',
 	'model/reason',
 	'model/override',
 	'model/lookupcriteria',
@@ -22,7 +22,7 @@ define([
 	'collection/reasons',
 	'collection/currentorders',
 	'collection/stocks',
-	'text!template/19.0.0/pos/itemdetail/item.tpl.html'	
+	'text!template/22.0.0/pos/itemdetail/item.tpl.html'	
 ],function($, $$, _, Backbone, Enum, Global, Method, Service, Shared,
 	ItemReasonView, ManagerOverrideView, 
 	ReasonModel, OverrideModel, LookupCriteriaModel, BaseModel,

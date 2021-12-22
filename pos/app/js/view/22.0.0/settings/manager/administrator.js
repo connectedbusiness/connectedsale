@@ -7,7 +7,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/19.0.0/settings/manager/administrator.tpl.html',
+  'text!template/22.0.0/settings/manager/administrator.tpl.html',
 ], function($, $$, _, Backbone, template) {
   var ItemView = Backbone.View.extend({
     _template: _.template(template),

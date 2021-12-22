@@ -11,10 +11,10 @@ define([
   'shared/service',
   'collection/preferences',
   'collection/userroles',
-  'view/19.0.0/settings/manager/administrators',
-  'view/19.0.0/settings/manager/userroles',
-  'view/19.0.0/settings/modal/modal',
-  'text!template/19.0.0/settings/manager/managerpage.tpl.html'
+  'view/22.0.0/settings/manager/administrators',
+  'view/22.0.0/settings/manager/userroles',
+  'view/22.0.0/settings/modal/modal',
+  'text!template/22.0.0/settings/manager/managerpage.tpl.html'
 ], function($, $$, _, Backbone, Global, Method, Service,
   PreferenceCollection, UserRoleCollection, AdministratorsView, UserRoleView, SettingsModal, template) {
   var ManagerSettingsView = Backbone.View.extend({

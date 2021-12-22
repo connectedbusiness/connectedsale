@@ -10,9 +10,9 @@ define([
   'shared/shared',
   'shared/method',
   'shared/enum',
-  'view/19.0.0/pos/kit/kit',
-  'view/19.0.0/pos/kit/preview',
-  'text!template/19.0.0/pos/kit/configurator.tpl.html',
+  'view/22.0.0/pos/kit/kit',
+  'view/22.0.0/pos/kit/preview',
+  'text!template/22.0.0/pos/kit/configurator.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, BaseModel, BaseCollection, Global, Service, Shared, Method, Enum, KitItemDetailView, PreviewItemView, template) {
   return Backbone.View.extend({

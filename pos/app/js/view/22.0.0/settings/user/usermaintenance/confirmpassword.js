@@ -9,7 +9,7 @@ define([
   'shared/shared',
   'model/useraccount',
   'collection/userroles',
-  'text!template/19.0.0/settings/user/usermaintenance/confirmpassword.tpl.html'
+  'text!template/22.0.0/settings/user/usermaintenance/confirmpassword.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared, UserAccountModel, UserAccountCollection, template) {
 
 

@@ -10,8 +10,8 @@ define([
   'shared/method',
   'shared/service',
   'model/reason',
-  'view/19.0.0/pos/reason/reasons',
-  'text!template/19.0.0/pos/reason/itemreason.tpl.html',
+  'view/22.0.0/pos/reason/reasons',
+  'text!template/22.0.0/pos/reason/itemreason.tpl.html',
 ], function($, $$, _, Backbone, Global, Method, Service, ReasonModel, ReasonsView, template) {
   var ItemReasonView = Backbone.View.extend({
     _template: _.template(template),

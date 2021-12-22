@@ -10,7 +10,7 @@ define([
   'shared/shared',
   'collection/printers',
   'model/reportsetting',
-  'text!template/19.0.0/pos/print/printpreview.tpl.html',
+  'text!template/22.0.0/pos/print/printpreview.tpl.html',
   'js/libs/iscroll.js',
 ], function($, $$, _, Backbone, Global, Shared, PrinterCollection, ReportSettingModel, template) {
   var _isOpen = false;

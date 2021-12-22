@@ -7,8 +7,8 @@ define([
 	'underscore',
 	'backbone',
 	'shared/global',
-	'view/19.0.0/products/openingbalance/lookup/product/product',
-	'text!template/19.0.0/products/openingbalance/lookup/product/products.tpl.html',
+	'view/22.0.0/products/openingbalance/lookup/product/product',
+	'text!template/22.0.0/products/openingbalance/lookup/product/products.tpl.html',
 	'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, ProductView, template){
 	var ProductsView = Backbone.View.extend({

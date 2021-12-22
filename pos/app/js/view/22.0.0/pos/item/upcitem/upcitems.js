@@ -7,8 +7,8 @@ define([
 	'shared/enum',	
     'model/base',
     'collection/base',
-    'view/19.0.0/pos/item/upcitem/upcitem',
-    'text!template/19.0.0/pos/item/upcitem/upcitems.tpl.html'
+    'view/22.0.0/pos/item/upcitem/upcitem',
+    'text!template/22.0.0/pos/item/upcitem/upcitems.tpl.html'
 ], function (Backbone, Global, Service, Method,Shared,Enum, BaseModel,BaseCollection,UpcItemView,template) {
           		
     var _optionVal = false;

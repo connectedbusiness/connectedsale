@@ -51,46 +51,46 @@ define([
   'collection/serialnumbers',
   'collection/lotnumbers',
   'collection/customersalereps',
-  'view/19.0.0/pos/actions/actions',
-  'view/19.0.0/pos/item/header-info/headerinfo',
-  'view/19.0.0/pos/item/items',
-  'view/19.0.0/pos/cart/cart',
-  'view/19.0.0/pos/item/category/categories',
-  'view/19.0.0/pos/payment/payment',
-  'view/19.0.0/pos/tax/taxlist',
-  'view/19.0.0/pos/item/search/product/products',
-  'view/19.0.0/pos/item/search/productdetail',
-  'view/19.0.0/pos/item/search/stock/stocks',
-  'view/19.0.0/pos/transactiontype/transactiontype',
-  'view/19.0.0/pos/transactions/transactions',
-  'view/19.0.0/pos/payment/payments',
-  'view/19.0.0/pos/coupon/coupon',
-  'view/19.0.0/pos/signature/signature',
-  'view/19.0.0/pos/reason/transactionreason',
-  'view/19.0.0/pos/print/printoptions',
-  'view/19.0.0/pos/print/printpreview',
-  'view/19.0.0/pos/print/dynamicprint',
-  'view/19.0.0/pos/print/printer',
-  'view/19.0.0/pos/manageroverride/manageroverride',
-  'view/19.0.0/pos/payment/refund',
-  'view/19.0.0/pos/drawerbalance/openingamount',
-  'view/19.0.0/pos/drawerbalance/closingamount',
-  'view/19.0.0/pos/report/statusreport',
-  'view/19.0.0/pos/payment/paymenttype',
-  'view/19.0.0/pos/seriallot/seriallot',
-  'view/19.0.0/pos/notes/notescontrol',
-  'view/19.0.0/pos/customerpo/customerpo',
-  'view/19.0.0/pos/giftcard/giftcard',
-  'view/19.0.0/pos/item/upcitem/upcitems',
-  'view/19.0.0/pos/item/gcitem/gcitems',
-  'view/19.0.0/pos/pickup/pickuplist',
-  'view/19.0.0/pos/bundle/configurator',
-  'view/19.0.0/pos/kit/configurator',
-  'view/19.0.0/pos/promotion/promotion',
-  'text!template/19.0.0/header/header.tpl.html',
-  'text!template/19.0.0/pos/item/search/search.tpl.html',
-  'text!template/19.0.0/pos/item/search/lookup.tpl.html',
-  'text!template/19.0.0/pos/pos.tpl.html',
+  'view/22.0.0/pos/actions/actions',
+  'view/22.0.0/pos/item/header-info/headerinfo',
+  'view/22.0.0/pos/item/items',
+  'view/22.0.0/pos/cart/cart',
+  'view/22.0.0/pos/item/category/categories',
+  'view/22.0.0/pos/payment/payment',
+  'view/22.0.0/pos/tax/taxlist',
+  'view/22.0.0/pos/item/search/product/products',
+  'view/22.0.0/pos/item/search/productdetail',
+  'view/22.0.0/pos/item/search/stock/stocks',
+  'view/22.0.0/pos/transactiontype/transactiontype',
+  'view/22.0.0/pos/transactions/transactions',
+  'view/22.0.0/pos/payment/payments',
+  'view/22.0.0/pos/coupon/coupon',
+  'view/22.0.0/pos/signature/signature',
+  'view/22.0.0/pos/reason/transactionreason',
+  'view/22.0.0/pos/print/printoptions',
+  'view/22.0.0/pos/print/printpreview',
+  'view/22.0.0/pos/print/dynamicprint',
+  'view/22.0.0/pos/print/printer',
+  'view/22.0.0/pos/manageroverride/manageroverride',
+  'view/22.0.0/pos/payment/refund',
+  'view/22.0.0/pos/drawerbalance/openingamount',
+  'view/22.0.0/pos/drawerbalance/closingamount',
+  'view/22.0.0/pos/report/statusreport',
+  'view/22.0.0/pos/payment/paymenttype',
+  'view/22.0.0/pos/seriallot/seriallot',
+  'view/22.0.0/pos/notes/notescontrol',
+  'view/22.0.0/pos/customerpo/customerpo',
+  'view/22.0.0/pos/giftcard/giftcard',
+  'view/22.0.0/pos/item/upcitem/upcitems',
+  'view/22.0.0/pos/item/gcitem/gcitems',
+  'view/22.0.0/pos/pickup/pickuplist',
+  'view/22.0.0/pos/bundle/configurator',
+  'view/22.0.0/pos/kit/configurator',
+  'view/22.0.0/pos/promotion/promotion',
+  'text!template/22.0.0/header/header.tpl.html',
+  'text!template/22.0.0/pos/item/search/search.tpl.html',
+  'text!template/22.0.0/pos/item/search/lookup.tpl.html',
+  'text!template/22.0.0/pos/pos.tpl.html',
   'view/spinner',
   'js/libs/iscroll.js',
   'js/libs/moment.min.js',
@@ -3154,7 +3154,6 @@ define([
 		var freeitemCollection;
 		var promoItems;
 
-
 	  if (Global.TransactionType == Enum.TransactionType.UpdateInvoice) transactionType = Enum.TransactionType.ResumeSale;
 
       shippingDate = this.JsonToAspDate(shippingDate),
@@ -4275,7 +4274,8 @@ define([
 
     PromptCustomerPO: function(paymentType) {
       if (Global.OnRechargeProcess) return true;
-      if (Global.Preference.AskForCustomerPO || Global.Preference.AskForShipDate || Global.Preference.AskForSource) {
+      if (Global.Preference.AskForCustomerPO || Global.Preference.AskForShipDate || Global.Preference.AskForSource ||
+        Global.Preference.AskForPaymentTerm || Global.Preference.AskForShippingMethod || Global.Preference.AskForContact) {
         if (Shared.IsNullOrWhiteSpace(this.isSetCustomerPO) || this.isSetCustomerPO == false) {
           $("#main-transaction-blockoverlay").show();
           this.InitializeCustomerPOView();
@@ -5245,10 +5245,20 @@ define([
         var poCode = this.customerPOModel.get("POCode");
         var sourceCode = this.customerPOModel.get("SourceCode");
         var shippingDate = this.customerPOModel.get("ShippingDate");
+        var paymentTermGroup = this.customerPOModel.get("PaymentTermGroup");
+        var paymentTermCode = this.customerPOModel.get("PaymentTermCode");
+        var shippingMethodGroup = this.customerPOModel.get("ShippingMethodGroup");
+        var shippingMethodCode = this.customerPOModel.get("ShippingMethodCode");
+        var contactCode = this.customerPOModel.get("ContactCode");
         this.transactionModel.set({
           POCode: poCode,
           SourceCode: sourceCode,
-          ShippingDate: shippingDate
+          ShippingDate: shippingDate,
+          PaymentTermGroup: paymentTermGroup,
+          PaymentTermCode: paymentTermCode,
+          ShippingMethodGroup: shippingMethodGroup,
+          ShippingMethodCode: shippingMethodCode,
+          ContactCode: contactCode
         });
       }
 
@@ -6238,6 +6248,21 @@ define([
         Global.PaymentType = "";
         Global.SelectedPaymentType = "";
 
+       if (this.paymentCollection) {
+              var self = this;
+              if (this.paymentCollection.length > 0) {
+                this.paymentCollection.each(function(model) {
+                  var _sign = model.get("SignatureSVG");
+                  if (_sign) self.DeleteSavedSignature(_sign);
+                }, this)
+              }
+              this.paymentCollection.reset();
+            }
+
+        if (this.refundCollection) {
+              this.refundCollection.reset();
+            }
+
         if (Global.TransactionType == Enum.TransactionType.Return) this.PrintAndEmailTransaction(response.Invoices[0].InvoiceCode);
 
         if (promptToPrint) {
@@ -6526,7 +6551,6 @@ define([
 
 
     AddOfflinePayment: function() {
-      debugger;
       Global.IsCreateRefund = true;
       Global.OfflineCharge = true;
       Global.PaymentType = Enum.PaymentType.CreditCard;
@@ -6799,16 +6823,16 @@ define([
         this.onQueueModel = null;
       }
 
-      if (this.paymentCollection) {
-        var self = this;
-        if (this.paymentCollection.length > 0) {
-          this.paymentCollection.each(function(model) {
-            var _sign = model.get("SignatureSVG");
-            if (_sign) self.DeleteSavedSignature(_sign);
-          }, this)
-        }
-        this.paymentCollection.reset();
-      }
+      // if (this.paymentCollection) {
+      //   var self = this;
+      //   if (this.paymentCollection.length > 0) {
+      //     this.paymentCollection.each(function(model) {
+      //       var _sign = model.get("SignatureSVG");
+      //       if (_sign) self.DeleteSavedSignature(_sign);
+      //     }, this)
+      //   }
+      //   this.paymentCollection.reset();
+      // }
 
       if (this.couponView) {
         this.couponView.ClearCoupon();
@@ -6819,9 +6843,9 @@ define([
         Global.Coupon = null;
       }
 
-      if (this.refundCollection) {
-        this.refundCollection.reset();
-      }
+      // if (this.refundCollection) {
+      //   this.refundCollection.reset();
+      // }
 
       if (this.serializeLotCollection) {
         this.serializeLotCollection.reset();
@@ -6911,16 +6935,16 @@ define([
         this.onQueueModel = null;
       }
 
-      if (this.paymentCollection) {
-        var self = this;
-        if (this.paymentCollection.length > 0) {
-          this.paymentCollection.each(function(model) {
-            var _sign = model.get("SignatureSVG");
-            if (_sign) self.DeleteSavedSignature(_sign);
-          }, this)
-        }
-        this.paymentCollection.reset();
-      }
+      // if (this.paymentCollection) {
+      //   var self = this;
+      //   if (this.paymentCollection.length > 0) {
+      //     this.paymentCollection.each(function(model) {
+      //       var _sign = model.get("SignatureSVG");
+      //       if (_sign) self.DeleteSavedSignature(_sign);
+      //     }, this)
+      //   }
+      //   this.paymentCollection.reset();
+      // }
 
       if (this.couponView) {
         this.couponView.ClearCoupon();
@@ -6931,9 +6955,9 @@ define([
         Global.Coupon = null;
       }
 
-      if (this.refundCollection) {
-        this.refundCollection.reset();
-      }
+      // if (this.refundCollection) {
+      //   this.refundCollection.reset();
+      // }
 
       if (this.serializeLotCollection) {
         this.serializeLotCollection.reset();
@@ -7922,7 +7946,10 @@ define([
           InvoiceCode: transactionCode,
           SourceCode: response.Invoices[0].SourceCode,
           ShippingDate: response.Invoices[0].ShippingDate,
-          POCode: response.Invoices[0].POCode
+          POCode: response.Invoices[0].POCode,
+          PaymentTermCode: response.Invoices[0].PaymentTermCode,
+          ShippingMethodCode: response.Invoices[0].ShippingMethodCode,
+          ContactCode: response.Invoices[0].ContactCode
         });
       } else {
         this.previousTransactionDetals.reset(response.SalesOrderDetails);
@@ -7933,7 +7960,10 @@ define([
           SalesOrderCode: transactionCode,
           SourceCode: response.SalesOrders[0].SourceCode,
           ShippingDate: response.SalesOrders[0].ShippingDate,
-          POCode: response.SalesOrders[0].POCode
+          POCode: response.SalesOrders[0].POCode,
+          PaymentTermCode: response.SalesOrders[0].PaymentTermCode,
+          ShippingMethodCode: response.SalesOrders[0].ShippingMethodCode,
+          ContactCode: response.SalesOrders[0].ContactCode
         });
       }
     },
@@ -11625,6 +11655,22 @@ define([
                           status.TotalCheckSales = status.TotalCheckSales + checkPayment;
                           break;
                       }
+                    }
+                    else {
+                      if (checkPayment == 0)  {
+                           switch (Global.TransactionType) {
+                        
+                          case Enum.TransactionType.Return:
+                           var returnAmount = 0;
+                           if (checkPayment == 0) returnAmount = this.GetTransactionBalance();
+                            else returnAmount = checkPayment;
+                            status.TotalCheckReturns = status.TotalCheckReturns + returnAmount;
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+            
                     }
                     break ;
         }

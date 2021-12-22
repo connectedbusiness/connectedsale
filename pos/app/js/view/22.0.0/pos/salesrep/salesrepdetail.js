@@ -6,7 +6,7 @@ define([
   'shared/global',
   'shared/enum',
   'shared/shared',
-  'text!template/19.0.0/pos/item/header-info/salesrep/salesrepdetail.tpl.html'
+  'text!template/22.0.0/pos/item/header-info/salesrep/salesrepdetail.tpl.html'
 ], function($, $$, _, Backbone, Global, Enum, Shared, Template) {
   return Backbone.View.extend({
     template: _.template(Template),

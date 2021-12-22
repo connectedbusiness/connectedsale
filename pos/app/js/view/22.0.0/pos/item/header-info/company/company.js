@@ -8,7 +8,7 @@ define([
   'backbone',
   'shared/global',
   'shared/method',
-  'text!template/19.0.0/pos/item/header-info/company/companyinfo.tpl.html'
+  'text!template/22.0.0/pos/item/header-info/company/companyinfo.tpl.html'
 ], function($, $$, _, Backbone, Global, Method, template) {
   var CompanyView = Backbone.View.extend({
     _template: _.template(template),

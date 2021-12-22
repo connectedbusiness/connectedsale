@@ -7,7 +7,7 @@ define([
   'underscore',
   'backbone',
   'shared/global',
-  'text!template/19.0.0/settings/dejavoo/protocol/protocol.tpl.html'
+  'text!template/22.0.0/settings/dejavoo/protocol/protocol.tpl.html'
 ], function($, $$, _, Backbone, Global, template) {
   var POSPreference = Backbone.View.extend({
     _template: _.template(template),

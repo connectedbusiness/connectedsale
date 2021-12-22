@@ -15,7 +15,7 @@ define([
   'collection/preferences',
   'model/lookupcriteria',
   'model/useraccount',
-  'text!template/19.0.0/settings/user/usermaintenance/adduserform.tpl.html'
+  'text!template/22.0.0/settings/user/usermaintenance/adduserform.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method,
   UserRoleCollection, UserAccountCollection, PreferenceCollection,
   LookupCriteriaModel, UserAccountModel,

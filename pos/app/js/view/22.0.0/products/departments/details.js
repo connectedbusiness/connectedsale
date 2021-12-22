@@ -6,10 +6,10 @@ define([
 	'backbone',
 	'shared/global',
 	'shared/shared',		
-	'view/19.0.0/products/departments/detail/general',
-	'view/19.0.0/products/departments/detail/sortorder',
-	'text!template/19.0.0/products/departments/details.tpl.html',
-	'text!template/19.0.0/products/departments/detailsmenu.tpl.html'	
+	'view/22.0.0/products/departments/detail/general',
+	'view/22.0.0/products/departments/detail/sortorder',
+	'text!template/22.0.0/products/departments/details.tpl.html',
+	'text!template/22.0.0/products/departments/detailsmenu.tpl.html'	
 ], function($, $$, _, Backbone, Global, Shared, GeneralView, SortOrderView, template, menuTemplate){
 	
 	var _departmentDetailContainer_el = "#departmentDetailsContainer";

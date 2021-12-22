@@ -9,8 +9,8 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'view/19.0.0/pos/keypad/keypad',
-  'text!template/19.0.0/pos/drawerbalance/closingamount.tpl.html',
+  'view/22.0.0/pos/keypad/keypad',
+  'text!template/22.0.0/pos/drawerbalance/closingamount.tpl.html',
 ], function($, $$, _, Backbone, Global, Shared, KeypadView, template) {
 
   var ClosingAmountView = Backbone.View.extend({

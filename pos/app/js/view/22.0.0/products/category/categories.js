@@ -6,11 +6,11 @@ define([
   'model/base',
   'model/lookupcriteria',
   'collection/base',
-  'view/19.0.0/products/category/details',
-  'view/19.0.0/products/category/detail/addcategory',
-  'view/19.0.0/products/controls/generic-list',
-  'text!template/19.0.0/products/category/categories.tpl.html',
-  'text!template/19.0.0/products/controls/generic-layout.tpl.html'
+  'view/22.0.0/products/category/details',
+  'view/22.0.0/products/category/detail/addcategory',
+  'view/22.0.0/products/controls/generic-list',
+  'text!template/22.0.0/products/category/categories.tpl.html',
+  'text!template/22.0.0/products/controls/generic-layout.tpl.html'
 ], function(Backbone, Global, Service, Method,
   BaseModel, LookUpCriteriaModel,
   BaseCollection, CategoryDetailView, AddCategoryView,

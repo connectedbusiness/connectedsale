@@ -6,7 +6,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/19.0.0/settings/general/paymenttype/paymenttype.tpl.html'
+  'text!template/22.0.0/settings/general/paymenttype/paymenttype.tpl.html'
 ], function($, $$, _, Backbone, PaymentTypeTemplate) {
   return Backbone.View.extend({
     _paymentTypeTemplate: _.template(PaymentTypeTemplate),

@@ -8,9 +8,9 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'view/19.0.0/settings/general/gateway/gateway',
-  'text!template/19.0.0/settings/general/gateway/gateways.tpl.html',
-  'text!template/19.0.0/settings/general/gateway/search.tpl.html',
+  'view/22.0.0/settings/general/gateway/gateway',
+  'text!template/22.0.0/settings/general/gateway/gateways.tpl.html',
+  'text!template/22.0.0/settings/general/gateway/search.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Shared, GatewayPreference, GatewaysTemplate, SearchTemplate) {
   var GatewaysPreference = Backbone.View.extend({
