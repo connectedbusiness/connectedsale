@@ -1,0 +1,1 @@
+define(["jquery","mobile","underscore","backbone","shared/global","text!template/20.0.0/pos/cart/promobuyitem.tpl.html"],function(t,e,i,n,m,l){return n.View.extend({template:i.template(l),initialize:function(){this.$el.html(this.template({BuyItemName:this.model.BuyItemName,Quantity:this.model.BuyQuantity*this.options.getItemQty}))},render:function(){return this}})});

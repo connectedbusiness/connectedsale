@@ -1,0 +1,13 @@
+
+<li id="<%= ModelID %>" class="upcitem-li customBtn-color-gray">
+	<div class="left-pane">
+		<span id="chkOption" class="icon-check-empty custom-check"> </span>
+	</div>
+	<div class="right-pane">
+	
+		<h3><%= ItemName %></h3>
+			<span class="lookup-ItemName"><%= ItemDescription.substring(0,48) %></span><br/>
+			<span class="lookup-Units"><%= UnitsInStock %><span>   </span><%= UnitMeasureCode %></span>
+			<span class="upcItems-price" ><%= CurrencySymbol %><%= Price.toFixed(2) %></span><br/>
+		</div>
+</li>

@@ -1,0 +1,226 @@
+<div id="settings-receipt">
+	<div class="settings-left-pane">
+		<div id="receipt-left-pane-content">
+			<table class="table-receipt">
+				<tbody>
+					<tr> <!-- Invoice -->
+						<td>Sales Receipt Type 1</td>
+						<td class="header">Printer Name</td>
+						<td class="header">Copies</td>
+					</tr>
+					<tr>
+						<td>
+							<span id="sale-receipt">
+								<div class="general-items-btn ui-link"><a><%= InvoiceReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div>
+							</span>
+						</td>
+						<td>
+							<div id="invoice-report-printer" class="general-items-btn ui-link">
+								<a><%= InvoiceReportPrinter %></a>
+								<i class="icon-angle-down settings-dropdown-icon"></i>
+							</div>
+						</td>
+						<td>
+							<input type="number" maxlength="4" id="InvoiceReceiptCopies" class="general-items-btn number" value="<%= parseInt(InvoiceReceiptCopies||1) %>">
+						</td>
+					</tr>
+
+					<tr> <!-- Invoice 2 -->
+						<td colspan="3">Sales Receipt Type 2</td>
+					</tr>
+					<tr>
+						<td>
+							<span id="sale-receipt2">
+								<div class="general-items-btn ui-link"><a><%= InvoiceReportName2 %></a><i class="icon-angle-down settings-dropdown-icon"></i></div>
+							</span>
+						</td>
+						<td>
+							<div id="invoice-report-printer2" class="general-items-btn ui-link">
+								<a><%= InvoiceReportPrinter2 %></a>
+								<i class="icon-angle-down settings-dropdown-icon"></i>
+							</div>
+						</td>
+						<td>
+							<input type="number" maxlength="4" id="InvoiceReceiptCopies2" class="general-items-btn number" value="<%= parseInt(InvoiceReceiptCopies2||1) %>">
+						</td>
+					</tr>
+
+					<tr> <!-- Order -->
+						<td colspan="3">Order Receipt</td>
+					</tr>
+					<tr>
+						<td>
+							<span id="order-receipt">
+								<div class="general-items-btn ui-link"><a><%= OrderReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div>
+							</span>
+						</td>
+						<td>
+							<div id="order-report-printer" class="general-items-btn ui-link">
+								<a><%= OrderReportPrinter %></a>
+								<i class="icon-angle-down settings-dropdown-icon"></i>
+							</div>
+						</td>
+						<td>
+							<input type="number" maxlength="4" id="OrderReceiptCopies" class="general-items-btn number" value="<%= parseInt(OrderReceiptCopies||1) %>">
+						</td>
+					</tr>
+
+					<tr> <!-- Quote -->
+						<td colspan="3">Quote Receipt</td>
+					</tr>
+					<tr>
+						<td>
+							<span id="quote-receipt">
+								<div class="general-items-btn ui-link"><a><%= QuoteReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div>
+							</span>
+						</td>
+						<td>
+							<div id="quote-report-printer" class="general-items-btn ui-link">
+								<a><%= QuoteReportPrinter %></a>
+								<i class="icon-angle-down settings-dropdown-icon"></i>
+							</div>
+						</td>
+						<td>
+							<input type="number" maxlength="4" id="QuoteReceiptCopies" class="general-items-btn number" value="<%= parseInt(QuoteReceiptCopies||1) %>">
+						</td>
+					</tr>
+
+					<tr> <!-- Credit Memo -->
+						<td colspan="3">Return Receipt</td>
+					</tr>
+					<tr>
+						<td>
+							<span id="return-receipt">
+								<div class="general-items-btn ui-link"><a><%= ReturnReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div>
+							</span>
+						</td>
+						<td>
+							<div id="return-report-printer" class="general-items-btn ui-link">
+								<a><%= ReturnReportPrinter %></a>
+								<i class="icon-angle-down settings-dropdown-icon"></i>
+							</div>
+						</td>
+						<td>
+							<input type="number" maxlength="4" id="ReturnReceiptCopies" class="general-items-btn number" value="<%= parseInt(ReturnReceiptCopies||1) %>">
+						</td>
+					</tr>
+
+					<tr> <!-- Credit Card -->
+						<td colspan="3">Credit Card Receipt</td>
+					</tr>
+					<tr>
+						<td>
+							<span id="credit-card-receipt">
+								<div class="general-items-btn ui-link"><a><%= CreditCardReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div>
+							</span>
+						</td>
+						<td>
+							<div id="credit-card-report-printer" class="general-items-btn ui-link">
+								<a><%= CreditCardReportPrinter %></a>
+								<i class="icon-angle-down settings-dropdown-icon"></i>
+							</div>
+						</td>
+						<td>
+							<input type="number" maxlength="4" id="CreditCardReceiptCopies" class="general-items-btn number" value="<%= parseInt(CreditCardReceiptCopies||1) %>">
+						</td>
+					</tr>
+
+					<tr> <!-- Payment -->
+						<td colspan="3">Sales Payment Receipt</td>
+					</tr>
+					<tr>
+						<td>
+							<span id="sale-payment-receipt">
+								<div class="general-items-btn ui-link"><a><%= SalePaymentReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div>
+							</span>
+						</td>
+						<td>
+							<div id="sale-payment-report-printer" class="general-items-btn ui-link">
+								<a><%= SalePaymentReportPrinter %></a>
+								<i class="icon-angle-down settings-dropdown-icon"></i>
+							</div>
+						</td>
+						<td>
+							<input type="number" maxlength="4" id="SalePaymentReceiptCopies" class="general-items-btn number" value="<%= parseInt(SalePaymentReceiptCopies||1) %>">
+						</td>
+					</tr>
+
+					<tr> <!-- Pick Note -->
+						<td colspan="3">Pick Note</td>
+					</tr>
+					<tr>
+						<td>
+							<span id="pick-note-receipt">
+								<div class="general-items-btn ui-link"><a><%= PickNoteReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div>
+							</span>
+						</td>
+						<td>
+							<div id="pick-note-report-printer" class="general-items-btn ui-link">
+								<a><%= PickNoteReportPrinter %></a>
+								<i class="icon-angle-down settings-dropdown-icon"></i>
+							</div>
+						</td>
+						<td>
+							<input type="number" maxlength="4" id="PickNoteReceiptCopies" class="general-items-btn number" value="<%= parseInt(PickNoteReceiptCopies||1) %>">
+						</td>
+					</tr>
+
+					<tr style="display: none;"> <!-- Air Print -->
+						<td colspan="4">Printer Settings</td>
+					</tr>
+					<tr style="display: none;">
+						<td colspan="4">
+							<span id="printer-settings"><div class="general-items-btn ui-link"><a><%= IsAirprintDisplay %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="settings-right-pane">
+		<div id="receipt-right-pane-content">
+			<ul>
+				<div class="grouping-header">print options</div>
+				<div class="grouping-section">
+					<li class="ui-li ui-li-static"><span>Use Single Page on Transaction Receipt</span><i id="IsSinglePageTransactionReceipt" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+					<li class="ui-li ui-li-static ui-body-d"><span>Show Print Options</span> <i id="ShowPrintOptions" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+					<li class="ui-li ui-li-static ui-body-d" id="auto-print-receipt">
+						<div id="div-auto-print-receipt">
+							<span>Auto-Print Receipt</span><i id="AutoPrintReceipt" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i>
+						</div>
+					</li>
+					<li class="ui-li ui-li-static ui-body-d"><span>Auto-Email Receipt</span> <i id="AutoEmailReceipt" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i> </li>
+					<li class="ui-li ui-li-static ui-body-d" id="default-printer">
+						<span>Default Printer</span>
+						<div class="general-items-btn ui-link">
+							 <a><%= DefaultPrinter %></a>
+							 <i class="icon-angle-down settings-dropdown-icon"></i>
+						</div>
+					</li>
+				</div>
+				<div class="grouping-header">X/Z tape report</div>
+				<div class="grouping-section" style="padding: 15px;">
+					<span>X-Tape Report</span><li id="x-tape-report"><div class="general-items-btn ui-link general-btn-right-pane"><a><%= XTapeReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+					<span>Z-Tape Report</span><li id="z-tape-report"><div class="general-items-btn ui-link general-btn-right-pane"><a><%= ZTapeReportName %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+				</div>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+	<!-- <ul data-role="listview" data-inset="true" data-theme="d">
+		<li>Auto-Email Receipt<h1 class="ui-li-aside checkswitch"><input type="checkbox" id="AutoEmailReceipt"></h1></li>
+		<li>Ask for Email Address<h1 class="ui-li-aside checkswitch"><input type="checkbox" id="PromptEmailAddress"></h1></li>
+	</ul>
+	<br/>
+	<ul data-role="listview" data-inset="true" data-theme="d">
+		<li id="printer-settings"><a>Printer Settings<h1 class="ui-li-aside"><%= IsAirprintDisplay %></h1></a></li>
+
+		<li id="auto-print-receipt"><div id="div-auto-print-receipt">Auto-Print Receipt<h1  class="ui-li-aside checkswitch"><input type="checkbox" id="AutoPrintReceipt"></h1></div></li>
+
+		<li id="li-ask-to-print-receipt"><div id="div-ask-to-print-receipt">Ask to Print Receipt<h1 class="ui-li-aside checkswitch"><input type="checkbox" id="PromptToPrintReceipt"></h1></div></li>
+	</ul> -->
+

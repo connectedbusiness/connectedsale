@@ -1,0 +1,34 @@
+<div id="activateGCardForm" class="interprise-popover-container gcardForm">
+	<!-- header --> 
+    <div class="interprise-popover-header">
+        <div class="popover-left"> 
+        	<a id="btn-back" class="popover-btn left-popover-btn btn-cancel">Back</a>
+        </div>
+            <h1 id="activate-title" class="title">Activate Gift Card</h1>
+            <h1 id="pin-title" class="title" style="display:none">PIN</h1>
+            <h1 id="new-pin-title" class="title" style="display:none">New PIN</h1>
+        <div class="popover-right" style="display: none;"> 
+        	<a id="btn-done" class="popover-btn right-popover-btn btn-done">Done</a>
+        </div>
+    </div>
+    <!-- header -->
+	
+	<br class="clearfloat"/>
+	<div id="activate-giftcard-body" class="interprise-popover-content" data-role="fieldcontain">
+		<div data-role="fieldcontain" id="pin-container">
+		    <label for="pin-input">Enter PIN</label>
+            <input id="pin-input" type="password" maxlength="10" />
+		</div>
+		
+		<div data-role="fieldcontain" id="confirm-pin-container">
+		    <label for="confirm-pin-input">Confirm PIN</label>
+            <input id="confirm-pin-input" type="password" maxlength="10" />
+		</div>
+		
+		<div id="gc-button-container" >
+			<a id="activate-btn" class="activate-btn green-btn">Activate</a>
+			<a data-role="button" data-theme="b" id="ask-pin-btn" class="ask-pin-btn">Allow User To Enter Pin</a>
+		</div>		
+	</div>
+	
+</div>

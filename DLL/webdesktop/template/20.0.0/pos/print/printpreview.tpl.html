@@ -1,0 +1,37 @@
+<div id="printSetup-Pointer-wrapper"><div id="printSetup-Pointer"></div></div>
+<div id="printSetup"  class="interprise-popover-container"> 
+
+<div class="interprise-popover-header popover-header">
+	<div class="popover-left" style="display: hidden;"> 
+	</div>
+	<h1 class="title">Printer Options</h1>
+	<div class="popover-right">
+		<a class="popover-btn right-popover-btn btn-Done"  style="opacity: 0;">&nbsp;</a> 
+	</div>
+</div>
+<br class="clearfloat"/> 
+<div id="printSetupBody" class="interprise-popover-content">     
+	<div id="print-settings"> 
+		<div id="print-details">  
+            <div  data-role="fieldcontain" id="ipContainer"> 
+            	<input id="printer-address-url" type="url" placeholder="Printer Address"/>
+            	<select id="printer-address" style="width: 100% !important;">
+                    <option value="" disabled selected>Find IP</option>
+				</select>
+            </div>
+			<br class="clearfloat"/>
+
+			<div data-role="fieldcontain"  id="printerModelContainer"> 
+				<input id="printModel" type="text"  readonly="readonly" placeholder="Printer Model"/>
+			</div>
+			<div id="printer-status" style="display:none;"> 
+				<span>
+					Searching for Printers within the network...
+				</span>
+			</div>
+		</div>
+		  
+		<a id="print-btn" class="main-btn">Print</a> 
+	</div>
+</div>
+</div>

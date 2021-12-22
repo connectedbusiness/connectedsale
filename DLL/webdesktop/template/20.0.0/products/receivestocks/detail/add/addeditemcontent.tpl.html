@@ -1,0 +1,53 @@
+
+	<td class="inventoryItem-itemName itemName" style="color:#0082D6;">
+		<%= ItemNameDisplay %>
+	</td>
+	<td class="inventoryItem-warehouseCode" style="color:#0082D6;" class="popupHundler">
+        <div id="warehouseCodeDetail" style="max-width:100px;" class="popupHundler">
+            <%= WarehouseCode %>
+        </div>
+    <!--<div id="changeWarehouse-div" style="display:none;">
+       <select id="drpWarehouse" class="drpWarehouse" style="display:none"></select>
+    </div>-->
+        <div id="changeWarehouse-div" style="display:none;" class="popupHundler">
+        </div>
+</td>
+	<!--td class="inventoryItem-unitMeasureCode" style="color:#0082D6;">
+		<div id="UMDetail" style="width: 100%">
+			<%= UnitMeasureCode %>
+		</div>
+		<div id="changeUm-div" style="display: none;">
+			<select id="drpUM" style="width:60px;">
+				<option>UM</option>
+			</select>
+		</div>
+	</td-->
+	<!--td class="inventoryItem-unitMeasureQuantity" style="text-align: right;">
+		<%= UnitMeasureQuantity %>
+	</td-->
+	<td class="inventoryItem-originalQuantity" style="text-align: right; min-width:14px;">
+		<%= OriginalQuantity %>
+	</td>
+	<td class="inventoryItem-quantity" style="text-align: right; color:#0082D6;">
+		<div id="quantityDetail">
+			<%= Quantity %>
+		</div>
+		<div id="changeQuantity" style="display: none;">
+			<input type="text"  class ="cs-input" id="changeQty" value="<%= Quantity %>" style="text-align: right;width: 40px;"/>	
+		</div>
+	</td>
+	<td class="inventoryItem-quantityAfter" style="text-align: right;">
+		<%= QuantityAfter %>
+	</td>
+	
+	<td class="inventoryItem-cost" style="text-align: right; color: #0082D6;">
+		<div id="costDetail">
+			<%= Cost %>
+		</div>
+		<div id="changeCost-div" style="display: none;">
+			<input type="text" class ="cs-input" id="changeCost" value="<%= Cost %>" style="text-align: right;width: 40px;"/>
+		</div>
+	</td>
+	<td class="inventoryItem-remove">
+		<span class="icon-trash" id ="removeContent"></span>
+	</td>	

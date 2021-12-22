@@ -1,0 +1,49 @@
+<div id="settings-dejavoo">
+	<div class="dejavoo-top-pane">
+		<div class="settings-left-pane">
+			<div class="field">
+				<span>Enable Dejavoo</span><i id="DejavooEnabled" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i>
+			</div>
+		</div>
+	</div>
+
+	<div class="settings-left-pane">
+		<div id="dejavoo-left-pane-content">
+			<ul>
+				<div class="grouping-header">connection</div>
+				<br>
+				<span>Protocol</span>
+				<!-- <li><input type="text" maxlength="10" id="DejavooConnectionProtocol" class="general-items-btn" value="<%= DejavooConnectionProtocol %>"></li> -->
+				<li id="dejavoo-protocol-btn"><div class="general-items-btn ui-link"><a id ="DejavooConnectionProtocol"><%= DejavooConnectionProtocol %></a><i class="icon-angle-down settings-dropdown-icon"></i></div></li>
+				<span>Terminal</span>
+				<li><input type="text" maxlength="50" id="DejavooConnectionTerminal" class="general-items-btn" value="<%= DejavooConnectionTerminal %>"></li>
+				<span>CGI Port</span>
+				<li><input type="text" maxlength="20" id="DejavooConnectionCGIPort" class="general-items-btn" value="<%= DejavooConnectionCGIPort %>"></li>
+				<span>Auth Key</span>
+				<li><input type="text" maxlength="50" id="DejavooConnectionAuthKey" class="general-items-btn" value="<%= DejavooConnectionAuthKey %>"></li>
+				<!-- <span>Status Port</span>
+				<li><input type="number" maxlength="10" id="DejavooConnectionStatusPort" class="general-items-btn number" value="<%= parseInt(DejavooConnectionStatusPort||8484) %>"></li> -->
+			</ul>
+		</div>
+	</div>
+
+	<div class="settings-right-pane">
+		<div id="dejavoo-right-pane-content">
+			<ul>
+				<div class="grouping-header">transaction</div>
+				<br>
+				<!-- <span>Frequency</span>
+				<li><input type="text" maxlength="10" id="DejavooTransactionFrequency" class="general-items-btn" value="<%= DejavooTransactionFrequency %>"></li>
+				<span>Reference ID</span>
+				<li><input type="number" maxlength="10" id="DejavooTransactionReferenceID" class="general-items-btn number" value="<%= parseInt(DejavooTransactionReferenceID||0) %>"></li> -->
+				<span>Register ID</span>
+				<li><input type="number" maxlength="10" id="DejavooTransactionRegisterID" class="general-items-btn number" value="<%= parseInt(DejavooTransactionRegisterID||0) %>"></li>
+				<li class="ui-li-dejavoo"><span>Print Receipt</span><i id="DejavooTransactionPrintReceipt" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i></li>
+				<li class="ui-li-dejavoo"><span>Capture Signature</span><i id="DejavooTransactionSignature" class="icon-ok-sign settings-items-checkbox ul-li-aside"></i></li>
+			</ul>
+		</div>
+	</div>
+
+	<div style="clear: both;">
+	</div>
+</div>

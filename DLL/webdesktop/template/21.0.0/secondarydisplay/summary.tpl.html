@@ -1,0 +1,32 @@
+<table width="100%" >
+	<thead>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Subtotal (<%= TotalQuantity %>):</td>
+			<td class="value"><%= CurrencySymbol %> <%= format("#,##0.00", Total.toFixed(2)) %></td>
+		</tr>
+		<tr>
+			<td>Total Tax:</td>
+			<td class="value"><%= CurrencySymbol %> <%= format("#,##0.00",TaxRate) %></td>
+		</tr>
+    		<tr>
+			<td>Total Discount:</td>
+			<td class="value"><%= CurrencySymbol %> <%= format("#,##0.00",TotalDiscount) %></td>
+		</tr>
+    
+		<tr>
+			<td>Payment:</td>
+			<td class="value"><%= CurrencySymbol %> <%= format("#,##0.00", Payment.toFixed(2)) %></td>
+		</tr>
+		<tr>
+			<% if( Type == "Sales Refund") { %>
+				<td>Return Total:</td>
+			<%  } else { %>
+				<td>Balance:</td>				
+			<%  } %>
+
+			<td class="value"><%= CurrencySymbol %> <%= format("#,##0.00", BalanceRate.toFixed(2)) %></td>
+		</tr>		
+	</tbody>
+</table>

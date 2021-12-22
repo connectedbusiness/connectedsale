@@ -1,0 +1,75 @@
+<div id="paymentPrimaryFields">
+	<div data-role="fieldcontain" style="margin-top:0 !important; margin-bottom: 25px;">
+	    <label for="cardNumber" id="lblCard">Card Number</label>
+	    <span id="ccNumber">
+	    <input type="password" id="cardNumber" value="" />
+	   	<a class="main-btn main-btn-blue" id="cc-swipe"><img src="img/refresh.png" width="24px" height="24px"/></a>
+	   	</span>
+	</div>	
+	<div data-role="fieldcontain">
+	    <label for="expDate">Expiration Date</label>
+	    
+	    <div id="cvContainer">
+	    	<input type="month" id="expDate" value="" />
+	    	<label for="cvNumber" id="lblCvNumber">CV</label>
+	    	<input type="text" id="cvNumber" value="" />	
+	    </div>
+	    <br class="clearfloat"/>
+	</div>
+	<div data-role="fieldcontain" style="margin-bottom:0 !important;">
+	    <label for="cardName">Name on Card</label>
+	    <input type="text" id="cardName" value="" />
+	</div>		
+	<div data-role="fieldcontain">
+	    <label for="authorizationNumber">Authorization#</label>
+	    <input type="text" id="authorizationNumber" value="" />
+	</div>
+</div>
+
+<div id="paymentAdditionalFields" style="display:none;">
+	<div data-role="fieldcontain">
+	    <label for="ccCountry">Country | Zip Code</label>
+	    <div id="ccPostalContainer">
+	    	<select id="ccCountry"></select>
+	    	<input type="text" id="ccPostal" value="" />	
+	    </div>
+	    <br class="clearfloat"/>
+	</div>
+	<div data-role="fieldcontain" style="margin-bottom:0 !important;">
+	    <label for="ccAddress" id="lblCcAddress">Address</label>
+	    <textarea id="ccAddress"></textarea>
+	</div>	
+	<div data-role="fieldcontain">
+	    <label for="ccCity">City | State</label>
+	    
+	    <div id="ccStateContainer">
+	    	<input type="text" id="ccCity" value="" />
+	    	<input type="text" id="ccState" value="" />	
+	    </div>
+	    <br class="clearfloat"/>
+	</div>	
+	<div data-role="fieldcontain">
+	    <label for="ccPhoneExt">Phone | Ext</label>
+	    
+	    <div id="ccPhoneExtContainer">
+	    	<input type="tel" id="ccPhone" value="" />
+	    	<input type="text" id="ccPhoneExt" value="" />	
+	    </div>
+	    <br class="clearfloat"/>
+	</div>
+	<div data-role="fieldcontain" style="margin-bottom:0 !important;">
+	    <label for="ccEmail">Email</label>
+	    <input type="email" id="ccEmail" value="" />
+	</div>	
+</div>
+
+<a style="float:right;" id="btn-more">More...</a>
+<div id="cc-msgContainer" style="float:left; font-size:14px; font-style: italic;">*<span id="cc-msg">Establishing connection...</span></div><br class="clearfloat"/>
+<div class="signature-container" style="display: none">
+	<label>Signature</label>
+	<div class="signature"></div>
+	<a data-role="button" data-theme="r" class="btn-clear-signature">Clear Signature</a>
+</div>
+	
+<p id="track1" style="display: none;"></p><p id="track2" style="display: none;"></p><p id="ksn" style="display: none;"></p><p id="isUnimag" style="display: none;">false</p>	
+
