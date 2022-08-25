@@ -101,10 +101,15 @@ define([
     		
     		//Discount field events.    			
     		"blur #discount-input"			   : "ValidateValue_FocusChanged",     
-    		"tap  #discount-inputClearBtn"	   : "ClearText",     		    		  		
+    		"tap  #discount-inputClearBtn"	   : "ClearText",     		
+
+    		//WHMCS-986183 
+    		"tap #itemDetail-umList"           : "selectUnitMeasure_tap",  	    		  		
     		
     	 /**See details @ http://203.177.136.156:8080/browse/INTMOBA-281 ********/    	
-    		"tap  #btn-remove-item"		       : "btnRemove_tap"  		
+    		"tap  #btn-remove-item"		       : "btnRemove_tap"
+
+    			
     		
     	//**************************** End *********************************
     		
@@ -1079,6 +1084,10 @@ define([
 		selectUnitMeasure_touchstart: function (e) {
 		    this.ValidateChangeUnitMeasure();
 		    e.preventDefault();
+			e.stopPropagation();
+		},
+
+		selectUnitMeasure_tap: function (e) {
 			e.stopPropagation();
 		},
 		
