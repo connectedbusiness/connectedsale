@@ -9,7 +9,7 @@ define(['shared/enum'],
         CB: "http://data.connectedbusiness.com/Demo_CB18/POS/WebService/"
       },
 
-      AppVersion: "23.8", //version.major + '.' + version.minor
+      AppVersion: "23.9", //version.major + '.' + version.minor
       ServerVersion: "",
       MinimumSupportedVersion: "16.0", //for backwards compatibility
       MinimumSupportedVersionForDesktop: "16.0", //for backwards compatibility
