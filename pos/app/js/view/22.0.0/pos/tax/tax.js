@@ -4,7 +4,7 @@ define([
   'underscore',
   'backbone',
   'shared/global',
-  'text!template/22.0.0/pos/tax/tax.tpl.html'
+  'text!template/23.0.0/pos/tax/tax.tpl.html'
 ], function($, $$, _, Backbone, Global, template) {
   return Backbone.View.extend({
     template: _.template(template),

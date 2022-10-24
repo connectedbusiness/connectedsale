@@ -14,8 +14,8 @@ define([
     'model/base',
     'model/lookupcriteria',
     'collection/base',
-	'text!template/22.0.0/products/openingbalance/detail/openingbalance.tpl.html',
-    'text!template/22.0.0/products/openingbalance/detail/openingbalance/oblist.tpl.html',    	
+	'text!template/23.0.0/products/openingbalance/detail/openingbalance.tpl.html',
+    'text!template/23.0.0/products/openingbalance/detail/openingbalance/oblist.tpl.html',    	
 	'js/libs/moment.min.js',
     'js/libs/iscroll.js',
     'js/libs/format.min.js'

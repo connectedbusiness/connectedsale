@@ -9,7 +9,7 @@ define([
   'shared/shared',
   'shared/method',
   'shared/enum',
-  'text!template/22.0.0/pos/promotion/promotionlist.tpl.html'
+  'text!template/23.0.0/pos/promotion/promotionlist.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, BaseCollection, Shared, Method, Enum, template){
 	var PromoListView = Backbone.View.extend({
 		template: _.template(template),

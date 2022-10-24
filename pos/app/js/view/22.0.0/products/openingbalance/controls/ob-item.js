@@ -8,7 +8,7 @@ define([
 	'mobile',
 	'underscore',
 	'backbone',
-	'text!template/22.0.0/products/openingbalance/controls/ob-item.tpl.html'
+	'text!template/23.0.0/products/openingbalance/controls/ob-item.tpl.html'
 ], function ($, $$, _, Backbone, OBProductTemplate) {
 
     var ProductView = Backbone.View.extend({

@@ -6,7 +6,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/22.0.0/settings/general/gateway/gateway.tpl.html'
+  'text!template/23.0.0/settings/general/gateway/gateway.tpl.html'
 ], function($, $$, _, Backbone, GatewayTemplate) {
   var GatewayPreference = Backbone.View.extend({
     _gatewayTemplate: _.template(GatewayTemplate),

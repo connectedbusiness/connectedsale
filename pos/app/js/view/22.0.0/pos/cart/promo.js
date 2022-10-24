@@ -6,9 +6,9 @@ define([
   'shared/global',
   'shared/enum',
   'collection/base',
-  'view/22.0.0/pos/cart/promobuyitem',
-  'view/22.0.0/pos/cart/promogetitem',
-  'text!template/22.0.0/pos/cart/promo.tpl.html'
+  'view/23.0.0/pos/cart/promobuyitem',
+  'view/23.0.0/pos/cart/promogetitem',
+  'text!template/23.0.0/pos/cart/promo.tpl.html'
 ], function($, $$, _, Backbone, Global, Enum, BaseCollection, PromoBuyItemView, PromoGetItemView, template) {
 
   return Backbone.View.extend({

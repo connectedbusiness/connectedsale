@@ -9,8 +9,8 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'view/22.0.0/pos/seriallot/list/list',
-  'text!template/22.0.0/pos/seriallot/list/lists.tpl.html',
+  'view/23.0.0/pos/seriallot/list/list',
+  'text!template/23.0.0/pos/seriallot/list/lists.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Shared, ListView, Template) {
   var ULContainer = "#serialList";

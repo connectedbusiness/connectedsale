@@ -10,8 +10,8 @@ define([
 	'shared/shared',
 	'model/base',
 	'collection/base',
-	'text!template/22.0.0/products/receivestocks/detail/inventoryitemlist.tpl.html',
-	'text!template/22.0.0/products/receivestocks/detail/inventoryitem.tpl.html',		
+	'text!template/23.0.0/products/receivestocks/detail/inventoryitemlist.tpl.html',
+	'text!template/23.0.0/products/receivestocks/detail/inventoryitem.tpl.html',		
 	'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Service, Method,Shared, BaseModel, StockCollection, template, itemTemplate){
 	

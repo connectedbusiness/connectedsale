@@ -16,10 +16,10 @@ define([
     'model/base',
     'model/lookupcriteria',
     'collection/base',
-    'view/22.0.0/products/controls/generic-list',
-    'view/22.0.0/products/products/products-detail',
-	'text!template/22.0.0/products/products/products-form.tpl.html',
-    'text!template/22.0.0/products/controls/generic-layout.tpl.html'
+    'view/23.0.0/products/controls/generic-list',
+    'view/23.0.0/products/products/products-detail',
+	'text!template/23.0.0/products/products/products-form.tpl.html',
+    'text!template/23.0.0/products/controls/generic-layout.tpl.html'
 ], function ($, $$, _, Backbone, Global, Service, Method, Shared,
              BaseModel, LookUpCriteriaModel,
              BaseCollection,

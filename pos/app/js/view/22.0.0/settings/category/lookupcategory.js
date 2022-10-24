@@ -7,7 +7,7 @@ define([
   'underscore',
   'backbone',
   'shared/shared',
-  'text!template/22.0.0/settings/category/category.tpl.html'
+  'text!template/23.0.0/settings/category/category.tpl.html'
 ], function($, $$, _, Backbone, Shared, template) {
   var LookupCategoryView = Backbone.View.extend({
     _template: _.template(template),

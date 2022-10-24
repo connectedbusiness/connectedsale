@@ -10,8 +10,8 @@ define([
 	'backbone',
 	'shared/global',
     'shared/shared',
-    'view/22.0.0/products/controls/generic-list',
-	'text!template/22.0.0/products/controls/generic-popup.tpl.html'
+    'view/23.0.0/products/controls/generic-list',
+	'text!template/23.0.0/products/controls/generic-popup.tpl.html'
 ], function ($, $$, _, Backbone, Global, Shared, GenericListView, GenericPopUpTemplate) {
 
     var GenericPopUpView = Backbone.View.extend({

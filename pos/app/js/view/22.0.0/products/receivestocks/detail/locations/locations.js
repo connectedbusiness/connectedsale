@@ -6,8 +6,8 @@ define([
 	'shared/shared',
     'model/base',
     'collection/base',
-    'view/22.0.0/products/receivestocks/detail/locations/location',
-    'text!template/22.0.0/products/receivestocks/detail/location/locations.tpl.html'
+    'view/23.0.0/products/receivestocks/detail/locations/location',
+    'text!template/23.0.0/products/receivestocks/detail/location/locations.tpl.html'
 ], function (Backbone, Global, Service, Method, Shared,
              BaseModel,
              BaseCollection,

@@ -11,7 +11,7 @@ define([
   'shared/method',
   'shared/shared',
   'model/base',
-  'text!template/22.0.0/secondarydisplay/logout.tpl.html'
+  'text!template/23.0.0/secondarydisplay/logout.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared,
   BaseModel, template) {
   var KioskLogoutView = Backbone.View.extend({

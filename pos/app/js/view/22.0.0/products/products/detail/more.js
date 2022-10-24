@@ -14,9 +14,9 @@ define([
     'model/base',
     'model/lookupcriteria',
     'collection/base',
-	'text!template/22.0.0/products/products/detail/more.tpl.html',
-    'text!template/22.0.0/products/products/detail/more/category.tpl.html',
-    'text!template/22.0.0/products/products/detail/more/department.tpl.html',
+	'text!template/23.0.0/products/products/detail/more.tpl.html',
+    'text!template/23.0.0/products/products/detail/more/category.tpl.html',
+    'text!template/23.0.0/products/products/detail/more/department.tpl.html',
     'js/libs/iscroll.js'
 ], function ($, $$, _, Backbone, Global, Service, Method, Shared,
              BaseModel, LookUpCriteriaModel,

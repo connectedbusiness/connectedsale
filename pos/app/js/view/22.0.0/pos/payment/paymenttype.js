@@ -11,7 +11,7 @@ define([
   'shared/service',
   'shared/enum',
   'model/base',
-  'text!template/22.0.0/pos/payment/paymenttype.tpl.html'
+  'text!template/23.0.0/pos/payment/paymenttype.tpl.html'
 ], function($, $$, _, Backbone, Global, Method, Service, Enum, BaseModel, template) {
   var PaymentTypeView = Backbone.View.extend({
     _template: _.template(template),

@@ -8,9 +8,9 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'view/22.0.0/settings/general/workstation/workstation',
-  'text!template/22.0.0/settings/general/workstation/workstations.tpl.html',
-  'text!template/22.0.0/settings/general/workstation/search.tpl.html',
+  'view/23.0.0/settings/general/workstation/workstation',
+  'text!template/23.0.0/settings/general/workstation/workstations.tpl.html',
+  'text!template/23.0.0/settings/general/workstation/search.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Shared, WorkstationPreference, template, searchTemplate) {
   var WorkstationsPreference = Backbone.View.extend({

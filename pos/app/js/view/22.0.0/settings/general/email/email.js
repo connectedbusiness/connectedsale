@@ -10,9 +10,9 @@ define([
   'shared/global',
   'shared/shared',
   'model/base',
-  'view/22.0.0/settings/general/email/formats',
-  'text!template/22.0.0/settings/general/email/email.tpl.html',
-  'text!template/22.0.0/settings/general/email/defaultmessage.tpl.html',
+  'view/23.0.0/settings/general/email/formats',
+  'text!template/23.0.0/settings/general/email/email.tpl.html',
+  'text!template/23.0.0/settings/general/email/defaultmessage.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, base64, Global, Shared, BaseModel, FormatsView, EmailTemplate, DefaultMessageTemplate) {
   var EmailPreference = Backbone.View.extend({

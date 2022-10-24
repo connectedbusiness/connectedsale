@@ -10,8 +10,8 @@ define([
   'shared/shared',
   'model/base',
   'collection/base',
-  'text!template/22.0.0/settings/general/email/formats.tpl.html',
-  'text!template/22.0.0/settings/general/email/help.tpl.html'
+  'text!template/23.0.0/settings/general/email/formats.tpl.html',
+  'text!template/23.0.0/settings/general/email/help.tpl.html'
 ], function($, $$, _, Backbone, Global, Shared, BaseModel, BaseCollection, FormatsTemplate, HelpTemplate) {
   var FormatsView = Backbone.View.extend({
 

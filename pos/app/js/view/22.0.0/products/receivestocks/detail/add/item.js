@@ -12,8 +12,8 @@ define([
 	'collection/stocks',
     'model/base',
     'collection/base',
-    'view/22.0.0/products/receivestocks/detail/locations/locations',
-	'text!template/22.0.0/products/receivestocks/detail/add/addeditemcontent.tpl.html',
+    'view/23.0.0/products/receivestocks/detail/locations/locations',
+	'text!template/23.0.0/products/receivestocks/detail/add/addeditemcontent.tpl.html',
 ], function ($, $$, _, Backbone, Global, Method, Service, Shared, StockModel, StockCollection,BaseModel,BaseCollection,LocationsView,template) {
 
     var AdjustmentType = {

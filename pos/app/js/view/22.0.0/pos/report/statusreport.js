@@ -8,7 +8,7 @@ define([
   'backbone',
   'shared/global',
   'shared/shared',
-  'text!template/22.0.0/pos/report/statusreport.tpl.html',
+  'text!template/23.0.0/pos/report/statusreport.tpl.html',
   'js/libs/moment.min.js',
   'js/libs/jquery.ui.core.js',
   'js/libs/jquery.ui.datepicker.js',

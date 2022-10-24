@@ -7,9 +7,9 @@ define([
   'model/base',
   'model/lookupcriteria',
   'collection/base',
-  'view/22.0.0/reports/reports-form',
-  'text!template/22.0.0/reports/reports.tpl.html',
-  'text!template/22.0.0/reports/header.tpl.html'
+  'view/23.0.0/reports/reports-form',
+  'text!template/23.0.0/reports/reports.tpl.html',
+  'text!template/23.0.0/reports/header.tpl.html'
 ], function(Backbone, Global, Service, Method, Shared,
   BaseModel, LookUpCriteriaModel,
   BaseCollection,

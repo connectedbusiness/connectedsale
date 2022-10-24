@@ -9,8 +9,8 @@ define([
   'shared/global',
   'shared/shared',
   'model/base',
-  'view/22.0.0/secondarydisplay/logout',
-  'text!template/22.0.0/secondarydisplay/options.tpl.html',
+  'view/23.0.0/secondarydisplay/logout',
+  'text!template/23.0.0/secondarydisplay/options.tpl.html',
 ], function($, $$, _, Backbone, Global, Shared, BaseModel, SecondaryDisplayLogoutView, template) {
 
   var OptionsView = Backbone.View.extend({

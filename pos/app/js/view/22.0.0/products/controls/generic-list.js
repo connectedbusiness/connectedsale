@@ -40,8 +40,8 @@ define([
     'shared/global',
     'model/base',
     'collection/base',
-    'view/22.0.0/products/receivestocks/controls/generic-item',
-	'text!template/22.0.0/products/controls/generic-list-cid.tpl.html',
+    'view/23.0.0/products/receivestocks/controls/generic-item',
+	'text!template/23.0.0/products/controls/generic-list-cid.tpl.html',
     'js/libs/iscroll.js'
 ], function ($, $$, _, Shared, Backbone, Global,
              BaseModel,

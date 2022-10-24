@@ -13,10 +13,10 @@ define([
 	'model/base',
 	'model/lookupcriteria',
 	'collection/base',
-    'view/22.0.0/products/controls/generic-list',
-    'view/22.0.0/products/unitmeasure/unitmeasuredetail',
-	'text!template/22.0.0/products/unitmeasure/uomform.tpl.html',
-	'text!template/22.0.0/products/controls/generic-layout.tpl.html'
+    'view/23.0.0/products/controls/generic-list',
+    'view/23.0.0/products/unitmeasure/unitmeasuredetail',
+	'text!template/23.0.0/products/unitmeasure/uomform.tpl.html',
+	'text!template/23.0.0/products/controls/generic-layout.tpl.html'
 ], function($, $$, _, Backbone, 
 	Global, Method, Service, Shared, 
 	BaseModel, LookupCriteriaModel,

@@ -11,7 +11,7 @@ define([
     'model/base',
     'model/lookupcriteria',
     'collection/base',
-	'text!template/22.0.0/products/openingbalance/detail/general.tpl.html',
+	'text!template/23.0.0/products/openingbalance/detail/general.tpl.html',
 	'js/libs/moment.min.js',
     'js/libs/format.min.js'
 ], function ($, $$, _, Backbone, Shared,

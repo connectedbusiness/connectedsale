@@ -6,9 +6,9 @@ define([
 	'backbone',
 	'shared/global',
 	'shared/shared',
-	'view/22.0.0/products/receivestocks/detail/add/item',
-	'text!template/22.0.0/products/receivestocks/detail/add/itemlist.tpl.html',
-	'text!template/22.0.0/products/receivestocks/detail/add/searchitem.tpl.html',	
+	'view/23.0.0/products/receivestocks/detail/add/item',
+	'text!template/23.0.0/products/receivestocks/detail/add/itemlist.tpl.html',
+	'text!template/23.0.0/products/receivestocks/detail/add/searchitem.tpl.html',	
 	'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Shared, ItemView, template, searchTemplate){
 	

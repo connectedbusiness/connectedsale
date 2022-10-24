@@ -6,7 +6,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/22.0.0/settings/receipt/typelist/receipttypevalue.tpl.html'
+  'text!template/23.0.0/settings/receipt/typelist/receipttypevalue.tpl.html'
 ], function($, $$, _, Backbone, template) {
   var ReceiptTypeValuePreference = Backbone.View.extend({
     _template: _.template(template),

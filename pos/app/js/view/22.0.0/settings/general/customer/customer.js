@@ -6,7 +6,7 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'text!template/22.0.0/settings/general/customer/customer.tpl.html'
+  'text!template/23.0.0/settings/general/customer/customer.tpl.html'
 ], function($, $$, _, Backbone, template) {
   var CustomerPreference = Backbone.View.extend({
     _template: _.template(template),

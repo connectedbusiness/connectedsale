@@ -10,8 +10,8 @@ define([
   'shared/shared',
   'collection/salesreps',
   'collection/base',
-  'view/22.0.0/pos/salesrep/salesrepdetail',
-  'text!template/22.0.0/pos/item/header-info/salesrep/salesreplist.tpl.html',
+  'view/23.0.0/pos/salesrep/salesrepdetail',
+  'text!template/23.0.0/pos/item/header-info/salesrep/salesreplist.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Enum, Service, Method, Shared, SalesRepCollection, BaseCollection, SalesRepDetailView, SalesRepListTemplate) {
   return Backbone.View.extend({

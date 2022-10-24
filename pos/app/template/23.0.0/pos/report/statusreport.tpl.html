@@ -1,0 +1,46 @@
+
+<div id="statusReport" class="interprise-popover-container"  style="width:460px !important;">
+<div class="interprise-popover-header popover-header">
+<h1 class="title">Status Report</h1>
+</div>
+<br class="clearfloat"/>
+<div id="statusReportBody" class="interprise-popover-content">
+	<div id="statusReportContainer" >
+		<div class="report-list-container">
+			<label for="report-list" class="status-report-lbl">Filter Report By</label>
+			<select id="report-list" class="status-report-val">
+				<option value="Xtape">Current (X-TAPE)</option>
+				<option value="LastZtape">Last (Z-TAPE)</option>
+				<option value="SpecificZtape">Specific Date (Z-TAPE)</option>
+				<option value="DateZtape">Date Range (Z-TAPE)</option>
+			</select>
+		</div>
+		<div class="report-list-container report-date">
+			<label for="start-container" class="status-report-lbl">Start Date</label>
+			<div id="start-container">
+				<input type="date" id="start-date" class="status-report-val"  value="" style="float:left;height:21px; width:25% !important; margin-right:10px;"/>
+                <input type="time" id="start-time" class="status-report-val"  style="float:left; height:21px; width:25% !important;" />
+			</div>
+		</div>
+
+		<div class="report-list-container report-date">
+			<label for="end-container" class="status-report-lbl">End Date</label>
+			<div id="end-container">
+				<input type="date" id="end-date" class="status-report-val" value="" style="float:left;height:21px; width:25% !important; margin-right:10px;"/>
+			<input type="time" id="end-time" class="status-report-val" style="float:left;height:21px; width:25% !important;"/>
+			</div>
+			
+		</div>
+
+		<div id="report-button">
+			<div class = "print-btn" >
+				<a data-role="button" id="btn-print" data-theme="b">Print</a>
+			</div>
+			<div class = "cancel-btn" >
+				<a data-role="button" id="btn-cancel">Cancel</a>
+			</div>
+		</div>
+		
+	</div>
+</div>
+</div>

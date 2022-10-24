@@ -8,11 +8,11 @@ define([
     'model/lookupcriteria',
     'model/base',
     'collection/base',
-    'view/22.0.0/products/receivestocks/detail/addreceivestock',
-    'view/22.0.0/products/receivestocks/details',
-    'view/22.0.0/products/receivestocks/controls/generic-list',
-	'text!template/22.0.0/products/receivestocks/stocks.tpl.html',
-    'text!template/22.0.0/products/controls/generic-layout.tpl.html'
+    'view/23.0.0/products/receivestocks/detail/addreceivestock',
+    'view/23.0.0/products/receivestocks/details',
+    'view/23.0.0/products/receivestocks/controls/generic-list',
+	'text!template/23.0.0/products/receivestocks/stocks.tpl.html',
+    'text!template/23.0.0/products/controls/generic-layout.tpl.html'
 ], function (Backbone, Global, Service, Method, Shared,
              LookUpCriteriaModel, BaseModel, BaseCollection,
              AddReceiveStockView, StockDetailView, GenericListView,

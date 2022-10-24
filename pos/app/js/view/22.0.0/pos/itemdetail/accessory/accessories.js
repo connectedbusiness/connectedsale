@@ -6,8 +6,8 @@ define([
   'mobile',
   'underscore',
   'backbone',
-  'view/22.0.0/pos/itemdetail/accessory/accessory',
-  'text!template/22.0.0/pos/itemdetail/accessory/accessories.tpl.html',
+  'view/23.0.0/pos/itemdetail/accessory/accessory',
+  'text!template/23.0.0/pos/itemdetail/accessory/accessories.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, AccessoryView, template) {
   var AccessoriesView = Backbone.View.extend({

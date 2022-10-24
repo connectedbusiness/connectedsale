@@ -16,10 +16,10 @@ define([
   'model/lookupcriteria',
   'model/contact',
   'collection/base',
-  'view/22.0.0/customers/customers/detail/general',
-  'view/22.0.0/customers/customers/detail/contacts',
-  'view/22.0.0/customers/customers/detail/note',
-  'text!template/22.0.0/customers/customers/customer-detail.tpl.html'
+  'view/23.0.0/customers/customers/detail/general',
+  'view/23.0.0/customers/customers/detail/contacts',
+  'view/23.0.0/customers/customers/detail/note',
+  'text!template/23.0.0/customers/customers/customer-detail.tpl.html'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared,
   BaseModel, LookUpCriteriaModel, ContactModel,
   BaseCollection,

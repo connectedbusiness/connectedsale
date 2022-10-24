@@ -13,8 +13,8 @@ define([
   'shared/shared',
   'model/lookupcriteria',
   'collection/base',
-  'view/22.0.0/pos/pickup/pickupitem',
-  'text!template/22.0.0/pos/pickup/pickuplist.tpl.html',
+  'view/23.0.0/pos/pickup/pickupitem',
+  'text!template/23.0.0/pos/pickup/pickuplist.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Enum, Service, Method, Global, Shared, LookupCriteria, BaseCollection, PickupItemView, EmailTemplate) {
   var PickupListView = Backbone.View.extend({

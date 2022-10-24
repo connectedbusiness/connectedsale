@@ -9,7 +9,7 @@ define([
 	'backbone',
 	'shared/global',
 	'shared/shared',
-	'text!template/22.0.0/products/products/detail/pricing.tpl.html'
+	'text!template/23.0.0/products/products/detail/pricing.tpl.html'
 ], function ($, $$, _, Backbone, Global, Shared,
              PricingTemplate) {
 

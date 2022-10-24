@@ -4,7 +4,7 @@ define([
 	'mobile',
 	'underscore',
 	'backbone',
-	'text!template/22.0.0/products/departments/detail/sortorder/sortorderlist.tpl.html',
+	'text!template/23.0.0/products/departments/detail/sortorder/sortorderlist.tpl.html',
 ], function($, $$, _, Backbone, template){
 	
 	var DepartmentSortOrderListView = Backbone.View.extend({
