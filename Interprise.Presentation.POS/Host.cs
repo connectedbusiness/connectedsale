@@ -46,7 +46,7 @@ namespace Interprise.Presentation.POS
             browserSettings.UniversalAccessFromFileUrls = CefState.Enabled;
             browserSettings.LocalStorage = CefState.Enabled;
             _chromeBrowser.BrowserSettings = browserSettings;
-
+            _chromeBrowser.JavascriptObjectRepository.Settings.LegacyBindingEnabled = true;
             _chromeBrowser.JavascriptObjectRepository.Register("printerTool", new PrinterTool(), true, BindingOptions.DefaultBinder);
 #if DEBUG
             buttonShowDevToool.Visible = true;
