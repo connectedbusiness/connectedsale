@@ -6,7 +6,7 @@ using System.Security.Permissions;
 
 [assembly: AssemblyProduct("Connected Sale")]
 [assembly: AssemblyCompany("Connected Business")]
-[assembly: AssemblyCopyright("Copyright © 2022 Connected Business, All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright © 2023 Connected Business, All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 
 [assembly: CLSCompliant(true)]
