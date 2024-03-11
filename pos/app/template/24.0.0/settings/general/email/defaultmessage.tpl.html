@@ -1,0 +1,107 @@
+
+<!-- Default Pickup Email Notification Template -->
+
+<div topmargin="0" leftmargin="0" valign="top" style="margin: 0px !important;background: #999999;vertical-align: top;" bgcolor="#999999">
+<font face="Arial, Helvetica, sans-serif" size="3" color="#666666">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="33%">&nbsp;</td>
+    <td width="34%" bordercolor="#999999" border="1" background="#FFFFFF" style="border: 1px solid #999999;background: #FFFFFF !important;"><table width="700" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td bgcolor="#ECECEC"><table width="100%" border="0" cellspacing="0" cellpadding="20" height="200">
+              <tr>
+                <td width="30%"><img style="float:left; min-width:200px; height: auto;"  src="data:image/png;base64,{COMPANY-LOGO}"></td>
+                <td width="70%"><div style="float:left; padding:5px; width:100%; "> <b style="font-size: 23px;">{COMPANY-NAME}</b><br/>
+                    {COMPANY-ADDRESS}<br/>
+                    <font color="#06C" size="3" face="Arial, Helvetica, sans-serif"> <a href="http://www.bunnylux.com" style="color: #06C">{COMPANY-WEBSITE}</a></font><br/>
+                    <br/>
+                    <div style="color:#327bcd; font-weight: 900;font-size: 25px;font-family: Arial,Lato, sans-serif;">Good news! Your order is ready.<br>
+                    </div>
+                  </div></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="30">
+              <tr>
+                <td><font color="#666666" size="3" face="Arial, Helvetica, sans-serif">
+                  <p> Hi {CUSTOMER-NAME}, </p>
+                  <p> </p>
+                  <p> Thank you for placing your order with <em>{COMPANY-NAME}</em>. </p>
+                  <p> This email is to confirm your recent order is here at our store waiting for you. </p>
+                  <p> To make sure everything gets to its rightful owner, we'll need to see: </p>
+                  <p> 1. Your state-issued photo ID </p>
+                  <p> 2. The credit card you used when you placed this order: {MASKED-CREDIT-CARDS} </p>
+                  <p> 3. The order number listed below or a copy of this e-mail</p>
+                  <p> <strong>Only the person named on the purchasing credit card may pick up this order. </strong></p>
+                  <p> <em>*Also important: We'll have your order waiting for you until {ORDER-EXPIRATION-DATE}. After that, we will cancel your order. </em></p>
+                  <p> When you come to pick up your order, look for the sign that says "Store Pickup" or ask one of our associates to direct you. They'll be happy to help.  And if you ordered anything that isn't listed below, that means we'll be emailing you a separate status update.  </p>
+                  <p>If you have any questions, please call us at {COMPANY-TELEPHONE}. We'll sort it out quickly, especially if you have your order number handy. </p>
+                  <p>We hope you enjoy your purchase. </p>
+                  <p> </p>
+                  <p>Thanks for shopping at <em>{COMPANY-NAME}</em>.</p>
+                  <p> <em>{COMPANY-NAME}</em></p>
+                  </font></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td bgcolor="#ECECEC"><div style="font-family: Arial, sans-serif; font-size: 14px; font-weight: normal; background: #ECECEC; padding: 20px; max-width:700px; margin: 0 auto;"> <font color="#666666" size="3" face="Arial, Helvetica, sans-serif">
+              <table cellpadding="0" cellspacing="0" style="font-size: 14px; border:none; width: 100%; margin-bottom:8px;">
+                <tbody>
+                  <tr style="height: 15px; ">
+                    <td><span style="font-weight: bold; display: inline-block;" class="cs-company-name" title="Company/Store Name">{COMPANY-NAME}</span></td>
+                    <td><span style="float: right;">{ORDER-DATE}</span></td>
+                  </tr>
+                  <tr style="height: 15px;">
+                    <td><span style="font-weight: bold;">Order Details</span></td>
+                    <td><span style="float: right;">{SALES-ORDER-CODE}</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <table cellpadding="0" cellspacing="0" style="font-size: 14px; width: 100%;border: solid 1px #ccc; background: #FFFFFF;" bgcolor="#FFFFFF">
+                <tbody>
+                  <tr style="height: 15px;background: #327bcd; color:white;">
+                    <td style="padding: 3px;font-weight: bold; text-align: center;"><font style="color:white !important;">Quantity</font></td>
+                    <td style="padding: 3px;font-weight: bold;"><font style="color:white !important;">Item Description</font></td>
+                  </tr>
+                  
+                  {!ROW-BEGIN}
+                  
+                  <tr>
+                    <td style="padding: 3px;width: 15%; text-align: center;">{QUANTITY}</td>
+                    <td style="padding: 3px;">{ITEM-DESCRIPTION}</td>
+                  </tr>
+                  
+                  {!ROW-END}
+
+                </tbody>
+              </table>
+              </font> </div></td>
+        </tr>
+        <tr>
+          <td bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="15">
+              <tr>
+                <td align="center" style=" border-top: 1px solid #cccccc"><font style="text-align: center;font-size: 12px;line-height: 18px;font-family: Arial;"> 
+                <strong>{COMPANY-NAME}</strong> {COMPANY-ADDRESS} Phone: {COMPANY-TELEPHONE} </font></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+    <td width="33%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</font>
+</div>
+

@@ -1,0 +1,21 @@
+<% 
+    var priceDisplay = "Wholesale :";
+    if (ItemType == "Gift Card" || ItemType == "Gift Certificate") priceDisplay = 'Price :';
+%>
+
+ <div class="pricing-details" id="pricing-details">    
+<center>
+    <table class="table-data">                        
+        <tr class="tr-cost-type type"> <td><i>Costing</i></td> <td></td> </tr>    
+        <tr class="tr-cost-data"> <td></td><td></td></tr>      
+        <tr class="tr-cost-data-cost"> <td class="caption">Cost :</td> <td><input type="text" class="cs-input data-AverageCost" id="data-AverageCost" value="<%= parseFloat(AverageCost).toFixed(2) %>" /></td> </tr>            
+<!--        <tr> <td class="caption">Standard Cost :</td> <td><input type=number class="cs-input data-StandardCost" id="data-StandardCost" value="<%= 0 %>"/></td> </tr>            
+        <tr> <td class="caption">Last Cost :</td> <td><input type=number class="cs-input data-CurrentCost" id="data-CurrentCost" value="<%= 0 %>"/></td> </tr>  -->             
+        
+        <tr class="tr-pricing-type type"> <td><i>Pricing</i></td> <td></td> </tr>      
+        <tr class="tr-pricing-data"><td></td><td></td></tr>      
+        <tr class="tr-pricing-data-wholesale"> <td class="caption"><%= priceDisplay %></td> <td><input type="text" class="cs-input data-WholesalePrice" id="data-WholesalePrice" value="<%= parseFloat(WholesalePrice).toFixed(2) %>" /></td> </tr>            
+        <tr class="tr-pricing-data-retail"> <td class="caption">Retail :</td> <td><input type="text" class="cs-input data-RetailPrice" id="data-RetailPrice" value="<%= parseFloat(RetailPrice).toFixed(2) %>" /></td> </tr>                 
+    </table>
+</center>
+</div>

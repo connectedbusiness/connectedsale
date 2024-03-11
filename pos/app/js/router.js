@@ -152,15 +152,15 @@
 			Reports: 'view/23.0.0/reports/reports'
 		},
 		{
-			POS: 'view/23.0.0/pos/pos',
-			Kiosk: 'view/23.0.0/kiosk/kiosk',
-			KioskCustomer: 'view/23.0.0/kiosk/customer/kioskcustomer',
-			KioskPayment: 'view/23.0.0/kiosk/payment/kioskpayment',
-			SecondaryDisplay: 'view/23.0.0/secondarydisplay/secondarydisplay',
-			Products: 'view/23.0.0/products/products',
-			Customers: 'view/23.0.0/customers/customers',
-			Settings: 'view/23.0.0/settings/settings',
-			Reports: 'view/23.0.0/reports/reports'
+			POS: 'view/24.0.0/pos/pos',
+			Kiosk: 'view/24.0.0/kiosk/kiosk',
+			KioskCustomer: 'view/24.0.0/kiosk/customer/kioskcustomer',
+			KioskPayment: 'view/24.0.0/kiosk/payment/kioskpayment',
+			SecondaryDisplay: 'view/24.0.0/secondarydisplay/secondarydisplay',
+			Products: 'view/24.0.0/products/products',
+			Customers: 'view/24.0.0/customers/customers',
+			Settings: 'view/24.0.0/settings/settings',
+			Reports: 'view/24.0.0/reports/reports'
 		}	
 	]
 
@@ -278,7 +278,10 @@
 				case "23.0" :
 					_index = 12;
 					break;
-			}
+				case "24.0" :
+					_index = 13;
+					break;
+				}
 
 			var _self = this;
 			switch (type) {
