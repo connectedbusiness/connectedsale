@@ -10739,6 +10739,7 @@ define([
       };
 
       this.ProcessPrintAndEmail(transactionCode, type, receiptCodes);
+      this.ClearTransaction();
     },
 
     ReprintAndEmailTransaction: function(transaction) {
