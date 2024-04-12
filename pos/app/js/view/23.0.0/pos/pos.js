@@ -192,7 +192,7 @@ define([
     @method render
     **/
     render: function() {
-      //	Global.UserInfo.UserCode = ""; //test // CSL-22242  Cannot log off secondary display using admin credentials
+      //  Global.UserInfo.UserCode = ""; //test // CSL-22242  Cannot log off secondary display using admin credentials
       Global.PrintPluginLoaded = false;
       Global.ApplicationType = "POS";
 
@@ -326,7 +326,7 @@ define([
     },
 
     /**
-    	Initializes the views that are contained within the MainView
+      Initializes the views that are contained within the MainView
       @method InitializeChildViews
     **/
     InitializeChildViews: function() {
@@ -368,24 +368,24 @@ define([
       this.actionsView.on("CloseWorkstation", this.PromptCloseWorkstation, this);
       this.actionsView.on("PrintWorkstationReport", this.PromptWorkstationReport, this);
       this.actionsView.on("VoidTransaction", this.LeavePOSView, this);
-	  this.actionsView.on("stopSignalR", this.StopSignalR, this);
+    this.actionsView.on("stopSignalR", this.StopSignalR, this);
       this.$(".main-toolbar-header").append(this.actionsView.render().el);
     },
 
-	createGuid: function()
-	{
-		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-			var r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
-			return v.toString(16);
-		});
-	},
+  createGuid: function()
+  {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
+      return v.toString(16);
+    });
+  },
     /**
       Initializes the LocalPreferenceCollection. This fetches the WorkstationID used by the device from the localstorage.
       @method InitializeLocalPreference
       **/
     InitializeLocalPreference: function() {
-      	Global.GUID = this.createGuid();
-		this.promoItemCollection = new BaseCollection();
+        Global.GUID = this.createGuid();
+    this.promoItemCollection = new BaseCollection();
       this.localpreference = new LocalPreferenceCollection();
       this.localpreference.fetch({
         success: function(collection, response) {
@@ -450,7 +450,7 @@ define([
     },
 
     /**
-      	This will show a dropdown list containing Settings, Print Z-Tape/X-Tape, Close Workstation and Logout button
+        This will show a dropdown list containing Settings, Print Z-Tape/X-Tape, Close Workstation and Logout button
         @method ShowActionsPopover
       **/
     ShowActionsPopover: function(e) {
@@ -486,10 +486,10 @@ define([
     },
 
     /**
-		 This will set the Transaction Type to be displayed.
+     This will set the Transaction Type to be displayed.
 
-		 @method SetTransactionType
-		 **/
+     @method SetTransactionType
+     **/
     SetTransactionType: function(type) {
       if (this.ValidateUpdateTransactionType(type)) {
         Global.TransactionType = type;
@@ -566,11 +566,11 @@ define([
     },
 
     /**
-		 This will hide delete button on Cart when tapped anywhere.
-		 Also will unfocus Lookup search textfield
+     This will hide delete button on Cart when tapped anywhere.
+     Also will unfocus Lookup search textfield
 
-		 @method outsideMenuHandler
-		 **/
+     @method outsideMenuHandler
+     **/
     outsideMenuHandler: function(e) {
       $(".deletebtn-overlay").hide();
       $(".popover").hide();
@@ -582,10 +582,10 @@ define([
     },
 
     /**
-		 This will remove any DOM @method outsideMenuHandler hides
+     This will remove any DOM @method outsideMenuHandler hides
 
-		 @method remove
-		 **/
+     @method remove
+     **/
     remove: function() {
       // Clean up after ourselves.
       $('body, html,a').off('click', this.outsideMenuHandler);
@@ -594,18 +594,18 @@ define([
     },
 
     /**
-		 Initialize Accessory Collection
-		 @method InitializeAccessory
-		**/
+     Initialize Accessory Collection
+     @method InitializeAccessory
+    **/
     InitializeAccessory: function() {
       this.accessory = new AccessoryCollection();
       this.accessory.bind('add', this.AddToCart, this);
     },
 
     /**
-		 Initialize Items and ItemPrice
-		 @method InitializeItems
-		**/
+     Initialize Items and ItemPrice
+     @method InitializeItems
+    **/
     InitializeItems: function() {
       this.InitializeItemPriceCollection();
       this.InitializeItemCollection();
@@ -616,9 +616,9 @@ define([
     },
 
     /**
-		 Initialize Cart View
-		 @method IntializeCart
-		**/
+     Initialize Cart View
+     @method IntializeCart
+    **/
     InitializeCart: function() {
       this.InitializeCartCollection();
       this.InitializeSummaryModel();
@@ -664,10 +664,10 @@ define([
     },
 
     /**
-		 Initialize Cart Collection
+     Initialize Cart Collection
 
-		 @method InitializeCartCollection
-		 **/
+     @method InitializeCartCollection
+     **/
     InitializeCartCollection: function() { //1
       this.tempCart = [];
       if (this.cartCollection) {
@@ -693,10 +693,10 @@ define([
     },
 
     /**
-		 Initialize Item Collection
+     Initialize Item Collection
 
-		 @method InitializeItemCollection
-		 **/
+     @method InitializeItemCollection
+     **/
     InitializeItemCollection: function() {
       var _self = this;
       var _stringValue = Global.Category; //Pass Global.Category value to _stringValue to check whether it contains value
@@ -749,20 +749,20 @@ define([
       $("#itemListContainer").append("<h5 style='text-align:center; position:relative; top:190px;'>No Items Found...</h5>");
     },
     /**
-		 Initialize Item Collection
+     Initialize Item Collection
 
-		 @method InitializeItemCollection
-		 **/
+     @method InitializeItemCollection
+     **/
     InitializeItemPriceCollection: function() {
       this.itemPriceCollection = new ItemPriceCollection();
       this.itemPriceCollection.on('reset', this.AddNewItemToCart, this);
     },
 
     /**
-		 Initialize Payment Collection
+     Initialize Payment Collection
 
-		 @method InitializePaymentCollection
-		 **/
+     @method InitializePaymentCollection
+     **/
     InitializePaymentCollection: function() {
       this.paymentCollection = new PaymentCollection();
       this.paymentCollection.on('add', this.PaymentCollection_Add, this);
@@ -774,10 +774,10 @@ define([
     },
 
     /**
-		 Initialize Category Collection and load Categories View
+     Initialize Category Collection and load Categories View
 
-		 @method InitializeCategory
-		 **/
+     @method InitializeCategory
+     **/
     InitializeCategory: function() {
       this.InitializeCategoryCollection();
       this.categoryCollection.sort({
@@ -790,10 +790,10 @@ define([
     },
 
     /**
-		 Initialize Category Collection and load Categories View
+     Initialize Category Collection and load Categories View
 
-		 @method InitializeCategory
-		 **/
+     @method InitializeCategory
+     **/
     InitializeShipTo: function() {
       if (!this.shipToCollection) {
         this.shipToCollection = new ShipToCollection();
@@ -801,10 +801,10 @@ define([
     },
 
     /**
-		 Initialize Preference Collection and Fetch Preferences
+     Initialize Preference Collection and Fetch Preferences
 
-		 @method InitializePreference
-		 **/
+     @method InitializePreference
+     **/
     InitializePreference: function() {
       this.InitializeShipTo();
       var self = this;
@@ -937,19 +937,19 @@ define([
     },
 
     /**
-		 Pass Status Preference to Global Variable
+     Pass Status Preference to Global Variable
 
-		 @method ResetStatus
-		 **/
+     @method ResetStatus
+     **/
     ResetStatus: function(status) {
       Global.Status = status;
     },
 
     /**
-		 Pass Category Preference to Category Collection
+     Pass Category Preference to Category Collection
 
-		 @method ResetCategoryCollection
-		 **/
+     @method ResetCategoryCollection
+     **/
     ResetCategoryCollection: function(categories) { //16x
       Global.CategoryDuplucates = 0;
       var _lastCategory = "";
@@ -972,10 +972,10 @@ define([
     },
 
     /**
-		 Pass Preferences to Preference Collection
+     Pass Preferences to Preference Collection
 
-		 @method ResetPreferenceCollection
-		 **/
+     @method ResetPreferenceCollection
+     **/
     ResetPreferenceCollection: function(preferences) {
       this.preferenceCollection.reset(preferences);
 
@@ -1015,7 +1015,7 @@ define([
       Global.BankAccountCode = preferences.BankAccountCode || '';
 
       //if( preferences.DefaultShipTo.Address === null ){
-      //	preferences.DefaultShipTo.Address = "(No Address)";
+      //  preferences.DefaultShipTo.Address = "(No Address)";
       //}
       //Global.DefaultShipTo = (preferences.DefaultShipTo.ShipToName+",<br/>"+preferences.DefaultShipTo.Address);
       Global.DefaultShipTo = preferences.DefaultShipTo.ShipToName + ',';
@@ -1099,11 +1099,11 @@ define([
     },
 
     /**
-		 Check if Allow Sales, Allow Orders, Allow Quotes and Allow Returns is 'on'
-		 and Set Transaction Type to Appropriate Type
+     Check if Allow Sales, Allow Orders, Allow Quotes and Allow Returns is 'on'
+     and Set Transaction Type to Appropriate Type
 
-		 @method CheckTransactionType
-		 **/
+     @method CheckTransactionType
+     **/
     CheckTransactionType: function() {
       var _types = ["AllowSales", "AllowOrders", "AllowQuotes", "AllowReturns"];
       var _counter = 0;
@@ -1182,9 +1182,9 @@ define([
           break;
 
       }
-      //	if( Global.Preference.AllowSales === true && _counter > 1){
-      //	this.SetTransactionType(Enum.TransactionType.Sale);
-      //	}
+      //  if( Global.Preference.AllowSales === true && _counter > 1){
+      //  this.SetTransactionType(Enum.TransactionType.Sale);
+      //  }
 
       if (_counter <= 1) {
         this.$el.undelegate('#transaction-text', 'tap');
@@ -1194,10 +1194,10 @@ define([
     },
 
     /**
-		 Pass User Role Preference to Global Variable object
+     Pass User Role Preference to Global Variable object
 
-		 @method ResetUserRoleCollection
-		 **/
+     @method ResetUserRoleCollection
+     **/
     ResetUserRoleCollection: function(userRoles) { //jj3
       Global.UserRoles = userRoles;
       Global.AdministratorRole = false;
@@ -1215,10 +1215,10 @@ define([
     },
 
     /**
-		 Initialize Category Collection
+     Initialize Category Collection
 
-		 @method InitializeCategoryCollection
-		 **/
+     @method InitializeCategoryCollection
+     **/
     InitializeCategoryCollection: function() {
       var self = this;
       this.categoryCollection = new CategoryCollection();
@@ -1226,20 +1226,20 @@ define([
     },
 
     /**
-		 Initialize Summary model
+     Initialize Summary model
 
-		 @method InitializeSummaryModel
-		 **/
+     @method InitializeSummaryModel
+     **/
     InitializeSummaryModel: function() {
       this.summaryModel = null;
       this.summaryModel = new SummaryModel();
     },
 
     /**
-		 Initialize Transaction
+     Initialize Transaction
 
-		 @method InitializeTransaction
-		 **/
+     @method InitializeTransaction
+     **/
     InitializeTransaction: function() {
       if (this.transactionModel) {
         this.transactionModel.clear({
@@ -1278,10 +1278,10 @@ define([
 
 
     /**
-		 Initialize Main Transaction Header
+     Initialize Main Transaction Header
 
-		 @method InitializeMainTransactionHeader
-		 **/
+     @method InitializeMainTransactionHeader
+     **/
     InitializeMainTransactionHeader: function() {
       var _salesOrderDetailCollection = new SalesOrderDetailCollection();
       _salesOrderDetailCollection.on("recalculated", this.UpdateRecalculatedItems, this);
@@ -1368,10 +1368,10 @@ define([
     },
 
     /**
-		 Initialize Review Transaction View
+     Initialize Review Transaction View
 
-		 @method InitializeReviewTransaction
-		 **/
+     @method InitializeReviewTransaction
+     **/
     InitializeReviewTransaction: function(isPrintPickNote) {
       this.InitializeReviewTransactionCollection();
       this.reviewTransactionsView = new TransactionsView({
@@ -1386,10 +1386,10 @@ define([
     },
 
     /**
-		 Initialize Review Transaction Collection
+     Initialize Review Transaction Collection
 
-		 @method InitializeReviewTransactionCollection
-		 **/
+     @method InitializeReviewTransactionCollection
+     **/
     //OPTION HANDLERS
     InitializeReviewTransactionCollection: function() {
       this.reviewTransactionCollection = new TransactionCollection();
@@ -1471,10 +1471,10 @@ define([
     },
 
     /**
-		 Show Loading Spinner for Items
+     Show Loading Spinner for Items
 
-		 @method ShowSpinnerItems
-		 **/
+     @method ShowSpinnerItems
+     **/
     ShowSpinnerItems: function() {
       var target = document.getElementById("item-wrapper");
       this.ShowActivityIndicator(target);
@@ -1483,10 +1483,10 @@ define([
 
     //START LOOKUP
     /**
-		 Initialize Lookup
+     Initialize Lookup
 
-		 @method InitializeLookup
-		 **/
+     @method InitializeLookup
+     **/
     InitializeLookup: function() {
       $("#item-wrapper").append(_.template(LookupTemplate));
       $("#lookup").hide();
@@ -1496,10 +1496,10 @@ define([
     },
 
     /**
-		 Check SortVar and enable/disable buttons
+     Check SortVar and enable/disable buttons
 
-		 @method CheckLookupSortVar
-		 **/
+     @method CheckLookupSortVar
+     **/
     CheckLookUpSortVar: function() {
       if (sortVar === 'CategoryCode') {
         $("#lookup-product").removeClass("lookup-selected");
@@ -1511,20 +1511,20 @@ define([
     },
 
     /**
-		 Initialize Product Lookup
+     Initialize Product Lookup
 
-		 @method InitializeProductLookup
-		 **/
+     @method InitializeProductLookup
+     **/
     InitializeProductLookup: function() {
       this.GetLookupItems(_rows, _criteria, null);
       this.ReloadProductsView();
     },
 
     /**
-		 Initialize SerialNumber Collection
+     Initialize SerialNumber Collection
 
-		 @method InitializeSerialNumberCollection
-		 **/
+     @method InitializeSerialNumberCollection
+     **/
     InitializeSerializeLotCollection: function() {
       if (!this.serializeLotCollection) {
         this.serializeLotCollection = new SerialNumberCollection();
@@ -1553,10 +1553,10 @@ define([
     },
 
     /**
-		 Initialize Serialize Lot View
+     Initialize Serialize Lot View
 
-		 @method IntializeSerializeLot
-		 **/
+     @method IntializeSerializeLot
+     **/
     InitializeSerializeLot: function(type, itemCode, itemName, lineNum, itemType, uom, eventName, model) {
       var self = this;
       this.InitializeSerializeLotCollection();
@@ -1669,10 +1669,10 @@ define([
       }
     },
     /**
-		 Add Items to Cart by tapping 'add' on item detail page
+     Add Items to Cart by tapping 'add' on item detail page
 
-		 @method AddLookupItemToCart
-		 **/
+     @method AddLookupItemToCart
+     **/
     AddLookUpItemToCart: function(e) {
       e.preventDefault();
       //this.ValidateSerializeLot(_model.get("SerializeLot"), _model.get("ItemCode"), _model.get("ItemName"), this.GetLineNum(), _model.get("ItemType"));
@@ -1681,10 +1681,10 @@ define([
     },
 
     /**
-		 Add Item Directly to Cart by tapping the item
+     Add Item Directly to Cart by tapping the item
 
-		 @method AddLookupItemDirectlyToCart
-		 **/
+     @method AddLookupItemDirectlyToCart
+     **/
     AddLookupItemDirectlyToCart: function(model) {
       //this.ValidateSerializeLot(model.get("SerializeLot"), model.get("ItemCode"), model.get("ItemName"), this.GetLineNum(), model.get("ItemType"));
       var isAdded = this.AddToCart(model);
@@ -1717,10 +1717,10 @@ define([
     },
 
     /**
-		 Get Lookup Items
+     Get Lookup Items
 
-		 @method GetLookupItems
-		 **/
+     @method GetLookupItems
+     **/
     GetLookupItems: function(rows, criteria, itemCode) {
 
       var _self = this;
@@ -1780,10 +1780,10 @@ define([
       }
     },
     /**
-		 Reload Products View
+     Reload Products View
 
-		 @method ReloadProductsView
-		 **/
+     @method ReloadProductsView
+     **/
     ReloadProductsView: function() {
       this.productsview = new ProductsView({
         el: $("#lookup-content"),
@@ -1792,10 +1792,10 @@ define([
     },
 
     /**
-		 Hide Unnecessary Buttons for Lookup
+     Hide Unnecessary Buttons for Lookup
 
-		 @method HideOtherButtons
-		 **/
+     @method HideOtherButtons
+     **/
     hideOtherButtons: function() {
       $("#back-products").hide();
       $("#add-lookup").hide();
@@ -1803,10 +1803,10 @@ define([
     },
 
     /**
-		 Show Lookup Loading Spinner
+     Show Lookup Loading Spinner
 
-		 @method ShowSpinner
-		 **/
+     @method ShowSpinner
+     **/
     ShowSpinner: function() {
       var target = document.getElementById('main-transaction-page');
       this.ShowActivityIndicator(target);
@@ -1815,30 +1815,30 @@ define([
     },
 
     /**
-		 Initialize Summary model
+     Initialize Summary model
 
-		 @method InitializeSummaryModel
-		 **/
+     @method InitializeSummaryModel
+     **/
     DisableButton: function() {
       //$("#lookup-footer").addClass('ui-disabled');
       //$("#done-lookup").addClass('ui-disabled');
     },
 
     /**
-		 Enable Lookup Button
+     Enable Lookup Button
 
-		 @method EnableLookupButton
-		 **/
+     @method EnableLookupButton
+     **/
     EnableLookupButton: function() {
       $("#lookup-footer").removeClass('ui-disabled');
       //$("#done-lookup").removeClass('ui-disabled');
     },
 
     /**
-		 Show Lookup Pop up
+     Show Lookup Pop up
 
-		 @method ShowLookup
-		 **/
+     @method ShowLookup
+     **/
     ShowLookup: function(e) {
       e.preventDefault();
       $("#lookup").remove();
@@ -1850,10 +1850,10 @@ define([
     },
 
     /**
-		 Close Lookup Pop up
+     Close Lookup Pop up
 
-		 @method LookupDone
-		 **/
+     @method LookupDone
+     **/
     LookupDone: function(e) {
       e.preventDefault();
       Shared.FocusToItemScan();
@@ -1865,10 +1865,10 @@ define([
     },
 
     /**
-		 Load iScroll
+     Load iScroll
 
-		 @method LoadScroll
-		 **/
+     @method LoadScroll
+     **/
     LoadScroll: function() {
       if (this.myScroll) {
         this.myScroll.refresh()
@@ -1880,10 +1880,10 @@ define([
     },
 
     /**
-		 Show Item Detail Necessary Buttons
+     Show Item Detail Necessary Buttons
 
-		 @method showItemDetailButtons
-		 **/
+     @method showItemDetailButtons
+     **/
     showItemDetailButtons: function() {
       $("#done-lookup").hide();
       $("#back-details").hide();
@@ -1892,10 +1892,10 @@ define([
     },
 
     /**
-		 Load Item Detail
+     Load Item Detail
 
-		 @method LoadItemDetail
-		 **/
+     @method LoadItemDetail
+     **/
     LoadItemDetail: function(model) {
       this.showItemDetailButtons();
       $("#lookup-title").text("Details");
@@ -1908,10 +1908,10 @@ define([
     },
 
     /**
-		 Show Free Stock necessary Button
+     Show Free Stock necessary Button
 
-		 @method showFreeStockButton
-		 **/
+     @method showFreeStockButton
+     **/
     showFreeStockButton: function() {
       $("#back-products").hide();
       $("#add-lookup").hide();
@@ -1920,10 +1920,10 @@ define([
     },
 
     /**
-		 Retrieve and Load Free Stock information
+     Retrieve and Load Free Stock information
 
-		 @method LoadFreeStock
-		 **/
+     @method LoadFreeStock
+     **/
     LoadFreeStock: function() { //jj19
       var self = this;
       this.showFreeStockButton();
@@ -1949,18 +1949,18 @@ define([
 
       // this.stockCollection.url = Global.ServiceUrl + Service.PRODUCT + Method.LOADLOCATIONSTOCK + _itemCode +"/"+ encodeURI(_unitMeasureCode);
       // this.stockCollection.fetch({
-      // 	success : function(collection, response, options){
-      // 		if(!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-      // 		//	self.stockCollection.reset(response.StockTotalDetails)
-      // 		// self.stockView = new FreeStockView({
-      // 		// 	collection: self.stockCollection.reset(response.StockTotalDetails)
-      // 		// });
-      // 		self.LoadFreeStockByUnitOfMeasure(response);
-      // 	},
-      // 	error : function(collection, error, response){
-      // 		if(!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-      // 		collection.RequestError(error, "Error Retrieving Local Preference");
-      // 	}
+      //  success : function(collection, response, options){
+      //    if(!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+      //    //  self.stockCollection.reset(response.StockTotalDetails)
+      //    // self.stockView = new FreeStockView({
+      //    //  collection: self.stockCollection.reset(response.StockTotalDetails)
+      //    // });
+      //    self.LoadFreeStockByUnitOfMeasure(response);
+      //  },
+      //  error : function(collection, error, response){
+      //    if(!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+      //    collection.RequestError(error, "Error Retrieving Local Preference");
+      //  }
       // });
     },
 
@@ -1985,33 +1985,33 @@ define([
 
     },
     /**
-		 Load Free Stock view
+     Load Free Stock view
 
-		 @method LoadFreeStockView
-		 **/
+     @method LoadFreeStockView
+     **/
     LoadFreeStockView: function() {
       this.LoadFreeStock();
     },
 
     /**
-		 Reload / Refesh Stock View
+     Reload / Refesh Stock View
 
-		 @method ReloadStockView
-		 **/
+     @method ReloadStockView
+     **/
     ReloadStockView: function() {
       /*var _stockCollection = this.stockCollection.find(function(model) {
-	  				return ( model.get("ItemCode") === _itemCode && model.get("UnitMeasureCode") === _unitMeasureCode ) ;
-			});*/
+            return ( model.get("ItemCode") === _itemCode && model.get("UnitMeasureCode") === _unitMeasureCode ) ;
+      });*/
       this.stockView = new FreeStockView({
         collection: this.stockCollection
       });
     },
 
     /**
-		 Go Back to Item List
+     Go Back to Item List
 
-		 @method BackToProductLookup
-		 **/
+     @method BackToProductLookup
+     **/
     BackToProductLookup: function(e) {
       e.preventDefault();
       $("#spin").remove();
@@ -2024,10 +2024,10 @@ define([
     },
 
     /**
-		 Go Back to Item Detail
+     Go Back to Item Detail
 
-		 @method BackToDetails
-		 **/
+     @method BackToDetails
+     **/
     BackToDetails: function(e) {
       e.preventDefault();
       $("#spin").remove();
@@ -2044,10 +2044,10 @@ define([
     },
 
     /**
-		 Search / Find for Item via Product Lookup
+     Search / Find for Item via Product Lookup
 
-		 @method FindLookupItem
-		 **/
+     @method FindLookupItem
+     **/
     FindLookUpItem: function() {
       var _criteria = $("#lookup-search").val();
       this.GetLookupItems(_rows, _criteria, null);
@@ -2055,10 +2055,10 @@ define([
     },
 
     /**
-		 Check if user tapped 'enter' / 'return' key
+     Check if user tapped 'enter' / 'return' key
 
-		 @method inputLookUpSearch_KeyPress
-		 **/
+     @method inputLookUpSearch_KeyPress
+     **/
     inputLookUpSearch_KeyPress: function(e) {
       // inputLookUpSearch_KeyUp : function(e){
       if (e.keyCode === 13) {
@@ -2069,10 +2069,10 @@ define([
     },
 
     /**
-		 Sort Items on Lookup by Product name
+     Sort Items on Lookup by Product name
 
-		 @method SortProductLookup
-		 **/
+     @method SortProductLookup
+     **/
     SortProductLookUp: function(e) {
 
       e.preventDefault();
@@ -2087,10 +2087,10 @@ define([
     },
 
     /**
-		 Sort Items on Lookup by Category Name
+     Sort Items on Lookup by Category Name
 
-		 @method SortCategoryLookup
-		 **/
+     @method SortCategoryLookup
+     **/
     SortCategoryLookUp: function(e) {
 
       e.preventDefault();
@@ -2106,10 +2106,10 @@ define([
     //END LOOKUP
 
     /**
-		 Set as Selected Category
+     Set as Selected Category
 
-		 @method SetSelected
-		 **/
+     @method SetSelected
+     **/
     SetSelected: function() { //jjtest
       this.categoryCollection.each(function(category) {
         if (category.get("IsDefault") === true) {
@@ -2128,10 +2128,10 @@ define([
     },
 
     /**
-		 Get Category Code and Set it as Selected
+     Get Category Code and Set it as Selected
 
-		 @method IsSelected
-		 **/
+     @method IsSelected
+     **/
     IsSelected: function(category) {
       Global.Category = category.get("CategoryCode");
       this.InitializeItems();
@@ -2140,10 +2140,10 @@ define([
 
 
     /**
-		 Add Item/s to Cart
+     Add Item/s to Cart
 
-		 @method AddItemToCart
-		 **/
+     @method AddItemToCart
+     **/
     AddItemToCart: function(item) {
       Global.ManagerValidated = false;
       if (Global.Preference.DefaultPOSTransaction <= 3) {
@@ -2246,17 +2246,17 @@ define([
     // });
 
 
-	  	this.cartCollection.each(function(cartItem){
+      this.cartCollection.each(function(cartItem){
 
-			if(cartItem.get('IsPromoItem') == true)
-			{
-      	$("#" + cartItem.cid + ' #quantityDisplay').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + cartItem.cid + ' #display-itemName').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + cartItem.cid + ' #itemPriceDisplay').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + cartItem.cid + ' #discountDisplay').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + cartItem.cid + ' #extPriceRate-td').addClass('ui-disabled').css("opacity", 1);
-			}
-		});
+      if(cartItem.get('IsPromoItem') == true)
+      {
+        $("#" + cartItem.cid + ' #quantityDisplay').addClass('ui-disabled').css("opacity", 1);
+        $("#" + cartItem.cid + ' #display-itemName').addClass('ui-disabled').css("opacity", 1);
+        $("#" + cartItem.cid + ' #itemPriceDisplay').addClass('ui-disabled').css("opacity", 1);
+        $("#" + cartItem.cid + ' #discountDisplay').addClass('ui-disabled').css("opacity", 1);
+        $("#" + cartItem.cid + ' #extPriceRate-td').addClass('ui-disabled').css("opacity", 1);
+      }
+    });
 
         this.UpdateCouponWithValidation();
       }
@@ -2275,28 +2275,28 @@ define([
     },
 
     /**
-		 Add Quantity to Cart Item
+     Add Quantity to Cart Item
 
-		 @method QuantityAdded
-		 **/
+     @method QuantityAdded
+     **/
     QuantityAdded: function(item) {
       this.UpdateCartItem(item, 1, "QuantityOrderedUpdated", true);
     },
 
     /**
-		 Subtract Quantity to Cart Item
+     Subtract Quantity to Cart Item
 
-		 @method QuantitySubtracted
-		 **/
+     @method QuantitySubtracted
+     **/
     QuantitySubtracted: function(item) {
       this.UpdateCartItem(item, -1, "QuantityOrderedUpdated", true);
     },
 
     /**
-		 Retrieve SaleItem Price Tax
+     Retrieve SaleItem Price Tax
 
-		 @method GetSaleItemPriceTax
-		 **/
+     @method GetSaleItemPriceTax
+     **/
     GetSaleItemPriceTax: function(itemCode, customerCode, location, unitMeasure, taxByLocation, couponID, newItem, type) { //3
       this.RemoveTermDiscountPayment();
      var _self = this;
@@ -2500,10 +2500,10 @@ define([
     },
 
     /**
-		 Retrieve SaleItem Price Tax by UPC
+     Retrieve SaleItem Price Tax by UPC
 
-		 @method GetSaleItemPriceTaxByUPC
-		 **/
+     @method GetSaleItemPriceTaxByUPC
+     **/
     GetSaleItemPriceTaxByUPC: function(upcCode, customerCode, location, taxByLocation, couponID) {
       var _self = this;
       var _itemLookup = new LookupCriteriaModel();
@@ -2683,12 +2683,12 @@ define([
     },
 
     //AddSerialByUPCItem : function(isHide){
-    //	if(!Shared.IsNullOrWhiteSpace(this.upcSerialItemCollection)){
-    //		this.ValidateUPCSerialLotItems(this.upcSerialItemCollection.at(this.upcSerialCtr),isHide);
-    //	}else{
-    //		this.upcItemCollection = null;
-    //		if(!Shared.IsNullOrWhiteSpace(isHide)) $("#main-transaction-blockoverlay").hide();
-    //	}
+    //  if(!Shared.IsNullOrWhiteSpace(this.upcSerialItemCollection)){
+    //    this.ValidateUPCSerialLotItems(this.upcSerialItemCollection.at(this.upcSerialCtr),isHide);
+    //  }else{
+    //    this.upcItemCollection = null;
+    //    if(!Shared.IsNullOrWhiteSpace(isHide)) $("#main-transaction-blockoverlay").hide();
+    //  }
     //},
 
     AddSerialByUPCItem: function(isHide) {
@@ -2799,11 +2799,11 @@ define([
     },
 
     /**
-		 Add New Item to Cart
+     Add New Item to Cart
 
-		 @method AddNewItemToCart
-		 **/
-	  AddFreeItemToCart: function(collection, promoitemcollection) {
+     @method AddNewItemToCart
+     **/
+    AddFreeItemToCart: function(collection, promoitemcollection) {
       var self = this;
       var qtyOrdered;
       var _isItemOutofStock;
@@ -2910,10 +2910,10 @@ define([
           FreeStock: newItem.get("FreeStock"),
           IsNewLine: (newItem.get("IsNewLine")) ? newItem.get("IsNewLine") : true,
           AutoGenerate: newItem.get("AutoGenerate"),
-		  GetFreeItemCode: newItem.get("GetItemCode"),
-		  BuyItemCode: newItem.get('BuyItemCode'),
-		  PromoDocumentCode: newItem.get('PromoDocumentCode'),
-		  IsPromoItem: newItem.get('IsPromoItem'),
+      GetFreeItemCode: newItem.get("GetItemCode"),
+      BuyItemCode: newItem.get('BuyItemCode'),
+      PromoDocumentCode: newItem.get('PromoDocumentCode'),
+      IsPromoItem: newItem.get('IsPromoItem'),
             //SalesTaxCode : newItem.get("SalesTaxCode"),
             //Tax : newItem.get("Tax")
         };
@@ -2926,7 +2926,7 @@ define([
           _item.QuantityAllocated = _item.QuantityOrdered;
         }
 
- 	  tempModel.url = Global.ServiceUrl + Service.SOP + "updatelinenum?SessionID=" + Global.GUID + "&PromoDocumentCode=" + newItem.get('PromoDocumentCode') + "&LineNum=" + _lineNum + "&ItemCode=" + newItem.get('ItemCode');
+    tempModel.url = Global.ServiceUrl + Service.SOP + "updatelinenum?SessionID=" + Global.GUID + "&PromoDocumentCode=" + newItem.get('PromoDocumentCode') + "&LineNum=" + _lineNum + "&ItemCode=" + newItem.get('ItemCode');
       tempModel.save(null, {
         success: function(collection, response) {
 
@@ -3126,11 +3126,11 @@ define([
 
         this.AddItemToCart(_item);
 
-		// var freeitems = new BaseModel(_item);
+    // var freeitems = new BaseModel(_item);
 
-		// if (Global.TransactionType == 'Sale' || Global.TransactionType == 'Order' || Global.TransactionType == 'Update Order' || Global.TransactionType == 'Quote' || Global.TransactionType == 'Update Quote' || Global.TransactionType == 'Convert Quote'){
-		// 	self.AddFreeItems(freeitems,false);
-		// }
+    // if (Global.TransactionType == 'Sale' || Global.TransactionType == 'Order' || Global.TransactionType == 'Update Order' || Global.TransactionType == 'Quote' || Global.TransactionType == 'Update Quote' || Global.TransactionType == 'Convert Quote'){
+    //  self.AddFreeItems(freeitems,false);
+    // }
 
         Global.HasChanges = true;
       }, this);
@@ -3138,23 +3138,23 @@ define([
     },
 
     /**
-		 Add Items on Queue, uses FIFO ( first in first out ) to prevent multiple items with same item code
+     Add Items on Queue, uses FIFO ( first in first out ) to prevent multiple items with same item code
 
-		 @method AddTOItemsOnQueue
-		 **/
-	AddFreeItems: function(_freeitems,isCoupon){
-		var self = this;
-		var _salesOrderDetailCollection = new SalesOrderDetailCollection();
-	    var _salesOrderCollection = new SalesOrderCollection();
-		var salesOrderModel = new BaseModel();
+     @method AddTOItemsOnQueue
+     **/
+  AddFreeItems: function(_freeitems,isCoupon){
+    var self = this;
+    var _salesOrderDetailCollection = new SalesOrderDetailCollection();
+      var _salesOrderCollection = new SalesOrderCollection();
+    var salesOrderModel = new BaseModel();
         var shippingDate = new Date();
-		var tempModel = new BaseModel();
-		var taxCode = window.sessionStorage.getItem('selected_taxcode');
-		var  transactionType = Global.TransactionType;
-		var freeitemCollection;
-		var promoItems;
+    var tempModel = new BaseModel();
+    var taxCode = window.sessionStorage.getItem('selected_taxcode');
+    var  transactionType = Global.TransactionType;
+    var freeitemCollection;
+    var promoItems;
 
-	  if (Global.TransactionType == Enum.TransactionType.UpdateInvoice) transactionType = Enum.TransactionType.ResumeSale;
+    if (Global.TransactionType == Enum.TransactionType.UpdateInvoice) transactionType = Enum.TransactionType.ResumeSale;
 
       shippingDate = this.JsonToAspDate(shippingDate),
         salesOrderModel.set({
@@ -3168,12 +3168,12 @@ define([
           PublicNotes: Global.PublicNote.PublicNotes,
           ShippingDate: shippingDate,
           WebSiteCode: Global.Preference.WebSiteCode,
-		  SalesOrderCode: "[To be generated]",
-		  SourceSalesOrderCode: "[To be generated]",
-		  Type: "Sales Order",
-		  SalesOrderDate: shippingDate,
-		  SourceCode: "KVSupply",
-		  FreightRate: 0
+      SalesOrderCode: "[To be generated]",
+      SourceSalesOrderCode: "[To be generated]",
+      Type: "Sales Order",
+      SalesOrderDate: shippingDate,
+      SourceCode: "KVSupply",
+      FreightRate: 0
         });
 
       if (!Shared.IsNullOrWhiteSpace(this.customerPOModel)) {
@@ -3182,129 +3182,129 @@ define([
 
       _salesOrderCollection.add(salesOrderModel);
 
-  	  this.AssignTransactionShipTo(_salesOrderCollection.at(0));
+      this.AssignTransactionShipTo(_salesOrderCollection.at(0));
       this.SetCouponToTransactionHeader(_salesOrderCollection.at(0), false);
 
-	  _freeitems.set({
-	  	SalesOrderCode : "[To be generated]"
-	  });
+    _freeitems.set({
+      SalesOrderCode : "[To be generated]"
+    });
 
-	  _salesOrderDetailCollection.add(_freeitems);
+    _salesOrderDetailCollection.add(_freeitems);
 
 
       tempModel.set({
         SalesOrders: _salesOrderCollection,
-		SalesOrderDetails: _salesOrderDetailCollection,
-		TaxCode: (taxCode) ? taxCode : Global.ShipTo.TaxCode,
-		IsTaxByLocation: Global.Preference.TaxByLocation,
-		TransactionType: transactionType,
+    SalesOrderDetails: _salesOrderDetailCollection,
+    TaxCode: (taxCode) ? taxCode : Global.ShipTo.TaxCode,
+    IsTaxByLocation: Global.Preference.TaxByLocation,
+    TransactionType: transactionType,
       });
-		var PromoDocumentCode;
+    var PromoDocumentCode;
 
-		if (self.cartCollection && self.cartCollection.length > 0) {
-		 self.cartCollection.each(function(cartItem) {
-          	if ((cartItem.get('ItemCode') == _freeitems.get('ItemCode') && cartItem.get('LineNum') == _freeitems.get('LineNum'))){
-          		PromoDocumentCode = cartItem.get('PromoDocumentCode');
-          	}
+    if (self.cartCollection && self.cartCollection.length > 0) {
+     self.cartCollection.each(function(cartItem) {
+            if ((cartItem.get('ItemCode') == _freeitems.get('ItemCode') && cartItem.get('LineNum') == _freeitems.get('LineNum'))){
+              PromoDocumentCode = cartItem.get('PromoDocumentCode');
+            }
           });
-		}
+    }
 
       tempModel.url = Global.ServiceUrl + Service.SOP + "getfreeitems?SessionID=" + Global.GUID + "&PromoDocumentCode=" + PromoDocumentCode + "&IsCoupon=" + isCoupon;
 
       tempModel.save(null, {
         success: function(collection, response) {
-		if(response.SaleItems.length > 0){
+    if(response.SaleItems.length > 0){
           if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
 
-//		if (self.cartCollection && self.cartCollection.length > 0) {
+//    if (self.cartCollection && self.cartCollection.length > 0) {
 //
-//		 self.cartCollection.each(function(cartItem) {
-//          	if ((cartItem.get('ItemCode') == response.BuyItemCode && cartItem.get('LineNum') == response.LineNum)){
-//          		cartItem.set('PromoDocumentCode',response.PromoCode);
-//				cartItem.set('IsPromoItem', true);
-//          	}
+//     self.cartCollection.each(function(cartItem) {
+//            if ((cartItem.get('ItemCode') == response.BuyItemCode && cartItem.get('LineNum') == response.LineNum)){
+//              cartItem.set('PromoDocumentCode',response.PromoCode);
+//        cartItem.set('IsPromoItem', true);
+//            }
 //          });
-//		}
-			freeitemCollection = new BaseCollection(response.SaleItems);
-			promoItems = new BaseCollection(response.PromoItemDetail);
+//    }
+      freeitemCollection = new BaseCollection(response.SaleItems);
+      promoItems = new BaseCollection(response.PromoItemDetail);
 
-			var _itemCollection;
-			var _itemCode;
-			var _Qty;
-			var _lineNum = self.GetLineNum();
+      var _itemCollection;
+      var _itemCode;
+      var _Qty;
+      var _lineNum = self.GetLineNum();
 
-			freeitemCollection.each(function(freeitems) {
-				_itemCode = freeitems.get("ItemCode");
-				_Qty = freeitems.get("Quantity");
+      freeitemCollection.each(function(freeitems) {
+        _itemCode = freeitems.get("ItemCode");
+        _Qty = freeitems.get("Quantity");
 
-				freeitems.set('IsPromoItem', true);
-				//freeitems.set('LineNum',self.GetLineNum());
-				self.cartCollection.each(function(items){
-					 for(i=0 ;i<freeitems.get('BuyItemCode')[0].BuyItemCode.length; i++){
-					 if(items.get('ItemCode') == freeitems.get('BuyItemCode')[0].BuyItemCode[i]){
-						 if(items.get('LineNum') == freeitems.get('BuyItemCode')[0].BuyLineNum[i])
-						 {
-							 items.set('PromoID',freeitems.get('PromoID'));
-							 items.set('RuleID',freeitems.get('RuleID'));
-							 items.set('PromoDocumentCode',response.PromoCode);
-							 //items.set('BuyItemCode',freeitems.get('BuyItemCode')[0].BuyItemCode[i]);
-							 items.set('GetItemCode',freeitems.get('GetItemCode'));
-						 }
-					 	}
-					 }
-				});
-				_itemCollection = self.cartCollection.find(function(cartItem){
-					return (cartItem.get('ItemCode') == freeitems.get('ItemCode') && _itemCode && cartItem.get('SalesPriceRate') == freeitems.get('Price') && cartItem.get('BuyItemCode')[0].BuyItemCode[0] == freeitems.get('BuyItemCode')[0].BuyItemCode[0] && cartItem.get('BuyItemCode')[0].BuyLineNum[0] == freeitems.get('BuyItemCode')[0].BuyLineNum[0]);
-				});
-			});
+        freeitems.set('IsPromoItem', true);
+        //freeitems.set('LineNum',self.GetLineNum());
+        self.cartCollection.each(function(items){
+           for(i=0 ;i<freeitems.get('BuyItemCode')[0].BuyItemCode.length; i++){
+           if(items.get('ItemCode') == freeitems.get('BuyItemCode')[0].BuyItemCode[i]){
+             if(items.get('LineNum') == freeitems.get('BuyItemCode')[0].BuyLineNum[i])
+             {
+               items.set('PromoID',freeitems.get('PromoID'));
+               items.set('RuleID',freeitems.get('RuleID'));
+               items.set('PromoDocumentCode',response.PromoCode);
+               //items.set('BuyItemCode',freeitems.get('BuyItemCode')[0].BuyItemCode[i]);
+               items.set('GetItemCode',freeitems.get('GetItemCode'));
+             }
+            }
+           }
+        });
+        _itemCollection = self.cartCollection.find(function(cartItem){
+          return (cartItem.get('ItemCode') == freeitems.get('ItemCode') && _itemCode && cartItem.get('SalesPriceRate') == freeitems.get('Price') && cartItem.get('BuyItemCode')[0].BuyItemCode[0] == freeitems.get('BuyItemCode')[0].BuyItemCode[0] && cartItem.get('BuyItemCode')[0].BuyLineNum[0] == freeitems.get('BuyItemCode')[0].BuyLineNum[0]);
+        });
+      });
 
-			if(_itemCollection){
-				freeitemCollection.each(function(freeItem) {
-					self.cartCollection.each(function(cartItem) {
-						if(cartItem.get("ItemCode") == freeItem.get('ItemCode') && cartItem.get('SalesPriceRate') == freeItem.get('Price') && cartItem.get('BuyItemCode')[0].BuyItemCode[0] == freeItem.get('BuyItemCode')[0].BuyItemCode[0] && cartItem.get('BuyItemCode')[0].BuyLineNum[0] == freeItem.get('BuyItemCode')[0].BuyLineNum[0])
-							cartItem.set('QuantityOrdered',_Qty);
-						    freeItem.set('LineNum', cartItem.get('LineNum'));
-						});
-						//self.UpdateCartItem(freeItem,0);
-					    tempModel.url = Global.ServiceUrl + Service.SOP + "updatelinenum?SessionID=" + Global.GUID + "&PromoDocumentCode=" + freeItem.get('PromoDocumentCode') + "&LineNum=" + freeItem.get('LineNum');
-						tempModel.save(null, {
-						success: function(collection, response) {
+      if(_itemCollection){
+        freeitemCollection.each(function(freeItem) {
+          self.cartCollection.each(function(cartItem) {
+            if(cartItem.get("ItemCode") == freeItem.get('ItemCode') && cartItem.get('SalesPriceRate') == freeItem.get('Price') && cartItem.get('BuyItemCode')[0].BuyItemCode[0] == freeItem.get('BuyItemCode')[0].BuyItemCode[0] && cartItem.get('BuyItemCode')[0].BuyLineNum[0] == freeItem.get('BuyItemCode')[0].BuyLineNum[0])
+              cartItem.set('QuantityOrdered',_Qty);
+                freeItem.set('LineNum', cartItem.get('LineNum'));
+            });
+            //self.UpdateCartItem(freeItem,0);
+              tempModel.url = Global.ServiceUrl + Service.SOP + "updatelinenum?SessionID=" + Global.GUID + "&PromoDocumentCode=" + freeItem.get('PromoDocumentCode') + "&LineNum=" + freeItem.get('LineNum');
+            tempModel.save(null, {
+            success: function(collection, response) {
 
-						},
-						error: function() {
-						  if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-						}
-					  });
-				});
-			}
-			else if(freeitemCollection.length == 1){
-				self.AddFreeItemToCart(freeitemCollection, promoItems);
+            },
+            error: function() {
+              if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+            }
+            });
+        });
+      }
+      else if(freeitemCollection.length == 1){
+        self.AddFreeItemToCart(freeitemCollection, promoItems);
 
-			}
-			else if(freeitemCollection.length > 1){
-					self.ShowPromotionConfigurator(freeitemCollection,promoItems);
-				}
-		}
+      }
+      else if(freeitemCollection.length > 1){
+          self.ShowPromotionConfigurator(freeitemCollection,promoItems);
+        }
+    }
 
         },
         error: function() {
           if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
         }
       });
-	},
+  },
 
 
-	ShowPromotionConfigurator: function(collection,promoItems){
-		var promotionConfiguratorView = new PromotionConfiguratorView({
-			collection: collection,
-			promoitems: promoItems
-		});
-		promotionConfiguratorView.on('getPromoItems', this.ProcessPromoItems, this);
-		this.$el.find("#promotion-configurator-container").html(promotionConfiguratorView.render().el);
-		this.$el.find("#promotion-configurator-container").find("ul").listview().listview('refresh');
-	},
+  ShowPromotionConfigurator: function(collection,promoItems){
+    var promotionConfiguratorView = new PromotionConfiguratorView({
+      collection: collection,
+      promoitems: promoItems
+    });
+    promotionConfiguratorView.on('getPromoItems', this.ProcessPromoItems, this);
+    this.$el.find("#promotion-configurator-container").html(promotionConfiguratorView.render().el);
+    this.$el.find("#promotion-configurator-container").find("ul").listview().listview('refresh');
+  },
 
-	 ProcessPromoItems: function(response, response2) {
+   ProcessPromoItems: function(response, response2) {
       // set to false first to prevent configurator
       this.AddFreeItemToCart(response,response2);
 
@@ -3394,10 +3394,10 @@ define([
     },
 
     /**
-		 Use FIFO, when one item is finish remove it from the queue
+     Use FIFO, when one item is finish remove it from the queue
 
-		 @method RemoveFromItemsOnQueue
-		 **/
+     @method RemoveFromItemsOnQueue
+     **/
     RemoveFromItemsOnQueue: function(item) {
       this.isProcessing = false;
 
@@ -3412,10 +3412,10 @@ define([
     },
 
     /**
-		 Add Items to Cart
+     Add Items to Cart
 
-		 @method AddToCart
-		 **/
+     @method AddToCart
+     **/
     AddToCart: function(newItem) {
       if (this.isProcessing) return;
       if (!this.AllowedToAddAnItem(newItem)) return;
@@ -3462,10 +3462,10 @@ define([
     },
 
     /**
-		 Add Items by UPC
+     Add Items by UPC
 
-		 @method AddItemByUPC
-		 **/
+     @method AddItemByUPC
+     **/
     AddItemByUPC: function(upcCode) {
       switch (Global.TransactionType) {
         case Enum.TransactionType.SalesPayment:
@@ -3474,10 +3474,10 @@ define([
           return;
           break;
           /*case Enum.TransactionType.SalesRefund :
-					console.log("Adding items is not allowed for Return transactions.");
-					navigator.notification.alert("Adding items is not allowed for Return transactions.",null,"Action Not Allowed","OK");
-					return;
-					break;*/
+          console.log("Adding items is not allowed for Return transactions.");
+          navigator.notification.alert("Adding items is not allowed for Return transactions.",null,"Action Not Allowed","OK");
+          return;
+          break;*/
         case Enum.TransactionType.Recharge:
           //console.log("Adding items is not allowed for Recharge transactions.");
           navigator.notification.alert("Adding items is not allowed for Recharge transactions.", null, "Action Not Allowed", "OK");
@@ -3510,10 +3510,10 @@ define([
     },
 
     /**
-		 Update Recalculated Items
+     Update Recalculated Items
 
-		 @method UpdateRecalculatedItems
-		 **/
+     @method UpdateRecalculatedItems
+     **/
     UpdateRecalculatedItems: function(model) {
 
       //this.VoidCoupon(false);
@@ -3537,10 +3537,10 @@ define([
     },
 
     /**
-		 Recalculate Items
+     Recalculate Items
 
-		 @method RecalculateItem
-		 **/
+     @method RecalculateItem
+     **/
     RecalculateItem: function(cart, model) {
       if (cart.get("ItemCode") === model.get("ItemCode") && cart.get("UnitMeasureCode") === model.get("UnitMeasureCode")) {
 
@@ -3606,8 +3606,8 @@ define([
     },
 
   UpdateCartItem: function(item, qtyAdded, eventName, isEventTriggered, DoNotChangePrice) {
-		var self = this;
-		var tempModel = new BaseModel();
+    var self = this;
+    var tempModel = new BaseModel();
       //This is to prevent showing the out-of-stock notification if changes has nothing to with quantity.
       qtyAdded = this.AssignQuantityToBeAddded(item.get("QuantityOrdered"), qtyAdded);
       var doNotChangePrice = false,
@@ -3676,53 +3676,53 @@ define([
       Global.PreviousAssignedItemQty = item.get("QuantityDisplayed");
       Global.HasChanges = true;
 
-	var _freeItemsToDisable = this.cartCollection.find(function(cartItem) {
-			return (cartItem.get('ItemCode') == item.get('ItemCode') && item.get('IsPromoItem') == true);
-		});
+  var _freeItemsToDisable = this.cartCollection.find(function(cartItem) {
+      return (cartItem.get('ItemCode') == item.get('ItemCode') && item.get('IsPromoItem') == true);
+    });
 
-		  if(_freeItemsToDisable != undefined){
-      	$("#" + _freeItemsToDisable.cid + ' #quantityDisplay').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + _freeItemsToDisable.cid + ' #display-itemName').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + _freeItemsToDisable.cid + ' #itemPriceDisplay').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + _freeItemsToDisable.cid + ' #discountDisplay').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + _freeItemsToDisable.cid + ' #extPriceRate-td').addClass('ui-disabled').css("opacity", 1);
-		  }
-		var _itemsToRemove = new BaseCollection();
-		_itemsToRemove = new BaseCollection(self.cartCollection.filter(function(cartItem){
-			if(cartItem.get('BuyItemCode') != null){
-				if(cartItem.get('BuyItemCode').length != 0 ){
-				if (cartItem.get('BuyItemCode')[0].BuyItemCode == undefined){
-					return cartItem.get('IsPromoItem') == true && cartItem.get('BuyItemCode') == item.get('ItemCode') && carItem.get('PromoDocumentCode') == item.get('PromoDocumentCode');
-				}
-					else {
-						if(cartItem.get('BuyItemCode')[0].BuyItemCode.length == 1){
-								return cartItem.get('IsPromoItem') == true && cartItem.get('BuyItemCode')[0].BuyItemCode[0] == item.get('ItemCode') && cartItem.get('PromoDocumentCode') == item.get('PromoDocumentCode');
-						}
-						else {
-							 for(i=0 ;i<cartItem.get('BuyItemCode')[0].BuyItemCode.length; i++){
-								return cartItem.get('IsPromoItem') == true && cartItem.get('BuyItemCode')[0].BuyItemCode[i] == item.get('ItemCode') && cartItem.get('PromoDocumentCode') == item.get('PromoDocumentCode');
-							 }
-							 }
-						 }
-				}
-			}
-		}));
+      if(_freeItemsToDisable != undefined){
+        $("#" + _freeItemsToDisable.cid + ' #quantityDisplay').addClass('ui-disabled').css("opacity", 1);
+        $("#" + _freeItemsToDisable.cid + ' #display-itemName').addClass('ui-disabled').css("opacity", 1);
+        $("#" + _freeItemsToDisable.cid + ' #itemPriceDisplay').addClass('ui-disabled').css("opacity", 1);
+        $("#" + _freeItemsToDisable.cid + ' #discountDisplay').addClass('ui-disabled').css("opacity", 1);
+        $("#" + _freeItemsToDisable.cid + ' #extPriceRate-td').addClass('ui-disabled').css("opacity", 1);
+      }
+    var _itemsToRemove = new BaseCollection();
+    _itemsToRemove = new BaseCollection(self.cartCollection.filter(function(cartItem){
+      if(cartItem.get('BuyItemCode') != null){
+        if(cartItem.get('BuyItemCode').length != 0 ){
+        if (cartItem.get('BuyItemCode')[0].BuyItemCode == undefined){
+          return cartItem.get('IsPromoItem') == true && cartItem.get('BuyItemCode') == item.get('ItemCode') && carItem.get('PromoDocumentCode') == item.get('PromoDocumentCode');
+        }
+          else {
+            if(cartItem.get('BuyItemCode')[0].BuyItemCode.length == 1){
+                return cartItem.get('IsPromoItem') == true && cartItem.get('BuyItemCode')[0].BuyItemCode[0] == item.get('ItemCode') && cartItem.get('PromoDocumentCode') == item.get('PromoDocumentCode');
+            }
+            else {
+               for(i=0 ;i<cartItem.get('BuyItemCode')[0].BuyItemCode.length; i++){
+                return cartItem.get('IsPromoItem') == true && cartItem.get('BuyItemCode')[0].BuyItemCode[i] == item.get('ItemCode') && cartItem.get('PromoDocumentCode') == item.get('PromoDocumentCode');
+               }
+               }
+             }
+        }
+      }
+    }));
 
-		_itemsToRemove.each(function(detail){
-			self.cartCollection.remove(detail);
-		});
-	  // if (Global.TransactionType == 'Sale' || Global.TransactionType == 'Order' || Global.TransactionType == 'Update Order' || Global.TransactionType == 'Convert Order' || Global.TransactionType == 'Quote' || Global.TransactionType == 'Update Quote' || Global.TransactionType == 'Convert Quote'){
-	  // 	this.AddFreeItems(item,false);
-	  // }
+    _itemsToRemove.each(function(detail){
+      self.cartCollection.remove(detail);
+    });
+    // if (Global.TransactionType == 'Sale' || Global.TransactionType == 'Order' || Global.TransactionType == 'Update Order' || Global.TransactionType == 'Convert Order' || Global.TransactionType == 'Quote' || Global.TransactionType == 'Update Quote' || Global.TransactionType == 'Convert Quote'){
+    //  this.AddFreeItems(item,false);
+    // }
 
     },
 
 
     /**
-		 Retrieve Line num
+     Retrieve Line num
 
-		 @method GetLineNum
-		 **/
+     @method GetLineNum
+     **/
     GetLineNum: function() {
       if (this.IsReturn()) {
         var lineNum = 0;
@@ -3742,10 +3742,10 @@ define([
     },
 
     /**
-		 Calculate Item Extended Price
+     Calculate Item Extended Price
 
-		 @method CalculateExtPrice
-		 **/
+     @method CalculateExtPrice
+     **/
     CalculateExtPrice: function(quantity, price, discount, couponDiscountType, couponDiscountAmount, couponComputation, lineNumber) {
       if (couponDiscountType) {
         if (couponComputation === "Stackable") {
@@ -3807,7 +3807,7 @@ define([
               else couponDiscountAmount = couponDiscountAmount - parseFloat((parseFloat(_rnd.toFixed(2)) * _qty).toFixed(2));
 
               //couponDiscountAmount = couponDiscountAmount - (parseFloat((couponDiscountAmount / origQuantityOrdered).toFixed(4)) * (origQuantityOrdered - quantity));
-              //couponDiscountAmount = couponDiscountAmount - (parseFloat(this.preciseRound(couponDiscountAmount / origQuantityOrdered,2)) * (origQuantityOrdered - quantity));	//CSL-25790 : 03.12.14
+              //couponDiscountAmount = couponDiscountAmount - (parseFloat(this.preciseRound(couponDiscountAmount / origQuantityOrdered,2)) * (origQuantityOrdered - quantity)); //CSL-25790 : 03.12.14
             } else {
               var _rnd = parseFloat((couponDiscountAmount / origQuantityOrdered).toFixed(4));
               var _trim = parseFloat(this.preciseRound(couponDiscountAmount / origQuantityOrdered, 2));
@@ -3916,10 +3916,10 @@ define([
     },
 
     /**
-		 Calculate Item Net Price
+     Calculate Item Net Price
 
-		 @method CalculateNetPrice
-		 **/
+     @method CalculateNetPrice
+     **/
     CalculateNetPrice: function(price, discount, couponDiscountType, doNotRoundResult) {
 
       var _discountRate = price * (discount / 100);
@@ -3944,10 +3944,10 @@ define([
     },
 
     /**
-		 Round off numbers
+     Round off numbers
 
-		 @method RoundNumber
-		 **/
+     @method RoundNumber
+     **/
     RoundNumber: function(value, dec) {
       var bigDecimal = new BigDecimal.BigDecimal(value);
       return bigDecimal.setScale(dec, BigDecimal.MathContext.ROUND_HALF_UP);
@@ -3974,10 +3974,10 @@ define([
     },
 
     /**
-		 Event Handler for Complete button
+     Event Handler for Complete button
 
-		 @method buttonComplete_Tap
-		 **/
+     @method buttonComplete_Tap
+     **/
     ValidateCartItemsQty: function() {
       if (!Global.TransactionType == Enum.TransactionType.ConvertQuote || Global.TransactionType == Enum.TransactionType.SalesRefund) return false;
       var _isValidQty = this.cartCollection.find(function(item) {
@@ -4066,7 +4066,7 @@ define([
         DiscountType: Global.ShipTo.DiscountType,
         DiscountPercent: Global.ShipTo.DiscountPercent,
         DiscountableDays: Global.ShipTo.DiscountableDays,
-        //PaymentDate			: paymentDate,//Shared.GetJsonUTCDate(),
+        //PaymentDate     : paymentDate,//Shared.GetJsonUTCDate(),
         DueType: Global.ShipTo.DueType,
       });
 
@@ -4154,10 +4154,10 @@ define([
     },
 
     /**
-		 Create Transaction
+     Create Transaction
 
-		 @method CreateTransaction
-		 **/
+     @method CreateTransaction
+     **/
     CreateTransaction: function(paymentType) { //16x
       _paymentType = paymentType;
 
@@ -4223,10 +4223,10 @@ define([
     },
 
     /**
-		 Validate Transaction, Payment and Prompt To Print and Signature before creating Invoice
+     Validate Transaction, Payment and Prompt To Print and Signature before creating Invoice
 
-		 @method CreateInvoiceWithValidation
-		 **/
+     @method CreateInvoiceWithValidation
+     **/
     CreateLoyaltyWithValidaton: function(paymentType) {
       if (this.ValidateTransaction()) {
         if (this.ValidatePayment(paymentType)) {
@@ -4492,10 +4492,10 @@ define([
     },
 
     /**
-		 Check if Order has Changes then Update Order
+     Check if Order has Changes then Update Order
 
-		 @method UpdateOrderWithValidation
-		 **/
+     @method UpdateOrderWithValidation
+     **/
     UpdateInvoiceWithValidation: function(paymentType) {
       if (Global.HasChanges || this.AllowSaveWithOutChanges()) {
         if (this.ValidateTransaction()) {
@@ -4525,10 +4525,10 @@ define([
     },
 
     /**
-		 Validate Transaction, Payment and Prompt To Print and Signature before creating Order
+     Validate Transaction, Payment and Prompt To Print and Signature before creating Order
 
-		 @method CreateOrderWithValidation
-		 **/
+     @method CreateOrderWithValidation
+     **/
     CreateOrderWithValidation: function(paymentType) {
       if (this.ValidateTransaction()) {
         if (this.ValidatePayment(paymentType)) {
@@ -4545,10 +4545,10 @@ define([
     },
 
     /**
-		 Check if Order has Changes then Update Order
+     Check if Order has Changes then Update Order
 
-		 @method UpdateOrderWithValidation
-		 **/
+     @method UpdateOrderWithValidation
+     **/
     UpdateOrderWithValidation: function(paymentType) {
       if (Global.HasChanges) {
         if (this.ValidateTransaction()) {
@@ -4571,10 +4571,10 @@ define([
     },
 
     /**
-		 Validate Transaction, and Prompt To Print before creating Quote
+     Validate Transaction, and Prompt To Print before creating Quote
 
-		 @method CreateQuoteWithValidation
-		 **/
+     @method CreateQuoteWithValidation
+     **/
     CreateQuoteWithValidation: function() {
       if (this.ValidateTransaction()) {
         if (this.PromptCustomerPO()) {
@@ -4598,10 +4598,10 @@ define([
 
 
     /**
-		 Validate Payments then Create Invoice Payment
+     Validate Payments then Create Invoice Payment
 
-		 @method CreateInvoicePaymentWithValidation
-		 **/
+     @method CreateInvoicePaymentWithValidation
+     **/
     CreateInvoicePaymentWithValidaton: function(transactionCode, paymentType) {
       if (this.ValidatePayment(paymentType)) {
         payments = this.GetNewPayments();
@@ -4619,10 +4619,10 @@ define([
     },
 
     /**
-		 Validate Transaction, manager override, reasoncodes and Prompt To Print before creating Credit Memo
+     Validate Transaction, manager override, reasoncodes and Prompt To Print before creating Credit Memo
 
-		 @method CreateCreditMemoWithValidation
-		 **/
+     @method CreateCreditMemoWithValidation
+     **/
     CreateCreditMemoWithValidation: function(paymentType) {
       if (this.ValidateTransaction()) {
         if (this.PromptToPrint()) {
@@ -4639,10 +4639,10 @@ define([
     },
 
     /**
-		 Create CreditMemo
+     Create CreditMemo
 
-		 @method CreateCreditMemo
-		 **/
+     @method CreateCreditMemo
+     **/
     CreateCreditMemo: function() {
       this.InitializeTransaction();
       var _invoiceCollection = new InvoiceCollection(),
@@ -4750,11 +4750,11 @@ define([
     },
 
     /**
-		 Check if PaymentType is Partial then Validate Transaction, Reason and then Create Refund
+     Check if PaymentType is Partial then Validate Transaction, Reason and then Create Refund
 
-		 @method CreateRefundWithValidation
-		 **/
-    CreateRefundWithValidation: function(paymentType) { //jj17x	v14
+     @method CreateRefundWithValidation
+     **/
+    CreateRefundWithValidation: function(paymentType) { //jj17x v14
 
      if (Global.TransactionType === Enum.TransactionType.SalesRefund ) {
          if (paymentType != "Partial" && !this.ValidatePaymentWithoutCreditMemo()) {
@@ -4774,14 +4774,14 @@ define([
       }
       //if (this.refundCollection && this.refundCollection.length > 0 && this.paymentCollection.at(0).get("PaymentType") != Enum.PaymentType.CreditMemo){
       //    if (this.ValidateTransaction()) {
-      //		if (this.PromptToPrint()) {
-      //			if(this.ValidateReason("Return")) {
-      //    				if (this.ValidateManagerOverride(Enum.ActionType.Returns)) {
-      //    					this.CreateRefund();
-      //    				}
-      //				}
-      //		}
-      //	}
+      //    if (this.PromptToPrint()) {
+      //      if(this.ValidateReason("Return")) {
+      //            if (this.ValidateManagerOverride(Enum.ActionType.Returns)) {
+      //              this.CreateRefund();
+      //            }
+      //        }
+      //    }
+      //  }
       //}else{
       if (this.ValidateTransaction()) {
         if (this.PromptCustomerPO(paymentType)) {
@@ -4800,10 +4800,10 @@ define([
     },
 
     /**
-		 Process Create Refund
+     Process Create Refund
 
-		 @method CreateRefund
-		 **/
+     @method CreateRefund
+     **/
     CreateRefund: function() { //17x
      
       var refundPaymentCollection = new BaseCollection();
@@ -5053,10 +5053,10 @@ define([
     },
 
     /**
-		 Add Refund to Refund Collection
+     Add Refund to Refund Collection
 
-		 @method AddRefund
-		 **/
+     @method AddRefund
+     **/
     AddRefund: function() {
 
       //There's no need to show the payment form if payment type is cash
@@ -5163,10 +5163,10 @@ define([
     },
 
     /**
-		 Validate Transaction, Payment and Prompt To Print and Signature before creating Invoice
+     Validate Transaction, Payment and Prompt To Print and Signature before creating Invoice
 
-		 @method CreateInvoiceWithValidation
-		 **/
+     @method CreateInvoiceWithValidation
+     **/
     AddRefundCompleted: function(model) {
       this.CreateRefundWithValidation("Completed");
     },
@@ -5277,14 +5277,14 @@ define([
         if (errMsg === undefined || errMsg === "") {
           this.transactionModel.save(null, {connectionID: this.signalRConnectionID});
           // _creditMemoModel.save(null, {
-          // 	success: function(model, response) {
-          // 		_self.SaveTransactionCompleted(model, response);
+          //  success: function(model, response) {
+          //    _self.SaveTransactionCompleted(model, response);
 
-          // 	},
-          // 	error: function(model, error, response) {
-          // 		_self.SaveTransactionError(model, error, response);
+          //  },
+          //  error: function(model, error, response) {
+          //    _self.SaveTransactionError(model, error, response);
 
-          // 	}
+          //  }
           // });
         } else throw errMsg;
 
@@ -6275,12 +6275,12 @@ define([
             if (Global.Preference.AutoSignOutUser) this.SignOut();
           }
         }
-		// if(!Global.Preference.AutoSignOutUser){
-		// 	this.ClearTransaction();
-		// } else {
-		// 	this.ClearTransactionWithoutInitalization();
-		// 	this.StopSignalR();
-		// }
+    // if(!Global.Preference.AutoSignOutUser){
+    //  this.ClearTransaction();
+    // } else {
+    //  this.ClearTransactionWithoutInitalization();
+    //  this.StopSignalR();
+    // }
       }
 
     },
@@ -6334,7 +6334,7 @@ define([
           mdl = Global.PaymentInfoMdl;
           this.LoadInvoiceForApplyPayment(mdl);
           break;
-          //case Enum.TransactionType.SalesRefund 	: mdl = Global.RefundModel; this.LoadInvoiceForReturnRefund( mdl ); break;
+          //case Enum.TransactionType.SalesRefund   : mdl = Global.RefundModel; this.LoadInvoiceForReturnRefund( mdl ); break;
         case Enum.TransactionType.ConvertOrder:
           Global.TransactionType = Enum.TransactionType.UpdateInvoice;
           this.LoadInvoiceForResume(model);
@@ -6347,7 +6347,7 @@ define([
         case Enum.TransactionType.UpdateOrder:
           this.LoadOrderForUpdateOrder(model);
           break;
-          //case Enum.TransactionType.ConvertOrder 	: this.LoadOrderForConvertOrder(model); break;
+          //case Enum.TransactionType.ConvertOrder  : this.LoadOrderForConvertOrder(model); break;
         case Enum.TransactionType.ConvertQuote:
           this.LoadOrderForUpdateOrder(model);
           break;
@@ -6508,7 +6508,7 @@ define([
 
     buttonReviewTransaction_Tap: function(e) {
       e.preventDefault();
-      this.ShowReviewTransactionsView();
+      this.ShowReviewTransactionsView(true);
     },
 
     ShowReviewTransactionsView: function(isPrintPickNote) {
@@ -6782,7 +6782,7 @@ define([
       }
     },
     /*end of added/modified portion of PR.Ebron.*/
-	ClearTransactionWithoutInitalization: function() {
+  ClearTransactionWithoutInitalization: function() {
       this.IsReloadedTransaction = false;
       Global.CurrentOrders = null;
       Global.HasChanges = false;
@@ -6885,10 +6885,10 @@ define([
         $(".summary-right").children("div:last-child").show();
         if (Global.Preference.AllowChangeTaxCode) $(".summary-right").find("#view-tax").attr("style", "color: #0B4A8D; cursor: pointer;");
       }
-	},
+  },
 
     ClearTransaction: function() {
-	  Global.GUID = this.createGuid();
+    Global.GUID = this.createGuid();
       this.IsReloadedTransaction = false;
       Global.CurrentOrders = null;
       Global.HasChanges = false;
@@ -7524,7 +7524,7 @@ define([
           $("#lbl-customerName").html(Shared.TrimCustomerName());
 
           //CSL - 8889 : 06.06.2013
-          //Global.DefaultShipTo = 	invoice.ShipToName + ",<br/>" + invoice.ShipToAddress; << original code
+          //Global.DefaultShipTo =  invoice.ShipToName + ",<br/>" + invoice.ShipToAddress; << original code
           //start modification 06.06.13
           Global.IsLoadByTransaction = true;
           Global.Transaction = invoice;
@@ -7544,8 +7544,8 @@ define([
           if (response.KitDetails) {
             _.each(invoiceDetails, function(item) {
               /*_.each(response.KitDetails, function (detail) {
-								if (item.ItemCode === detail.ItemKitCode) detail.LineNum = item.LineNum;
-							});*/
+                if (item.ItemCode === detail.ItemKitCode) detail.LineNum = item.LineNum;
+              });*/
               var kit = _.where(response.KitDetails, {
                 'LineNum': item.LineNum
               });
@@ -7640,12 +7640,12 @@ define([
               // item.Good = item.Outstanding; //Originally Defective
               // if (item.Outstanding <= 0) item.ExtPriceRate = 0;
               // else item.ExtPriceRate = self.CalculateExtPrice(item.Outstanding - activatedOnlyCount,
-              // 	item.SalesPriceRate,
-              // 	item.Discount,
-              // 	item.CouponDiscountType,
-              // 	item.CouponDiscount,
-              // 	item.CouponComputation,
-              // 	item.LineNum);
+              //  item.SalesPriceRate,
+              //  item.Discount,
+              //  item.CouponDiscountType,
+              //  item.CouponDiscount,
+              //  item.CouponComputation,
+              //  item.LineNum);
 
               Global.LoadedItems.each(function(loadedItem) { //Added for CSL-10179
                 if (loadedItem.get("AlteredCoupon") && loadedItem.get("LineNum") == item.LineNum) {
@@ -7703,8 +7703,8 @@ define([
 
         //Serial Lot Numbers
         // if(response.SerialLotNumbers){
-        // 	if(!this.serializeLotCollection) this.InitializeSerializeLotCollection();
-        // 	this.serializeLotCollection.reset(response.SerialLotNumbers);
+        //  if(!this.serializeLotCollection) this.InitializeSerializeLotCollection();
+        //  this.serializeLotCollection.reset(response.SerialLotNumbers);
         // }
 
         this.paymentCollection.reset();
@@ -8173,10 +8173,10 @@ define([
             IsQtyOrderedAdjusted: _isQtyOrderedAdjusted,
             AutoGenerate: item.AutoGenerate,
             Pricing: item.Pricing,
-			PromoDocumentCode: item.PromoDocumentCode,
-			RuleID: item.RuleID,
-			PromoID: item.PromoID,
-			IsPromoItem: item.IsPromoItem,
+      PromoDocumentCode: item.PromoDocumentCode,
+      RuleID: item.RuleID,
+      PromoID: item.PromoID,
+      IsPromoItem: item.IsPromoItem,
           }
 
           //console.log("Pricing : " + item.Pricing);
@@ -8197,16 +8197,16 @@ define([
         //}
       }
       this.cartView.RefreshScroll();
-	  this.cartCollection.each(function(cartItem){
-			if(cartItem.get('IsPromoItem') == true)
-			{
-   		  $("#" + cartItem.cid + ' #quantityDisplay').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + cartItem.cid + ' #display-itemName').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + cartItem.cid + ' #itemPriceDisplay').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + cartItem.cid + ' #discountDisplay').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + cartItem.cid + ' #extPriceRate-td').addClass('ui-disabled').css("opacity", 1);
-			}
-		});
+    this.cartCollection.each(function(cartItem){
+      if(cartItem.get('IsPromoItem') == true)
+      {
+        $("#" + cartItem.cid + ' #quantityDisplay').addClass('ui-disabled').css("opacity", 1);
+        $("#" + cartItem.cid + ' #display-itemName').addClass('ui-disabled').css("opacity", 1);
+        $("#" + cartItem.cid + ' #itemPriceDisplay').addClass('ui-disabled').css("opacity", 1);
+        $("#" + cartItem.cid + ' #discountDisplay').addClass('ui-disabled').css("opacity", 1);
+        $("#" + cartItem.cid + ' #extPriceRate-td').addClass('ui-disabled').css("opacity", 1);
+      }
+    });
       return;
     },
 
@@ -8425,7 +8425,7 @@ define([
         WebsiteCode: Shared.GetWebsiteCode(),
         WarehouseToUse: warehouseToUse,
         WarehouseForHeader: (isChangeWarehouse ? Global.Preference.DefaultLocation : ''),
-		TransactionType: Global.TransactionType
+    TransactionType: Global.TransactionType
       });
 
       if (isChangeWarehouse) Global.HasChanges = true;
@@ -8704,7 +8704,7 @@ define([
 
           if (pricingHasChanged) this.InitializeItems();
 
-          //	if(order.ShipToAddress != null){ _shipToAddress = order.ShipToAddress; }
+          //  if(order.ShipToAddress != null){ _shipToAddress = order.ShipToAddress; }
           // setting of shipto address is lready handled in headerinfo.js
           //if (!Shared.IsNullOrWhiteSpace(order.ShipToAddress)) { Global.DefaultShipToAddress = order.ShipToAddress; _shipToAddress = Global.DefaultShipToAddress;}
 
@@ -8735,8 +8735,8 @@ define([
             _.each(response.SalesOrderDetails, function(item) {
               if (item.ItemType === Enum.ItemType.Kit) {
                 /*_.each(response.KitDetails, function (detail) {
-									if (item.ItemCode === detail.ItemKitCode) detail.LineNum = item.LineNum;
-								});*/
+                  if (item.ItemCode === detail.ItemKitCode) detail.LineNum = item.LineNum;
+                });*/
                 var kit = _.where(response.KitDetails, {
                   'LineNum': item.LineNum
                 });
@@ -8745,19 +8745,19 @@ define([
               }
             }.bind(this));
           }
-			var _freeItemDetails = new BaseCollection(response.CustomerPromotionDetails);
-		  if (response.CustomerPromotionDetails){
-		  	_freeItemDetails.each(function(freeItem){
-				_.each(response.SalesOrderDetails, function(item) {
-					if((freeItem.get('GetItemCode') == item.ItemCode && freeItem.get('GetLineNum') == item.LineNum)){
-						item.PromoDocumentCode = freeItem.get('PromoDocumentCode');
-						item.PromoID = freeItem.get('PromoID');
-						item.RuleID = freeItem.get('RuleID');
-						item.IsPromoItem = true;
-					}
-				});
-			});
-		  }
+      var _freeItemDetails = new BaseCollection(response.CustomerPromotionDetails);
+      if (response.CustomerPromotionDetails){
+        _freeItemDetails.each(function(freeItem){
+        _.each(response.SalesOrderDetails, function(item) {
+          if((freeItem.get('GetItemCode') == item.ItemCode && freeItem.get('GetLineNum') == item.LineNum)){
+            item.PromoDocumentCode = freeItem.get('PromoDocumentCode');
+            item.PromoID = freeItem.get('PromoID');
+            item.RuleID = freeItem.get('RuleID');
+            item.IsPromoItem = true;
+          }
+        });
+      });
+      }
           if (this.orderType === 'Convert') {
             this.SetCurrentOrderItems(_orderDetails);
 
@@ -9135,7 +9135,7 @@ define([
           "Payments": _payments.toJSON(),
           "Coupons": _coupons.toJSON(),
           "KitDetails": kitItems.toJSON(),
-		  "SessionID": Global.GUID,
+      "SessionID": Global.GUID,
         });
 
         this.RemoveWarehouseCodeByItemType(this.transactionModel.get("SalesOrderDetails"));
@@ -9263,7 +9263,7 @@ define([
         Coupons: _coupons.toJSON(),
         SerialLotNumbers: _serializeLot,
         KitDetails: kitItems.toJSON(),
-		SessionID: Global.GUID
+    SessionID: Global.GUID
       });
 
 
@@ -9286,7 +9286,7 @@ define([
           SalesOrderDetails: _salesOrderDetailCollection.toJSON(),
           Payments: _payments.toJSON(),
           SerialLotNumbers: _serializeLot,
-		  SessionID: Global.GUID
+      SessionID: Global.GUID
         });
 
         this.RemoveWarehouseCodeByItemType(this.transactionModel.get("SalesOrderDetails"));
@@ -9846,19 +9846,19 @@ define([
                 //BEGIN - GEMIN : CSL-5048
 
                 if (coupon.CouponComputation === "Stackable") {
-					this.RecalculateStackableCoupon(coupon.DiscountAmount);
-				}
+          this.RecalculateStackableCoupon(coupon.DiscountAmount);
+        }
 
-				for (var i = 0; i< this.cartCollection.length; i++) {
-			    	var item = this.cartCollection.at(i);
-			    	var _extPrice = this.CalculateExtPrice(this.GetItemQuantity(item), item.get("SalesPriceRate"),
-			    											item.get("Discount"), item.get("CouponDiscountType"),
-			    											item.get("CouponDiscountAmount"), item.get("CouponComputation"));
-					item.set({"ExtPriceRate" : _extPrice});
-				}
+        for (var i = 0; i< this.cartCollection.length; i++) {
+            var item = this.cartCollection.at(i);
+            var _extPrice = this.CalculateExtPrice(this.GetItemQuantity(item), item.get("SalesPriceRate"),
+                                item.get("Discount"), item.get("CouponDiscountType"),
+                                item.get("CouponDiscountAmount"), item.get("CouponComputation"));
+          item.set({"ExtPriceRate" : _extPrice});
+        }
 
                 //END - GEMIN : CSL-5048
-				*/
+        */
 
         if (!this.IsReturn())
           if (this.couponModel.get("RequiresMinimumOrderAmount") > 0) {
@@ -10073,8 +10073,8 @@ define([
     },
 
     VoidItem: function(test) {
-		var self = this;
-		var model = new BaseModel();
+    var self = this;
+    var model = new BaseModel();
       this.isNoCouponAtFirst = true;
       this.validateCouponRequirement();
       this.OnRequestCompleted("VoidItem");
@@ -10086,74 +10086,74 @@ define([
       if (this._lastItemChecked) {
         if (this.cartView && this.cartView.LastItemRemoved) {
 
-	    var _itemsToRemove = new BaseCollection();
-		this.cartCollection.each(function(freeItems){
-		model = freeItems;
-		if(freeItems.get('BuyItemCode') != null){
-			if (freeItems.get('BuyItemCode')[0].BuyItemCode == undefined){
-				if (freeItems.get('BuyItemCode') == self.cartView.LastItemRemoved.ItemCode && freeItems.get('BuyItemCode') == self.cartView.LastItemRemoved.LineNum){
-					_itemsToRemove.add(freeItems);
-				}
-			}
-			else {
-			if(freeItems.get('BuyItemCode')[0].BuyItemCode.length == 1){
-				if (freeItems.get('BuyItemCode')[0].BuyItemCode[0] == self.cartView.LastItemRemoved.ItemCode && freeItems.get('PromoDocumentCode')== self.cartView.LastItemRemoved.PromoDocumentCode){
-					_itemsToRemove.add(freeItems);
+      var _itemsToRemove = new BaseCollection();
+    this.cartCollection.each(function(freeItems){
+    model = freeItems;
+    if(freeItems.get('BuyItemCode') != null){
+      if (freeItems.get('BuyItemCode')[0].BuyItemCode == undefined){
+        if (freeItems.get('BuyItemCode') == self.cartView.LastItemRemoved.ItemCode && freeItems.get('BuyItemCode') == self.cartView.LastItemRemoved.LineNum){
+          _itemsToRemove.add(freeItems);
+        }
+      }
+      else {
+      if(freeItems.get('BuyItemCode')[0].BuyItemCode.length == 1){
+        if (freeItems.get('BuyItemCode')[0].BuyItemCode[0] == self.cartView.LastItemRemoved.ItemCode && freeItems.get('PromoDocumentCode')== self.cartView.LastItemRemoved.PromoDocumentCode){
+          _itemsToRemove.add(freeItems);
 
-				}
-			}
-			else {
-				 for(i=0 ;i<freeItems.get('BuyItemCode')[0].BuyItemCode.length; i++){
-				 	if(freeItems.get('BuyItemCode')[0].BuyItemCode[i] == self.cartView.LastItemRemoved.ItemCode && freeItems.get('PromoDocumentCode') == self.cartView.LastItemRemoved.PromoDocumentCode){
-						_itemsToRemove.add(freeItems);
-					}
-				 }
-				 }
-			 }
-		}
-	  });
+        }
+      }
+      else {
+         for(i=0 ;i<freeItems.get('BuyItemCode')[0].BuyItemCode.length; i++){
+          if(freeItems.get('BuyItemCode')[0].BuyItemCode[i] == self.cartView.LastItemRemoved.ItemCode && freeItems.get('PromoDocumentCode') == self.cartView.LastItemRemoved.PromoDocumentCode){
+            _itemsToRemove.add(freeItems);
+          }
+         }
+         }
+       }
+    }
+    });
           if (this._lastItemChecked.ItemCode == this.cartView.LastItemRemoved.ItemCode) this._lastItemChecked = null;
         }
       }
-	  if(_itemsToRemove != undefined){
-	  		this.RemoveFreeItems(_itemsToRemove);
-		}
+    if(_itemsToRemove != undefined){
+        this.RemoveFreeItems(_itemsToRemove);
+    }
       Global.CartCollection = this.cartCollection;
       Shared.FocusToItemScan();
 
-	  this.cartCollection.each(function(cartItem){
-			if(cartItem.get('IsPromoItem') == true)
-			{
-      	$("#" + cartItem.cid + ' #quantityDisplay').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + cartItem.cid + ' #display-itemName').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + cartItem.cid + ' #itemPriceDisplay').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + cartItem.cid + ' #discountDisplay').addClass('ui-disabled').css("opacity", 1);
-			  $("#" + cartItem.cid + ' #extPriceRate-td').addClass('ui-disabled').css("opacity", 1);
-			}
-		});
-/*	var itemsToRefresh = new BaseCollection();
-		itemsToRefresh = new BaseCollection(self.cartCollection.filter(function(cartItem){
-			return cartItem.get('IsPromoItem') == true;
-		}));
+    this.cartCollection.each(function(cartItem){
+      if(cartItem.get('IsPromoItem') == true)
+      {
+        $("#" + cartItem.cid + ' #quantityDisplay').addClass('ui-disabled').css("opacity", 1);
+        $("#" + cartItem.cid + ' #display-itemName').addClass('ui-disabled').css("opacity", 1);
+        $("#" + cartItem.cid + ' #itemPriceDisplay').addClass('ui-disabled').css("opacity", 1);
+        $("#" + cartItem.cid + ' #discountDisplay').addClass('ui-disabled').css("opacity", 1);
+        $("#" + cartItem.cid + ' #extPriceRate-td').addClass('ui-disabled').css("opacity", 1);
+      }
+    });
+/*  var itemsToRefresh = new BaseCollection();
+    itemsToRefresh = new BaseCollection(self.cartCollection.filter(function(cartItem){
+      return cartItem.get('IsPromoItem') == true;
+    }));
 
-	  itemsToRefresh.each(function(freeItems){
-		self.cartCollection.each(function (items){
-			if(items.get('PromoDocumentCode') == freeItems.get('PromoDocumentCode')){
-			   var lineNum = items.get('LineNum');
-			 }
+    itemsToRefresh.each(function(freeItems){
+    self.cartCollection.each(function (items){
+      if(items.get('PromoDocumentCode') == freeItems.get('PromoDocumentCode')){
+         var lineNum = items.get('LineNum');
+       }
 
-			if (items.get('ItemCode') == freeItems.get('ItemCode')){
-				items.get('BuyItemCode')[0].BuyLineNum[0] = lineNum;
-			}
+      if (items.get('ItemCode') == freeItems.get('ItemCode')){
+        items.get('BuyItemCode')[0].BuyLineNum[0] = lineNum;
+      }
 
-				items.get('BuyItemCode')[0].BuyItemCode[i] = 'test';
-				for(i=0 ;i<freeItems.get('BuyItemCode')[0].BuyItemCode.length; i++){
-					console.log(items);
+        items.get('BuyItemCode')[0].BuyItemCode[i] = 'test';
+        for(i=0 ;i<freeItems.get('BuyItemCode')[0].BuyItemCode.length; i++){
+          console.log(items);
 
-				}
-			}
-		});
-	  });*/
+        }
+      }
+    });
+    });*/
 
 
       //Comment this code.
@@ -10164,25 +10164,25 @@ define([
     },
 
 
-	RemoveFreeItems: function(model){
-		if(model.length>0){
-			var self = this;
-			var itemModel = new BaseModel();
+  RemoveFreeItems: function(model){
+    if(model.length>0){
+      var self = this;
+      var itemModel = new BaseModel();
 
-			model.each(function(detail){
-				model = detail;
-				self.cartCollection.remove(detail);
-				for(i=0 ;i<model.get('BuyItemCode')[0].BuyItemCode.length; i++){
-					if (model.get('BuyItemCode')[0].BuyItemCode[i] == self.cartView.LastItemRemoved.ItemCode){
-					 itemModel.url = Global.ServiceUrl + "Transactions/" + "deletelinenum?PromoDocumentCode=" + self.cartView.LastItemRemoved.PromoDocumentCode + '&PromoID=' + self.cartView.LastItemRemoved.PromoID + '&BuyItemCode=' + model.get('BuyItemCode')[0].BuyItemCode[i];
-					 itemModel.save(null, {
-				});
-					}
-				}
+      model.each(function(detail){
+        model = detail;
+        self.cartCollection.remove(detail);
+        for(i=0 ;i<model.get('BuyItemCode')[0].BuyItemCode.length; i++){
+          if (model.get('BuyItemCode')[0].BuyItemCode[i] == self.cartView.LastItemRemoved.ItemCode){
+           itemModel.url = Global.ServiceUrl + "Transactions/" + "deletelinenum?PromoDocumentCode=" + self.cartView.LastItemRemoved.PromoDocumentCode + '&PromoID=' + self.cartView.LastItemRemoved.PromoID + '&BuyItemCode=' + model.get('BuyItemCode')[0].BuyItemCode[i];
+           itemModel.save(null, {
+        });
+          }
+        }
 
-			});
-		}
-	},
+      });
+    }
+  },
 
     UpdateCouponWithValidation: function() {
       if (this.couponModel) {
@@ -10738,7 +10738,7 @@ define([
         break;
       };
 
-      this.ProcessPrintAndEmail(transactionCode, type, receiptCodes);
+      this.ProcessPrintAndEmail(transactionCode, type, receiptCodes);    
       this.ClearTransaction();
     },
 
@@ -12548,7 +12548,7 @@ define([
         SOPDetails: items,
         DiscountType: Global.ShipTo.DiscountType,
         DiscountPercent: Global.ShipTo.DiscountPercent,
-	    	SalesOrderCode: Global.TransactionCode,
+        SalesOrderCode: Global.TransactionCode,
         SessionID: Global.GUID,
         TransactionType: Global.TransactionType,
         IsUsePOSShippingMethod:Global.Preference.IsUsePOSShippingMethod,
@@ -12564,11 +12564,11 @@ define([
       cartItems.url = Global.ServiceUrl + Service.SOP + Method.SALEITEMGROUPTAX;
       cartItems.save();
 
-/*	  this.cartCollection.each(function(details){
-			 if(details.get('PromoDocumentCode') == '' || details.get('PromoDocumentCode') == undefined){
-			 	this.AddFreeItems(details,true);
-			 }
-		 }.bind(this));*/
+/*    this.cartCollection.each(function(details){
+       if(details.get('PromoDocumentCode') == '' || details.get('PromoDocumentCode') == undefined){
+        this.AddFreeItems(details,true);
+       }
+     }.bind(this));*/
     },
 
     ConvertToSaleItem: function(item) {
@@ -12805,8 +12805,8 @@ define([
     },
 
     SetImageLocation: function(preference) {
-      //var _webUrl 		 = preference.WebSiteURL;
-      //var _imgSize 		 = this.AssignImageSize(preference.ISEImageSize);
+      //var _webUrl      = preference.WebSiteURL;
+      //var _imgSize     = this.AssignImageSize(preference.ISEImageSize);
       Global.ISEImageSize = this.AssignImageSize(preference.ISEImageSize);
       Global.IsUseISEImage = preference.IsUseISEImage;
       Global.WebSiteURL = this.ValidateURL(preference.WebSiteURL);
@@ -13753,7 +13753,7 @@ define([
       this.secondaryHubProxy = this.signalRConnection.createHubProxy('secondaryDisplayHub');
       this.transactionHubProxy = this.signalRConnection.createHubProxy('transactionHub');
 
-		//Comment this code since it just show a message that SignalR is running slow.
+    //Comment this code since it just show a message that SignalR is running slow.
 /*      this.signalRConnection.connectionSlow(function() {
         navigator.notification.alert('SignalR connection is running slow.', null, 'Information', 'OK');
       });*/
