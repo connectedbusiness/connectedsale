@@ -13,10 +13,10 @@ define([
   'model/base',
   'collection/base',
   'model/reportsetting',
-  'view/24.0.0/pos/print/printer',
-  'view/24.0.0/pos/print/printpreview',
-  'text!template/24.0.0/pos/print/dynamicprint.tpl.html',
-  'text!template/24.0.0/pos/print/print.tpl.html',
+  'view/23.0.0/pos/print/printer',
+  'view/23.0.0/pos/print/printpreview',
+  'text!template/23.0.0/pos/print/dynamicprint.tpl.html',
+  'text!template/23.0.0/pos/print/print.tpl.html',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Service, Method, Shared, BaseModel, BaseCollection, ReportSettingModel, PrinterView, PrintSetup, template, browserprintTemplate) {
   var reportURL = null,
@@ -192,16 +192,41 @@ define([
       }
     },
 
-    InitializeBrowserPrintPreview: function() {
-      if (Global.isBrowserMode && !(Global.ApplicationType == 'Reports')) {
-        this.transactionCode = this.model;
-        $("#main-transaction-blockoverlay").show();
-        this.$el.html(this._browserPrintTemplate({
-          transactionCode: this.transactionCode,
-          ServiceUrl: Global.ServiceUrl
-        }));
-        Shared.PrintBrowserMode.DrawerKick();
+    InitializeBrowserPrintPreview: function(pageSettings) {
+      if (pageSettings.IsPrintPickNote) {
+          //$("#printFramePickingNote").show();
+         // $("#printFrame").hide();
+
+           if (Global.isBrowserMode && !(Global.ApplicationType == 'Reports')) {
+              this.transactionCode = this.model;
+              $("#main-transaction-blockoverlay").show();
+              this.$el.html(this._browserPrintTemplate({
+                transactionCode: this.transactionCode + ".pdf",
+                IsPrintPickNote: 1,
+                ServiceUrl: Global.ServiceUrl 
+              }));
+
+             Shared.PrintBrowserMode.DrawerKick();
+        }
       }
+      else {
+
+          // $("#printFramePickingNote").hide();
+         //  $("#printFrame").show();
+
+            if (Global.isBrowserMode && !(Global.ApplicationType == 'Reports')) {
+              this.transactionCode = this.model;
+              $("#main-transaction-blockoverlay").show();
+              this.$el.html(this._browserPrintTemplate({
+                transactionCode: this.transactionCode,
+                IsPrintPickNote: 0,
+                ServiceUrl: Global.ServiceUrl 
+              }));
+
+             Shared.PrintBrowserMode.DrawerKick();
+        }
+      }
+         
     },
 
     Show: function(pageSettings, transactionCode, reportType) {
@@ -219,7 +244,7 @@ define([
 
       if (Global.isBrowserMode) {
         var isSilentPrint = ((Global.Preference.AutoPrintReceipt && Global.PrintOptions.SilentPrint) || Global.PrintOptions.SilentPrint);
-        if (pageSettings.IsPrintPickNote) isSilentPrint = true;
+        if (pageSettings.IsPrintPickNote) isSilentPrint = false;
         if (isSilentPrint) {
           var transactionCode = this.model;
           var pages = parseInt(this.pageSettings.Pages);
@@ -227,9 +252,8 @@ define([
           Shared.PrintBrowserMode.Print(transactionCode, pages, this.options.printer, this.options.copies);
           //if (!this.IsWorkstation && Global.Preference.AutoSignOutUser && !Global.PrintOptions.Reprint) this.trigger("AutoSignOut", this);
           Global.PrintOptions.Reprint = false;
-        } else {
-          this.InitializeBrowserPrintPreview();
-        }
+        } else this.InitializeBrowserPrintPreview(pageSettings);
+      
       } else {
         if (this.IsReceiptPrinter) {
           //RECEIPT PRINTER

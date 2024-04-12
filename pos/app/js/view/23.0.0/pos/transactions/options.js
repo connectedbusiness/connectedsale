@@ -46,7 +46,7 @@ define([
 
     Show: function(x_coord, y_coord, model, opt) {
       opt = opt || {
-        PickupStage: 0
+        PickupStage: 1
       };
       this.model = model;
       this.DisplayButtons(opt);
@@ -148,6 +148,7 @@ define([
             this.$(".btn-options-convertquote").hide();
             this.$(".btn-options-updatequote").hide();
             this.$(".btn-options-resume").hide();
+            this.$(".btn-options-printpicknote").hide();
             this.$(".btn-options-print").show();
             this.ctr++;
           } else {
@@ -162,6 +163,7 @@ define([
             this.$(".btn-options-updateorder").hide();
             this.$(".btn-options-convertquote").hide();
             this.$(".btn-options-updatequote").hide();
+            this.$(".btn-options-printpicknote").hide();
             this.$(".btn-options-resume").hide();
             this.$(".btn-options-print").show();
             this.ctr++;
@@ -185,6 +187,8 @@ define([
             this.$(".btn-options-resume").hide();
             this.$(".btn-options-print").show();
             this.ctr++;
+            this.$(".btn-options-printpicknote").show();
+            this.ctr++;
           } else {
             if ((Global.Preference.AllowSales === true) && (opt.PickupStage == 0 || opt.PickupStage == 3)){
               this.$(".btn-options-convertorder").show();
@@ -198,6 +202,7 @@ define([
             this.$(".btn-options-convertquote").hide();
             this.$(".btn-options-updatequote").hide();
             this.$(".btn-options-resume").hide();
+            this.$(".btn-options-printpicknote").hide();
             this.$(".btn-options-print").show();
             this.ctr++;
           }
@@ -214,6 +219,7 @@ define([
             this.$(".btn-options-payment").hide();
             this.$(".btn-options-convertorder").hide();
             this.$(".btn-options-updateorder").hide();
+            this.$(".btn-options-printpicknote").hide();
             this.$(".btn-options-updatequote").show();
             this.ctr++;
             this.$(".btn-options-resume").hide();
@@ -232,6 +238,7 @@ define([
             this.$(".btn-options-convertorder").hide();
             this.$(".btn-options-updateorder").hide();
             this.$(".btn-options-updatequote").hide();
+            this.$(".btn-options-printpicknote").hide();
             this.$(".btn-options-resume").hide();
             this.$(".btn-options-print").show();
             this.ctr++;
@@ -245,6 +252,7 @@ define([
           this.$(".btn-options-convertquote").hide();
           this.$(".btn-options-updatequote").hide();
           this.$(".btn-options-resume").hide();
+          this.$(".btn-options-printpicknote").hide();
           this.$(".btn-options-print").show();
           this.ctr++;
           break;
@@ -254,6 +262,7 @@ define([
           this.$(".btn-options-convertorder").hide();
           this.$(".btn-options-updateorder").hide();
           this.$(".btn-options-convertquote").hide();
+          this.$(".btn-options-printpicknote").hide();
           this.$(".btn-options-updatequote").hide();
           this.$(".btn-options-print").show();
           this.ctr++;

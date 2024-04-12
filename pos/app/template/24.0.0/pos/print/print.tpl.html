@@ -13,7 +13,12 @@
 	<div id="testBody" class="interprise-dialog-content">
 			<div id="customizePrintContainer" style="position:relative">
 				<div id="print-area">
-						<iframe id="printFrame" style="position: relative;" src="<%= ServiceUrl %>/Reports/ReportViewer.aspx?transactionCode=<%= transactionCode %>"></iframe> 			
+						<!-- <iframe id="printFrame" style="position: relative;" src="<%= ServiceUrl %>/Reports/ReportViewer.aspx?transactionCode=<%= transactionCode %>"></iframe> 	-->		
+						<% if(IsPrintPickNote == 1) { %>
+					     	<iframe id="printFrame" style="position: relative;" src="<%= ServiceUrl %>/Reports/<%= transactionCode %>"></iframe> 
+				     	<% } else { %>	
+						  <iframe id="printFrame" style="position: relative;" src="<%= ServiceUrl %>/Reports/ReportViewer.aspx?transactionCode=<%= transactionCode %>"></iframe> 	
+					    <% } %>
 				</div>					
 			</div>
 	</div>	
