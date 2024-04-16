@@ -842,17 +842,32 @@ define([
         case "createinvoice":
         case "updateinvoice":
         case "convertorder":
-          reportCode = selectedPosPrinter == 1 ? preference.InvoiceReportCode : preference.InvoiceReportCode2;
-          printer = selectedPosPrinter == 1 ? preference.InvoiceReportPrinter : preference.InvoiceReportPrinter2;
-          copies = selectedPosPrinter == 1 ? preference.InvoiceReceiptCopies : preference.InvoiceReceiptCopies2;
+         if(Global.PaymentType == Enum.PaymentType.CreditCard &&  Global.OfflineCharge == false) {
+              reportCode = preference.CreditCardReportCode;
+              printer = preference.CreditCardReportPrinter;
+              copies = preference.CreditCardReceiptCopies;
+           }
+           else  {
+            reportCode = selectedPosPrinter == 1 ? preference.InvoiceReportCode : preference.InvoiceReportCode2;
+            printer = selectedPosPrinter == 1 ? preference.InvoiceReportPrinter : preference.InvoiceReportPrinter2;
+            copies = selectedPosPrinter == 1 ? preference.InvoiceReceiptCopies : preference.InvoiceReceiptCopies2;
+           }
         //  reportCode = this.GetSelectedReportCode(reportCode, preference);
           break;
         case "createorder":
         case "updateorder":
         case "convertquote":
-          reportCode = preference.OrderReportCode;
-          printer = preference.OrderReportPrinter;
-          copies = preference.OrderReceiptCopies;
+         if(Global.PaymentType == Enum.PaymentType.CreditCard &&  Global.OfflineCharge == false)
+          {
+            reportCode = preference.CreditCardReportCode;
+            printer = preference.CreditCardReportPrinter;
+            copies = preference.CreditCardReceiptCopies;
+          }
+          else  {
+            reportCode = preference.OrderReportCode;
+            printer = preference.OrderReportPrinter;
+            copies = preference.OrderReceiptCopies;
+          }
         //  reportCode = this.GetSelectedReportCode(reportCode, preference);
           break;
         case "createquote":
@@ -6885,6 +6900,8 @@ define([
         $(".summary-right").children("div:last-child").show();
         if (Global.Preference.AllowChangeTaxCode) $(".summary-right").find("#view-tax").attr("style", "color: #0B4A8D; cursor: pointer;");
       }
+
+      Global.PaymentType = null;
   },
 
     ClearTransaction: function() {
@@ -6998,6 +7015,8 @@ define([
         if (Global.Preference.AllowChangeTaxCode) $(".summary-right").find("#view-tax").attr("style", "color: #0B4A8D; cursor: pointer;");
       }
       this.InitializeItems();
+
+      Global.PaymentType = null;
     },
 
     RetrieveShipTo: function(_rows, _criteria) {
@@ -10744,6 +10763,13 @@ define([
 
     ReprintAndEmailTransaction: function(transaction) {
       if (Global.PrintOptions.Reprint) {
+
+         var paymentType = transaction.get("PaymentType");
+         if(paymentType!=null) 
+          {
+             if(paymentType == Enum.PaymentType.CreditCard) Global.PaymentType = Enum.PaymentType.CreditCard;
+          }
+
         switch (Global.LookupMode) {
           case Enum.LookupMode.Invoice:
             this.ProcessPrintAndEmail(transaction.get("InvoiceCode"), "CreateInvoice", null);
@@ -10949,6 +10975,7 @@ define([
 
       if(!Global.Preference.AutoSignOutUser){
         this.ClearTransaction();
+
       } else {
         this.ClearTransactionWithoutInitalization();
         this.StopSignalR();
