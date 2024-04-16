@@ -149,6 +149,7 @@ define([
             this.$(".btn-options-updatequote").hide();
             this.$(".btn-options-resume").hide();
             this.$(".btn-options-printpicknote").hide();
+            this.$(".btn-options-printpicknote").attr("style", "display: none !important;");
             this.$(".btn-options-print").show();
             this.ctr++;
           } else {
@@ -164,6 +165,7 @@ define([
             this.$(".btn-options-convertquote").hide();
             this.$(".btn-options-updatequote").hide();
             this.$(".btn-options-printpicknote").hide();
+            this.$(".btn-options-printpicknote").attr("style", "display: none !important;");
             this.$(".btn-options-resume").hide();
             this.$(".btn-options-print").show();
             this.ctr++;
@@ -203,6 +205,7 @@ define([
             this.$(".btn-options-updatequote").hide();
             this.$(".btn-options-resume").hide();
             this.$(".btn-options-printpicknote").hide();
+            this.$(".btn-options-printpicknote").attr("style", "display: none !important;");
             this.$(".btn-options-print").show();
             this.ctr++;
           }
@@ -220,6 +223,7 @@ define([
             this.$(".btn-options-convertorder").hide();
             this.$(".btn-options-updateorder").hide();
             this.$(".btn-options-printpicknote").hide();
+            this.$(".btn-options-printpicknote").attr("style", "display: none !important;");
             this.$(".btn-options-updatequote").show();
             this.ctr++;
             this.$(".btn-options-resume").hide();
@@ -239,6 +243,7 @@ define([
             this.$(".btn-options-updateorder").hide();
             this.$(".btn-options-updatequote").hide();
             this.$(".btn-options-printpicknote").hide();
+            this.$(".btn-options-printpicknote").attr("style", "display: none !important;");
             this.$(".btn-options-resume").hide();
             this.$(".btn-options-print").show();
             this.ctr++;
@@ -253,6 +258,7 @@ define([
           this.$(".btn-options-updatequote").hide();
           this.$(".btn-options-resume").hide();
           this.$(".btn-options-printpicknote").hide();
+          this.$(".btn-options-printpicknote").attr("style", "display: none !important;");
           this.$(".btn-options-print").show();
           this.ctr++;
           break;
@@ -263,6 +269,7 @@ define([
           this.$(".btn-options-updateorder").hide();
           this.$(".btn-options-convertquote").hide();
           this.$(".btn-options-printpicknote").hide();
+          this.$(".btn-options-printpicknote").attr("style", "display: none !important;");
           this.$(".btn-options-updatequote").hide();
           this.$(".btn-options-print").show();
           this.ctr++;
