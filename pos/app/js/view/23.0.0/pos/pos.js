@@ -6885,6 +6885,8 @@ define([
         $(".summary-right").children("div:last-child").show();
         if (Global.Preference.AllowChangeTaxCode) $(".summary-right").find("#view-tax").attr("style", "color: #0B4A8D; cursor: pointer;");
       }
+
+       Global.PaymentType = null;
   },
 
     ClearTransaction: function() {
@@ -6998,6 +7000,8 @@ define([
         if (Global.Preference.AllowChangeTaxCode) $(".summary-right").find("#view-tax").attr("style", "color: #0B4A8D; cursor: pointer;");
       }
       this.InitializeItems();
+
+      Global.PaymentType = null;
     },
 
     RetrieveShipTo: function(_rows, _criteria) {
@@ -10744,6 +10748,13 @@ define([
 
     ReprintAndEmailTransaction: function(transaction) {
       if (Global.PrintOptions.Reprint) {
+
+         var paymentType = transaction.get("PaymentType");
+         if(paymentType!=null) {
+             if(paymentType == Enum.PaymentType.CreditCard) Global.PaymentType = Enum.PaymentType.CreditCard;
+          }
+
+
         switch (Global.LookupMode) {
           case Enum.LookupMode.Invoice:
             this.ProcessPrintAndEmail(transaction.get("InvoiceCode"), "CreateInvoice", null);
