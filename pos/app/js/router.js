@@ -141,6 +141,17 @@
 			Reports: 'view/21.0.0/reports/reports'
 		},
 		{
+			POS: 'view/22.0.0/pos/pos',
+			Kiosk: 'view/22.0.0/kiosk/kiosk',
+			KioskCustomer: 'view/22.0.0/kiosk/customer/kioskcustomer',
+			KioskPayment: 'view/22.0.0/kiosk/payment/kioskpayment',
+			SecondaryDisplay: 'view/22.0.0/secondarydisplay/secondarydisplay',
+			Products: 'view/22.0.0/products/products',
+			Customers: 'view/22.0.0/customers/customers',
+			Settings: 'view/22.0.0/settings/settings',
+			Reports: 'view/22.0.0/reports/reports'
+		},
+		{
 			POS: 'view/23.0.0/pos/pos',
 			Kiosk: 'view/23.0.0/kiosk/kiosk',
 			KioskCustomer: 'view/23.0.0/kiosk/customer/kioskcustomer',
