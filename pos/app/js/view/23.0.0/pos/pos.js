@@ -2581,11 +2581,21 @@ define([
     
     },
 
-    LoadUPCItemList: function(response, upcCode) {
+   LoadUPCItemList: function(response, upcCode) {
       if (!Shared.IsNullOrWhiteSpace(response.SaleItems)) {
         var _length = response.SaleItems.length;
         var _saleItemCollection = new BaseCollection();
         _saleItemCollection.reset(response.SaleItems);
+
+       //Start Added by mark reyes ticket id: WHMCS-257925 7/15/24
+        var _self = this;
+        var ctr = 0;
+        var _transactionType = Global.TransactionType;
+        if (Global.TransactionType == Enum.TransactionType.UpdateInvoice) _transactionType = Enum.TransactionType.ResumeSale;
+        var couponID =  this.GetCouponID();
+
+        if (!couponID) couponID = "";
+
         if (_length > 1) {
           if (!Shared.IsNullOrWhiteSpace(this.upcItemListView)) {
             this.upcItemListView.unbind();
@@ -2593,24 +2603,152 @@ define([
             this.upcItemListView = null;
           }
 
-          $("#upcItemListContainer").append("<div id='upcMainListContainer'></div>");
-          this.upcItemListView = new UPCItemsView({
-            el: $("#upcMainListContainer"),
-            collection: _saleItemCollection,
-            parentEl: $("#upcItemListContainer")
-          });
+      
+         
+        _saleItemCollection.each(function(upcitem) {       
+          var _itemLookup = new LookupCriteriaModel();
 
-          this.upcItemListView.InitializeChildViews(upcCode);
-          this.upcItemListView.on("AddSelectedItem", this.AddSelectedUpcItem, this);
-          $("#main-transaction-blockoverlay").show();
-        } else {
+          _itemLookup.set({
+                  ItemCode: upcitem.get("ItemCode"),
+                  CustomerCode: Global.CustomerCode,
+                  WarehouseCode: Global.LocationCode,
+                  UnitMeasureCode: null,
+                  IsTaxByLocation: Global.Preference.TaxByLocation,
+                  CouponId: couponID,
+                  WebsiteCode: Shared.GetWebsiteCode(),
+                  ShipToCode: Global.ShipTo.ShipToCode,
+                  DiscountType: Global.ShipTo.DiscountType,
+                  DiscountPercent: Global.ShipTo.DiscountPercent,
+                  DiscountableDays: Global.ShipTo.DiscountableDays,
+                  TaxCode: upcitem.get("TaxCode"),
+                  IsUsePOSShippingMethod: Global.Preference.IsUsePOSShippingMethod,
+                  POSShippingMethod: Global.Preference.POSShippingMethod
+                })
+
+                //New Fields for Stock Verification
+                _itemLookup.set({
+                  SimilarItemsOnCart: _self.GetSimilarItemsOnCart(_itemLookup, true),
+                  DocumentCode: _self.GetTransactionCodeForStockVerification(),
+                  TransactionType: _transactionType,
+                  ShowPhasedOutItems: _self.IsReturn()
+                });
+
+                _itemLookup.url = Global.ServiceUrl + Service.SOP + Method.SALEITEMPRICETAXBYUPC;
+                _itemLookup.save(null, {
+                  success: function(model, response) {
+                    if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+                    ctr+=1;
+                    var sale = _.first(response.SaleItems);
+                     upcitem.set({
+                          Tax: sale.Tax
+                      });
+
+                        if(ctr == _saleItemCollection.length) {
+                          $("#upcItemListContainer").append("<div id='upcMainListContainer'></div>");
+                        _self.upcItemListView = new UPCItemsView({
+                          el: $("#upcMainListContainer"),
+                          collection: _saleItemCollection,
+                          parentEl: $("#upcItemListContainer")
+                        });
+
+                        _self.upcItemListView.InitializeChildViews(upcCode);
+                        _self.upcItemListView.on("AddSelectedItem", _self.AddSelectedUpcItem, _self);
+                         $("#main-transaction-blockoverlay").show();
+                       }
+                   
+
+                  },
+                  error: function(model, error, response) {
+                    if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+                    model.RequestError(error, "Error");
+                  }
+                });
+        
+        });
+
+        
+         // if(ctr == _saleItemCollection.length) {
+         //    $("#upcItemListContainer").append("<div id='upcMainListContainer'></div>");
+         //  this.upcItemListView = new UPCItemsView({
+         //    el: $("#upcMainListContainer"),
+         //    collection: _saleItemCollection,
+         //    parentEl: $("#upcItemListContainer")
+         //  });
+
+         //  this.upcItemListView.InitializeChildViews(upcCode);
+         //  this.upcItemListView.on("AddSelectedItem", this.AddSelectedUpcItem, this);
+         //  $("#main-transaction-blockoverlay").show();
+         // }
+
+         
+        
+        } 
+        else
+         {
           var _tempCollection = new BaseCollection();
           _tempCollection.reset(response.SaleItems);
-          this.AddSelectedUpcItem(_tempCollection);
+
+         _tempCollection.each(function(upcitem) {       
+          var _itemLookup = new LookupCriteriaModel();
+
+          _itemLookup.set({
+                  ItemCode: upcitem.get("ItemCode"),
+                  CustomerCode: Global.CustomerCode,
+                  WarehouseCode: Global.LocationCode,
+                  UnitMeasureCode: null,
+                  IsTaxByLocation: Global.Preference.TaxByLocation,
+                  CouponId: couponID,
+                  WebsiteCode: Shared.GetWebsiteCode(),
+                  ShipToCode: Global.ShipTo.ShipToCode,
+                  DiscountType: Global.ShipTo.DiscountType,
+                  DiscountPercent: Global.ShipTo.DiscountPercent,
+                  DiscountableDays: Global.ShipTo.DiscountableDays,
+                  TaxCode: upcitem.get("TaxCode"),
+                  IsUsePOSShippingMethod: Global.Preference.IsUsePOSShippingMethod,
+                  POSShippingMethod: Global.Preference.POSShippingMethod
+                })
+
+                //New Fields for Stock Verification
+                _itemLookup.set({
+                  SimilarItemsOnCart: _self.GetSimilarItemsOnCart(_itemLookup, true),
+                  DocumentCode: _self.GetTransactionCodeForStockVerification(),
+                  TransactionType: _transactionType,
+                  ShowPhasedOutItems: _self.IsReturn()
+                });
+
+                _itemLookup.url = Global.ServiceUrl + Service.SOP + Method.SALEITEMPRICETAXBYUPC;
+                _itemLookup.save(null, {
+                  success: function(model, response) {
+                    if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+                    ctr+=1;
+                    var sale = _.first(response.SaleItems);
+                     upcitem.set({
+                          Tax: sale.Tax
+                      });
+
+                        if(ctr == _tempCollection.length) {
+                          _self.AddSelectedUpcItem(_tempCollection);
+                       }
+                   
+
+                  },
+                  error: function(model, error, response) {
+                    if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
+                    model.RequestError(error, "Error");
+                  }
+                });
+        
+        });
+
+
+          //this.AddSelectedUpcItem(_tempCollection);
         }
+
+         //End Added by mark reyes ticket id: WHMCS-257925 7/15/24
 
       }
     },
+
 
     AddSelectedUpcItem: function(collection) {
       var self = this;
