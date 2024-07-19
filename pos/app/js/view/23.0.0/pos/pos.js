@@ -3878,7 +3878,8 @@ define([
         this.RemoveTermDiscountPayment();
       //var taxCode = window.sessionStorage.getItem('selected_taxcode');
       var taxCode = item.get('TaxCode');
-
+      if(taxCode == null) taxCode = item.get('Tax');
+      
       if (item.get('ItemType') === Enum.ItemType.Kit) {
         var kitItems = new BaseCollection();
         kitItems.add(JSON.parse(window.sessionStorage.getItem('kitItems-' + item.get('LineNum'))));
