@@ -52,6 +52,10 @@ define([
       this.trigger("printPickNote", this);
     },
 
+    printItemizeReport: function() {
+      this.trigger("printItemizeReport", this);
+    },
+
     readyForPickUp: function() {
       this.trigger("readyForPickUp", this);
     },
