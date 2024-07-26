@@ -122,6 +122,7 @@ define([
     _model, _paymentType, _collection, _discountAmount, _cleared, _isReasoned = false,
     _naviThis, _view;
   var isClosedWorkstation = false;
+  var fromReviewTransaction = false;
   /**
   The main transaction screen of the Connected Sale
 
@@ -837,22 +838,37 @@ define([
       var selectedPosPrinter = Global.POSSalesReceipt || 1;
       var reportCode = "";
       var copies = 1;
-
+      if(Global.PaymentType == null) Global.PaymentType = Global.PaymentMethod;
       switch(type.toLowerCase()) {
         case "createinvoice":
         case "updateinvoice":
         case "convertorder":
-          reportCode = selectedPosPrinter == 1 ? preference.InvoiceReportCode : preference.InvoiceReportCode2;
-          printer = selectedPosPrinter == 1 ? preference.InvoiceReportPrinter : preference.InvoiceReportPrinter2;
-          copies = selectedPosPrinter == 1 ? preference.InvoiceReceiptCopies : preference.InvoiceReceiptCopies2;
+         if(Global.PaymentType == Enum.PaymentType.CreditCard &&  Global.OfflineCharge == false) {
+              reportCode = preference.CreditCardReportCode;
+              printer = preference.CreditCardReportPrinter;
+              copies = preference.CreditCardReceiptCopies;
+           }
+           else  {
+            reportCode = selectedPosPrinter == 1 ? preference.InvoiceReportCode : preference.InvoiceReportCode2;
+            printer = selectedPosPrinter == 1 ? preference.InvoiceReportPrinter : preference.InvoiceReportPrinter2;
+            copies = selectedPosPrinter == 1 ? preference.InvoiceReceiptCopies : preference.InvoiceReceiptCopies2;
+           }
         //  reportCode = this.GetSelectedReportCode(reportCode, preference);
           break;
         case "createorder":
         case "updateorder":
         case "convertquote":
-          reportCode = preference.OrderReportCode;
-          printer = preference.OrderReportPrinter;
-          copies = preference.OrderReceiptCopies;
+         if(Global.PaymentType == Enum.PaymentType.CreditCard &&  Global.OfflineCharge == false)
+          {
+            reportCode = preference.CreditCardReportCode;
+            printer = preference.CreditCardReportPrinter;
+            copies = preference.CreditCardReceiptCopies;
+          }
+          else  {
+            reportCode = preference.OrderReportCode;
+            printer = preference.OrderReportPrinter;
+            copies = preference.OrderReceiptCopies;
+          }
         //  reportCode = this.GetSelectedReportCode(reportCode, preference);
           break;
         case "createquote":
@@ -894,6 +910,73 @@ define([
         copies: copies
       };
     },
+
+    GetCustomerPOSTransactionReport: function(type, preference) {
+      var selectedPosPrinter = Global.POSSalesReceipt || 1;
+      var reportCode = "";
+      var copies = 1;
+
+      switch(type.toLowerCase()) {
+        case "createinvoice":
+        case "updateinvoice":
+        case "convertorder":
+          {
+            reportCode = selectedPosPrinter == 1 ? preference.InvoiceReportCode : preference.InvoiceReportCode2;
+            printer = selectedPosPrinter == 1 ? preference.InvoiceReportPrinter : preference.InvoiceReportPrinter2;
+            copies = selectedPosPrinter == 1 ? preference.InvoiceReceiptCopies : preference.InvoiceReceiptCopies2;
+           }
+        //  reportCode = this.GetSelectedReportCode(reportCode, preference);
+          break;
+        case "createorder":
+        case "updateorder":
+        case "convertquote":         
+          {
+            reportCode = preference.OrderReportCode;
+            printer = preference.OrderReportPrinter;
+            copies = preference.OrderReceiptCopies;
+          }
+        //  reportCode = this.GetSelectedReportCode(reportCode, preference);
+          break;
+        case "createquote":
+          reportCode = preference.QuoteReportCode;
+          printer = preference.QuoteReportPrinter;
+          copies = preference.QuoteReceiptCopies;
+          break;
+        case "createcreditmemo":
+        case "createrefund":
+          reportCode = preference.ReturnReportCode;
+          printer = preference.ReturnReportPrinter;
+          copies = preference.ReturnReceiptCopies;
+          break;
+        case "creditcard":
+          reportCode = preference.CreditCardReportCode;
+          printer = preference.CreditCardReportPrinter;
+          copies = preference.CreditCardReceiptCopies;
+          break;
+        case "createinvoicepayment":
+          reportCode = preference.SalePaymentReportCode;
+          printer = preference.SalePaymentReportPrinter;
+          copies = preference.SalePaymentReceiptCopies;
+          break;
+        case "createpicknote":
+          reportCode = preference.PickNoteReportCode;
+          printer = preference.PickNoteReportPrinter;
+          copies = preference.PickNoteReportPrinter;
+          break;
+        default:
+          //Reports other than receipts above
+          printer = preference.DefaultPrinter;
+          copies = 1;
+          break;
+      }
+
+      return {
+        printer: printer || preference.DefaultPrinter,
+        reportCode: reportCode,
+        copies: copies
+      };
+    },
+
 
     ResetSalesRepUserAccount: function(SalesRepUserAccount) {
       Global.SalesRepUserAccount = SalesRepUserAccount;
@@ -1402,6 +1485,7 @@ define([
       this.reviewTransactionCollection.on('printTransaction', this.PrintAndEmailReviewTransaction, this);
       this.reviewTransactionCollection.on('resumeTransaction', this.LoadInvoiceForResume, this);
       this.reviewTransactionCollection.on('printPickNote', this.PrintPickNote, this);
+      this.reviewTransactionCollection.on('printItemizeReport', this.PrintItemizeReport, this);
       this.reviewTransactionCollection.on('readyForPickUp', this.SendReadyForInvoiceEmailNotification, this);
       this.reviewTransactionCollection.on('repickItem', this.SetOrderPrintPickNote, this);
     },
@@ -1422,6 +1506,36 @@ define([
           navigator.notification.alert("Error.", null, "Error", "OK");
         }
       });
+    },
+
+     PrintItemizeReport: function(transactionModel) {
+
+       if (this.ValidatePrintReview(transactionModel)) {
+        fromReviewTransaction = true;
+        Global.PreviousReprintValue = true;
+        Global.PrintOptions.Reprint = true;
+        this.reviewTransactionsView.Close();
+        this.InitializeCustomerPayments(transactionModel);
+        //this.PromptCustomerPO(transactionModel);//jj15x14
+        //this.PromptToPrint(transactionModel);
+      }
+
+      // var self = this;
+      // var transactionCode = null;
+      // var selectedReportType = null;
+      // if (Global.LookupMode == Enum.LookupMode.Order || Global.LookupMode == Enum.LookupMode.Quote) 
+      // {
+      //     selectedReportType = "CreateOrder";
+      //     transactionCode = model.get("SalesOrderCode");
+      // }
+         
+      // else Global.LookupMode == Enum.LookupMode.Invoice 
+      // {
+      //     selectedReportType = "CreateInvoice";
+      //     transactionCode = model.get("InvoiceCode");
+      // }
+        
+      // this.GenerateTransactionReport(selectedReportType, transactionCode,false);
     },
 
     SetOrderReadyToInvoice: function(model) {
@@ -2581,21 +2695,11 @@ define([
     
     },
 
-   LoadUPCItemList: function(response, upcCode) {
+    LoadUPCItemList: function(response, upcCode) {
       if (!Shared.IsNullOrWhiteSpace(response.SaleItems)) {
         var _length = response.SaleItems.length;
         var _saleItemCollection = new BaseCollection();
         _saleItemCollection.reset(response.SaleItems);
-
-       //Start Added by mark reyes ticket id: WHMCS-257925 7/15/24
-        var _self = this;
-        var ctr = 0;
-        var _transactionType = Global.TransactionType;
-        if (Global.TransactionType == Enum.TransactionType.UpdateInvoice) _transactionType = Enum.TransactionType.ResumeSale;
-        var couponID =  this.GetCouponID();
-
-        if (!couponID) couponID = "";
-
         if (_length > 1) {
           if (!Shared.IsNullOrWhiteSpace(this.upcItemListView)) {
             this.upcItemListView.unbind();
@@ -2603,152 +2707,24 @@ define([
             this.upcItemListView = null;
           }
 
-      
-         
-        _saleItemCollection.each(function(upcitem) {       
-          var _itemLookup = new LookupCriteriaModel();
+          $("#upcItemListContainer").append("<div id='upcMainListContainer'></div>");
+          this.upcItemListView = new UPCItemsView({
+            el: $("#upcMainListContainer"),
+            collection: _saleItemCollection,
+            parentEl: $("#upcItemListContainer")
+          });
 
-          _itemLookup.set({
-                  ItemCode: upcitem.get("ItemCode"),
-                  CustomerCode: Global.CustomerCode,
-                  WarehouseCode: Global.LocationCode,
-                  UnitMeasureCode: null,
-                  IsTaxByLocation: Global.Preference.TaxByLocation,
-                  CouponId: couponID,
-                  WebsiteCode: Shared.GetWebsiteCode(),
-                  ShipToCode: Global.ShipTo.ShipToCode,
-                  DiscountType: Global.ShipTo.DiscountType,
-                  DiscountPercent: Global.ShipTo.DiscountPercent,
-                  DiscountableDays: Global.ShipTo.DiscountableDays,
-                  TaxCode: upcitem.get("TaxCode"),
-                  IsUsePOSShippingMethod: Global.Preference.IsUsePOSShippingMethod,
-                  POSShippingMethod: Global.Preference.POSShippingMethod
-                })
-
-                //New Fields for Stock Verification
-                _itemLookup.set({
-                  SimilarItemsOnCart: _self.GetSimilarItemsOnCart(_itemLookup, true),
-                  DocumentCode: _self.GetTransactionCodeForStockVerification(),
-                  TransactionType: _transactionType,
-                  ShowPhasedOutItems: _self.IsReturn()
-                });
-
-                _itemLookup.url = Global.ServiceUrl + Service.SOP + Method.SALEITEMPRICETAXBYUPC;
-                _itemLookup.save(null, {
-                  success: function(model, response) {
-                    if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-                    ctr+=1;
-                    var sale = _.first(response.SaleItems);
-                     upcitem.set({
-                          Tax: sale.Tax
-                      });
-
-                        if(ctr == _saleItemCollection.length) {
-                          $("#upcItemListContainer").append("<div id='upcMainListContainer'></div>");
-                        _self.upcItemListView = new UPCItemsView({
-                          el: $("#upcMainListContainer"),
-                          collection: _saleItemCollection,
-                          parentEl: $("#upcItemListContainer")
-                        });
-
-                        _self.upcItemListView.InitializeChildViews(upcCode);
-                        _self.upcItemListView.on("AddSelectedItem", _self.AddSelectedUpcItem, _self);
-                         $("#main-transaction-blockoverlay").show();
-                       }
-                   
-
-                  },
-                  error: function(model, error, response) {
-                    if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-                    model.RequestError(error, "Error");
-                  }
-                });
-        
-        });
-
-        
-         // if(ctr == _saleItemCollection.length) {
-         //    $("#upcItemListContainer").append("<div id='upcMainListContainer'></div>");
-         //  this.upcItemListView = new UPCItemsView({
-         //    el: $("#upcMainListContainer"),
-         //    collection: _saleItemCollection,
-         //    parentEl: $("#upcItemListContainer")
-         //  });
-
-         //  this.upcItemListView.InitializeChildViews(upcCode);
-         //  this.upcItemListView.on("AddSelectedItem", this.AddSelectedUpcItem, this);
-         //  $("#main-transaction-blockoverlay").show();
-         // }
-
-         
-        
-        } 
-        else
-         {
+          this.upcItemListView.InitializeChildViews(upcCode);
+          this.upcItemListView.on("AddSelectedItem", this.AddSelectedUpcItem, this);
+          $("#main-transaction-blockoverlay").show();
+        } else {
           var _tempCollection = new BaseCollection();
           _tempCollection.reset(response.SaleItems);
-
-         _tempCollection.each(function(upcitem) {       
-          var _itemLookup = new LookupCriteriaModel();
-
-          _itemLookup.set({
-                  ItemCode: upcitem.get("ItemCode"),
-                  CustomerCode: Global.CustomerCode,
-                  WarehouseCode: Global.LocationCode,
-                  UnitMeasureCode: null,
-                  IsTaxByLocation: Global.Preference.TaxByLocation,
-                  CouponId: couponID,
-                  WebsiteCode: Shared.GetWebsiteCode(),
-                  ShipToCode: Global.ShipTo.ShipToCode,
-                  DiscountType: Global.ShipTo.DiscountType,
-                  DiscountPercent: Global.ShipTo.DiscountPercent,
-                  DiscountableDays: Global.ShipTo.DiscountableDays,
-                  TaxCode: upcitem.get("TaxCode"),
-                  IsUsePOSShippingMethod: Global.Preference.IsUsePOSShippingMethod,
-                  POSShippingMethod: Global.Preference.POSShippingMethod
-                })
-
-                //New Fields for Stock Verification
-                _itemLookup.set({
-                  SimilarItemsOnCart: _self.GetSimilarItemsOnCart(_itemLookup, true),
-                  DocumentCode: _self.GetTransactionCodeForStockVerification(),
-                  TransactionType: _transactionType,
-                  ShowPhasedOutItems: _self.IsReturn()
-                });
-
-                _itemLookup.url = Global.ServiceUrl + Service.SOP + Method.SALEITEMPRICETAXBYUPC;
-                _itemLookup.save(null, {
-                  success: function(model, response) {
-                    if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-                    ctr+=1;
-                    var sale = _.first(response.SaleItems);
-                     upcitem.set({
-                          Tax: sale.Tax
-                      });
-
-                        if(ctr == _tempCollection.length) {
-                          _self.AddSelectedUpcItem(_tempCollection);
-                       }
-                   
-
-                  },
-                  error: function(model, error, response) {
-                    if (!Global.isBrowserMode) window.plugins.cbNetworkActivity.HideIndicator();
-                    model.RequestError(error, "Error");
-                  }
-                });
-        
-        });
-
-
-          //this.AddSelectedUpcItem(_tempCollection);
+          this.AddSelectedUpcItem(_tempCollection);
         }
-
-         //End Added by mark reyes ticket id: WHMCS-257925 7/15/24
 
       }
     },
-
 
     AddSelectedUpcItem: function(collection) {
       var self = this;
@@ -4000,8 +3976,8 @@ define([
     CalculateItemExtPrice: function(item, onSuccess, onError) {
         this.RemoveTermDiscountPayment();
       //var taxCode = window.sessionStorage.getItem('selected_taxcode');
-      var taxCode = item.get('TaxCode');
-      if(taxCode == null) taxCode = item.get('Tax');
+       var taxCode = item.get('TaxCode');
+       if(taxCode == null) taxCode = item.get('Tax');
 
       if (item.get('ItemType') === Enum.ItemType.Kit) {
         var kitItems = new BaseCollection();
@@ -6379,7 +6355,7 @@ define([
         }
 
         if (Global.TransactionType == Enum.TransactionType.Sale || Global.TransactionType == Enum.TransactionType.ConvertOrder) {
-          var invoice = response.Invoices[0];
+         // var invoice = response.Invoices[0];
 //          if (invoice.SurplusMessage) navigator.notification.alert(invoice.SurplusMessage, null, "Surplus Amount", "OK", true);
         }
 
@@ -7024,8 +7000,6 @@ define([
         $(".summary-right").children("div:last-child").show();
         if (Global.Preference.AllowChangeTaxCode) $(".summary-right").find("#view-tax").attr("style", "color: #0B4A8D; cursor: pointer;");
       }
-
-       Global.PaymentType = null;
   },
 
     ClearTransaction: function() {
@@ -7139,8 +7113,6 @@ define([
         if (Global.Preference.AllowChangeTaxCode) $(".summary-right").find("#view-tax").attr("style", "color: #0B4A8D; cursor: pointer;");
       }
       this.InitializeItems();
-
-      Global.PaymentType = null;
     },
 
     RetrieveShipTo: function(_rows, _criteria) {
@@ -10889,8 +10861,20 @@ define([
       if (Global.PrintOptions.Reprint) {
 
          var paymentType = transaction.get("PaymentType");
-         if(paymentType!=null) {
-             if(paymentType == Enum.PaymentType.CreditCard) Global.PaymentType = Enum.PaymentType.CreditCard;
+         if(paymentType!=null) 
+          {
+             if(paymentType == Enum.PaymentType.CreditCard) 
+             {
+               var paymentMethod = transaction.get("PaymentMethod");
+               if(paymentMethod!=null) {
+                    if(paymentMethod == "Cash/Other") Global.PaymentType = Enum.PaymentType.Cash;
+                    else if(paymentMethod == "Check/Cheque") Global.PaymentType = Enum.PaymentType.Check;
+                    else Global.PaymentType = Enum.PaymentType.CreditCard;
+               }
+               else Global.PaymentType = Enum.PaymentType.CreditCard;
+                
+             } 
+            
           }
 
         switch (Global.LookupMode) {
@@ -11084,8 +11068,8 @@ define([
 
       response.IsPrintPickNote = model.get('IsPrintPickNote') || false;
 
-      if (Global.Preference.IsAirprint) this.PrintDynamicReceipt(response, this._transactionCode, this._reportCode, false, this._isWorkstation);
-      else this.PrintDynamicReceipt(response, this._transactionCode, this._reportCode, true, this._isWorkstation);
+      if (Global.Preference.IsAirprint) this.PrintDynamicReceipt(response, this._transactionCode, this.reportType, false, this._isWorkstation, Global.PaymentType);
+      else this.PrintDynamicReceipt(response, this._transactionCode, this.reportType, true, this._isWorkstation, Global.PaymentType);
 
       if (Global.PrintOptions.EmailReceipt && !this._isWorkstation && !response.IsPrintPickNote) {
         this.StoreLastPrintingParameters(model);
@@ -11272,6 +11256,62 @@ define([
       return reportCode;
     },
 
+    GetTransactionReportCode: function(type, preference) {
+      var reportCode = this.GetCustomerPOSTransactionReport(type, preference).reportCode;
+
+      var isAirPrint = Global.Preference.IsAirprint;
+      Global.Preference.IsAirprint = true;
+
+      if (!reportCode || reportCode == "") {
+        if (type == "CreateCreditMemo" || type == "ConvertInvoice" || type == "CreateRefund") {
+          reportCode = preference.ReturnReportCode;
+        } else if (type == "CreateInvoice" || type == "ConvertOrder" || type == "UpdateInvoice" || type == "Suspended") {
+          if (!Global.Preference.IsAirprint) {
+            reportCode = Global.ReportCode.Invoice;
+          } else {
+            reportCode = this.GetSelectedReportCode(preference.InvoiceReportCode, preference);
+          }
+        } else if (type == "CreateOrder" || type == "UpdateOrder" || type == "ConvertQuote") {
+          if (!Global.Preference.IsAirprint) {
+            reportCode = Global.ReportCode.Order;
+          } else {
+            reportCode = this.GetSelectedReportCode(preference.OrderReportCode, preference);
+          }
+        } else if (type == "CreateQuote" || type == "UpdateQuote") {
+          if (!Global.Preference.IsAirprint) {
+            reportCode = Global.ReportCode.Quote;
+          } else {
+            reportCode = preference.QuoteReportCode;
+          }
+        } else if (type == "CreateInvoicePayment") {
+          if (!Global.Preference.IsAirprint) {
+            reportCode = Global.ReportCode.Payment;
+          } else {
+            reportCode = preference.SalePaymentReportCode;
+          }
+        } else if (type === "Xtape") {
+          reportCode = preference.XTapeReportCode;
+        } else if (type === "LastZtape" || type === "SpecificZtape" || type === "DateZtape") {
+          reportCode = preference.ZTapeReportCode;
+        } else if (type === "GiftCard") {
+          reportCode = Global.CustomerPreference.DefaultGiftCardReport;
+        } else if (type === "GiftCertificate") {
+          reportCode = Global.CustomerPreference.DefaultGiftCertificateReport;
+        } else if (type === "CreatePickNote") {
+          if (!Global.Preference.IsAirprint) {
+            reportCode = Global.ReportCode.PickNote;
+          } else {
+            reportCode = preference.PickNoteReportCode;
+          }
+        }
+      }
+
+      Global.Preference.IsAirprint = isAirPrint;
+
+      return reportCode;
+    },
+
+
     GetTransactionType: function(type) {
 
       var transactionType = "";
@@ -11296,6 +11336,101 @@ define([
       var reportService = Global.ServiceUrl + "ReportService.svc";
       var reportCode = this.GetReportCode(type, preference);
       var posReport = this.GetCustomerPOSReport(type, preference);
+      var isXtape = false,
+        isZtape = false;
+      var transactionType = this.GetTransactionType(type, isGiftCard);
+      var serviceContentUri;
+      var model;
+
+      if (isEmailReceipt) {
+        this.LockTransactionScreen(true, "Emailing Report...");
+        model = this.InitializeEmailReportSettingModel();
+        serviceContentUri = Global.ServiceUrl + Service.SOP + Method.EMAILREPORT;
+      } else {
+        this.LockTransactionScreen(true, "Processing Report...");
+        model = this.InitializePrintReportSettingModel();
+        serviceContentUri = Global.ServiceUrl + Service.POS + Method.EXPORTREPORT;
+        var isSilentPrint = ((Global.Preference.AutoPrintReceipt && Global.PrintOptions.SilentPrint) || Global.PrintOptions.SilentPrint);
+        if (type == "CreatePickNote") isSilentPrint = true;
+        if (!isSilentPrint) {
+          if (Global.isBrowserMode) serviceContentUri = Global.ServiceUrl + Service.POS + Method.SAVEREPORT
+        }
+
+      }
+
+      if (type === "Xtape") {
+        isXtape = true;
+      } else if (type === "LastZtape" || type === "SpecificZtape" || type === "DateZtape") {
+        isZtape = true;
+      }
+
+      var documentCodeName = "";
+
+      if (type === "CreateInvoice" ||
+        type === "CreateInvoicePayment" ||
+        type === "ConvertOrder" ||
+        type === "CreateCreditMemo" ||
+        type === "ConvertInvoice" ||
+        type === "CreateRefund" ||
+        type === "CreditCard" ||
+        type === "UpdateInvoice" ||
+        type === "GiftCard") {
+        documentCodeName = "InvoiceCode";
+      } else if (type === "CreateOrder" || type === "UpdateOrder" || type === "ConvertQuote" || type === "CreateQuote" || type === "UpdateQuote" || type === "CreatePickNote") {
+        documentCodeName = "SalesOrderCode";
+      }
+
+      var self = this;
+      var _parameters = this.CreateReportSettingParameters(transactionCode, documentCodeName, type, isXtape, isZtape, transactionType, reportCode, isEmailReceipt);
+
+      var onSuccess = function(collection) {
+        Shared.Reporting.AssignWorkstationID(_parameters, collection);
+        if (isGiftCard) var emailAddress = "test@test.com"
+        else var emailAddress = Global.PrintOptions.EmailAddress
+        model.set({
+          ServiceUri: reportService,
+          ServiceContentUri: serviceContentUri,
+          ReportName: reportCode,
+          UserName: Global.Username,
+          Password: Global.Password,
+          Parameters: _parameters,
+          IsEmail: isEmailReceipt,
+          IsAirPrint: preference.IsAirprint,
+          RecipientEmailAddress: emailAddress,
+          IsBrowserMode: Global.isBrowserMode,
+          ReportFileName: transactionCode,
+
+          //AddedForPickup
+          PickupOrderCode: isReadyForInvoice ? transactionCode : null,
+          IsReadyForInvoice: isReadyForInvoice,
+          IsPrintPickNote: (type == "CreatePickNote"),
+          WorkStationID: Global.POSWorkstationID
+        });
+
+        if (isEmailReceipt) self.ResetEmail();
+        self._transactionCode = transactionCode;
+        self._isWorkstation = (isXtape || isZtape);
+        self._reportCode = reportCode;
+        self._reportPrinter = posReport.printer;
+        self._reportCopies = posReport.copies;
+
+        model.url = serviceContentUri;
+        model.save(null, {
+          timeout: 0
+        });
+      }
+      Shared.Reporting.GetReportCriterias(onSuccess, "", reportCode);
+      //Global.PaymentType = "";
+      Global.IsUseINVDiscountReport = false;
+
+    },
+
+    GenerateTransactionReport: function(type, transactionCode, isEmailReceipt, isGiftCard, isReadyForInvoice) {
+
+      var preference = Global.Preference;
+      var reportService = Global.ServiceUrl + "ReportService.svc";
+      var reportCode = this.GetTransactionReportCode(type, preference);
+      var posReport = this.GetCustomerPOSTransactionReport(type, preference);
       var isXtape = false,
         isZtape = false;
       var transactionType = this.GetTransactionType(type, isGiftCard);
@@ -11513,7 +11648,7 @@ define([
       return _parameters;
     },
 
-    PrintDynamicReceipt: function(pageSettings, transactionCode, reportType, isReceiptPrinter, isWorkstation) {
+    PrintDynamicReceipt: function(pageSettings, transactionCode, reportType, isReceiptPrinter, isWorkstation, paymentType) {
       $("#printPreviewContainer").html('<div></div>');
       this.dynamicPrintView = new DynamicPrintPreview({
         el: $("#printPreviewContainer div"),
@@ -11529,8 +11664,10 @@ define([
       this.dynamicPrintView.on('AutoSignOut', this.SignOut, this);
       this.HideActivityIndicator();
       this.dynamicPrintView.Show(pageSettings);
+      
 
     },
+
 
     PrintInvoiceReceipt: function(invoiceCode, totalCashPayment) {
       this.GenerateReport(this.reportType, invoiceCode, false);
@@ -11557,7 +11694,14 @@ define([
     }, //jjx
 
     ProcessReceipt: function(transactionCode, totalCashPayment) {
-      this.GenerateReport(this.reportType, transactionCode, false);
+      if(!fromReviewTransaction) this.GenerateReport(this.reportType, transactionCode, false);
+      else 
+      {
+
+        this.GenerateTransactionReport(this.reportType, transactionCode,false);  
+        fromReviewTransaction = false;
+      } 
+     
     },
 
     EmailInvoiceReceipt: function(invoiceCode, toAddress, totalCashPayment) {

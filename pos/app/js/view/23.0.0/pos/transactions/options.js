@@ -30,6 +30,7 @@ define([
       "tap .btn-options-print": "btnOptionsPrint_tap",
       "tap .btn-options-resume": "btnOptionsResume_tap",
       "tap .btn-options-printpicknote": "btnOptionsPrintPickNote_tap",
+      "tap .btn-options-printitemize": "btnOptionsPrintItemize_tap",
       "tap .btn-options-readyforpickup": "btnOptionsReadyForPickUp_tap",
       "tap .btn-options-repickitem": "btnOptionsRepickItem_tap"
 
@@ -46,7 +47,8 @@ define([
 
     Show: function(x_coord, y_coord, model, opt) {
       opt = opt || {
-        PickupStage: 1
+        PickupStage: 1,
+        PaymentMethod: model.get('PaymentMethod')
       };
       this.model = model;
       this.DisplayButtons(opt);
@@ -96,6 +98,9 @@ define([
 
     DisplayButtons: function(opt) {
       this.ctr = 1; //determines how many buttons are present inside the popup containter. code added by Paulo Renz Ebron
+
+     this.$(".btn-options-printitemize").hide();
+      this.$(".btn-options-printitemize").attr("style", "display: none !important;");
 
       //Hide All Store Pickup Buttons
       if (Global.LookupMode == Enum.LookupMode.Order && Global.Preference.IsTrackStorePickUp === true) {
@@ -152,6 +157,12 @@ define([
             this.$(".btn-options-printpicknote").attr("style", "display: none !important;");
             this.$(".btn-options-print").show();
             this.ctr++;
+            if(opt.PaymentMethod == 'Credit Card') 
+             {
+
+               this.$(".btn-options-printitemize").show();
+                this.ctr++;
+             }
           } else {
             this.$(".btn-options-payment").hide();
             if (Global.Preference.AllowReturns === true) {
@@ -167,6 +178,8 @@ define([
             this.$(".btn-options-printpicknote").hide();
             this.$(".btn-options-printpicknote").attr("style", "display: none !important;");
             this.$(".btn-options-resume").hide();
+            this.$(".btn-options-printitemize").hide();
+            this.$(".btn-options-printitemize").attr("style", "display: none !important;");
             this.$(".btn-options-print").show();
             this.ctr++;
           }
@@ -187,10 +200,19 @@ define([
             this.$(".btn-options-convertquote").hide();
             this.$(".btn-options-updatequote").hide();
             this.$(".btn-options-resume").hide();
+             this.$(".btn-options-printitemize").hide();
+            this.$(".btn-options-printitemize").attr("style", "display: none !important;");
             this.$(".btn-options-print").show();
             this.ctr++;
             this.$(".btn-options-printpicknote").show();
             this.ctr++;
+            if(opt.PaymentMethod == 'Credit Card') 
+             {
+
+               this.$(".btn-options-printitemize").show();
+                this.ctr++;
+             }
+              
           } else {
             if ((Global.Preference.AllowSales === true) && (opt.PickupStage == 0 || opt.PickupStage == 3)){
               this.$(".btn-options-convertorder").show();
@@ -206,8 +228,10 @@ define([
             this.$(".btn-options-resume").hide();
             this.$(".btn-options-printpicknote").hide();
             this.$(".btn-options-printpicknote").attr("style", "display: none !important;");
-            this.$(".btn-options-print").show();
-            this.ctr++;
+            this.$(".btn-options-printitemize").hide();
+            this.$(".btn-options-printitemize").attr("style", "display: none !important;");
+              
+          
           }
           break;
         case Enum.LookupMode.Quote:
@@ -244,6 +268,8 @@ define([
             this.$(".btn-options-updatequote").hide();
             this.$(".btn-options-printpicknote").hide();
             this.$(".btn-options-printpicknote").attr("style", "display: none !important;");
+            this.$(".btn-options-printitemize").hide();
+            this.$(".btn-options-printitemize").attr("style", "display: none !important;");
             this.$(".btn-options-resume").hide();
             this.$(".btn-options-print").show();
             this.ctr++;
@@ -336,6 +362,11 @@ define([
       e.preventDefault();
       this.model.printPickNote();
     },
+
+   btnOptionsPrintItemize_tap: function(e) {
+      e.preventDefault();
+      this.model.printItemizeReport();
+    }, 
 
     btnOptionsReadyForPickUp_tap: function(e) {
       e.preventDefault();

@@ -14,11 +14,11 @@ define([
   'shared/shared',
   'model/lookupcriteria',
   'collection/transactions',
-  'view/24.0.0/pos/transactions/transaction',
-  'view/24.0.0/pos/transactions/options',
+  'view/23.0.0/pos/transactions/transaction',
+  'view/23.0.0/pos/transactions/options',
   'view/spinner',
-  'text!template/24.0.0/pos/transactions/transactions.tpl.html',
-  'text!template/24.0.0/pos/transactions/transactionlist.tpl.html',
+  'text!template/23.0.0/pos/transactions/transactions.tpl.html',
+  'text!template/23.0.0/pos/transactions/transactionlist.tpl.html',
   'js/libs/format.min.js',
   'js/libs/iscroll.js'
 ], function($, $$, _, Backbone, Global, Service, Method, Enum, Shared,
@@ -31,7 +31,7 @@ define([
     _transactionsTemplate: _.template(transactionsTemplate),
     events: {
       "tap .right-popover-btn": "btnClose_tap",
-      // "keyup #transactions-search" 		: "inputTransactionsSearch_keyUp",
+      // "keyup #transactions-search"     : "inputTransactionsSearch_keyUp",
       "keypress #transactions-search": "inputTransactionsSearch_keyPress",
       "tap #btnSales": "btnSales_tap",
       "tap #btnOrders": "btnOrders_tap",
@@ -43,7 +43,7 @@ define([
       "tap #btnSuspend": "btnSuspended_tap",
       "blur #transactions-search": "HideClearBtn",
       "tap #transactions-searchClearBtn": "ClearText",
-      //"change input:checkbox"				: "checkbox_change",
+      //"change input:checkbox"       : "checkbox_change",
       "tap #transactions-search": "ShowClearBtn",
       "change #transaction-date": "TransactionDateOnChange",
       "blur #transaction-date": "TransactionDateOnBlur",
@@ -236,7 +236,7 @@ define([
       this.firstTymLoaded = true;
       this.render();
       this.InitializeTransactionDate();
-      //	this.$("#reviewTransactions-content tbody").html("");
+      //  this.$("#reviewTransactions-content tbody").html("");
       this.InitializeFetchData();
       this.$el.show();
       Shared.BrowserModeDatePicker("#transaction-date", "datepicker", "", true);
@@ -524,7 +524,7 @@ define([
         model: item
       });
       this.$("#reviewTransactions-content tbody").append(_transactionView.render().el);
-      //	if(this.myScroll) this.myScroll.refresh();
+      //  if(this.myScroll) this.myScroll.refresh();
     },
 
     TransactionSelected: function(x_coord, y_coord, model) {
@@ -541,7 +541,8 @@ define([
       this.optionsView.Show(x_coord, y_coord, model, {
         // IsPrintPickNote : this.isPrintPickNote,
         // IsReadyForPickup : this.isReadyForPickup,
-        PickupStage: this.pickUpStage
+        PickupStage: this.pickUpStage,
+        PaymentMethod: model.get('PaymentMethod')
       });
     },
 
