@@ -838,37 +838,76 @@ define([
       var selectedPosPrinter = Global.POSSalesReceipt || 1;
       var reportCode = "";
       var copies = 1;
-      if(Global.PaymentType == null) Global.PaymentType = Global.PaymentMethod;
+    
       switch(type.toLowerCase()) {
         case "createinvoice":
         case "updateinvoice":
         case "convertorder":
-         if(Global.PaymentType == Enum.PaymentType.CreditCard &&  Global.OfflineCharge == false) {
-              reportCode = preference.CreditCardReportCode;
-              printer = preference.CreditCardReportPrinter;
-              copies = preference.CreditCardReceiptCopies;
-           }
-           else  {
-            reportCode = selectedPosPrinter == 1 ? preference.InvoiceReportCode : preference.InvoiceReportCode2;
-            printer = selectedPosPrinter == 1 ? preference.InvoiceReportPrinter : preference.InvoiceReportPrinter2;
-            copies = selectedPosPrinter == 1 ? preference.InvoiceReceiptCopies : preference.InvoiceReceiptCopies2;
-           }
+         if(Global.PrintOptions.Reprint) {
+              if(Global.PaymentMethod == Enum.PaymentType.CreditCard &&  Global.OfflineCharge == false) {
+                  reportCode = preference.CreditCardReportCode;
+                  printer = preference.CreditCardReportPrinter;
+                  copies = preference.CreditCardReceiptCopies;
+               }
+               else  
+                 {
+                  reportCode = selectedPosPrinter == 1 ? preference.InvoiceReportCode : preference.InvoiceReportCode2;
+                  printer = selectedPosPrinter == 1 ? preference.InvoiceReportPrinter : preference.InvoiceReportPrinter2;
+                  copies = selectedPosPrinter == 1 ? preference.InvoiceReceiptCopies : preference.InvoiceReceiptCopies2;
+                 }
+
+          }
+          else {
+
+               if(Global.PaymentType == Enum.PaymentType.CreditCard &&  Global.OfflineCharge == false) {
+                  reportCode = preference.CreditCardReportCode;
+                  printer = preference.CreditCardReportPrinter;
+                  copies = preference.CreditCardReceiptCopies;
+               }
+               else  
+               {
+                reportCode = selectedPosPrinter == 1 ? preference.InvoiceReportCode : preference.InvoiceReportCode2;
+                printer = selectedPosPrinter == 1 ? preference.InvoiceReportPrinter : preference.InvoiceReportPrinter2;
+                copies = selectedPosPrinter == 1 ? preference.InvoiceReceiptCopies : preference.InvoiceReceiptCopies2;
+               }
+
+          }
         //  reportCode = this.GetSelectedReportCode(reportCode, preference);
           break;
         case "createorder":
         case "updateorder":
         case "convertquote":
-         if(Global.PaymentType == Enum.PaymentType.CreditCard &&  Global.OfflineCharge == false)
-          {
-            reportCode = preference.CreditCardReportCode;
-            printer = preference.CreditCardReportPrinter;
-            copies = preference.CreditCardReceiptCopies;
+          if(Global.PrintOptions.Reprint)
+           {
+              if(Global.PaymentMethod == Enum.PaymentType.CreditCard &&  Global.OfflineCharge == false)
+                 {
+                     reportCode = preference.CreditCardReportCode;
+                     printer = preference.CreditCardReportPrinter;
+                     copies = preference.CreditCardReceiptCopies;
+                 }
+                 else  
+                 {
+                    reportCode = preference.OrderReportCode;
+                    printer = preference.OrderReportPrinter;
+                    copies = preference.OrderReceiptCopies;
+                  }
           }
-          else  {
-            reportCode = preference.OrderReportCode;
-            printer = preference.OrderReportPrinter;
-            copies = preference.OrderReceiptCopies;
-          }
+          else 
+           {
+
+              if(Global.PaymentType == Enum.PaymentType.CreditCard &&  Global.OfflineCharge == false)
+                 {
+                     reportCode = preference.CreditCardReportCode;
+                     printer = preference.CreditCardReportPrinter;
+                     copies = preference.CreditCardReceiptCopies;
+                 }
+                 else  
+                 {
+                    reportCode = preference.OrderReportCode;
+                    printer = preference.OrderReportPrinter;
+                    copies = preference.OrderReceiptCopies;
+                  }
+           }
         //  reportCode = this.GetSelectedReportCode(reportCode, preference);
           break;
         case "createquote":
@@ -10860,20 +10899,12 @@ define([
     ReprintAndEmailTransaction: function(transaction) {
       if (Global.PrintOptions.Reprint) {
 
-         var paymentType = transaction.get("PaymentType");
-         if(paymentType!=null) 
+         var paymentMethod = transaction.get("PaymentMethod");
+         if(paymentMethod!=null) 
           {
-             if(paymentType == Enum.PaymentType.CreditCard) 
-             {
-               var paymentMethod = transaction.get("PaymentMethod");
-               if(paymentMethod!=null) {
-                    if(paymentMethod == "Cash/Other") Global.PaymentType = Enum.PaymentType.Cash;
-                    else if(paymentMethod == "Check/Cheque") Global.PaymentType = Enum.PaymentType.Check;
-                    else Global.PaymentType = Enum.PaymentType.CreditCard;
-               }
-               else Global.PaymentType = Enum.PaymentType.CreditCard;
-                
-             } 
+             if(paymentMethod == "Cash/Other") Global.PaymentMethod = Enum.PaymentType.Cash;
+             else if(paymentMethod == "Check/Cheque") Global.PaymentMethod = Enum.PaymentType.Check;
+             else Global.PaymentMethod = Enum.PaymentType.CreditCard;
             
           }
 
