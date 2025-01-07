@@ -1,0 +1,6 @@
+<td align="left" class="td-invoicecode"><%= TransactionCode %></td>
+<td align="left" class="td-customercode"><%= BillToCode.substring(0,13) %></td>
+<td align="left" class="td-customername"><%= FormattedBillToName %></td>
+<td align="left" class="td-invoicedate"><%= FormattedDate %></td>
+<td align="right" class="td-total"><%= CurrencySymbol + ' ' + format("#,##0.00", TotalRate.toFixed(2)) %></td>
+<td align="right" class="td-balance"><%= CurrencySymbol + ' ' + format("#,##0.00", BalanceRate.toFixed(2)) %></td>
