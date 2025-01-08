@@ -172,7 +172,18 @@
 			Customers: 'view/24.0.0/customers/customers',
 			Settings: 'view/24.0.0/settings/settings',
 			Reports: 'view/24.0.0/reports/reports'
-		}	
+		},
+		{
+			POS: 'view/25.0.0/pos/pos',
+			Kiosk: 'view/25.0.0/kiosk/kiosk',
+			KioskCustomer: 'view/25.0.0/kiosk/customer/kioskcustomer',
+			KioskPayment: 'view/25.0.0/kiosk/payment/kioskpayment',
+			SecondaryDisplay: 'view/25.0.0/secondarydisplay/secondarydisplay',
+			Products: 'view/25.0.0/products/products',
+			Customers: 'view/25.0.0/customers/customers',
+			Settings: 'view/25.0.0/settings/settings',
+			Reports: 'view/25.0.0/reports/reports'
+		}
 	]
 
 	var AppRouter = Backbone.Router.extend({
