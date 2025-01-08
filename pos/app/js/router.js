@@ -303,6 +303,9 @@
 				case "24.0" :
 					_index = 13;
 					break;
+				case "25.0" :
+					_index = 14;
+					break;
 				}
 
 			var _self = this;
