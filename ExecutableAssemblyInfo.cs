@@ -6,7 +6,7 @@ using System.Security.Permissions;
 
 [assembly: AssemblyProduct("Connected Sale")]
 [assembly: AssemblyCompany("Connected Business")]
-[assembly: AssemblyCopyright("Copyright © 2024 Connected Business, All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright © 2026 Connected Business, All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 
 [assembly: CLSCompliant(true)]
@@ -21,4 +21,4 @@ using System.Security.Permissions;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("25.1.*")]
+[assembly: AssemblyVersion("26.0.*")]

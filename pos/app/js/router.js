@@ -185,15 +185,15 @@
 			Reports: 'view/25.0.0/reports/reports'
 		},
 		{
-			POS: 'view/25.1.0/pos/pos',
-			Kiosk: 'view/25.1.0/kiosk/kiosk',
-			KioskCustomer: 'view/25.1.0/kiosk/customer/kioskcustomer',
-			KioskPayment: 'view/25.1.0/kiosk/payment/kioskpayment',
-			SecondaryDisplay: 'view/25.1.0/secondarydisplay/secondarydisplay',
-			Products: 'view/25.1.0/products/products',
-			Customers: 'view/25.1.0/customers/customers',
-			Settings: 'view/25.1.0/settings/settings',
-			Reports: 'view/25.1.0/reports/reports'
+			POS: 'view/26.0.0/pos/pos',
+			Kiosk: 'view/26.0.0/kiosk/kiosk',
+			KioskCustomer: 'view/26.0.0/kiosk/customer/kioskcustomer',
+			KioskPayment: 'view/26.0.0/kiosk/payment/kioskpayment',
+			SecondaryDisplay: 'view/26.0.0/secondarydisplay/secondarydisplay',
+			Products: 'view/26.0.0/products/products',
+			Customers: 'view/26.0.0/customers/customers',
+			Settings: 'view/26.0.0/settings/settings',
+			Reports: 'view/26.0.0/reports/reports'
 		}
 	]
 
@@ -301,9 +301,6 @@
 				case "21.0" :
 					_index = 10;
 					break;
-				case "25.1" :
-					_index = 15;
-					break;
 				}
 
 			var majorVersion =  currentServerVersion.Major + ".0";
@@ -319,6 +316,9 @@
 					break;
 				case "25.0" :
 					_index = 14;
+					break;
+				case "26.0" :
+					_index = 15;
 					break;
 				}
 
