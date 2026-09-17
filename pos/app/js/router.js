@@ -185,15 +185,15 @@
 			Reports: 'view/25.0.0/reports/reports'
 		},
 		{
-			POS: 'view/26.0.0/pos/pos',
-			Kiosk: 'view/26.0.0/kiosk/kiosk',
-			KioskCustomer: 'view/26.0.0/kiosk/customer/kioskcustomer',
-			KioskPayment: 'view/26.0.0/kiosk/payment/kioskpayment',
-			SecondaryDisplay: 'view/26.0.0/secondarydisplay/secondarydisplay',
-			Products: 'view/26.0.0/products/products',
-			Customers: 'view/26.0.0/customers/customers',
-			Settings: 'view/26.0.0/settings/settings',
-			Reports: 'view/26.0.0/reports/reports'
+			POS: 'view/27.0.0/pos/pos',
+			Kiosk: 'view/27.0.0/kiosk/kiosk',
+			KioskCustomer: 'view/27.0.0/kiosk/customer/kioskcustomer',
+			KioskPayment: 'view/27.0.0/kiosk/payment/kioskpayment',
+			SecondaryDisplay: 'view/27.0.0/secondarydisplay/secondarydisplay',
+			Products: 'view/27.0.0/products/products',
+			Customers: 'view/27.0.0/customers/customers',
+			Settings: 'view/27.0.0/settings/settings',
+			Reports: 'view/27.0.0/reports/reports'
 		}
 	]
 
@@ -317,7 +317,7 @@
 				case "25.0" :
 					_index = 14;
 					break;
-				case "26.0" :
+				case "27.0" :
 					_index = 15;
 					break;
 				}
